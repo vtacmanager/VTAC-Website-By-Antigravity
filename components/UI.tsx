@@ -10,9 +10,9 @@ export const SectionWrapper: React.FC<{ children: React.ReactNode; className?: s
 
 export const GradientBackground: React.FC = () => (
   <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
-    <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-600/15 blur-[160px] rounded-full animate-pulse"></div>
-    <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/10 blur-[140px] rounded-full"></div>
-    <div className="absolute top-[20%] left-[30%] w-[40%] h-[40%] bg-cyan-400/10 blur-[120px] rounded-full"></div>
+    <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-600/15 blur-[60px] md:blur-[160px] rounded-full animate-pulse"></div>
+    <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/10 blur-[50px] md:blur-[140px] rounded-full"></div>
+    <div className="absolute top-[20%] left-[30%] w-[40%] h-[40%] bg-cyan-400/10 blur-[40px] md:blur-[120px] rounded-full"></div>
   </div>
 );
 

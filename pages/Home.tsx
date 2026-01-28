@@ -195,7 +195,7 @@ const managementStages = [
     accent: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
     desc: 'Teams lose valuable time to administrative work, scatter training data across disconnected tools.',
     images: [
-      '/images/Section3-1 1200X900.jpg',
+      '/images/Section3-1 1200X900.webp',
       'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&q=80&w=1200'
     ],
@@ -210,7 +210,7 @@ const managementStages = [
     accent: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
     desc: 'VTAC brings club operations and interactive tactical training into one seamless platform.',
     images: [
-      '/images/Section3-2 1200X900.jpg',
+      '/images/Section3-2 1200X900.webp',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200'
     ],
@@ -242,11 +242,11 @@ const coverageItems = [
     color: 'purple',
     image: 'https://images.unsplash.com/photo-1454165833767-027ffea9e7a7?auto=format&fit=crop&get=80&w=1600',
     features: [
-      'Multiteam and multi-role management',
-      'Training, match, and event scheduling',
-      'Attendance and availability tracking',
-      'Central announcements and communication',
-      'Clear access for coaches, players, and parents'
+      'Multi-team & role management',
+      'Unified scheduling (Train/Match)',
+      'Real-time attendance tracking',
+      'Centralized team announcements',
+      'Coaches, Players & Parents access'
     ]
   },
   {
@@ -256,10 +256,10 @@ const coverageItems = [
     color: 'orange',
     image: 'https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&get=80&w=1600',
     features: [
-      'Interactive, multiplayer tactical sessions',
-      'Live or asynchronous access',
-      'Visual, intuitive learning environment',
-      'Session templates for repeatable training'
+      'Multiplayer tactical sessions',
+      'Live & Asynchronous access',
+      'Intuitive learning environment',
+      'Repeatable session templates'
     ]
   },
   {
@@ -269,10 +269,10 @@ const coverageItems = [
     color: 'green',
     image: 'https://images.unsplash.com/photo-1510051644265-934cb9742558?auto=format&fit=crop&get=80&w=1600',
     features: [
-      'Auto-generated player CVs',
-      'Individual development plans',
-      'Progress and participation reports',
-      'Tactical learning history across seasons'
+      'Auto-generated Player CVs',
+      'Individual development plans (IDP)',
+      'Performance & participation reports',
+      'Multi-season learning history'
     ]
   }
 ];
@@ -450,8 +450,8 @@ const Home: React.FC = () => {
         </div>
         <div className="mt-8 md:mt-12 w-full max-w-7xl relative group px-2 md:px-6 animate-in fade-in zoom-in-95 duration-1000 delay-500">
           {/* Enhanced Ambient Glow (Section 3 Style) */}
-          <div className="absolute -inset-24 bg-cyan-600/20 blur-[150px] opacity-40 group-hover:opacity-70 transition duration-1000 rounded-full"></div>
-          <div className="absolute -inset-12 bg-blue-500/15 blur-[60px] opacity-30 group-hover:opacity-50 transition duration-1000 rounded-full"></div>
+          <div className="absolute -inset-40 bg-cyan-500/30 blur-[180px] opacity-70 group-hover:opacity-90 transition duration-1000 rounded-full animate-pulse"></div>
+          <div className="absolute -inset-20 bg-blue-400/20 blur-[100px] opacity-50 group-hover:opacity-70 transition duration-1000 rounded-full"></div>
 
           {/* THE BIG SCREEN TV FRAME */}
           <div className="relative bg-slate-950 p-[4px] md:p-[8px] rounded-[0.5rem] md:rounded-[1.2rem] border border-white/5 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)]">
@@ -521,7 +521,7 @@ const Home: React.FC = () => {
             {/* PHONE CONTAINER: SCALE INCREASED TO 280px */}
             <div className="relative group w-full max-w-[320px] lg:max-w-[380px] animate-in fade-in slide-in-from-right-12 duration-1000 transform translate-y-5">
               {/* Background Glow */}
-              <div className="absolute -inset-10 bg-cyan-500/20 blur-[60px] rounded-full opacity-50 transition-all duration-1000 group-hover:opacity-80"></div>
+              <div className="absolute -inset-10 bg-cyan-500/20 blur-[30px] md:blur-[60px] rounded-full opacity-50 transition-all duration-1000 group-hover:opacity-80"></div>
 
               {/* Volume Buttons (Right Side) */}
               <div className="absolute -right-[3px] top-32 w-[4px] h-12 bg-slate-600 rounded-r-md z-0 shadow-[1px_0_2px_rgba(0,0,0,0.5)]"></div>
@@ -538,7 +538,7 @@ const Home: React.FC = () => {
                   <div className="absolute inset-0 w-full h-full">
                     {manifestoItems.map((item, i) => (
                       <div key={i} className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${activeIndex === i ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}>
-                        <img src={item.image} className="w-full h-full object-cover opacity-80 transition-transform duration-[15000ms]" alt={item.title} />
+                        <img src={item.image} className="w-full h-full object-cover opacity-80 transition-transform duration-[15000ms]" alt={item.title} loading="lazy" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                         {/* Message Overlay on Phone Screen */}
                         <div className={`absolute inset-0 flex items-center justify-center p-6 text-center transition-all duration-700 delay-300 ${activeIndex === i ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -596,8 +596,8 @@ const Home: React.FC = () => {
       {/* 4. Problem & Solution (The Comparison) */}
       <SectionWrapper className="relative overflow-hidden py-32 md:py-48">
         {/* Dynamic Background Blurs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/5 blur-[40px] md:blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 blur-[40px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="relative z-10">
           <div className="text-center mb-12 md:mb-16">
@@ -608,21 +608,21 @@ const Home: React.FC = () => {
               <div className="relative group/evo">
                 {/* Backlight / Breathing Fire Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-[60px] md:blur-[100px] opacity-60 group-hover:opacity-100 transition duration-1000 scale-125 animate-[breathe_6s_ease-in-out_infinite]"></div>
-                <span className="text-6xl md:text-[10rem] text-white/20 select-none relative z-10 tracking-[0.2em] md:tracking-[0.3em]">EVOLUTION</span>
+                <span className="text-6xl md:text-[10rem] text-white/20 select-none relative z-10 tracking-tight">EVOLUTION</span>
               </div>
 
               <div className="relative mt-4 md:-mt-12 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center z-20 w-full">
-                <div className="text-center md:text-right md:pr-12">
+                <div className="text-center md:text-right md:pr-6">
                   <span className="text-4xl md:text-8xl text-white relative z-10 font-black italic px-4">OLD MESS</span>
                 </div>
 
                 <div className="flex items-center justify-center py-4 md:py-0">
-                  <div className="hidden md:block h-px w-12 md:w-20 bg-white/10"></div>
-                  <span className="text-2xl md:text-4xl text-cyan-500 font-black italic z-20 px-6 md:px-10">VS</span>
-                  <div className="hidden md:block h-px w-12 md:w-20 bg-white/10"></div>
+                  <div className="hidden md:block h-px w-8 md:w-12 bg-white/10"></div>
+                  <span className="text-2xl md:text-4xl text-cyan-500 font-black italic z-20 px-4 md:px-6">VS</span>
+                  <div className="hidden md:block h-px w-8 md:w-12 bg-white/10"></div>
                 </div>
 
-                <div className="text-center md:text-left md:pl-12">
+                <div className="text-center md:text-left md:pl-6">
                   <span className="text-4xl md:text-8xl gradient-text relative z-10 font-black italic pl-4 pr-16 py-2 inline-block">VTAC FLOW</span>
                 </div>
               </div>
@@ -717,8 +717,8 @@ const Home: React.FC = () => {
 
         <div className="max-w-[105rem] mx-auto relative px-6 group/laptop">
           {/* Immersive Ambient Glow behind Laptop - Dynamic Color Sync */}
-          <div className={`absolute -inset-32 bg-${coverageItems[selectedCoverage].color}-500/20 blur-[180px] rounded-full transition-all duration-1000 opacity-50 group-hover/laptop:opacity-80 animate-[breathe_8s_ease-in-out_infinite]`}></div>
-          <div className={`absolute -inset-16 bg-${coverageItems[selectedCoverage].color}-400/10 blur-[100px] rounded-full transition-all duration-1000 opacity-30 group-hover/laptop:opacity-50`}></div>
+          <div className={`absolute -inset-32 bg-${coverageItems[selectedCoverage].color}-500/20 blur-[60px] md:blur-[180px] rounded-full transition-all duration-1000 opacity-50 group-hover/laptop:opacity-80 animate-[breathe_8s_ease-in-out_infinite]`}></div>
+          <div className={`absolute -inset-16 bg-${coverageItems[selectedCoverage].color}-400/10 blur-[40px] md:blur-[100px] rounded-full transition-all duration-1000 opacity-30 group-hover/laptop:opacity-50`}></div>
 
           <div className="relative mx-auto w-full transition-all duration-700 perspective-[3000px]">
             {/* THE LAPTOP LID (SCREEN) - Extra narrow to emphasize base length */}
@@ -738,18 +738,18 @@ const Home: React.FC = () => {
                 <div className="relative bg-black rounded-t-[1.8rem] md:rounded-t-[2.5rem] overflow-hidden aspect-[16/10] md:aspect-[16/9.5] border-[1px] border-white/5 shadow-2xl">
                   {coverageItems.map((item, idx) => (
                     <div key={item.id} className={`absolute inset-0 transition-all duration-1000 ease-out ${selectedCoverage === idx ? 'opacity-100' : 'opacity-0'}`}>
-                      <img src={item.image} className="w-full h-full object-cover opacity-60 transition-transform duration-[20000ms] scale-110 group-hover/laptop:scale-125" alt={item.title} />
+                      <img src={item.image} className="w-full h-full object-cover opacity-60 transition-transform duration-[20000ms] scale-110 group-hover/laptop:scale-125" alt={item.title} loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/20 to-transparent"></div>
 
-                      <div className="absolute top-8 md:top-16 left-8 md:left-24 max-w-2xl text-left z-20">
-                        <div className={`space-y-3 md:space-y-4 transition-all duration-1000 transform ${selectedCoverage === idx ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
-                          <h4 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-white leading-[0.9] drop-shadow-2xl">
+                      <div className="absolute top-8 md:top-14 left-8 md:left-16 max-w-xl text-left z-20">
+                        <div className={`space-y-2 md:space-y-3 transition-all duration-1000 transform ${selectedCoverage === idx ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
+                          <h4 className="text-2xl md:text-4xl font-black italic uppercase tracking-tighter text-white leading-[0.9] drop-shadow-2xl">
                             {item.title}
                           </h4>
-                          <div className="space-y-2 md:space-y-3 mt-4 md:mt-6">
+                          <div className="space-y-1.5 md:space-y-2 mt-3 md:mt-4">
                             {item.features.map((feature, fIdx) => (
-                              <p key={fIdx} className="text-xs md:text-lg text-slate-100 font-bold drop-shadow-md flex items-center gap-4">
-                                <span className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-${item.color}-500 shadow-[0_0_15px_rgba(var(--${item.color}-500),0.8)] shrink-0`}></span>
+                              <p key={fIdx} className="text-[10px] md:text-base text-slate-100 font-bold drop-shadow-md flex items-center gap-3">
+                                <span className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-${item.color}-500 shadow-[0_0_15px_rgba(var(--${item.color}-500),0.8)] shrink-0`}></span>
                                 {feature}
                               </p>
                             ))}
@@ -915,11 +915,11 @@ const Home: React.FC = () => {
                       <td className="p-2 md:p-6 text-center">
                         <div className="flex justify-center">
                           {row.organizer ? (
-                            <div className="w-4 h-4 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-500 opacity-60">
+                            <div className="w-4 h-4 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-slate-200 opacity-100">
                               <Check className="w-2 h-2" />
                             </div>
                           ) : (
-                            <div className="w-4 h-4 rounded-full border border-red-500/10 bg-red-500/5 flex items-center justify-center text-red-500/30">
+                            <div className="w-4 h-4 rounded-full border border-red-500/20 bg-red-500/10 flex items-center justify-center text-red-500/70">
                               <X className="w-2 h-2" />
                             </div>
                           )}
@@ -928,11 +928,11 @@ const Home: React.FC = () => {
                       <td className="p-2 md:p-6 text-center">
                         <div className="flex justify-center">
                           {row.video ? (
-                            <div className="w-4 h-4 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-500 opacity-60">
+                            <div className="w-4 h-4 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-slate-200 opacity-100">
                               <Check className="w-2 h-2" />
                             </div>
                           ) : (
-                            <div className="w-4 h-4 rounded-full border border-red-500/10 bg-red-500/5 flex items-center justify-center text-red-500/30">
+                            <div className="w-4 h-4 rounded-full border border-red-500/20 bg-red-500/10 flex items-center justify-center text-red-500/70">
                               <X className="w-2 h-2" />
                             </div>
                           )}
@@ -946,20 +946,18 @@ const Home: React.FC = () => {
           </div>
 
           <div className="lg:col-span-5 relative group flex justify-center items-center h-full min-h-[500px] lg:min-h-0">
-            <div className="absolute -inset-10 bg-cyan-500/10 blur-[100px] rounded-full opacity-40 group-hover:opacity-70 transition-all duration-1000"></div>
+            <div className="absolute -inset-10 bg-cyan-500/10 blur-[30px] md:blur-[100px] rounded-full opacity-40 group-hover:opacity-70 transition-all duration-1000"></div>
 
-            <div className="relative w-full max-w-[360px] aspect-[9/14] lg:h-full bg-slate-800 rounded-[3.5rem] p-1 shadow-[0_0_120px_rgba(0,0,0,0.7)] border border-slate-700/50 flex flex-col group-hover:border-cyan-500/30 transition-all duration-700">
+            <div className="relative w-full max-w-[540px] aspect-[0.7/1] lg:aspect-auto lg:h-full bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-1.5 shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-slate-700/50 flex flex-col group-hover:border-cyan-500/30 transition-all duration-700">
 
-              <div className="absolute top-24 -right-[2px] flex flex-col gap-4 z-50">
-                <div className="w-[4px] h-12 bg-slate-600 rounded-l-md border-l border-white/10 shadow-[inset_1px_0_1px_rgba(0,0,0,0.4)] transition-transform group-hover:translate-x-[0.5px]"></div>
-                <div className="w-[4px] h-12 bg-slate-600 rounded-l-md border-l border-white/10 shadow-[inset_1px_0_1px_rgba(0,0,0,0.4)] transition-transform group-hover:translate-x-[0.5px]"></div>
+              {/* Refined iPad Side Button */}
+              <div className="absolute top-20 -right-[2px] flex flex-col z-50">
+                <div className="w-[3px] h-10 bg-slate-600 rounded-l-sm border-l border-white/10 shadow-inner"></div>
               </div>
 
-              <div className="relative flex-grow bg-slate-950 rounded-[3.2rem] overflow-hidden border-[2px] border-slate-950 shadow-inner">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-4 bg-black rounded-b-xl z-40 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500/30 mr-3 shadow-[0_0_10px_rgba(59,130,246,0.3)]"></div>
-                  <div className="w-8 h-1.5 bg-white/5 rounded-full"></div>
-                </div>
+              <div className="relative flex-grow bg-slate-950 rounded-[1.8rem] md:rounded-[2.2rem] overflow-hidden border-[1px] border-slate-900 shadow-inner">
+                {/* Minimal Tablet Sensor */}
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-blue-500/20 z-40"></div>
 
                 <div className="absolute inset-0 w-full h-full overflow-hidden">
                   {comparisonRows.map((row, i) => (
@@ -968,25 +966,26 @@ const Home: React.FC = () => {
                         src={row.img}
                         className="w-full h-full object-cover opacity-60 transition-transform duration-[30000ms] ease-linear"
                         alt={row.feature}
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
                     </div>
                   ))}
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 z-30 p-6 pb-10 space-y-8 flex flex-col items-center">
+                <div className="absolute bottom-0 left-0 right-0 z-30 p-8 pb-12 space-y-10 flex flex-col items-center">
                   <div className="min-h-[48px] flex items-center justify-center px-4 w-full">
-                    <h4 className="text-sm md:text-xl font-black italic uppercase tracking-tighter text-cyan-400 text-center animate-in fade-in slide-in-from-bottom-2 duration-700 leading-tight drop-shadow-2xl">
+                    <h4 className="text-xl md:text-3xl font-black italic uppercase tracking-tighter text-cyan-400 text-center animate-in fade-in slide-in-from-bottom-2 duration-700 leading-tight drop-shadow-2xl">
                       {comparisonRows[activeCompareIdx].feature}
                     </h4>
                   </div>
 
-                  <div className="flex items-center gap-4 justify-center">
+                  <div className="flex items-center gap-6 justify-center">
                     {comparisonRows.map((_, i) => (
                       <button
                         key={i}
                         onClick={() => handleManualCompare(i)}
-                        className={`relative w-2.5 h-2.5 rounded-full transition-all duration-700 ${activeCompareIdx === i ? 'bg-cyan-400 scale-150 shadow-[0_0_20px_rgba(34,211,238,1)]' : 'bg-white/20 hover:bg-white/50'}`}
+                        className={`relative w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-700 ${activeCompareIdx === i ? 'bg-cyan-400 scale-150 shadow-[0_0_20px_rgba(34,211,238,1)]' : 'bg-white/20 hover:bg-white/50'}`}
                       >
                         {activeCompareIdx === i && (
                           <span className="absolute -inset-2 rounded-full border border-cyan-400/50 animate-ping"></span>
@@ -995,7 +994,7 @@ const Home: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className="w-32 h-1 bg-white/10 rounded-full mt-4 group-hover:bg-cyan-500/20 transition-all duration-700"></div>
+                  <div className="w-40 h-1.5 bg-white/10 rounded-full mt-6 group-hover:bg-cyan-500/40 transition-all duration-700"></div>
                 </div>
               </div>
             </div>
