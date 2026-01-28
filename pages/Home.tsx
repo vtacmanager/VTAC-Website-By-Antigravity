@@ -239,7 +239,7 @@ const coverageItems = [
     id: 'ops',
     title: 'Club & Academy Operations',
     icon: <Settings className="w-10 h-10 md:w-16 md:h-16" />,
-    color: 'blue',
+    color: 'purple',
     image: 'https://images.unsplash.com/photo-1454165833767-027ffea9e7a7?auto=format&fit=crop&get=80&w=1600',
     features: [
       'Multiteam and multi-role management',
@@ -253,7 +253,7 @@ const coverageItems = [
     id: 'tactics',
     title: 'Interactive Tactical Training Engine',
     icon: <BallIcon className="w-10 h-10 md:w-16 md:h-16" />,
-    color: 'cyan',
+    color: 'orange',
     image: 'https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&get=80&w=1600',
     features: [
       'Interactive, multiplayer tactical sessions',
@@ -266,7 +266,7 @@ const coverageItems = [
     id: 'dev',
     title: 'Player Development System',
     icon: <BarChart3 className="w-10 h-10 md:w-16 md:h-16" />,
-    color: 'purple',
+    color: 'green',
     image: 'https://images.unsplash.com/photo-1510051644265-934cb9742558?auto=format&fit=crop&get=80&w=1600',
     features: [
       'Auto-generated player CVs',
@@ -494,9 +494,9 @@ const Home: React.FC = () => {
                 </span>
                 <span>THE END OF TOOLS FRAGMENTATION</span>
               </div>
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase">
+              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase italic">
                 <span className="text-white">Why VTAC</span> <br className="hidden md:block" />
-                <span className="gradient-text">Manager?</span>
+                <span className="gradient-text pr-12 inline-block">Manager?</span>
               </h2>
             </div>
             <p className="text-lg md:text-xl text-slate-300 font-bold leading-relaxed italic border-l-4 border-cyan-500 pl-6 py-2">
@@ -576,7 +576,7 @@ const Home: React.FC = () => {
               <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"></div>
               <span>Built for How Teams Train Today</span>
             </div>
-            <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center py-4">
+            <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center py-4 italic">
               <span className="text-white block">More Than</span>
               <span className="gradient-text block">Management</span>
             </h2>
@@ -707,90 +707,115 @@ const Home: React.FC = () => {
             <span>Everything You Need to Run a High-Performance Team</span>
           </div>
           <h2 className="font-black uppercase flex flex-col items-center italic overflow-visible leading-[0.78] md:leading-[0.72] tracking-tighter">
-            <span className="text-5xl md:text-8xl text-white">WHAT</span>
+            <span className="text-4xl md:text-7xl text-white">WHAT</span>
             <div className="relative overflow-visible">
-              <span className="text-5xl md:text-8xl gradient-text whitespace-nowrap px-12 block py-0">VTAC MANAGER</span>
+              <span className="text-4xl md:text-7xl gradient-text whitespace-nowrap px-12 block py-0">VTAC MANAGER</span>
             </div>
-            <span className="text-5xl md:text-8xl text-white">COVERS</span>
+            <span className="text-4xl md:text-7xl text-white">COVERS</span>
           </h2>
         </div>
 
-        <div className="max-w-[105rem] mx-auto relative px-6">
-          <div className={`absolute -inset-x-20 -inset-y-10 bg-${coverageItems[selectedCoverage].color}-500/5 blur-[120px] rounded-full transition-all duration-1000`}></div>
+        <div className="max-w-[105rem] mx-auto relative px-6 group/laptop">
+          {/* Immersive Ambient Glow behind Laptop - Dynamic Color Sync */}
+          <div className={`absolute -inset-32 bg-${coverageItems[selectedCoverage].color}-500/20 blur-[180px] rounded-full transition-all duration-1000 opacity-50 group-hover/laptop:opacity-80 animate-[breathe_8s_ease-in-out_infinite]`}></div>
+          <div className={`absolute -inset-16 bg-${coverageItems[selectedCoverage].color}-400/10 blur-[100px] rounded-full transition-all duration-1000 opacity-30 group-hover/laptop:opacity-50`}></div>
 
-          <div className="relative mx-auto w-full transition-all duration-700">
-            <div className="relative p-0.5 bg-slate-800 rounded-t-[2.5rem] md:rounded-t-[4rem] border-x border-t border-slate-700 shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden transform scale-[1.05]">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 md:w-60 h-4 md:h-5 bg-slate-950 rounded-b-xl z-30 flex items-center justify-center">
-                <div className="w-2 h-2 bg-blue-500/20 rounded-full border border-blue-400/10 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
-              </div>
+          <div className="relative mx-auto w-full transition-all duration-700 perspective-[3000px]">
+            {/* THE LAPTOP LID (SCREEN) - Extra narrow to emphasize base length */}
+            <div className="relative max-w-[85%] mx-auto p-[1px] bg-gradient-to-b from-slate-400 via-slate-600 to-slate-900 rounded-t-[2.5rem] md:rounded-t-[3.5rem] shadow-[0_40px_80px_rgba(0,0,0,0.8)] overflow-hidden transform border-t border-white/20 z-10">
 
-              <div className="relative bg-black rounded-t-[2rem] md:rounded-t-[3.5rem] overflow-hidden aspect-[3.2/5] sm:aspect-[16/10] border-[2px] md:border-[3px] border-slate-950">
-                {coverageItems.map((item, idx) => (
-                  <div key={item.id} className={`absolute inset-0 transition-all duration-1000 ease-out ${selectedCoverage === idx ? 'opacity-100' : 'opacity-0'}`}>
-                    <img src={item.image} className="w-full h-full object-cover opacity-50 transition-transform duration-[15000ms] scale-110" alt={item.title} />
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-transparent to-transparent opacity-80"></div>
+              {/* Inner Metallic Frame */}
+              <div className="relative p-2 md:p-3 bg-slate-950 rounded-t-[2.3rem] md:rounded-t-[3.2rem] overflow-hidden">
 
-                    <div className="absolute top-8 md:top-16 left-6 md:left-20 max-w-2xl text-left z-20 pr-6">
-                      <div className={`space-y-4 transition-all duration-1000 transform ${selectedCoverage === idx ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
-                        <h4 className="text-3xl md:text-6xl font-black italic uppercase tracking-tighter text-white leading-tight drop-shadow-2xl">
-                          {item.title}
-                        </h4>
-                        <div className="space-y-2 md:space-y-3 mt-4 md:mt-6">
-                          {item.features.map((feature, fIdx) => (
-                            <p key={fIdx} className="text-[13px] md:text-2xl text-slate-100 font-bold drop-shadow-md leading-tight md:leading-relaxed flex items-start gap-3 md:gap-4">
-                              <span className="shrink-0 mt-1">
-                                {selectedCoverage === 0 && "⚽"}
-                                {selectedCoverage === 1 && "🏀"}
-                                {selectedCoverage === 2 && "🏈"}
-                              </span>
-                              {feature}
-                            </p>
+                {/* MACBOOK NOTCH */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 md:w-64 h-6 md:h-8 bg-black rounded-b-2xl z-40 flex items-center justify-center border-x border-b border-white/5">
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#1a1c1e] shadow-inner flex items-center justify-center">
+                    <div className="w-0.5 h-0.5 md:w-1 md:h-1 rounded-full bg-blue-500/40 blur-[1px]"></div>
+                  </div>
+                </div>
+
+                {/* THE ACTUAL SCREEN CONTENT */}
+                <div className="relative bg-black rounded-t-[1.8rem] md:rounded-t-[2.5rem] overflow-hidden aspect-[16/10] md:aspect-[16/9.5] border-[1px] border-white/5 shadow-2xl">
+                  {coverageItems.map((item, idx) => (
+                    <div key={item.id} className={`absolute inset-0 transition-all duration-1000 ease-out ${selectedCoverage === idx ? 'opacity-100' : 'opacity-0'}`}>
+                      <img src={item.image} className="w-full h-full object-cover opacity-60 transition-transform duration-[20000ms] scale-110 group-hover/laptop:scale-125" alt={item.title} />
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/20 to-transparent"></div>
+
+                      <div className="absolute top-8 md:top-16 left-8 md:left-24 max-w-2xl text-left z-20">
+                        <div className={`space-y-3 md:space-y-4 transition-all duration-1000 transform ${selectedCoverage === idx ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
+                          <h4 className="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-white leading-[0.9] drop-shadow-2xl">
+                            {item.title}
+                          </h4>
+                          <div className="space-y-2 md:space-y-3 mt-4 md:mt-6">
+                            {item.features.map((feature, fIdx) => (
+                              <p key={fIdx} className="text-xs md:text-lg text-slate-100 font-bold drop-shadow-md flex items-center gap-4">
+                                <span className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-${item.color}-500 shadow-[0_0_15px_rgba(var(--${item.color}-500),0.8)] shrink-0`}></span>
+                                {feature}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Screen Navigation Badges - Section 3 Style with Persistent Glow */}
+                      <div className="absolute inset-x-0 bottom-4 md:bottom-6 px-6 md:px-24 z-30">
+                        <div className="grid grid-cols-3 gap-3 md:gap-4">
+                          {coverageItems.map((navItem, navIdx) => (
+                            <button
+                              key={navItem.id}
+                              onClick={(e) => { e.stopPropagation(); handleManualSelect5(navIdx); }}
+                              className={`group/nav relative p-2.5 md:p-5 rounded-[0.8rem] md:rounded-[1.5rem] border transition-all duration-500 flex flex-col items-center justify-center text-center backdrop-blur-xl ${selectedCoverage === navIdx
+                                ? `bg-${navItem.color}-500/10 border-${navItem.color}-500/50 shadow-[0_0_40px_rgba(0,0,0,0.4)] scale-[1.05]`
+                                : `bg-${navItem.color}-500/5 border-${navItem.color}-500/10 opacity-70 hover:opacity-100 hover:bg-${navItem.color}-500/10`
+                                }`}
+                            >
+                              {/* Breathing Ambient Glow (Behind active only) */}
+                              {selectedCoverage === navIdx && (
+                                <div className={`absolute -inset-2 bg-${navItem.color}-500/20 blur-2xl rounded-full animate-pulse pointer-events-none`}></div>
+                              )}
+
+                              <div className={`relative z-10 w-7 h-7 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-1 md:mb-2.5 transition-all duration-500 ${selectedCoverage === navIdx ? `bg-${navItem.color}-500 text-white shadow-[0_0_25px_rgba(0,0,0,0.3)]` : 'bg-white/5 text-slate-400'}`}>
+                                {React.cloneElement(navItem.icon as React.ReactElement<any>, { className: 'w-3.5 h-3.5 md:w-6 md:h-6' })}
+                              </div>
+                              <h5 className={`relative z-10 text-[7px] md:text-[13px] font-black uppercase tracking-widest italic leading-none transition-colors ${selectedCoverage === navIdx ? `text-${navItem.color}-400` : 'text-slate-500'}`}>
+                                {navItem.title}
+                              </h5>
+                              {selectedCoverage === navIdx && isAutoPlayingSection5 && (
+                                <div className="absolute inset-0 rounded-[0.8rem] md:rounded-[1.5rem] border border-white/20 animate-[ping_3s_ease-in-out_infinite] pointer-events-none opacity-20"></div>
+                              )}
+                            </button>
                           ))}
                         </div>
                       </div>
                     </div>
+                  ))}
 
-                    <div className="absolute inset-x-0 bottom-4 md:bottom-10 px-4 md:px-32 z-30">
-                      <div className="grid grid-cols-3 gap-2 md:gap-10">
-                        {coverageItems.map((navItem, navIdx) => (
-                          <button
-                            key={navItem.id}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleManualSelect5(navIdx);
-                            }}
-                            className={`group/nav relative p-2 md:p-8 rounded-[1rem] md:rounded-[2rem] border transition-all duration-500 flex flex-col items-center justify-center text-center ${selectedCoverage === navIdx
-                              ? `bg-white/10 backdrop-blur-xl border-${navItem.color}-500/50 scale-[1.05] shadow-2xl`
-                              : 'bg-black/60 backdrop-blur-md border-white/5 opacity-50 hover:opacity-100'
-                              }`}
-                          >
-                            <div className={`w-6 h-6 md:w-16 md:h-16 rounded-lg flex items-center justify-center mb-1 md:mb-3 transition-transform duration-500 ${selectedCoverage === navIdx ? `bg-${navItem.color}-500 text-white shadow-xl scale-110` : 'bg-white/5 text-slate-400'}`}>
-                              {React.cloneElement(navItem.icon as React.ReactElement<any>, { className: 'w-3 h-3 md:w-8 md:h-8' })}
-                            </div>
-                            <h5 className={`text-[6px] md:text-[14px] font-black uppercase tracking-tighter italic leading-none transition-colors ${selectedCoverage === navIdx ? 'text-white' : 'text-slate-500'}`}>
-                              {navItem.title}
-                            </h5>
-                            {selectedCoverage === navIdx && isAutoPlayingSection5 && (
-                              <div className="absolute bottom-0 left-2 right-2 h-0.5 overflow-hidden rounded-full">
-                                <div className={`h-full bg-${navItem.color}-500 animate-[progress_4s_linear_infinite]`}></div>
-                              </div>
-                            )}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  {/* Glass Reflection */}
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-30 z-20"></div>
+                </div>
               </div>
             </div>
 
-            <div className="relative w-full h-4 md:h-6 bg-slate-800 shadow-[0_30px_70px_rgba(0,0,0,0.8)] border-x border-b border-slate-700/50 flex flex-col items-center transform scale-[1.05]"
+            {/* THE LAPTOP BASE (CHASSIS) - Thinner, Wider, and Curved */}
+            <div className="relative w-full h-4 md:h-7 bg-slate-800 shadow-[0_40px_120px_rgba(0,0,0,1)] border-x border-b border-white/10 flex flex-col items-center -mt-[1px] z-20 rounded-b-[2rem] md:rounded-b-[4rem]"
               style={{
-                clipPath: 'polygon(0% 0%, 100% 0%, 130% 100%, -30% 100%)',
-                backgroundImage: 'linear-gradient(to bottom, #1e293b, #0f172a)'
+                backgroundImage: 'linear-gradient(to bottom, #475569, #1e293b, #0f172a)'
               }}>
-              <div className="absolute top-0 w-32 md:w-56 h-1.5 md:h-2 bg-slate-950/40 rounded-b-2xl border-x border-b border-white/5 shadow-inner"></div>
+
+              {/* Metallic Lip Detail */}
+              <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-white/40 to-transparent absolute top-0"></div>
+
+              {/* Sleeker Thumb Scoop Cutout */}
+              <div className="absolute top-0 w-32 md:w-60 h-2 md:h-3 bg-gradient-to-b from-black/60 to-black/20 rounded-b-2xl border-x border-b border-white/10 shadow-inner flex items-center justify-center">
+                <div className="w-1/4 h-[1px] bg-white/10"></div>
+              </div>
+
+              {/* Subtle Highlight on Bottom Curve */}
+              <div className="absolute bottom-1 w-1/2 h-[1px] bg-white/5 blur-[0.5px]"></div>
             </div>
+
+            {/* Massive Floor Shadow */}
+            <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-[90%] h-20 bg-black/60 blur-[60px] rounded-full -z-10"></div>
           </div>
         </div>
       </SectionWrapper>
