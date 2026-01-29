@@ -214,9 +214,9 @@ const managementStages = [
     accent: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
     desc: 'VTAC brings club operations and interactive tactical training into one seamless platform.',
     images: [
-      '/images/Section3-2 1200X900.webp',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200'
+      '/images/Section3-2.1.webp',
+      '/images/Section3-2.2.webp',
+      '/images/Section3-2.3.webp'
     ],
     details: 'A unified digital home for your club philosophy, accessible anywhere through our patented engine.',
     tags: ['Unified Dashboard', 'Real-time Sync', 'Patented Engine']
@@ -244,7 +244,7 @@ const coverageItems = [
     title: 'Club & Academy Operations',
     icon: <Settings className="w-10 h-10 md:w-16 md:h-16" />,
     color: 'purple',
-    image: 'https://images.unsplash.com/photo-1454165833767-027ffea9e7a7?auto=format&fit=crop&get=80&w=1600',
+    image: '/images/Section5.1.webp',
     features: [
       'Multi-team & role management',
       'Unified scheduling (Train/Match)',
@@ -258,7 +258,7 @@ const coverageItems = [
     title: 'Interactive Tactical Training Engine',
     icon: <BallIcon className="w-10 h-10 md:w-16 md:h-16" />,
     color: 'orange',
-    image: 'https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&get=80&w=1600',
+    image: '/images/Section5.2.webp',
     features: [
       'Multiplayer tactical sessions',
       'Live & Asynchronous access',
@@ -271,7 +271,7 @@ const coverageItems = [
     title: 'Player Development System',
     icon: <BarChart3 className="w-10 h-10 md:w-16 md:h-16" />,
     color: 'green',
-    image: 'https://images.unsplash.com/photo-1510051644265-934cb9742558?auto=format&fit=crop&get=80&w=1600',
+    image: '/images/Section5.3.webp',
     features: [
       'Auto-generated Player CVs',
       'Individual development plans (IDP)',
@@ -419,7 +419,7 @@ const Home: React.FC = () => {
     if (isAutoPlayingSection5 && isInViewSection5) {
       autoPlayTimer5Ref.current = window.setInterval(() => {
         setSelectedCoverage((prev) => (prev + 1) % coverageItems.length);
-      }, 4000);
+      }, 7000);
     }
     return () => {
       if (autoPlayTimer5Ref.current) clearInterval(autoPlayTimer5Ref.current);
@@ -805,18 +805,23 @@ const Home: React.FC = () => {
                 <div className="relative bg-black rounded-t-[1.8rem] md:rounded-t-[2.5rem] overflow-hidden aspect-[16/10] md:aspect-[16/9.5] border-[1px] border-white/5 shadow-2xl">
                   {coverageItems.map((item, idx) => (
                     <div key={item.id} className={`absolute inset-0 transition-all duration-1000 ease-out ${selectedCoverage === idx ? 'opacity-100' : 'opacity-0'}`}>
-                      <img src={item.image} className="w-full h-full object-cover opacity-60 transition-transform duration-[20000ms] scale-110 group-hover/laptop:scale-125" alt={item.title} loading="lazy" />
-                      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/20 to-transparent"></div>
+                      <img
+                        src={item.image}
+                        className={`w-full h-full object-cover opacity-60 transition-transform duration-[10000ms] ease-out ${selectedCoverage === idx ? 'scale-110' : 'scale-100'}`}
+                        alt={item.title}
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/10 to-transparent"></div>
 
                       <div className="absolute top-8 md:top-14 left-8 md:left-16 max-w-xl text-left z-20">
                         <div className={`space-y-2 md:space-y-3 transition-all duration-1000 transform ${selectedCoverage === idx ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
-                          <h4 className="text-2xl md:text-4xl font-black italic uppercase tracking-tighter text-white leading-[0.9] drop-shadow-2xl">
+                          <h4 className="text-xl md:text-3xl font-black italic uppercase tracking-tighter text-white leading-[0.9] drop-shadow-2xl">
                             {item.title}
                           </h4>
-                          <div className="space-y-1.5 md:space-y-2 mt-3 md:mt-4">
+                          <div className="space-y-1 md:space-y-1.5 mt-2 md:mt-3">
                             {item.features.map((feature, fIdx) => (
-                              <p key={fIdx} className="text-[10px] md:text-base text-slate-100 font-bold drop-shadow-md flex items-center gap-3">
-                                <span className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-${item.color}-500 shadow-[0_0_15px_rgba(var(--${item.color}-500),0.8)] shrink-0`}></span>
+                              <p key={fIdx} className="text-[9px] md:text-[14px] text-slate-100 font-bold drop-shadow-md flex items-center gap-2">
+                                <span className={`w-1 h-1 md:w-1.2 md:h-1.2 rounded-full bg-${item.color}-500 shadow-[0_0_15px_rgba(var(--${item.color}-500),0.8)] shrink-0`}></span>
                                 {feature}
                               </p>
                             ))}
@@ -824,38 +829,39 @@ const Home: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Screen Navigation Badges - Section 3 Style with Persistent Glow */}
-                      <div className="absolute inset-x-0 bottom-4 md:bottom-6 px-6 md:px-24 z-30">
-                        <div className="grid grid-cols-3 gap-3 md:gap-4">
-                          {coverageItems.map((navItem, navIdx) => (
-                            <button
-                              key={navItem.id}
-                              onClick={(e) => { e.stopPropagation(); handleManualSelect5(navIdx); }}
-                              className={`group/nav relative p-2.5 md:p-5 rounded-[0.8rem] md:rounded-[1.5rem] border transition-all duration-500 flex flex-col items-center justify-center text-center backdrop-blur-xl ${selectedCoverage === navIdx
-                                ? `bg-${navItem.color}-500/10 border-${navItem.color}-500/50 shadow-[0_0_40px_rgba(0,0,0,0.4)] scale-[1.05]`
-                                : `bg-${navItem.color}-500/5 border-${navItem.color}-500/10 opacity-70 hover:opacity-100 hover:bg-${navItem.color}-500/10`
-                                }`}
-                            >
-                              {/* Breathing Ambient Glow (Behind active only) */}
-                              {selectedCoverage === navIdx && (
-                                <div className={`absolute -inset-2 bg-${navItem.color}-500/20 blur-2xl rounded-full animate-pulse pointer-events-none`}></div>
-                              )}
-
-                              <div className={`relative z-10 w-7 h-7 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-1 md:mb-2.5 transition-all duration-500 ${selectedCoverage === navIdx ? `bg-${navItem.color}-500 text-white shadow-[0_0_25px_rgba(0,0,0,0.3)]` : 'bg-white/5 text-slate-400'}`}>
-                                {React.cloneElement(navItem.icon as React.ReactElement<any>, { className: 'w-3.5 h-3.5 md:w-6 md:h-6' })}
-                              </div>
-                              <h5 className={`relative z-10 text-[7px] md:text-[13px] font-black uppercase tracking-widest italic leading-none transition-colors ${selectedCoverage === navIdx ? `text-${navItem.color}-400` : 'text-slate-500'}`}>
-                                {navItem.title}
-                              </h5>
-                              {selectedCoverage === navIdx && isAutoPlayingSection5 && (
-                                <div className="absolute inset-0 rounded-[0.8rem] md:rounded-[1.5rem] border border-white/20 animate-[ping_3s_ease-in-out_infinite] pointer-events-none opacity-20"></div>
-                              )}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
                     </div>
                   ))}
+
+                  {/* Screen Navigation Badges - Section 3 Style with Persistent Glow (MOVED OUTSIDE LOOP FOR PERSISTENCE) */}
+                  <div className="absolute inset-x-0 bottom-4 md:bottom-6 px-6 md:px-24 z-30">
+                    <div className="grid grid-cols-3 gap-3 md:gap-4">
+                      {coverageItems.map((navItem, navIdx) => (
+                        <button
+                          key={navItem.id}
+                          onClick={(e) => { e.stopPropagation(); handleManualSelect5(navIdx); }}
+                          className={`group/nav relative p-2.5 md:p-5 rounded-[0.8rem] md:rounded-[1.5rem] border transition-all duration-500 flex flex-col items-center justify-center text-center backdrop-blur-md ${selectedCoverage === navIdx
+                            ? `bg-white/10 border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.3)] scale-[1.05]`
+                            : `bg-white/0 border-white/10 opacity-60 hover:opacity-100 hover:bg-white/5`
+                            }`}
+                        >
+                          {/* Breathing Ambient Glow (Behind active only) */}
+                          {selectedCoverage === navIdx && (
+                            <div className={`absolute -inset-2 bg-${navItem.color}-500/20 blur-2xl rounded-full animate-pulse pointer-events-none`}></div>
+                          )}
+
+                          <div className={`relative z-10 w-7 h-7 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-1 md:mb-2.5 transition-all duration-500 ${selectedCoverage === navIdx ? `bg-${navItem.color}-500 text-white shadow-[0_0_25px_rgba(0,0,0,0.3)]` : 'bg-white/5 text-slate-400'}`}>
+                            {React.cloneElement(navItem.icon as React.ReactElement<any>, { className: 'w-3.5 h-3.5 md:w-6 md:h-6' })}
+                          </div>
+                          <h5 className={`relative z-10 text-[7px] md:text-[13px] font-black uppercase tracking-widest italic leading-none transition-colors ${selectedCoverage === navIdx ? `text-${navItem.color}-400` : 'text-slate-500'}`}>
+                            {navItem.title}
+                          </h5>
+                          {selectedCoverage === navIdx && isAutoPlayingSection5 && (
+                            <div className="absolute inset-0 rounded-[0.8rem] md:rounded-[1.5rem] border border-white/20 animate-[ping_3s_ease-in-out_infinite] pointer-events-none opacity-20"></div>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
 
                   {/* Glass Reflection */}
                   <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-30 z-20"></div>
