@@ -1,12 +1,15 @@
 import React from 'react';
 
-export const SectionWrapper: React.FC<{ children: React.ReactNode; className?: string; id?: string }> = ({ children, className = '', id }) => (
-  <section id={id} className={`py-12 md:py-20 relative overflow-hidden ${className}`}>
-    <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-      {children}
-    </div>
-  </section>
+export const SectionWrapper = React.forwardRef<HTMLElement, { children: React.ReactNode; className?: string; id?: string }>(
+  ({ children, className = '', id }, ref) => (
+    <section ref={ref} id={id} className={`py-12 md:py-20 relative overflow-hidden ${className}`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        {children}
+      </div>
+    </section>
+  )
 );
+SectionWrapper.displayName = 'SectionWrapper';
 
 export const GradientBackground: React.FC = () => (
   <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">

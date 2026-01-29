@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-// Layout Version: 4.2.0 - Fixed Wording, Hardware Buttons, and Height
+// Layout Version: 4.2.0 - Fixed Wording, Hardware Buttons, and Height - RESTORED
 
 export interface StickyScrollItem {
     id: string | number;
@@ -37,15 +37,49 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
         purple: 'from-[#8b5cf6]/40 via-[#8b5cf6]/10 to-transparent'
     };
 
+    const [isInView, setIsInView] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
-        const timer = setInterval(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsInView(entry.isIntersecting);
+            },
+            { threshold: 0.1 }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => {
+            if (containerRef.current) {
+                observer.unobserve(containerRef.current);
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!isInView) return;
+
+        const interval = setInterval(() => {
             const currentItem = items[activeStage];
-            if (currentItem && currentItem.images.length > 1) {
-                setCurrentSubIndex((prev) => (prev + 1) % currentItem.images.length);
+            const totalImages = currentItem?.images.length || 0;
+
+            if (currentSubIndex < totalImages - 1) {
+                setCurrentSubIndex(prev => prev + 1);
+            } else {
+                setIsTransitioning(true);
+                setTimeout(() => {
+                    setActiveStage(prev => (prev + 1) % items.length);
+                    setCurrentSubIndex(0);
+                    setIsTransitioning(false);
+                }, 300);
             }
         }, 4000);
-        return () => clearInterval(timer);
-    }, [activeStage, items]);
+
+        return () => clearInterval(interval);
+    }, [items.length, isInView, activeStage, currentSubIndex]);
 
     const handleStageChange = (index: number) => {
         if (index === activeStage) return;
@@ -57,11 +91,20 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
         }, 300);
     };
 
+    const handleSubIndexChange = (e: React.MouseEvent, index: number) => {
+        e.stopPropagation();
+        setCurrentSubIndex(index);
+    };
+
     const activeColor = items[activeStage]?.color || 'blue';
     const activeHexColor = brandColors[activeColor] || brandColors.blue;
 
     return (
-        <div className="relative w-full bg-[#141413] py-24 md:py-40 px-4 md:px-6 overflow-hidden flex flex-col items-center">
+        <div
+            ref={containerRef}
+            className="relative w-full bg-[#141413] pt-12 pb-24 md:pt-20 md:pb-40 px-4 md:px-6 overflow-hidden flex flex-col items-center"
+            id="sticky-scroll-root"
+        >
             {/* Dynamic Ambient Background Glow */}
             <div
                 className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[600px] w-full transition-all duration-1000 blur-[150px] opacity-10 pointer-events-none"
@@ -72,8 +115,8 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
                 style={{ backgroundImage: 'radial-gradient(#faf9f5 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
-            {/* Title Section */}
-            <div className="max-w-7xl mx-auto mb-10 md:mb-16 text-center relative z-10 w-full animate-in fade-in duration-700">
+            {/* Title Section - Gap Fixed */}
+            <div className="max-w-7xl mx-auto mb-6 md:mb-10 text-center relative z-10 w-full animate-in fade-in duration-700">
                 {title}
             </div>
 
@@ -104,7 +147,7 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                         </span>
 
                         <h4 className={`text-[13px] md:text-3xl font-black uppercase tracking-tighter leading-tight transition-all duration-500
-                                      ${activeStage === index ? 'text-white scale-110' : 'text-slate-600 scale-100'}`}>
+                                       ${activeStage === index ? 'text-white scale-110' : 'text-slate-600 scale-100'}`}>
                             {item.title}
                         </h4>
 
@@ -158,7 +201,7 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                                     ${activeStage === stageIdx ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-105 rotate-1 pointer-events-none'}`}
                             >
                                 {/* Images */}
-                                {item.images.map((img, subIdx) => (
+                                {item.images && item.images.map((img, subIdx) => (
                                     <div
                                         key={subIdx}
                                         className={`absolute inset-0 transition-opacity duration-1000
@@ -168,28 +211,29 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                                             src={img}
                                             className="w-full h-full object-cover transition-transform duration-[20s] scale-100 group-hover:scale-110"
                                             alt={item.title}
+                                            loading="lazy"
                                         />
                                     </div>
                                 ))}
 
                                 {/* UI OVERLAY HUD */}
-                                <div className="absolute inset-0 z-20 p-4 md:p-14 flex flex-col justify-end pointer-events-none">
-                                    <div className="max-w-xl space-y-4 md:space-y-8 animate-in fade-in slide-in-from-left-12 duration-1000 ease-out">
+                                <div className="absolute inset-0 z-20 p-4 md:p-14 flex flex-col justify-end items-end pointer-events-none">
+                                    <div className="max-w-xl space-y-4 md:space-y-8 animate-in fade-in slide-in-from-right-12 duration-1000 ease-out text-right">
 
                                         {/* Redesigned Transparent Info Overlay */}
                                         <div className="relative group/card pointer-events-auto">
                                             {/* Subtle Glow behind text */}
-                                            <div className="absolute -inset-10 bg-gradient-to-r from-black/60 to-transparent blur-2xl opacity-80 rounded-[3rem]"></div>
+                                            <div className="absolute -inset-10 bg-gradient-to-l from-black/60 to-transparent blur-2xl opacity-80 rounded-[3rem]"></div>
 
-                                            <div className="relative space-y-4 md:space-y-6">
+                                            <div className="relative space-y-4 md:space-y-6 flex flex-col items-end">
                                                 <div className="flex items-center gap-4">
+                                                    <div className="h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
                                                     <div className="bg-white/10 backdrop-blur-xl p-3 md:p-4 rounded-2xl border border-white/20 text-white shadow-2xl transition-transform hover:scale-110">
                                                         {item.icon}
                                                     </div>
-                                                    <div className="h-px w-24 bg-gradient-to-r from-white/40 to-transparent"></div>
                                                 </div>
 
-                                                <h5 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none italic drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                                                <h5 className="text-white text-3xl md:text-5xl font-black italic uppercase tracking-tighter leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                                                     {item.title}
                                                 </h5>
                                                 <p className="text-slate-100 text-sm md:text-xl font-bold leading-relaxed max-w-lg drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
@@ -197,7 +241,7 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                                                 </p>
 
                                                 {item.tags && (
-                                                    <div className="flex flex-wrap gap-2 pt-2">
+                                                    <div className="flex flex-wrap gap-2 pt-2 justify-end">
                                                         {item.tags.map((tag, i) => (
                                                             <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/10 text-[9px] font-black uppercase tracking-widest text-white/80">
                                                                 <div className="w-1 h-1 rounded-full bg-current" style={{ color: activeHexColor }}></div>
@@ -211,20 +255,22 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                                     </div>
                                 </div>
 
-                                {/* HUD Elements (Corners) */}
-                                <div className="absolute top-8 right-8 text-right hidden md:block opacity-40">
-                                    <div className="text-[10px] font-black text-white/80 tracking-widest uppercase">Encryption: AES-256</div>
-                                    <div className="text-[10px] font-black text-white/80 tracking-widest uppercase">Bitrate: 45.2 Mbps</div>
-                                </div>
 
-                                {/* Vertical Image Indicators */}
-                                {item.images.length > 1 && (
-                                    <div className="absolute top-1/2 -translate-y-1/2 right-6 md:right-10 flex flex-col gap-4 z-30">
+                                {/* Circular Image Indicators (Side Dots) - Vertical Left Center */}
+                                {item.images && item.images.length > 1 && (
+                                    <div className="absolute top-1/2 -translate-y-1/2 left-6 md:left-10 flex flex-col gap-5 z-30 pointer-events-auto">
                                         {item.images.map((_, i) => (
-                                            <div
+                                            <button
                                                 key={i}
-                                                className={`w-[2px] transition-all duration-700 rounded-full
-                                                    ${currentSubIndex === i ? `h-20 md:h-32 bg-white shadow-[0_0_30px_rgba(255,255,255,1)]` : 'h-6 bg-white/10'}`}
+                                                onClick={(e) => handleSubIndexChange(e, i)}
+                                                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-500
+                                                    ${currentSubIndex === i
+                                                        ? `scale-150 animate-pulse`
+                                                        : 'bg-white/20 hover:bg-white/40 hover:scale-110'}`}
+                                                style={{
+                                                    backgroundColor: currentSubIndex === i ? activeHexColor : undefined,
+                                                    boxShadow: currentSubIndex === i ? `0 0 20px ${activeHexColor}` : undefined
+                                                }}
                                             />
                                         ))}
                                     </div>
@@ -247,6 +293,10 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                 @keyframes shimmer {
                     from { transform: translateY(-100%); }
                     to { transform: translateY(200%); }
+                }
+                @keyframes breathe {
+                    0%, 100% { opacity: 0.6; transform: scale(1.25); }
+                    50% { opacity: 1; transform: scale(1.35); }
                 }
             `}} />
         </div>

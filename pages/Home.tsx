@@ -34,7 +34,11 @@ import {
   Dribbble as BallIcon,
   BarChart3,
   Video,
-  Layers
+  Layers,
+  Play,
+  Pause,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 
 // Sport Icons for Bullet Points
@@ -195,9 +199,9 @@ const managementStages = [
     accent: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
     desc: 'Teams lose valuable time to administrative work, scatter training data across disconnected tools.',
     images: [
-      '/images/Section3-1 1200X900.webp',
-      'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&q=80&w=1200'
+      '/images/Section3-1.1.webp',
+      '/images/Section3-1.2.webp',
+      '/images/Section3-1.3.webp'
     ],
     details: 'Chaotic workflows lead to a 40% reduction in tactical retention among academy players.',
     tags: ['Fragmented Tools', 'Communication Gaps', 'Manual Tracking']
@@ -225,9 +229,9 @@ const managementStages = [
     accent: 'bg-green-500/10 text-green-400 border-green-500/20',
     desc: 'More time for coaching. Clearer tactical understanding. Stronger team performance supported by data.',
     images: [
-      'https://images.unsplash.com/photo-1510051644265-934cb9742558?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1526232762682-d2f5f714d23a?auto=format&fit=crop&q=80&w=1200'
+      '/images/Section3-3.1.webp',
+      '/images/Section3-3.2.webp',
+      '/images/Section3-3.3.webp'
     ],
     details: 'Elite performance standards achieved through measurable growth and consistent tactical alignment.',
     tags: ['Measurable Growth', 'Performance Edge', 'Coaching Mastery']
@@ -341,13 +345,67 @@ const Home: React.FC = () => {
   const [isAutoPlayingSection5, setIsAutoPlayingSection5] = useState(true);
   const [isAutoPlayingCompare, setIsAutoPlayingCompare] = useState(true);
 
+  const [isInViewSection2, setIsInViewSection2] = useState(false);
+  const [isInViewSection4, setIsInViewSection4] = useState(false);
+  const [isInViewSection5, setIsInViewSection5] = useState(false);
+  const [isInViewCompare, setIsInViewCompare] = useState(false);
+
+  const section2Ref = useRef<HTMLElement>(null);
+  const section4Ref = useRef<HTMLElement>(null);
+  const section5Ref = useRef<HTMLElement>(null);
+  const compareRef = useRef<HTMLElement>(null);
+
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const autoPlayTimer2Ref = useRef<number | null>(null);
   const autoPlayTimer3Ref = useRef<number | null>(null);
   const autoPlayTimer5Ref = useRef<number | null>(null);
   const autoPlayCompareRef = useRef<number | null>(null);
 
+  // Intersection Observers for Auto-Play
   useEffect(() => {
-    if (isAutoPlayingSection2) {
+    const observerOptions = { threshold: 0.05, rootMargin: '0px 0px -10% 0px' };
+
+    const obs2 = new IntersectionObserver(([ent]) => setIsInViewSection2(ent.isIntersecting), observerOptions);
+    const obs4 = new IntersectionObserver(([ent]) => setIsInViewSection4(ent.isIntersecting), observerOptions);
+    const obs5 = new IntersectionObserver(([ent]) => setIsInViewSection5(ent.isIntersecting), observerOptions);
+    const obsComp = new IntersectionObserver(([ent]) => setIsInViewCompare(ent.isIntersecting), observerOptions);
+
+    if (section2Ref.current) obs2.observe(section2Ref.current);
+    if (section4Ref.current) obs4.observe(section4Ref.current);
+    if (section5Ref.current) obs5.observe(section5Ref.current);
+    if (compareRef.current) obsComp.observe(compareRef.current);
+
+    return () => {
+      obs2.disconnect();
+      obs4.disconnect();
+      obs5.disconnect();
+      obsComp.disconnect();
+    };
+  }, [section2Ref.current, section4Ref.current, section5Ref.current, compareRef.current]);
+
+  const toggleVideo = () => {
+    if (videoRef.current) {
+      if (isVideoPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsVideoPlaying(!isVideoPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  useEffect(() => {
+    if (isAutoPlayingSection2 && isInViewSection2) {
       autoPlayTimer2Ref.current = window.setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % manifestoItems.length);
       }, 4000);
@@ -355,21 +413,10 @@ const Home: React.FC = () => {
     return () => {
       if (autoPlayTimer2Ref.current) clearInterval(autoPlayTimer2Ref.current);
     };
-  }, [isAutoPlayingSection2]);
+  }, [isAutoPlayingSection2, isInViewSection2]);
 
   useEffect(() => {
-    if (isAutoPlayingSection3) {
-      autoPlayTimer3Ref.current = window.setInterval(() => {
-        setSelectedStage((prev) => (prev + 1) % managementStages.length);
-      }, 4500);
-    }
-    return () => {
-      if (autoPlayTimer3Ref.current) clearInterval(autoPlayTimer3Ref.current);
-    };
-  }, [isAutoPlayingSection3]);
-
-  useEffect(() => {
-    if (isAutoPlayingSection5) {
+    if (isAutoPlayingSection5 && isInViewSection5) {
       autoPlayTimer5Ref.current = window.setInterval(() => {
         setSelectedCoverage((prev) => (prev + 1) % coverageItems.length);
       }, 4000);
@@ -377,10 +424,10 @@ const Home: React.FC = () => {
     return () => {
       if (autoPlayTimer5Ref.current) clearInterval(autoPlayTimer5Ref.current);
     };
-  }, [isAutoPlayingSection5]);
+  }, [isAutoPlayingSection5, isInViewSection5]);
 
   useEffect(() => {
-    if (isAutoPlayingCompare) {
+    if (isAutoPlayingCompare && isInViewCompare) {
       autoPlayCompareRef.current = window.setInterval(() => {
         setActiveCompareIdx((prev) => (prev + 1) % comparisonRows.length);
       }, 4000);
@@ -388,14 +435,15 @@ const Home: React.FC = () => {
     return () => {
       if (autoPlayCompareRef.current) clearInterval(autoPlayCompareRef.current);
     };
-  }, [isAutoPlayingCompare]);
+  }, [isAutoPlayingCompare, isInViewCompare]);
 
   useEffect(() => {
+    if (!isInViewSection4) return;
     const timer = setInterval(() => {
       setActiveEvolutionGlow((prev) => (prev === 0 ? 1 : 0));
     }, 5000); // 5 second cycle
     return () => clearInterval(timer);
-  }, []);
+  }, [isInViewSection4]);
 
   const handleManualSelect2 = (index: number) => {
     setActiveIndex(index);
@@ -460,13 +508,32 @@ const Home: React.FC = () => {
             <div className="relative bg-black rounded-[0.2rem] md:rounded-[0.8rem] overflow-hidden aspect-video shadow-inner flex flex-col">
 
               <video
+                ref={videoRef}
                 src="/videos/hero-video-2.mp4"
                 className="w-full h-full object-cover"
                 autoPlay
                 loop
-                muted
+                muted={isMuted}
                 playsInline
               />
+
+              {/* Video Controls (Bottom Left) */}
+              <div className="absolute bottom-4 left-6 z-40 flex gap-3">
+                <button
+                  onClick={toggleVideo}
+                  className="p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/80 hover:bg-black/60 hover:text-white transition-all active:scale-95 group"
+                  aria-label={isVideoPlaying ? "Pause Video" : "Play Video"}
+                >
+                  {isVideoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
+                </button>
+                <button
+                  onClick={toggleMute}
+                  className="p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/80 hover:bg-black/60 hover:text-white transition-all active:scale-95 group"
+                  aria-label={isMuted ? "Unmute Video" : "Mute Video"}
+                >
+                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
+              </div>
 
               {/* Status Indicator (Bottom Chin area) */}
               <div className="absolute bottom-3 right-6 flex items-center gap-2">
@@ -483,7 +550,7 @@ const Home: React.FC = () => {
       </header>
 
       {/* 2. WhyVTAC (Manifesto) */}
-      <SectionWrapper id="why-vtac" className="bg-slate-900/20">
+      <SectionWrapper ref={section2Ref} id="why-vtac" className="bg-slate-900/20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
           <div className="space-y-10 flex flex-col">
             <div className="space-y-8">
@@ -594,7 +661,7 @@ const Home: React.FC = () => {
       />
 
       {/* 4. Problem & Solution (The Comparison) */}
-      <SectionWrapper className="relative overflow-hidden py-32 md:py-48">
+      <SectionWrapper ref={section4Ref} className="relative overflow-hidden py-32 md:py-48">
         {/* Dynamic Background Blurs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/5 blur-[40px] md:blur-[120px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 blur-[40px] md:blur-[120px] rounded-full pointer-events-none"></div>
@@ -700,7 +767,7 @@ const Home: React.FC = () => {
       </SectionWrapper>
 
       {/* 5. What VTAC Manager Covers (NOTEBOOK DESIGN) */}
-      <SectionWrapper id="coverage" className="bg-slate-950 overflow-visible">
+      <SectionWrapper ref={section5Ref} id="coverage" className="bg-slate-950 overflow-visible">
         <div className="text-center mb-10 overflow-visible">
           <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em] mb-4">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
@@ -861,7 +928,7 @@ const Home: React.FC = () => {
       </SectionWrapper>
 
       {/* 7. Comparison Section */}
-      <SectionWrapper>
+      <SectionWrapper ref={compareRef}>
         <div className="flex flex-col items-center mb-10 space-y-4">
           <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] border border-white/10">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
