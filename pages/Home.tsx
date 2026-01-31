@@ -31,7 +31,7 @@ import {
   Monitor,
   Tablet as TabletIcon,
   Settings,
-  Dribbble as BallIcon,
+  Gamepad2,
   BarChart3,
   Video,
   Layers,
@@ -256,7 +256,7 @@ const coverageItems = [
   {
     id: 'tactics',
     title: 'Interactive Tactical Training Engine',
-    icon: <BallIcon className="w-10 h-10 md:w-16 md:h-16" />,
+    icon: <Gamepad2 className="w-10 h-10 md:w-16 md:h-16" />,
     color: 'orange',
     image: '/images/Section5.2.webp',
     features: [
@@ -287,49 +287,49 @@ const comparisonRows = [
     vtac: true,
     organizer: true,
     video: false,
-    img: 'https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&q=80&w=1200'
+    img: '/images/Section7.1.webp'
   },
   {
     feature: 'Interactive Remote Tactical Board',
     vtac: true,
     organizer: false,
     video: false,
-    img: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200'
+    img: '/images/Section7.2.webp'
   },
   {
     feature: 'Multiplayer Remote Real-time Training',
     vtac: true,
     organizer: false,
     video: false,
-    img: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=1200'
+    img: '/images/Section7.3.webp'
   },
   {
     feature: 'Dynamic Player Development CV',
     vtac: true,
     organizer: false,
     video: true,
-    img: 'https://images.unsplash.com/photo-1510051644265-934cb9742558?auto=format&fit=crop&q=80&w=1200'
+    img: '/images/Section7.4.webp'
   },
   {
     feature: 'Unified Communication',
     vtac: true,
     organizer: true,
     video: false,
-    img: 'https://images.unsplash.com/photo-1526232762682-d2f5f714d23a?auto=format&fit=crop&q=80&w=1200'
+    img: '/images/Section7.5.webp'
   },
   {
-    feature: 'Video Analysis Suite',
+    feature: 'Image & Video Tactics Tool',
     vtac: true,
     organizer: false,
     video: true,
-    img: 'https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&q=80&w=1200'
+    img: '/images/Section7.6.webp'
   },
   {
     feature: 'All-in-One Solution',
     vtac: true,
     organizer: false,
     video: false,
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200'
+    img: '/images/Section7.7.webp'
   }
 ];
 
@@ -561,9 +561,9 @@ const Home: React.FC = () => {
                 </span>
                 <span>THE END OF TOOLS FRAGMENTATION</span>
               </div>
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase italic">
+              <h2 className="text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase italic">
                 <span className="text-white">Why VTAC</span> <br className="hidden md:block" />
-                <span className="gradient-text pr-12 inline-block">Manager?</span>
+                <span className="gradient-text md:pr-12 inline-block">Manager?</span>
               </h2>
             </div>
             <p className="text-lg md:text-xl text-slate-300 font-bold leading-relaxed italic border-l-4 border-cyan-500 pl-6 py-2">
@@ -585,8 +585,8 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="relative mt-8 lg:mt-0 flex flex-col items-center justify-center">
-            {/* PHONE CONTAINER: SCALE INCREASED TO 280px */}
-            <div className="relative group w-full max-w-[320px] lg:max-w-[380px] animate-in fade-in slide-in-from-right-12 duration-1000 transform translate-y-5">
+            {/* PHONE CONTAINER: Centered and sized for small mobile */}
+            <div className="relative group w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[380px] animate-in fade-in slide-in-from-bottom-10 duration-1000 transform translate-y-5">
               {/* Background Glow */}
               <div className="absolute -inset-10 bg-cyan-500/20 blur-[30px] md:blur-[60px] rounded-full opacity-50 transition-all duration-1000 group-hover:opacity-80"></div>
 
@@ -643,7 +643,7 @@ const Home: React.FC = () => {
               <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"></div>
               <span>Built for How Teams Train Today</span>
             </div>
-            <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center py-4 italic">
+            <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center py-4 italic">
               <span className="text-white block">More Than</span>
               <span className="gradient-text block">Management</span>
             </h2>
@@ -661,7 +661,7 @@ const Home: React.FC = () => {
       />
 
       {/* 4. Problem & Solution (The Comparison) */}
-      <SectionWrapper ref={section4Ref} className="relative overflow-hidden py-32 md:py-48">
+      <SectionWrapper ref={section4Ref} className="relative overflow-visible py-32 md:py-48">
         {/* Dynamic Background Blurs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/5 blur-[40px] md:blur-[120px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 blur-[40px] md:blur-[120px] rounded-full pointer-events-none"></div>
@@ -671,26 +671,29 @@ const Home: React.FC = () => {
             <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-white/40 text-[10px] font-black uppercase tracking-[0.4em] border border-white/5 mb-8">
               <span>System Evolution</span>
             </div>
-            <h2 className="font-black tracking-tighter uppercase flex flex-col items-center leading-none">
-              <div className="relative group/evo">
-                {/* Backlight / Breathing Fire Effect */}
+            <h2 className="font-black flex flex-col items-center leading-none overflow-visible w-full">
+              <div className="relative group/evo overflow-visible w-full text-center">
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-[60px] md:blur-[100px] opacity-60 group-hover:opacity-100 transition duration-1000 scale-125 animate-[breathe_6s_ease-in-out_infinite]"></div>
-                <span className="text-6xl md:text-[10rem] text-white/20 select-none relative z-10 tracking-tight">EVOLUTION</span>
+                <span className="text-5xl md:text-8xl lg:text-[10rem] text-white/20 select-none relative z-10 tracking-tight leading-none block uppercase">EVOLUTION</span>
               </div>
 
-              <div className="relative mt-4 md:-mt-12 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center z-20 w-full">
-                <div className="text-center md:text-right md:pr-6">
-                  <span className="text-4xl md:text-8xl text-white relative z-10 font-black italic px-4">OLD MESS</span>
+              <div className="relative mt-2 md:mt-8 lg:-mt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center z-20 w-full px-4 lg:px-0 overflow-visible">
+                <div className="text-center lg:text-right lg:pr-12 overflow-visible">
+                  <span className="text-3xl md:text-5xl lg:text-[7rem] text-white relative z-10 font-black italic leading-tight lg:leading-[0.8] block">
+                    OLD<br className="hidden lg:block" /> MESS
+                  </span>
                 </div>
 
-                <div className="flex items-center justify-center py-4 md:py-0">
-                  <div className="hidden md:block h-px w-8 md:w-12 bg-white/10"></div>
-                  <span className="text-2xl md:text-4xl text-cyan-500 font-black italic z-20 px-4 md:px-6">VS</span>
-                  <div className="hidden md:block h-px w-8 md:w-12 bg-white/10"></div>
+                <div className="flex items-center justify-center py-2 lg:py-0">
+                  <div className="hidden lg:block h-px w-8 lg:w-12 bg-white/10"></div>
+                  <span className="text-xl md:text-3xl lg:text-5xl text-cyan-500 font-black italic z-20 px-4 lg:px-8">VS</span>
+                  <div className="hidden lg:block h-px w-8 lg:w-12 bg-white/10"></div>
                 </div>
 
-                <div className="text-center md:text-left md:pl-6">
-                  <span className="text-4xl md:text-8xl gradient-text relative z-10 font-black italic pl-4 pr-16 py-2 inline-block">VTAC FLOW</span>
+                <div className="text-center lg:text-left lg:pl-12 overflow-visible">
+                  <span className="text-3xl md:text-5xl lg:text-[7rem] gradient-text relative z-10 font-black italic leading-tight lg:leading-[0.8] block pr-12 lg:pr-0">
+                    VTAC<br className="hidden lg:block" /> FLOW
+                  </span>
                 </div>
               </div>
             </h2>
@@ -701,10 +704,10 @@ const Home: React.FC = () => {
             <div className={`relative group min-h-full transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'scale-[1.02]' : 'scale-100'}`}>
               <div className={`absolute -inset-1 bg-gradient-to-b from-red-500/20 to-transparent blur-xl transition-opacity duration-1000 ${activeEvolutionGlow === 0 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}></div>
               <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-8 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'border-red-500/20 bg-[#1a1a1a]/60' : 'border-white/5 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
-                <div className="flex justify-between items-end mb-12">
-                  <div className="space-y-2">
-                    <span className="text-red-500/60 text-[10px] font-black uppercase tracking-widest">Legacy System</span>
-                    <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white/90 whitespace-nowrap">The Fragmented Mess</h3>
+                <div className="flex justify-between items-start mb-10 gap-4">
+                  <div className="space-y-1">
+                    <span className="text-red-500/60 text-[10px] font-black uppercase tracking-widest leading-none">Legacy System</span>
+                    <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white/90">The Fragmented Mess</h3>
                   </div>
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 border border-red-500/20 shadow-lg shadow-red-500/10 animate-pulse z-30 shrink-0">
                     <X className="w-6 h-6 md:w-8 md:h-8" />
@@ -734,10 +737,10 @@ const Home: React.FC = () => {
             <div className={`relative group min-h-full transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'scale-[1.02]' : 'scale-100'}`}>
               <div className={`absolute -inset-1 bg-gradient-to-b from-cyan-500/20 to-transparent blur-xl transition-opacity duration-1000 ${activeEvolutionGlow === 1 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}></div>
               <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-8 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'border-cyan-500/40 bg-[#1a1a1a]/60' : 'border-cyan-500/20 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
-                <div className="flex justify-between items-end mb-12">
-                  <div className="space-y-2">
-                    <span className="text-cyan-400 text-[10px] font-black uppercase tracking-widest">Unified Future</span>
-                    <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white whitespace-nowrap">VTAC Unified Flow</h3>
+                <div className="flex justify-between items-start mb-10 gap-4">
+                  <div className="space-y-1">
+                    <span className="text-cyan-400 text-[10px] font-black uppercase tracking-widest leading-none">Unified Future</span>
+                    <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white">VTAC Unified Flow</h3>
                   </div>
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 border border-cyan-500/30 shadow-lg shadow-cyan-500/20 z-30 shrink-0">
                     <Check className="w-6 h-6 md:w-8 md:h-8" />
@@ -788,21 +791,21 @@ const Home: React.FC = () => {
           <div className={`absolute -inset-16 bg-${coverageItems[selectedCoverage].color}-400/10 blur-[40px] md:blur-[100px] rounded-full transition-all duration-1000 opacity-30 group-hover/laptop:opacity-50`}></div>
 
           <div className="relative mx-auto w-full transition-all duration-700 perspective-[3000px]">
-            {/* THE LAPTOP LID (SCREEN) - Extra narrow to emphasize base length */}
-            <div className="relative max-w-[85%] mx-auto p-[1px] bg-gradient-to-b from-slate-400 via-slate-600 to-slate-900 rounded-t-[2.5rem] md:rounded-t-[3.5rem] shadow-[0_40px_80px_rgba(0,0,0,0.8)] overflow-hidden transform border-t border-white/20 z-10">
+            {/* THE LAPTOP LID (SCREEN) - Wider on mobile for better readability */}
+            <div className="relative w-full md:max-w-[85%] mx-auto p-[1px] bg-gradient-to-b from-slate-400 via-slate-600 to-slate-900 rounded-t-[1.5rem] md:rounded-t-[3.5rem] shadow-[0_40px_80px_rgba(0,0,0,0.8)] overflow-hidden transform border-t border-white/20 z-10">
 
               {/* Inner Metallic Frame */}
-              <div className="relative p-2 md:p-3 bg-slate-950 rounded-t-[2.3rem] md:rounded-t-[3.2rem] overflow-hidden">
+              <div className="relative p-1.5 md:p-3 bg-slate-950 rounded-t-[1.3rem] md:rounded-t-[3.2rem] overflow-hidden">
 
                 {/* MACBOOK NOTCH */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 md:w-64 h-6 md:h-8 bg-black rounded-b-2xl z-40 flex items-center justify-center border-x border-b border-white/5">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 md:w-64 h-4 md:h-8 bg-black rounded-b-2xl z-40 flex items-center justify-center border-x border-b border-white/5">
                   <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#1a1c1e] shadow-inner flex items-center justify-center">
                     <div className="w-0.5 h-0.5 md:w-1 md:h-1 rounded-full bg-blue-500/40 blur-[1px]"></div>
                   </div>
                 </div>
 
-                {/* THE ACTUAL SCREEN CONTENT */}
-                <div className="relative bg-black rounded-t-[1.8rem] md:rounded-t-[2.5rem] overflow-hidden aspect-[16/10] md:aspect-[16/9.5] border-[1px] border-white/5 shadow-2xl">
+                {/* THE ACTUAL SCREEN CONTENT - More vertical on mobile (3:4 or 1:1) to fit text */}
+                <div className="relative bg-black rounded-t-[1.1rem] md:rounded-t-[2.5rem] overflow-hidden aspect-[3/4.5] md:aspect-[16/10] lg:aspect-[16/9.5] border-[1px] border-white/5 shadow-2xl">
                   {coverageItems.map((item, idx) => (
                     <div key={item.id} className={`absolute inset-0 transition-all duration-1000 ease-out ${selectedCoverage === idx ? 'opacity-100' : 'opacity-0'}`}>
                       <img
@@ -813,14 +816,14 @@ const Home: React.FC = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/10 to-transparent"></div>
 
-                      <div className="absolute top-8 md:top-14 left-8 md:left-16 max-w-xl text-left z-20">
+                      <div className="absolute top-6 md:top-10 lg:top-14 left-6 md:left-10 lg:left-16 right-6 md:right-0 max-w-xl text-left z-20">
                         <div className={`space-y-2 md:space-y-3 transition-all duration-1000 transform ${selectedCoverage === idx ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
-                          <h4 className="text-xl md:text-3xl font-black italic uppercase tracking-tighter text-white leading-[0.9] drop-shadow-2xl">
+                          <h4 className="text-xl md:text-2xl lg:text-3xl font-black italic uppercase tracking-tighter text-white leading-[0.9] drop-shadow-2xl pr-4">
                             {item.title}
                           </h4>
-                          <div className="space-y-1 md:space-y-1.5 mt-2 md:mt-3">
+                          <div className="space-y-1 md:space-y-1 mt-2 md:mt-2 lg:mt-3">
                             {item.features.map((feature, fIdx) => (
-                              <p key={fIdx} className="text-[9px] md:text-[14px] text-slate-100 font-bold drop-shadow-md flex items-center gap-2">
+                              <p key={fIdx} className="text-[9px] md:text-[12px] lg:text-[14px] text-slate-100 font-bold drop-shadow-md flex items-center gap-2">
                                 <span className={`w-1 h-1 md:w-1.2 md:h-1.2 rounded-full bg-${item.color}-500 shadow-[0_0_15px_rgba(var(--${item.color}-500),0.8)] shrink-0`}></span>
                                 {feature}
                               </p>
@@ -833,13 +836,13 @@ const Home: React.FC = () => {
                   ))}
 
                   {/* Screen Navigation Badges - Section 3 Style with Persistent Glow (MOVED OUTSIDE LOOP FOR PERSISTENCE) */}
-                  <div className="absolute inset-x-0 bottom-4 md:bottom-6 px-6 md:px-24 z-30">
-                    <div className="grid grid-cols-3 gap-3 md:gap-4">
+                  <div className="absolute inset-x-0 bottom-3 md:bottom-4 lg:bottom-6 px-4 md:px-8 lg:px-24 z-30">
+                    <div className="grid grid-cols-3 gap-3 md:gap-3 lg:gap-4">
                       {coverageItems.map((navItem, navIdx) => (
                         <button
                           key={navItem.id}
                           onClick={(e) => { e.stopPropagation(); handleManualSelect5(navIdx); }}
-                          className={`group/nav relative p-2.5 md:p-5 rounded-[0.8rem] md:rounded-[1.5rem] border transition-all duration-500 flex flex-col items-center justify-center text-center backdrop-blur-md ${selectedCoverage === navIdx
+                          className={`group/nav relative p-2 md:p-3 lg:p-5 rounded-[0.8rem] md:rounded-[1rem] lg:rounded-[1.5rem] border transition-all duration-500 flex flex-col items-center justify-center text-center backdrop-blur-md ${selectedCoverage === navIdx
                             ? `bg-white/10 border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.3)] scale-[1.05]`
                             : `bg-white/0 border-white/10 opacity-60 hover:opacity-100 hover:bg-white/5`
                             }`}
@@ -849,14 +852,14 @@ const Home: React.FC = () => {
                             <div className={`absolute -inset-2 bg-${navItem.color}-500/20 blur-2xl rounded-full animate-pulse pointer-events-none`}></div>
                           )}
 
-                          <div className={`relative z-10 w-7 h-7 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-1 md:mb-2.5 transition-all duration-500 ${selectedCoverage === navIdx ? `bg-${navItem.color}-500 text-white shadow-[0_0_25px_rgba(0,0,0,0.3)]` : 'bg-white/5 text-slate-400'}`}>
-                            {React.cloneElement(navItem.icon as React.ReactElement<any>, { className: 'w-3.5 h-3.5 md:w-6 md:h-6' })}
+                          <div className={`relative z-10 w-6 h-6 md:w-8 lg:w-12 md:h-8 lg:h-12 rounded-lg flex items-center justify-center mb-1 md:mb-1.5 transition-all duration-500 ${selectedCoverage === navIdx ? `bg-${navItem.color}-500 text-white shadow-[0_0_25px_rgba(0,0,0,0.3)]` : 'bg-white/5 text-slate-400'}`}>
+                            {React.cloneElement(navItem.icon as React.ReactElement<any>, { className: 'w-3 h-3 md:w-4 lg:w-6 md:h-4 lg:h-6' })}
                           </div>
-                          <h5 className={`relative z-10 text-[7px] md:text-[13px] font-black uppercase tracking-widest italic leading-none transition-colors ${selectedCoverage === navIdx ? `text-${navItem.color}-400` : 'text-slate-500'}`}>
+                          <h5 className={`relative z-10 text-[7px] md:text-[9px] lg:text-[13px] font-black uppercase tracking-widest italic leading-none transition-colors ${selectedCoverage === navIdx ? `text-${navItem.color}-400` : 'text-slate-500'}`}>
                             {navItem.title}
                           </h5>
                           {selectedCoverage === navIdx && isAutoPlayingSection5 && (
-                            <div className="absolute inset-0 rounded-[0.8rem] md:rounded-[1.5rem] border border-white/20 animate-[ping_3s_ease-in-out_infinite] pointer-events-none opacity-20"></div>
+                            <div className="absolute inset-0 rounded-[0.8rem] md:rounded-[1rem] lg:rounded-[1.5rem] border border-white/20 animate-[ping_3s_ease-in-out_infinite] pointer-events-none opacity-20"></div>
                           )}
                         </button>
                       ))}
@@ -940,8 +943,8 @@ const Home: React.FC = () => {
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
             <span>Why We are Different</span>
           </div>
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-none">
-            <span className="gradient-text pr-4">Compare the Edge</span>
+          <h2 className="text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-[0.9] overflow-visible">
+            <span className="gradient-text pr-10 md:pr-16 block md:inline-block overflow-visible">Compare the Edge&nbsp;</span>
           </h2>
         </div>
 
@@ -973,9 +976,12 @@ const Home: React.FC = () => {
                     <tr
                       key={i}
                       onClick={() => handleManualCompare(i)}
-                      className={`group border-b border-white/5 cursor-pointer transition-all duration-300 ${activeCompareIdx === i ? 'bg-white/[0.05]' : 'hover:bg-white/[0.02]'}`}
+                      className={`group border-b border-white/5 cursor-pointer transition-all duration-500 relative ${activeCompareIdx === i ? 'bg-white/[0.08]' : 'hover:bg-white/[0.02]'}`}
                     >
-                      <td className={`p-4 md:p-8 font-bold italic text-[9px] md:text-sm whitespace-normal leading-tight transition-colors ${activeCompareIdx === i ? 'text-cyan-400' : 'text-slate-300'}`}>
+                      <td className={`p-4 md:p-8 font-bold italic text-[9px] md:text-sm whitespace-normal leading-tight transition-all duration-500 ${activeCompareIdx === i ? 'text-cyan-400 pl-6 md:pl-10' : 'text-slate-300'}`}>
+                        {activeCompareIdx === i && (
+                          <div className="absolute left-0 top-0 bottom-0 w-1 md:w-1.5 bg-cyan-500 shadow-[2px_0_10px_rgba(6,182,212,0.5)]"></div>
+                        )}
                         {row.feature}
                       </td>
                       <td className="p-2 md:p-6 text-center bg-cyan-500/[0.02] transition-colors">
@@ -1019,37 +1025,45 @@ const Home: React.FC = () => {
           </div>
 
           <div className="lg:col-span-5 relative group flex justify-center items-center h-full min-h-[500px] lg:min-h-0">
-            <div className="absolute -inset-10 bg-cyan-500/10 blur-[30px] md:blur-[100px] rounded-full opacity-40 group-hover:opacity-70 transition-all duration-1000"></div>
+            {/* Multi-layered Ambient Background Glow - Shifted Top-Right */}
+            <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-cyan-500/20 blur-[100px] rounded-full opacity-40 group-hover:opacity-70 transition-all duration-1000"></div>
+            <div className="absolute -top-10 -right-10 w-[300px] h-[300px] bg-blue-500/30 blur-[60px] rounded-full opacity-30 group-hover:opacity-60 transition-all duration-1000 animate-[breathe_8s_infinite]"></div>
+            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-purple-500/40 blur-[40px] rounded-full opacity-20 group-hover:opacity-50 transition-all duration-1000"></div>
 
-            <div className="relative w-full max-w-[540px] aspect-[0.7/1] lg:aspect-auto lg:h-full bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-1.5 shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-slate-700/50 flex flex-col group-hover:border-cyan-500/30 transition-all duration-700">
+            <div className="relative w-full max-w-[540px] aspect-[0.7/1] lg:aspect-auto lg:h-full bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-1.5 shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-slate-700/50 flex flex-col group-hover:border-cyan-500/30 transition-colors duration-700 backface-visibility-hidden transform-gpu translate-z-0">
 
               {/* Refined iPad Side Button */}
               <div className="absolute top-20 -right-[2px] flex flex-col z-50">
                 <div className="w-[3px] h-10 bg-slate-600 rounded-l-sm border-l border-white/10 shadow-inner"></div>
               </div>
 
-              <div className="relative flex-grow bg-slate-950 rounded-[1.8rem] md:rounded-[2.2rem] overflow-hidden border-[1px] border-slate-900 shadow-inner">
+              <div className="relative flex-grow bg-slate-950 rounded-[1.8rem] md:rounded-[2.2rem] overflow-hidden border-[1px] border-slate-900 shadow-inner backface-visibility-hidden">
                 {/* Minimal Tablet Sensor */}
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-blue-500/20 z-40"></div>
 
                 <div className="absolute inset-0 w-full h-full overflow-hidden">
                   {comparisonRows.map((row, i) => (
-                    <div key={i} className={`absolute inset-0 transition-all duration-1000 ease-in-out ${activeCompareIdx === i ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}>
+                    <div key={i} className={`absolute inset-0 transition-opacity duration-1000 ease-in-out will-change-opacity ${activeCompareIdx === i ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
                       <img
                         src={row.img}
-                        className="w-full h-full object-cover opacity-60 transition-transform duration-[30000ms] ease-linear"
+                        className={`w-full h-full object-cover opacity-60 transition-transform duration-1000 ${activeCompareIdx === i ? 'animate-[ken-burns_20s_ease-out_forwards]' : 'scale-100'}`}
+                        style={{ backfaceVisibility: 'hidden', transform: 'translate3d(0,0,0)' }}
                         alt={row.feature}
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
                     </div>
                   ))}
+                  {/* Animated Shine Effect */}
+                  <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+                    <div className="absolute -inset-[100%] bg-gradient-to-tr from-transparent via-white/5 to-transparent skew-x-12 animate-[shine_10s_infinite] opacity-30"></div>
+                  </div>
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 z-30 p-8 pb-12 space-y-10 flex flex-col items-center">
                   <div className="min-h-[48px] flex items-center justify-center px-4 w-full">
-                    <h4 className="text-xl md:text-3xl font-black italic uppercase tracking-tighter text-cyan-400 text-center animate-in fade-in slide-in-from-bottom-2 duration-700 leading-tight drop-shadow-2xl">
-                      {comparisonRows[activeCompareIdx].feature}
+                    <h4 className="text-xl md:text-3xl font-black italic uppercase tracking-tighter text-cyan-400 text-center animate-in fade-in slide-in-from-bottom-2 duration-700 leading-tight drop-shadow-2xl pr-3">
+                      {comparisonRows[activeCompareIdx].feature}&nbsp;
                     </h4>
                   </div>
 
@@ -1123,6 +1137,14 @@ const Home: React.FC = () => {
         @keyframes breathe {
           0%, 100% { opacity: 0.4; transform: scale(1.2); }
           50% { opacity: 0.8; transform: scale(1.3); }
+        }
+        @keyframes shine {
+          0% { transform: translateX(-100%) skewX(12deg); }
+          20%, 100% { transform: translateX(200%) skewX(12deg); }
+        }
+        @keyframes ken-burns {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.15); }
         }
       `}} />
     </div>

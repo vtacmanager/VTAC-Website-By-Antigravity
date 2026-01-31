@@ -217,8 +217,8 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                                 ))}
 
                                 {/* UI OVERLAY HUD */}
-                                <div className="absolute inset-0 z-20 p-4 md:p-14 flex flex-col justify-end items-end pointer-events-none">
-                                    <div className="max-w-xl space-y-4 md:space-y-8 animate-in fade-in slide-in-from-right-12 duration-1000 ease-out text-right">
+                                <div className="absolute inset-0 z-20 p-3 md:p-14 flex flex-col justify-end items-end pointer-events-none">
+                                    <div className="max-w-xl space-y-2 md:space-y-8 animate-in fade-in slide-in-from-right-12 duration-1000 ease-out text-right">
 
                                         {/* Redesigned Transparent Info Overlay */}
                                         <div className="relative group/card pointer-events-auto">
@@ -227,16 +227,19 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
 
                                             <div className="relative space-y-4 md:space-y-6 flex flex-col items-end">
                                                 <div className="flex items-center gap-4">
-                                                    <div className="h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
-                                                    <div className="bg-white/10 backdrop-blur-xl p-3 md:p-4 rounded-2xl border border-white/20 text-white shadow-2xl transition-transform hover:scale-110">
-                                                        {item.icon}
+                                                    <div className="h-px w-12 md:w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
+                                                    <div className="bg-white/10 backdrop-blur-xl p-2 md:p-4 rounded-xl border border-white/20 text-white shadow-2xl">
+                                                        {React.isValidElement(item.icon)
+                                                            ? React.cloneElement(item.icon as React.ReactElement<any>, { className: 'w-4 h-4 md:w-8 md:h-8' })
+                                                            : item.icon
+                                                        }
                                                     </div>
                                                 </div>
 
-                                                <h5 className="text-white text-3xl md:text-5xl font-black italic uppercase tracking-tighter leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                                                <h5 className="text-white text-2xl md:text-5xl font-black italic uppercase tracking-tighter leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                                                     {item.title}
                                                 </h5>
-                                                <p className="text-slate-100 text-sm md:text-xl font-bold leading-relaxed max-w-lg drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
+                                                <p className="text-slate-100 text-[11px] md:text-xl font-bold leading-tight md:leading-relaxed max-w-[180px] xs:max-w-xs md:max-w-lg drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
                                                     {item.description}
                                                 </p>
 
