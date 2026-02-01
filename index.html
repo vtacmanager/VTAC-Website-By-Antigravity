@@ -1,72 +1,95 @@
-
 <!DOCTYPE html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VTAC Manager | Team Management & Tactical Excellence</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --vtac-bg: #020617;
-      }
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--vtac-bg);
-        color: #f8fafc;
-        margin: 0;
-        -webkit-font-smoothing: antialiased;
-      }
-      .gradient-text {
-        background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 50%, #a855f7 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .gradient-bg {
-        background: linear-gradient(135deg, #3b82f6, #a855f7);
-      }
-      .glass-card {
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #020617;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1e293b;
-        border-radius: 5px;
-        border: 2px solid #020617;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #334155;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VTAC MANAGER | TEAM MANAGEMENT & INTERACTIVE TRAINING</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --vtac-bg: #020617;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--vtac-bg);
+      color: #f8fafc;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #3b82f6 0%, #22d3ee 33%, #ffffff 66%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #3b82f6, #a855f7);
+    }
+
+    .glass-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 5px;
+      border: 2px solid #020617;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    @keyframes infinite-scroll {
+      from {
+        transform: translateX(0);
       }
 
-      @keyframes infinite-scroll {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+      to {
+        transform: translateX(-50%);
       }
-      @keyframes progress {
-        from { transform: translateX(-100%); }
-        to { transform: translateX(0%); }
+    }
+
+    @keyframes progress {
+      from {
+        transform: translateX(-100%);
       }
-      .animate-infinite-scroll {
-        animation: infinite-scroll 40s linear infinite;
+
+      to {
+        transform: translateX(0%);
       }
-      .mask-gradient {
-        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-      }
-    </style>
-    <script type="importmap">
+    }
+
+    .animate-infinite-scroll {
+      animation: infinite-scroll 40s linear infinite;
+    }
+
+    .mask-gradient {
+      mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+  </style>
+  <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@19.0.0",
@@ -79,9 +102,11 @@
   }
 }
 </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
-  </body>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="index.tsx"></script>
+</body>
+
 </html>

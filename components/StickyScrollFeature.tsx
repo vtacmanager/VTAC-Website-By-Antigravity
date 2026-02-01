@@ -4,7 +4,9 @@ import React, { useState, useEffect, useRef } from 'react';
 export interface StickyScrollItem {
     id: string | number;
     title: string;
+    ipadTitle?: string;
     description: string;
+    details?: string;
     images: string[];
     tags?: string[];
     icon?: React.ReactNode;
@@ -176,15 +178,15 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                     {/* Power Button */}
                     <div className="w-12 md:w-16 h-[6px] bg-gradient-to-t from-slate-600 to-slate-400 rounded-t-md shadow-[0_-2px_4px_rgba(0,0,0,0.5)] border-t border-x border-white/10"></div>
 
-                    {/* Volume Up */}
-                    <div className="w-8 md:w-10 h-[5px] bg-gradient-to-t from-slate-600 to-slate-400 rounded-t-md shadow-[0_-2px_4px_rgba(0,0,0,0.5)] border-t border-x border-white/10 ml-4"></div>
+                    {/* Volume Up - Silver Finish */}
+                    <div className="w-8 md:w-10 h-[5px] bg-gradient-to-t from-slate-400 to-slate-200 rounded-t-md shadow-[0_-2px_4px_rgba(0,0,0,0.3)] border-t border-x border-white/20 ml-4"></div>
 
-                    {/* Volume Down */}
-                    <div className="w-8 md:w-10 h-[5px] bg-gradient-to-t from-slate-600 to-slate-400 rounded-t-md shadow-[0_-2px_4px_rgba(0,0,0,0.5)] border-t border-x border-white/10"></div>
+                    {/* Volume Down - Silver Finish */}
+                    <div className="w-8 md:w-10 h-[5px] bg-gradient-to-t from-slate-400 to-slate-200 rounded-t-md shadow-[0_-2px_4px_rgba(0,0,0,0.3)] border-t border-x border-white/20"></div>
                 </div>
 
-                {/* THE TABLET FRAME */}
-                <div className="relative p-[5px] md:p-[7px] bg-gradient-to-b from-slate-400/30 via-slate-700/80 to-slate-900 rounded-[2rem] md:rounded-[4.5rem] shadow-[0_60px_120px_-30px_rgba(0,0,0,1)] border border-white/5">
+                {/* THE TABLET FRAME - Silver Aluminum Aesthetic */}
+                <div className="relative p-[5px] md:p-[7px] bg-gradient-to-b from-slate-200 via-slate-400 to-slate-500 rounded-[2rem] md:rounded-[4.5rem] shadow-[0_60px_120px_-30px_rgba(0,0,0,1)] border border-white/20">
 
                     {/* Bezel */}
                     <div className="relative bg-[#080808] p-3 md:p-8 rounded-[1.7rem] md:rounded-[3.8rem] overflow-hidden shadow-inner aspect-[4/3.5] md:aspect-[3/2]">
@@ -225,28 +227,28 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                                             {/* Subtle Glow behind text */}
                                             <div className="absolute -inset-10 bg-gradient-to-l from-black/60 to-transparent blur-2xl opacity-80 rounded-[3rem]"></div>
 
-                                            <div className="relative space-y-4 md:space-y-6 flex flex-col items-end">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="h-px w-12 md:w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
-                                                    <div className="bg-white/10 backdrop-blur-xl p-2 md:p-4 rounded-xl border border-white/20 text-white shadow-2xl">
+                                            <div className="relative space-y-2 md:space-y-3 flex flex-col items-end">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="h-px w-8 md:w-16 bg-gradient-to-l from-white/40 to-transparent"></div>
+                                                    <div className="bg-white/10 backdrop-blur-xl p-1.5 md:p-3 rounded-lg border border-white/20 text-white shadow-2xl">
                                                         {React.isValidElement(item.icon)
-                                                            ? React.cloneElement(item.icon as React.ReactElement<any>, { className: 'w-4 h-4 md:w-8 md:h-8' })
+                                                            ? React.cloneElement(item.icon as React.ReactElement<any>, { className: 'w-3 h-3 md:w-6 md:h-6' })
                                                             : item.icon
                                                         }
                                                     </div>
                                                 </div>
 
-                                                <h5 className="text-white text-2xl md:text-5xl font-black italic uppercase tracking-tighter leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                                                    {item.title}
+                                                <h5 className="text-white text-xl md:text-3xl font-black italic uppercase tracking-tighter leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                                                    {item.ipadTitle || item.title}
                                                 </h5>
-                                                <p className="text-slate-100 text-[11px] md:text-xl font-bold leading-tight md:leading-relaxed max-w-[180px] xs:max-w-xs md:max-w-lg drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
-                                                    {item.description}
+                                                <p className="text-slate-100 text-[10px] md:text-base font-bold leading-tight md:leading-relaxed max-w-[160px] xs:max-w-[200px] md:max-w-md drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
+                                                    {item.details || item.description}
                                                 </p>
 
                                                 {item.tags && (
-                                                    <div className="flex flex-wrap gap-2 pt-2 justify-end">
+                                                    <div className="flex flex-wrap gap-1.5 pt-1 justify-end">
                                                         {item.tags.map((tag, i) => (
-                                                            <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-md border border-white/10 text-[9px] font-black uppercase tracking-widest text-white/80">
+                                                            <div key={i} className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-white/10 backdrop-blur-md border border-white/10 text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white/80">
                                                                 <div className="w-1 h-1 rounded-full bg-current" style={{ color: activeHexColor }}></div>
                                                                 <span>{tag}</span>
                                                             </div>

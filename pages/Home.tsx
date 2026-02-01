@@ -167,25 +167,25 @@ const manifestoItems = [
   {
     icon: Layers,
     title: '1. ONE UNIFIED PLATFORM',
-    desc: 'Replace fragmented tools for scheduling, communication, attendance, live game report and record, and tactics with a single unified system.',
+    desc: 'Stop Operational Chaos. Replace fragmented tools for scheduling, chat, and match reports with one seamless, high-performance ecosystem.',
     image: '/images/Section2-1.webp'
   },
   {
     icon: Globe,
     title: '2. REMOTE-READY BY DESIGN',
-    desc: 'When weather or conflicts disrupt sessions, VTAC keeps teams aligned through interactive, multiplayer tactical training.',
+    desc: 'Practice Without Boundaries. Turn weather disruptions into elite training opportunities with real-time, multiplayer tactical sessions on any device.',
     image: '/images/Section2-2.webp'
   },
   {
     icon: TrendingUp,
     title: '3. PLAYER DEVELOPMENT AT SCALE',
-    desc: 'Automatically build player histories and development records across seasons — not just individual sessions.',
+    desc: 'Build a Digital Legacy. Automate player growth tracking with professional CVs and multi-season histories backed by real-time data.',
     image: '/images/Section2-3.webp'
   },
   {
     icon: Users,
-    title: '4. STRONGER TEAMS, LOWER DROP-OFF',
-    desc: 'Engagement drives retention. VTAC helps teams stay connected, aligned, and committed long-term.',
+    title: '4. STRONGER BONDS, LASTING COMMITMENT',
+    desc: 'Build a Culture, Not Just a Roster. Teams that learn together, stay together. VTAC creates a deep sense of belonging that keeps players inspired and parents engaged, ensuring your sports community stays together season after season.',
     image: '/images/Section2-4.webp'
   }
 ];
@@ -194,6 +194,7 @@ const managementStages = [
   {
     id: 'problem',
     title: 'The Problem',
+    ipadTitle: 'THE FRAGMENTED REALITY',
     icon: <AlertCircle className="w-6 h-6 md:w-8 md:h-8" />,
     color: 'purple',
     accent: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
@@ -203,12 +204,13 @@ const managementStages = [
       '/images/Section3-1.2.webp',
       '/images/Section3-1.3.webp'
     ],
-    details: 'Chaotic workflows lead to a 40% reduction in tactical retention among academy players.',
-    tags: ['Fragmented Tools', 'Communication Gaps', 'Manual Tracking']
+    details: 'Scattered data and administrative bloat lead to a 40% drop in tactical retention. While aligning an entire squad is difficult, verifying who truly understands the plan is nearly impossible—leaving coaches blind to tactical gaps until it\'s too late on match day.',
+    tags: ['Admin Burnout', 'Invisible Tactical Gaps', 'Scattered Data']
   },
   {
     id: 'solution',
-    title: 'Our Solution',
+    title: 'The Solution',
+    ipadTitle: 'THE INTEGRATED APPROACH',
     icon: <Sparkles className="w-6 h-6 md:w-8 md:h-8" />,
     color: 'orange',
     accent: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
@@ -218,12 +220,13 @@ const managementStages = [
       '/images/Section3-2.2.webp',
       '/images/Section3-2.3.webp'
     ],
-    details: 'A unified digital home for your club philosophy, accessible anywhere through our patented engine.',
-    tags: ['Unified Dashboard', 'Real-time Sync', 'Patented Engine']
+    details: 'VTAC unifies team organization and management with our patented Interactive Remote Tactics engine. One digital home to deliver your club philosophy to every player—ensuring total tactical clarity on any device, anywhere, anytime.',
+    tags: ['Unified Management', 'Patented Tactical Engine', 'Real-time Sync']
   },
   {
     id: 'outcome',
     title: 'The Outcome',
+    ipadTitle: 'THE PERFORMANCE EDGE',
     icon: <Trophy className="w-6 h-6 md:w-8 md:h-8" />,
     color: 'green',
     accent: 'bg-green-500/10 text-green-400 border-green-500/20',
@@ -233,8 +236,8 @@ const managementStages = [
       '/images/Section3-3.2.webp',
       '/images/Section3-3.3.webp'
     ],
-    details: 'Elite performance standards achieved through measurable growth and consistent tactical alignment.',
-    tags: ['Measurable Growth', 'Performance Edge', 'Coaching Mastery']
+    details: 'VTAC streamlines management, making it fast and simple for everyone to stay in sync. By ensuring coaches and players share one clear tactical vision, teams play with total confidence and perfect execution—achieving elite standards through measurable, data-driven growth.',
+    tags: ['Tactical Mastery', 'Performance Edge', 'Trackable Growth']
   }
 ];
 
@@ -242,41 +245,44 @@ const coverageItems = [
   {
     id: 'ops',
     title: 'Club & Academy Operations',
+    description: 'Streamline your organization and eliminate administrative friction.',
     icon: <Settings className="w-10 h-10 md:w-16 md:h-16" />,
     color: 'purple',
     image: '/images/Section5.1.webp',
     features: [
-      'Multi-team & role management',
-      'Unified scheduling (Train/Match)',
-      'Real-time attendance tracking',
-      'Centralized team announcements',
-      'Coaches, Players & Parents access'
+      'Multi-Team Management',
+      'Unified Scheduling (Train/Match)',
+      'Live Attendance & Availability',
+      'Centralized Communication',
+      'Total Access'
     ]
   },
   {
     id: 'tactics',
     title: 'Interactive Tactical Training Engine',
+    description: 'Bring your philosophy to life with our patented visual engine.',
     icon: <Gamepad2 className="w-10 h-10 md:w-16 md:h-16" />,
     color: 'orange',
     image: '/images/Section5.2.webp',
     features: [
-      'Multiplayer tactical sessions',
-      'Live & Asynchronous access',
-      'Intuitive learning environment',
-      'Repeatable session templates'
+      'Patented Multiplayer Sessions',
+      'Hybrid Training (Live & Async)',
+      'Visual Learning Environment',
+      'Tactical Libraries'
     ]
   },
   {
     id: 'dev',
-    title: 'Player Development System',
+    title: 'Performance & Legacy System',
+    description: 'Build a digital history of growth for every member of your club.',
     icon: <BarChart3 className="w-10 h-10 md:w-16 md:h-16" />,
     color: 'green',
     image: '/images/Section5.3.webp',
     features: [
-      'Auto-generated Player CVs',
-      'Individual development plans (IDP)',
-      'Performance & participation reports',
-      'Multi-season learning history'
+      'Dynamic CVs',
+      'Individual Development Plans (IDP)',
+      'Participation & Performance Logs',
+      'Multi-Season History'
     ]
   }
 ];
@@ -480,12 +486,18 @@ const Home: React.FC = () => {
           </div>
           <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase py-4">
             <span className="text-6xl md:text-[8rem] block leading-[0.9] mb-1">ONE PLATFORM</span>
-            <span className="gradient-text text-3xl md:text-[4.5rem] block tracking-tight leading-[0.9]">SMARTER TEAM TRAINING</span>
+            <span className="gradient-text text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] italic">SMART MANAGEMENT</span>
+            <div className="relative inline-block overflow-visible">
+              {/* Animated Background Glow */}
+              <div className="absolute -inset-4 bg-orange-500/30 blur-[40px] rounded-full animate-[breathe-glow_4s_ease-in-out_infinite]"></div>
+              <span className="relative text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] mt-2 italic pr-8 overflow-visible" style={{
+                color: '#fb923c',
+                filter: 'drop-shadow(0 0 25px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 50px rgba(251, 146, 60, 0.4))'
+              }}>INTERACTIVE TRAINING&nbsp;</span>
+            </div>
           </h1>
           <p className="text-lg md:text-xl font-medium text-slate-400 max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            VTAC Manager is an all-in-one platform for modern team sports. Train, manage, and develop <br className="hidden md:block" />
-            your team through interactive remote tactical sessions — accessible on mobile and web — <br className="hidden md:block" />
-            so coaches, players, and staff can stay connected anytime, anywhere.
+            The complete digital ecosystem for modern sports. From smart scheduling and live match updates to automated player development and the world's first multiplayer tactical engine - everything your club needs to win, on and off the pitch.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full px-6 sm:px-0">
             <button className="bg-white text-black text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-cyan-400 transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-cyan-500/20 uppercase w-full sm:w-auto">
@@ -561,13 +573,15 @@ const Home: React.FC = () => {
                 </span>
                 <span>THE END OF TOOLS FRAGMENTATION</span>
               </div>
-              <h2 className="text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase italic">
-                <span className="text-white">Why VTAC</span> <br className="hidden md:block" />
-                <span className="gradient-text md:pr-12 inline-block">Manager?</span>
+              <h2 className="font-black tracking-tighter uppercase italic flex flex-col space-y-1">
+                <span className="text-white italic text-3xl md:text-[5rem] leading-none">CLOSING</span>
+                <span className="gradient-text italic text-2xl md:text-[3.5rem] md:pr-12 leading-none">THE GAP</span>
+                <span className="text-white italic text-3xl md:text-[5rem] leading-none mt-2">UNITING</span>
+                <span className="gradient-text italic text-2xl md:text-[3.5rem] md:pr-12 leading-none">THE TEAM</span>
               </h2>
             </div>
             <p className="text-lg md:text-xl text-slate-300 font-bold leading-relaxed italic border-l-4 border-cyan-500 pl-6 py-2">
-              Built from the ground up to solve the real challenges faced by modern teams.
+              Built to bridge the divide between coaching and execution—keeping your team aligned, even when they're apart.
             </p>
             <div className="grid gap-4 md:gap-4 mt-8 flex-grow">
               {manifestoItems.map((item, i) => (
@@ -590,12 +604,12 @@ const Home: React.FC = () => {
               {/* Background Glow */}
               <div className="absolute -inset-10 bg-cyan-500/20 blur-[30px] md:blur-[60px] rounded-full opacity-50 transition-all duration-1000 group-hover:opacity-80"></div>
 
-              {/* Volume Buttons (Right Side) */}
-              <div className="absolute -right-[3px] top-32 w-[4px] h-12 bg-slate-600 rounded-r-md z-0 shadow-[1px_0_2px_rgba(0,0,0,0.5)]"></div>
-              <div className="absolute -right-[3px] top-48 w-[4px] h-12 bg-slate-600 rounded-r-md z-0 shadow-[1px_0_2px_rgba(0,0,0,0.5)]"></div>
+              {/* Volume Buttons (Right Side) - Silver Aluminum Finish */}
+              <div className="absolute -right-[3px] top-32 w-[4px] h-12 bg-slate-400 rounded-r-md z-0 shadow-[1px_0_1px_rgba(0,0,0,0.3)]"></div>
+              <div className="absolute -right-[3px] top-48 w-[4px] h-12 bg-slate-400 rounded-r-md z-0 shadow-[1px_0_1px_rgba(0,0,0,0.3)]"></div>
 
-              {/* REFINED FRAME: p-[5px] for "a bit thicker" look while remaining sleek */}
-              <div className="relative p-[5px] bg-slate-700 rounded-[3rem] shadow-[0_0_80px_rgba(0,0,0,0.6)] border border-slate-600/50 w-full overflow-hidden z-10">
+              {/* REFINED FRAME: Silver Aluminum Aesthetic */}
+              <div className="relative p-[5px] bg-gradient-to-b from-slate-200 via-slate-400 to-slate-500 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.6)] border border-white/20 w-full overflow-hidden z-10">
                 <div className="relative bg-slate-950 rounded-[2.7rem] overflow-hidden aspect-[9/19] shadow-inner">
                   {/* SCALED NOTCH */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-4 bg-black rounded-b-xl z-30 flex items-center justify-center gap-2">
@@ -609,7 +623,7 @@ const Home: React.FC = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                         {/* Message Overlay on Phone Screen */}
                         <div className={`absolute inset-0 flex items-center justify-center p-6 text-center transition-all duration-700 delay-300 ${activeIndex === i ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                          <p className="text-white font-bold text-xs md:text-sm leading-relaxed drop-shadow-lg uppercase tracking-wider bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                          <p className="text-white font-bold text-xs md:text-sm leading-relaxed drop-shadow-lg uppercase tracking-wider bg-gradient-to-br from-blue-500/20 via-white/10 to-purple-500/20 backdrop-blur-md p-4 rounded-2xl border border-cyan-500/50">
                             {item.desc}
                           </p>
                         </div>
@@ -644,15 +658,17 @@ const Home: React.FC = () => {
               <span>Built for How Teams Train Today</span>
             </div>
             <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center py-4 italic">
-              <span className="text-white block">More Than</span>
-              <span className="gradient-text block">Management</span>
+              <span className="text-white block">BEYOND</span>
+              <span className="gradient-text block pr-8 overflow-visible">Management&nbsp;</span>
             </h2>
           </div>
         }
         items={managementStages.map(stage => ({
           id: stage.id,
           title: stage.title,
+          ipadTitle: stage.ipadTitle,
           description: stage.desc,
+          details: stage.details,
           images: stage.images,
           icon: stage.icon,
           color: stage.color,
@@ -661,45 +677,24 @@ const Home: React.FC = () => {
       />
 
       {/* 4. Problem & Solution (The Comparison) */}
-      <SectionWrapper ref={section4Ref} className="relative overflow-visible py-32 md:py-48">
+      <SectionWrapper ref={section4Ref} className="relative overflow-visible pt-12 pb-24 md:pt-20 md:pb-40">
         {/* Dynamic Background Blurs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/5 blur-[40px] md:blur-[120px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 blur-[40px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="relative z-10">
-          <div className="text-center mb-12 md:mb-16">
-            <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-white/40 text-[10px] font-black uppercase tracking-[0.4em] border border-white/5 mb-8">
+          <div className="text-center space-y-6 max-w-4xl mx-auto px-6">
+            <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] border border-white/10">
+              <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"></div>
               <span>System Evolution</span>
             </div>
-            <h2 className="font-black flex flex-col items-center leading-none overflow-visible w-full">
-              <div className="relative group/evo overflow-visible w-full text-center">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-[60px] md:blur-[100px] opacity-60 group-hover:opacity-100 transition duration-1000 scale-125 animate-[breathe_6s_ease-in-out_infinite]"></div>
-                <span className="text-5xl md:text-8xl lg:text-[10rem] text-white/20 select-none relative z-10 tracking-tight leading-none block uppercase">EVOLUTION</span>
-              </div>
-
-              <div className="relative mt-2 md:mt-8 lg:-mt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] items-center z-20 w-full px-4 lg:px-0 overflow-visible">
-                <div className="text-center lg:text-right lg:pr-12 overflow-visible">
-                  <span className="text-3xl md:text-5xl lg:text-[7rem] text-white relative z-10 font-black italic leading-tight lg:leading-[0.8] block">
-                    OLD<br className="hidden lg:block" /> MESS
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-center py-2 lg:py-0">
-                  <div className="hidden lg:block h-px w-8 lg:w-12 bg-white/10"></div>
-                  <span className="text-xl md:text-3xl lg:text-5xl text-cyan-500 font-black italic z-20 px-4 lg:px-8">VS</span>
-                  <div className="hidden lg:block h-px w-8 lg:w-12 bg-white/10"></div>
-                </div>
-
-                <div className="text-center lg:text-left lg:pl-12 overflow-visible">
-                  <span className="text-3xl md:text-5xl lg:text-[7rem] gradient-text relative z-10 font-black italic leading-tight lg:leading-[0.8] block pr-12 lg:pr-0">
-                    VTAC<br className="hidden lg:block" /> FLOW
-                  </span>
-                </div>
-              </div>
+            <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center italic">
+              <span className="text-white block">FROM CHAOS</span>
+              <span className="gradient-text block">TO CLARITY</span>
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 lg:items-stretch gap-8 md:gap-12 max-w-7xl mx-auto px-4 md:px-0">
+          <div className="grid lg:grid-cols-2 lg:items-stretch gap-8 md:gap-12 max-w-7xl mx-auto px-4 md:px-0 mt-16">
             {/* The Old Way */}
             <div className={`relative group min-h-full transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'scale-[1.02]' : 'scale-100'}`}>
               <div className={`absolute -inset-1 bg-gradient-to-b from-red-500/20 to-transparent blur-xl transition-opacity duration-1000 ${activeEvolutionGlow === 0 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}></div>
@@ -707,7 +702,7 @@ const Home: React.FC = () => {
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
                     <span className="text-red-500/60 text-[10px] font-black uppercase tracking-widest leading-none">Legacy System</span>
-                    <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white/90">The Fragmented Mess</h3>
+                    <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white/90">THE FRAGMENTED CHAOS</h3>
                   </div>
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 border border-red-500/20 shadow-lg shadow-red-500/10 animate-pulse z-30 shrink-0">
                     <X className="w-6 h-6 md:w-8 md:h-8" />
@@ -716,10 +711,11 @@ const Home: React.FC = () => {
 
                 <div className="grid gap-6">
                   {[
-                    { title: 'Information Silos', desc: 'Critical instructions buried in messy WhatsApp groups.' },
-                    { title: 'Manual Tracking', desc: 'Coaches wasting hours on paper spreadsheets.' },
-                    { title: 'Static Methods', desc: 'Tactical plans delivered in outdated, static PDFs.' },
-                    { title: 'Zero Feedback', desc: 'No real-time insight into player understanding.' }
+                    { title: 'Information Silos', desc: 'Critical instructions lost in fragmented group chats and endless messaging threads.' },
+                    { title: 'Manual Workflows', desc: 'Coaches wasting hours on paper logs and scattered spreadsheets.' },
+                    { title: 'Static Learning', desc: 'Tactical plans delivered via outdated PDFs and one-way video.' },
+                    { title: 'Invisible Progress', desc: 'Zero insight into player understanding until the match starts.' },
+                    { title: 'Vanishing Data', desc: 'Statistics and professional CVs lost between seasons.' }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-6 p-6 rounded-3xl bg-white/[0.02] border border-white/5 group/item hover:bg-red-500/[0.03] transition-colors">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
@@ -749,10 +745,11 @@ const Home: React.FC = () => {
 
                 <div className="grid gap-6">
                   {[
-                    { title: 'Centralized Hub', desc: 'One single, secure dashboard for all communications.' },
-                    { title: 'Auto-Automation', desc: 'Real-time attendance and player performance tracking.' },
-                    { title: 'Interactive Tactical', desc: 'Multi-player interactive board sessions on any device.' },
-                    { title: 'Live Sync', desc: 'Our patented engine keeps every player in sync, live.' }
+                    { title: 'Centralized Hub', desc: 'One secure, high-performance dashboard for all team communications.' },
+                    { title: 'Intelligent Automation', desc: 'Instant attendance, performance logs, and player health tracking.' },
+                    { title: 'Patented Tactical Engine', desc: 'Multi-player interactive sessions that bring plans to life, live.' },
+                    { title: 'Real-Time Synergy', desc: 'Our live-sync technology ensures every player is on the same page, always.' },
+                    { title: 'Digital Legacy', desc: 'Automated history for both players and coaches.' }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-6 p-6 rounded-3xl bg-cyan-500/[0.05] border border-cyan-500/10 group/item hover:bg-cyan-500/[0.08] transition-colors">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0 shadow-[0_0_10px_rgba(34,211,238,0.8)] group-hover/item:scale-150 transition-transform"></div>
@@ -770,32 +767,32 @@ const Home: React.FC = () => {
       </SectionWrapper>
 
       {/* 5. What VTAC Manager Covers (NOTEBOOK DESIGN) */}
-      <SectionWrapper ref={section5Ref} id="coverage" className="bg-slate-950 overflow-visible">
-        <div className="text-center mb-10 overflow-visible">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em] mb-4">
+      <SectionWrapper ref={section5Ref} id="coverage" className="bg-slate-950 overflow-visible pt-12 pb-24 md:pt-20 md:pb-40">
+        <div className="text-center space-y-6 max-w-4xl mx-auto px-6 overflow-visible">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em]">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
             <span>Everything You Need to Run a High-Performance Team</span>
           </div>
-          <h2 className="font-black uppercase flex flex-col items-center italic overflow-visible leading-[0.78] md:leading-[0.72] tracking-tighter">
-            <span className="text-4xl md:text-7xl text-white">WHAT</span>
+          <h2 className="font-black uppercase flex flex-col items-center italic overflow-visible leading-[1.05] tracking-tighter">
+            <span className="text-3xl xs:text-4xl md:text-8xl text-white block">WHAT</span>
             <div className="relative overflow-visible">
-              <span className="text-4xl md:text-7xl gradient-text whitespace-nowrap px-12 block py-0">VTAC MANAGER</span>
+              <span className="text-3xl xs:text-4xl md:text-8xl gradient-text whitespace-nowrap px-12 block py-0">VTAC MANAGER</span>
             </div>
-            <span className="text-4xl md:text-7xl text-white">COVERS</span>
+            <span className="text-3xl xs:text-4xl md:text-8xl text-white block">COVERS</span>
           </h2>
         </div>
 
-        <div className="max-w-[105rem] mx-auto relative px-6 group/laptop">
+        <div className="max-w-[105rem] mx-auto relative px-6 group/laptop mt-20">
           {/* Immersive Ambient Glow behind Laptop - Dynamic Color Sync */}
           <div className={`absolute -inset-32 bg-${coverageItems[selectedCoverage].color}-500/20 blur-[60px] md:blur-[180px] rounded-full transition-all duration-1000 opacity-50 group-hover/laptop:opacity-80 animate-[breathe_8s_ease-in-out_infinite]`}></div>
           <div className={`absolute -inset-16 bg-${coverageItems[selectedCoverage].color}-400/10 blur-[40px] md:blur-[100px] rounded-full transition-all duration-1000 opacity-30 group-hover/laptop:opacity-50`}></div>
 
           <div className="relative mx-auto w-full transition-all duration-700 perspective-[3000px]">
             {/* THE LAPTOP LID (SCREEN) - Wider on mobile for better readability */}
-            <div className="relative w-full md:max-w-[85%] mx-auto p-[1px] bg-gradient-to-b from-slate-400 via-slate-600 to-slate-900 rounded-t-[1.5rem] md:rounded-t-[3.5rem] shadow-[0_40px_80px_rgba(0,0,0,0.8)] overflow-hidden transform border-t border-white/20 z-10">
+            <div className="relative w-full md:max-w-[85%] mx-auto p-[1px] bg-gradient-to-b from-slate-200 via-slate-400 to-slate-500 rounded-t-[1.5rem] md:rounded-t-[1rem] shadow-[0_40px_80px_rgba(0,0,0,0.8)] overflow-hidden transform border-t border-white/20 z-10">
 
               {/* Inner Metallic Frame */}
-              <div className="relative p-1.5 md:p-3 bg-slate-950 rounded-t-[1.3rem] md:rounded-t-[3.2rem] overflow-hidden">
+              <div className="relative p-1.5 md:p-3 bg-slate-950 rounded-t-[1.3rem] md:rounded-t-[0.9rem] overflow-hidden">
 
                 {/* MACBOOK NOTCH */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 md:w-64 h-4 md:h-8 bg-black rounded-b-2xl z-40 flex items-center justify-center border-x border-b border-white/5">
@@ -805,22 +802,25 @@ const Home: React.FC = () => {
                 </div>
 
                 {/* THE ACTUAL SCREEN CONTENT - More vertical on mobile (3:4 or 1:1) to fit text */}
-                <div className="relative bg-black rounded-t-[1.1rem] md:rounded-t-[2.5rem] overflow-hidden aspect-[3/4.5] md:aspect-[16/10] lg:aspect-[16/9.5] border-[1px] border-white/5 shadow-2xl">
+                <div className="relative bg-black rounded-t-[1.1rem] md:rounded-t-[0.6rem] overflow-hidden aspect-[3/4.5] md:aspect-[16/10] lg:aspect-[16/9.5] border-[1px] border-white/5 shadow-2xl transition-colors duration-700">
                   {coverageItems.map((item, idx) => (
                     <div key={item.id} className={`absolute inset-0 transition-all duration-1000 ease-out ${selectedCoverage === idx ? 'opacity-100' : 'opacity-0'}`}>
                       <img
                         src={item.image}
-                        className={`w-full h-full object-cover opacity-60 transition-transform duration-[10000ms] ease-out ${selectedCoverage === idx ? 'scale-110' : 'scale-100'}`}
+                        className={`w-full h-full object-cover opacity-90 transition-transform duration-[10000ms] ease-out ${selectedCoverage === idx ? 'scale-110' : 'scale-100'}`}
                         alt={item.title}
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/10 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/10 to-transparent"></div>
 
-                      <div className="absolute top-6 md:top-10 lg:top-14 left-6 md:left-10 lg:left-16 right-6 md:right-0 max-w-xl text-left z-20">
+                      <div className="absolute top-6 md:top-12 lg:top-16 left-6 md:left-12 lg:left-20 right-6 md:right-0 max-w-4xl text-left z-20">
                         <div className={`space-y-2 md:space-y-3 transition-all duration-1000 transform ${selectedCoverage === idx ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`}>
                           <h4 className="text-xl md:text-2xl lg:text-3xl font-black italic uppercase tracking-tighter text-white leading-[0.9] drop-shadow-2xl pr-4">
                             {item.title}
                           </h4>
+                          <p className="text-white/90 text-[10px] md:text-sm lg:text-base font-semibold mb-2 md:mb-4 drop-shadow-md max-w-3xl leading-tight mt-1 md:mt-2">
+                            {item.description}
+                          </p>
                           <div className="space-y-1 md:space-y-1 mt-2 md:mt-2 lg:mt-3">
                             {item.features.map((feature, fIdx) => (
                               <p key={fIdx} className="text-[9px] md:text-[12px] lg:text-[14px] text-slate-100 font-bold drop-shadow-md flex items-center gap-2">
@@ -842,8 +842,8 @@ const Home: React.FC = () => {
                         <button
                           key={navItem.id}
                           onClick={(e) => { e.stopPropagation(); handleManualSelect5(navIdx); }}
-                          className={`group/nav relative p-2 md:p-3 lg:p-5 rounded-[0.8rem] md:rounded-[1rem] lg:rounded-[1.5rem] border transition-all duration-500 flex flex-col items-center justify-center text-center backdrop-blur-md ${selectedCoverage === navIdx
-                            ? `bg-white/10 border-white/20 shadow-[0_0_40px_rgba(0,0,0,0.3)] scale-[1.05]`
+                          className={`group/nav relative p-2 md:p-3 lg:p-5 rounded-[0.8rem] md:rounded-[1rem] lg:rounded-[1.5rem] border transition-all duration-500 flex flex-col items-center justify-center text-center ${selectedCoverage === navIdx
+                            ? `bg-transparent ${navItem.color === 'purple' ? 'border-purple-500/60' : navItem.color === 'orange' ? 'border-orange-500/60' : 'border-green-500/60'} shadow-[0_0_40px_rgba(0,0,0,0.3)] scale-[1.05]`
                             : `bg-white/0 border-white/10 opacity-60 hover:opacity-100 hover:bg-white/5`
                             }`}
                         >
@@ -852,10 +852,10 @@ const Home: React.FC = () => {
                             <div className={`absolute -inset-2 bg-${navItem.color}-500/20 blur-2xl rounded-full animate-pulse pointer-events-none`}></div>
                           )}
 
-                          <div className={`relative z-10 w-6 h-6 md:w-8 lg:w-12 md:h-8 lg:h-12 rounded-lg flex items-center justify-center mb-1 md:mb-1.5 transition-all duration-500 ${selectedCoverage === navIdx ? `bg-${navItem.color}-500 text-white shadow-[0_0_25px_rgba(0,0,0,0.3)]` : 'bg-white/5 text-slate-400'}`}>
+                          <div className={`relative z-10 w-6 h-6 md:w-8 lg:w-12 md:h-8 lg:h-12 rounded-lg flex items-center justify-center mb-1 md:mb-1.5 transition-all duration-500 ${selectedCoverage === navIdx ? `bg-${navItem.color}-500 text-white shadow-[0_0_25px_rgba(0,0,0,0.5)] drop-shadow-lg` : 'bg-white/5 text-slate-400'}`}>
                             {React.cloneElement(navItem.icon as React.ReactElement<any>, { className: 'w-3 h-3 md:w-4 lg:w-6 md:h-4 lg:h-6' })}
                           </div>
-                          <h5 className={`relative z-10 text-[7px] md:text-[9px] lg:text-[13px] font-black uppercase tracking-widest italic leading-none transition-colors ${selectedCoverage === navIdx ? `text-${navItem.color}-400` : 'text-slate-500'}`}>
+                          <h5 className={`relative z-10 text-[7px] md:text-[9px] lg:text-[13px] font-black uppercase tracking-widest italic leading-none transition-colors ${selectedCoverage === navIdx ? `text-${navItem.color}-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]` : 'text-slate-500'}`}>
                             {navItem.title}
                           </h5>
                           {selectedCoverage === navIdx && isAutoPlayingSection5 && (
@@ -872,10 +872,10 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* THE LAPTOP BASE (CHASSIS) - Thinner, Wider, and Curved */}
+            {/* THE LAPTOP BASE (CHASSIS) - Thinner, Wider, and Curved - Silver Aluminum */}
             <div className="relative w-full h-4 md:h-7 bg-slate-800 shadow-[0_40px_120px_rgba(0,0,0,1)] border-x border-b border-white/10 flex flex-col items-center -mt-[1px] z-20 rounded-b-[2rem] md:rounded-b-[4rem]"
               style={{
-                backgroundImage: 'linear-gradient(to bottom, #475569, #1e293b, #0f172a)'
+                backgroundImage: 'linear-gradient(to bottom, #f1f5f9, #94a3b8, #475569)'
               }}>
 
               {/* Metallic Lip Detail */}
@@ -901,7 +901,7 @@ const Home: React.FC = () => {
         <div className="flex flex-col items-center mb-16 space-y-4">
           <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] border border-white/10">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
-            <span className="uppercase">YOUR TEAM TRAINS SMARTER, PLAYS BETTER, AND GROWS TOGETHER — ON AND OFF THE PITCH</span>
+            <span className="uppercase">SMARTER TRAINING. BETTER PERFORMANCE. STRONGER UNITY.</span>
           </div>
           <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-[0.85]">
             <span className="text-white block">More Than</span>
@@ -911,27 +911,27 @@ const Home: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <FeatureCard
             icon={<Users className="w-8 h-8" />}
-            title="Logistics Suite"
+            title="Operations Core"
             tag="Management"
-            description="Manage rosters, attendance, and player health profiles with enterprise-grade security."
+            description="Manage rosters, live attendance, and player health profiles with enterprise-grade security. Everything you need to run a professional organization."
           />
           <FeatureCard
-            icon={<MousePointer2 className="w-8 h-8" />}
+            icon={<div className="relative w-8 h-8"><Gamepad2 className="w-6 h-6 absolute top-0 left-0 z-10" /><Gamepad2 className="w-6 h-6 absolute bottom-0 right-0 opacity-50" /></div>}
             title="Tactical Sync"
             tag="Interactive"
-            description="Patented multiplayer technology allowing real-time positional movement for players."
+            description="Master tactics through play. Our patented tech turns plans into a live, game-like experience that's interactive and fun for the whole squad."
           />
           <FeatureCard
             icon={<Smartphone className="w-8 h-8" />}
-            title="Logistics"
-            tag="Remote"
-            description="Host tactical sessions from a tablet or phone. Remote training has never been this effective."
+            title="Remote Mastery"
+            tag="FLEXIBILITY"
+            description="Host elite tactical briefings from any device, anywhere. Turn cancellations or travel time into high-value remote training opportunities."
           />
           <FeatureCard
             icon={<Target className="w-8 h-8" />}
-            title="Growth Engine"
-            tag="Player CV"
-            description="Build long-term histories for player understanding and performance across every season."
+            title="Legacy Builder"
+            tag="PLAYER & COACH CV"
+            description="Build automated, multi-season performance histories. A professional digital portfolio that tracks growth and success for every member."
           />
         </div>
       </SectionWrapper>
@@ -1030,11 +1030,11 @@ const Home: React.FC = () => {
             <div className="absolute -top-10 -right-10 w-[300px] h-[300px] bg-blue-500/30 blur-[60px] rounded-full opacity-30 group-hover:opacity-60 transition-all duration-1000 animate-[breathe_8s_infinite]"></div>
             <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-purple-500/40 blur-[40px] rounded-full opacity-20 group-hover:opacity-50 transition-all duration-1000"></div>
 
-            <div className="relative w-full max-w-[540px] aspect-[0.7/1] lg:aspect-auto lg:h-full bg-slate-800 rounded-[2rem] md:rounded-[2.5rem] p-1.5 shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-slate-700/50 flex flex-col group-hover:border-cyan-500/30 transition-colors duration-700 backface-visibility-hidden transform-gpu translate-z-0">
+            <div className="relative w-full max-w-[540px] aspect-[0.7/1] lg:aspect-auto lg:h-full bg-gradient-to-b from-slate-200 via-slate-400 to-slate-500 rounded-[2rem] md:rounded-[2.5rem] p-1.5 shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-white/20 flex flex-col group-hover:border-cyan-500/30 transition-colors duration-700 backface-visibility-hidden transform-gpu translate-z-0">
 
-              {/* Refined iPad Side Button */}
+              {/* Refined iPad Side Button - Silver Finish */}
               <div className="absolute top-20 -right-[2px] flex flex-col z-50">
-                <div className="w-[3px] h-10 bg-slate-600 rounded-l-sm border-l border-white/10 shadow-inner"></div>
+                <div className="w-[3px] h-10 bg-slate-400 rounded-l-sm border-l border-white/10 shadow-inner"></div>
               </div>
 
               <div className="relative flex-grow bg-slate-950 rounded-[1.8rem] md:rounded-[2.2rem] overflow-hidden border-[1px] border-slate-900 shadow-inner backface-visibility-hidden">
@@ -1137,6 +1137,10 @@ const Home: React.FC = () => {
         @keyframes breathe {
           0%, 100% { opacity: 0.4; transform: scale(1.2); }
           50% { opacity: 0.8; transform: scale(1.3); }
+        }
+        @keyframes breathe-glow {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.1); }
         }
         @keyframes shine {
           0% { transform: translateX(-100%) skewX(12deg); }
