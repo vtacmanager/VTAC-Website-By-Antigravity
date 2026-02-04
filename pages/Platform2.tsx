@@ -1,42 +1,51 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  SectionWrapper, 
-  GradientBackground, 
-  CTASection, 
-  FeatureCard 
+import {
+  SectionWrapper,
+  GradientBackground,
+  CTASection,
+  FeatureCard
 } from '../components/UI.tsx';
-import { 
-  Cpu, 
-  Zap, 
-  ShieldCheck, 
-  Activity, 
-  Layers, 
-  Network, 
-  Users, 
-  Target, 
-  MousePointer2, 
-  BarChart3, 
-  Clock, 
-  Globe, 
-  CheckCircle2, 
-  AlertCircle, 
-  TrendingUp, 
-  Workflow, 
-  Search, 
-  ChevronRight, 
-  Shield, 
-  X, 
-  Check, 
-  Monitor, 
-  LayoutDashboard, 
-  Calendar, 
-  MessageSquare, 
-  ClipboardList, 
-  FileText, 
+import ToolCabinetScrollytelling from '../components/ToolCabinetScrollytelling.tsx';
+import {
+  Cpu,
+  Zap,
+  ShieldCheck,
+  Activity,
+  Layers,
+  Network,
+  Users,
+  Target,
+  MousePointer2,
+  BarChart3,
+  Clock,
+  Globe,
+  CheckCircle2,
+  AlertCircle,
+  TrendingUp,
+  Workflow,
+  Search,
+  ChevronRight,
+  Shield,
+  X,
+  Check,
+  Monitor,
+  LayoutDashboard,
+  Calendar,
+  MessageSquare,
+  ClipboardList,
+  FileText,
   LineChart,
   Play,
   History,
-  Smartphone
+  Smartphone,
+  FileX,
+  CloudOff,
+  Gamepad2,
+  ArrowRight,
+  ArrowDown,
+  BrainCircuit,
+  GraduationCap,
+  Trophy
 } from 'lucide-react';
 
 /**
@@ -44,6 +53,31 @@ import {
  * Sports team management software, Interactive tactical training platform, 
  * Player development system, Remote interactive training.
  */
+
+const SimpleSlideshow = ({ images, interval = 3000, overlay }: { images: string[], interval?: number, overlay?: React.ReactNode }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [images.length, interval]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full">
+      {images.map((img, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === index ? 'opacity-100' : 'opacity-0'}`}
+        >
+          <img src={img} alt={`Slide ${i}`} className="w-full h-full object-cover" />
+        </div>
+      ))}
+      {overlay}
+    </div>
+  );
+};
 
 const Platform2: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -56,60 +90,60 @@ const Platform2: React.FC = () => {
   const stepTimerRef = useRef<number | null>(null);
 
   const pillarItems = [
-    { 
-      title: "MANAGEMENT", 
-      icon: <Layers />, 
+    {
+      title: "MANAGEMENT",
+      icon: <Layers />,
       tag: "The Foundation",
       display: {
         items: [
-          "🏀 Roster information", 
-          "🏀 Team Management", 
-          "🏀 Schedule", 
-          "🏀 Live Game", 
-          "🏀 Result", 
+          "🏀 Roster information",
+          "🏀 Team Management",
+          "🏀 Schedule",
+          "🏀 Live Game",
+          "🏀 Result",
           "🏀 Team Chat"
         ],
         image: "https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&q=80&w=1200",
         accent: "from-blue-500 to-cyan-500"
       }
     },
-    { 
-      title: "TRAINING", 
-      icon: <Zap />, 
+    {
+      title: "TRAINING",
+      icon: <Zap />,
       tag: "The Engine",
       display: {
         items: [
-          "🏉 Interactive, multiplayer tactical sessions", 
-          "🏉 Interactive Remote Training", 
-          "🏉 Interactive Ai Squad Training", 
+          "🏉 Interactive, multiplayer tactical sessions",
+          "🏉 Interactive Remote Training",
+          "🏉 Interactive Ai Squad Training",
           "🏉 Visual, intuitive learning environment"
         ],
         image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200",
         accent: "from-cyan-400 to-blue-600"
       }
     },
-    { 
-      title: "DEVELOPMENT", 
-      icon: <TrendingUp />, 
+    {
+      title: "DEVELOPMENT",
+      icon: <TrendingUp />,
       tag: "The Future",
       display: {
         items: [
-          "🏒 Auto-generated player CVs", 
-          "🏒 Individual development plans", 
+          "🏒 Auto-generated player CVs",
+          "🏒 Individual development plans",
           "🏒 Progress reports"
         ],
         image: "https://images.unsplash.com/photo-1510051644265-934cb9742558?auto=format&fit=crop&get=80&w=1200",
         accent: "from-purple-500 to-pink-500"
       }
     },
-    { 
-      title: "ALL-IN-ONE SOLUTION", 
-      icon: <LayoutDashboard />, 
+    {
+      title: "ALL-IN-ONE SOLUTION",
+      icon: <LayoutDashboard />,
       tag: "TEAM SPORT PLATFORM",
       display: {
         items: [
-          "⚽ Built for mobile and web", 
-          "⚽ Remote-ready by design", 
+          "⚽ Built for mobile and web",
+          "⚽ Remote-ready by design",
           "⚽ Football-first, multi-sport ready"
         ],
         image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=1200",
@@ -122,48 +156,52 @@ const Platform2: React.FC = () => {
   const timelineSteps = [
     {
       id: "before",
-      label: "Before Training or Match",
-      navLabel: "Before",
-      headline: "Plan. Prepare. Align.",
-      body: "Coaches plan sessions, organize schedules, and prepare tactical content in advance. Interactive remote sessions ensure every player understands the plan before stepping onto the pitch.",
-      bullets: ["Session & match planning", "Tactical visualization", "Pre-training remote alignment"],
+      label: "PRE-PITCH",
+      navLabel: "Pre-Pitch",
+      headline: "Tactical Blueprint",
+      body: "Don’t waste valuable pitch time. Use Interactive Remote Training to brief tactics from home or the locker room. Ensure every player is synchronized and ready to execute the moment they step onto the field.",
+      bullets: ["Smart Scheduling", "Interactive Briefing", "Blueprint Design"],
       icon: <Calendar className="w-6 h-6" />,
       image: "https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&q=80&w=1200",
-      color: "blue"
+      color: "blue",
+      glow: "rgba(59,130,246,0.5)"
     },
     {
       id: "during",
-      label: "During Training",
-      navLabel: "During",
-      headline: "Train Together — Anywhere.",
-      body: "Coaches and players interact in real time through a shared tactical environment. Tactics become a two-way conversation — not one-way instruction.",
-      bullets: ["Live multiplayer tactical sessions", "Real-time interaction", "Visual, intuitive learning"],
+      label: "LIVE-SYNC",
+      navLabel: "Live-Sync",
+      headline: "Smart Operations",
+      body: "Replace manual logs with intelligent automation. Manage live lineups and record attendance, scores, and match events in real-time. All data is instantly updated and synced for coaches, players, and parents.",
+      bullets: ["Real-time Attendance", "Dynamic Line-up Sync", "Live Event Tracking"],
       icon: <MousePointer2 className="w-6 h-6" />,
       image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200",
       color: "cyan",
+      glow: "rgba(34,211,238,0.5)",
       isHighlight: true
     },
     {
       id: "after",
-      label: "After Training or Match",
-      navLabel: "After",
-      headline: "Review. Learn. Improve.",
-      body: "Every session and match becomes learning data. Players review concepts, coaches track understanding, and development builds over time.",
-      bullets: ["Session review & feedback", "Tactical understanding history", "Participation & performance logs"],
+      label: "POST-MATCH",
+      navLabel: "Post-Match",
+      headline: "Adaptive Evolution",
+      body: "Turn match data into progress. Combine our Interactive Engine with professional image and video analysis tools to break down performances, fix tactical gaps, and prepare for the next challenge.",
+      bullets: ["Video & Image Analysis", "Tactical Feedback Loop", "Data-Driven Adjustments"],
       icon: <History className="w-6 h-6" />,
       image: "https://images.unsplash.com/photo-1510051644265-934cb9742558?auto=format&fit=crop&get=80&w=1200",
-      color: "purple"
+      color: "purple",
+      glow: "rgba(168,85,247,0.5)"
     },
     {
       id: "remote",
-      label: "Remote & Hybrid",
-      navLabel: "Remote",
-      headline: "Stay Aligned — Even Off the Pitch.",
-      body: "When weather, travel, or schedules disrupt in-person training, VTAC keeps teams connected through virtual locker rooms and interactive boards.",
-      bullets: ["Virtual tactical sessions", "Hybrid training support", "No disruption to learning"],
+      label: "BORDERLESS",
+      navLabel: "Borderless",
+      headline: "Digital Legacy",
+      body: "Secure your club’s future. All data is automatically synced to the cloud, building professional individual profiles and multi-season CVs for both players and coaches—accessible anytime, anywhere.",
+      bullets: ["Automated Player & Coach CVs", "Multi-Season Analytics", "Secure Cloud Ecosystem"],
       icon: <Smartphone className="w-6 h-6" />,
       image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=1200",
-      color: "indigo"
+      color: "emerald",
+      glow: "rgba(16,185,129,0.5)"
     }
   ];
 
@@ -204,9 +242,9 @@ const Platform2: React.FC = () => {
   return (
     <div className="bg-slate-950 text-white selection:bg-cyan-500/30">
       {/* 1. Platform Overview: One Connected System */}
-      <header className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-20">
+      <header className="relative flex flex-col items-center text-center px-6 overflow-hidden pt-12 pb-10">
         <GradientBackground />
-        
+
         {/* Subtle schematic background element */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-cyan-500/20 rounded-full"></div>
@@ -215,119 +253,23 @@ const Platform2: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-6xl flex flex-col items-center">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em] animate-in fade-in slide-in-from-bottom-4 duration-1000 mb-12">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] animate-in fade-in slide-in-from-bottom-4 duration-1000 mb-12">
             <Cpu className="w-4 h-4" />
-            <span>Unified Sports Intelligence Platform</span>
+            <span>THE ESSENTIAL OS FOR TEAM SPORTS</span>
           </div>
-          
-          <h1 className="text-6xl md:text-[9rem] font-black tracking-tighter leading-[0.85] text-white uppercase italic">
-            THE BRAIN <br />
-            <span className="gradient-text">OF THE TEAM.</span>
+
+          <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase py-4">
+            <span className="text-6xl md:text-[8rem] block leading-[0.9] mb-1">YOUR TOOLKIT.</span>
+            <span className="gradient-text text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] italic">DIGITALIZED. REMOTE-READY.</span>
           </h1>
-          
-          <p className="text-xl md:text-3xl text-slate-400 font-medium max-w-4xl mx-auto leading-tight animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 mt-12">
-            One connected ecosystem unifying <span className="text-white">Management</span>, <span className="text-white">Training</span>, and <span className="text-white">Development</span> into a single, high-performance workflow.
+
+          <p className="text-sm md:text-lg text-slate-500 font-black tracking-widest uppercase max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 mt-12">
+            Beyond whistles and clipboards. VTAC unifies your entire toolkit—for football, basketball, hockey, and all team sports—into one remote-ready system. Now, the locker room is wherever you are. Learn, sync, and lead from anywhere.
           </p>
 
-          {/* LARGE TV FRAME WINDOW (Rectangular Widescreen) */}
-          <div className="mt-16 w-full max-w-5xl relative group px-4 md:px-0 animate-in fade-in zoom-in-95 duration-1000 delay-300">
-             {/* Dynamic Glow based on selection */}
-             <div className={`absolute -inset-10 md:-inset-20 bg-gradient-to-br ${pillarItems[activeIndex].display.accent} blur-[120px] rounded-full opacity-20 transition-all duration-1000`}></div>
-             
-             {/* TV Outer Frame - Sharper edges for TV look */}
-             <div className="relative p-1 md:p-1.5 bg-slate-800 rounded-lg md:rounded-xl shadow-[0_40px_100px_rgba(0,0,0,0.9)] border border-slate-700/50 w-full overflow-hidden z-10">
-                {/* TV Bezel */}
-                <div className="relative bg-black rounded-sm md:rounded-md overflow-hidden aspect-video border-[4px] md:border-[12px] border-slate-900 shadow-inner">
-                   
-                   {/* Background Image / Pattern */}
-                   <div className="absolute inset-0 overflow-hidden">
-                      {pillarItems.map((item, idx) => (
-                        <div key={idx} className={`absolute inset-0 transition-all duration-1000 ease-in-out ${activeIndex === idx ? 'opacity-40 scale-100' : 'opacity-0 scale-110'}`}>
-                           <img src={item.display.image} className="w-full h-full object-cover" alt={item.title} />
-                           <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-black/80 to-transparent"></div>
-                        </div>
-                      ))}
-                   </div>
-
-                   {/* Dashboard Content */}
-                   <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-8 md:p-16 text-center">
-                      <div className="max-w-4xl w-full">
-                        {pillarItems.map((item, idx) => (
-                          <div key={idx} className={`transition-all duration-700 ${activeIndex === idx ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95 absolute inset-0 flex flex-col items-center justify-center'}`}>
-                            {/* Content List */}
-                            <div className="flex flex-col items-center gap-1.5 sm:gap-3 md:gap-5">
-                              {item.display.items.map((point, pIdx) => (
-                                <div key={pIdx} className="transition-all duration-300 transform">
-                                  <span className="text-[9px] xs:text-xs sm:text-base md:text-2xl font-medium leading-tight text-white uppercase tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,1)]">
-                                    {point}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                   </div>
-
-                   {/* TV Overlay UI */}
-                   <div className="absolute top-6 right-8 hidden md:flex items-center gap-6">
-                      <div className="flex items-center gap-2 text-white/40">
-                        <Activity className="w-4 h-4 text-green-500" />
-                        <span className="text-[10px] font-black uppercase tracking-widest">System Live</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-white/40">
-                        <Network className="w-4 h-4 text-cyan-400" />
-                        <span className="text-[10px] font-black uppercase tracking-widest">Sync Active</span>
-                      </div>
-                   </div>
-                </div>
-
-                {/* TV Bottom Indicator */}
-                <div className="absolute bottom-1 md:bottom-2 left-1/2 -translate-x-1/2">
-                   <div className={`w-1 md:w-1.5 h-1 md:h-1.5 rounded-full transition-all duration-500 ${activeIndex === 0 ? 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,1)]' : activeIndex === 1 ? 'bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,1)]' : activeIndex === 2 ? 'bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,1)]' : 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,1)]'}`}></div>
-                </div>
-             </div>
-             
-             {/* TV Stand / Reflection Effect */}
-             <div className="w-3/5 h-2 bg-gradient-to-b from-slate-700 to-transparent blur-xl mx-auto -mt-1 rounded-full opacity-30"></div>
-          </div>
-
-          {/* 4 Smaller Horizontal Cards below TV */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12 w-full max-w-6xl px-4 md:px-0 mb-20 relative z-20">
-            {pillarItems.map((item, i) => (
-              <button 
-                key={i} 
-                onClick={() => handleSelect(i)}
-                className={`group relative flex items-center gap-5 glass-card p-4 md:p-5 rounded-[2rem] border transition-all duration-500 overflow-hidden text-left ${
-                  activeIndex === i 
-                  ? `border-white/20 bg-white/10 scale-105 shadow-2xl` 
-                  : 'border-white/5 opacity-50 hover:opacity-100 hover:border-white/10 hover:bg-white/5'
-                }`}
-              >
-                {/* Active Indicator Line */}
-                {activeIndex === i && isAutoPlaying && (
-                  <div className="absolute bottom-0 left-4 right-4 h-1 overflow-hidden rounded-full">
-                    <div className={`h-full bg-gradient-to-r ${item.display.accent} animate-[progress_4s_linear_infinite]`}></div>
-                  </div>
-                )}
-
-                <div className={`absolute -right-2 -top-2 w-16 h-16 rounded-full blur-xl transition-all ${activeIndex === i ? 'bg-cyan-500/20' : 'bg-white/5'}`}></div>
-                
-                {/* Icon on the Left */}
-                <div className={`w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br ${activeIndex === i ? item.display.accent : 'from-slate-700 to-slate-800'} rounded-2xl flex items-center justify-center text-white shrink-0 shadow-lg group-hover:scale-110 transition-all duration-500`}>
-                  {React.cloneElement(item.icon as React.ReactElement, { className: 'w-6 h-6 md:w-7 h-7' })}
-                </div>
-                
-                {/* Wording on the Right */}
-                <div className="flex flex-col">
-                  <h4 className={`text-sm md:text-base font-black italic uppercase tracking-tighter leading-none mb-1 transition-colors ${activeIndex === i ? 'text-white' : 'text-slate-400'}`}>{item.title}</h4>
-                  <p className={`font-black uppercase tracking-widest text-[8px] md:text-[9px] opacity-80 leading-none ${activeIndex === i ? 'text-cyan-400' : 'text-slate-500'}`}>{item.tag}</p>
-                </div>
-              </button>
-            ))}
-          </div>
         </div>
       </header>
+      <ToolCabinetScrollytelling />
 
       {/* 2. HOW VTAC WORKS — TIMELINE + INTERACTIVE FLOW */}
       <SectionWrapper id="how-it-works" className="bg-slate-900/10 border-y border-white/5">
@@ -336,14 +278,14 @@ const Platform2: React.FC = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-3 px-5 py-2 rounded-full glass-card text-purple-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8">
               <Workflow className="w-3 h-3" />
-              <span>two-way learning experience — not passive instruction</span>
+              <span>BEYOND PASSIVE INSTRUCTION</span>
             </div>
             <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-none mb-6">
-              <span className="gradient-text block">How VTAC Manager</span>
-              <span className="text-white block">Works</span>
+              <span className="text-white block">THE WORKFLOW</span>
+              <span className="gradient-text block">OF WINNING</span>
             </h2>
-            <p className="text-slate-400 text-sm md:text-lg font-medium">
-              From preparation to performance — all in one connected workflow.
+            <p className="text-slate-500 text-sm md:text-lg font-black tracking-widest uppercase">
+              A seamless digital loop from the locker room to the final whistle.
             </p>
           </div>
 
@@ -359,7 +301,7 @@ const Platform2: React.FC = () => {
                   {timelineSteps[activeStep].headline}
                 </h3>
               </div>
-              
+
               <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed italic border-l-4 border-cyan-500/50 pl-6 py-1 transition-all duration-700">
                 {timelineSteps[activeStep].body}
               </p>
@@ -378,108 +320,12 @@ const Platform2: React.FC = () => {
 
             {/* Right Panel: Visual Stack (Tablet + Moved Timeline Nav) */}
             <div className="flex flex-col gap-10 w-full animate-in fade-in zoom-in-95 duration-700 delay-150">
-              
-              {/* TABLET MOCKUP (4:3 Ratio) */}
-              <div className="relative group h-full w-full">
-                {/* Hardware Frame Styling (Tablet ratio 4:3) */}
-                <div className={`absolute -inset-10 bg-${timelineSteps[activeStep].color}-500/10 blur-[100px] rounded-full transition-opacity duration-1000`}></div>
-                
-                {/* Outer Tablet Shell - Frame padding stays stationary */}
-                <div className={`relative p-0.5 md:p-1 bg-slate-800 rounded-[2.5rem] md:rounded-[3.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.8)] flex flex-col transition-all duration-700 overflow-hidden ${timelineSteps[activeStep].isHighlight ? 'shadow-[0_0_50px_rgba(34,211,238,0.2)]' : ''}`}>
-                   {/* Internal Hardware Detailing */}
-                   <div className="absolute top-0 left-12 md:left-24 w-8 md:w-12 h-1 bg-slate-700/50 rounded-b-full z-10"></div>
-                   <div className="absolute top-0 left-24 md:left-40 w-8 md:w-12 h-1 bg-slate-700/50 rounded-b-full z-10"></div>
-                   
-                   {/* Screen Container (4:3 Ratio) */}
-                   <div className="relative bg-slate-950 rounded-[2.3rem] md:rounded-[3.3rem] overflow-hidden aspect-[4/3] border-[2px] md:border-[5px] border-slate-950 shadow-inner">
-                      {/* Screen Camera Notch (Top center) */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-white/5 rounded-full mt-1 z-30 flex items-center justify-center">
-                         <div className="w-1 h-1 bg-blue-500/30 rounded-full"></div>
-                      </div>
-
-                      {/* Auto-sliding Loop for Tablet Content */}
-                      {timelineSteps.map((step, idx) => (
-                        <div 
-                          key={`img-${step.id}`}
-                          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${activeStep === idx ? 'opacity-60' : 'opacity-0'}`}
-                        >
-                           <img 
-                             src={step.image} 
-                             className={`w-full h-full object-cover transition-transform duration-[10s] ease-linear ${activeStep === idx ? 'scale-105' : 'scale-100'}`} 
-                             alt={step.headline} 
-                           />
-                        </div>
-                      ))}
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none"></div>
-                      
-                      {/* Step Specific UI Overlays with Smooth Fading */}
-                      {timelineSteps.map((step, idx) => (
-                        <div 
-                          key={`overlay-${step.id}`} 
-                          className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 ease-in-out ${activeStep === idx ? 'opacity-100' : 'opacity-0'}`}
-                        >
-                           {idx === 0 && (
-                              <div className="absolute top-8 right-8 glass-card p-5 rounded-xl border-white/20 animate-in fade-in slide-in-from-top-4 duration-1000">
-                                 <div className="flex items-center gap-3">
-                                   <Calendar className="w-4 h-4 text-blue-400" />
-                                   <p className="text-[9px] font-black uppercase tracking-widest text-blue-400">Tactical Drill Scheduled</p>
-                                 </div>
-                              </div>
-                           )}
-                           {idx === 1 && (
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                 <div className="glass-card p-8 rounded-[2rem] text-center border-cyan-500/30 scale-100 shadow-[0_0_50px_rgba(34,211,238,0.3)] animate-in zoom-in-90 duration-700">
-                                    <div className="flex items-center gap-3 mb-4 justify-center">
-                                       <div className="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></div>
-                                       <span className="text-[10px] font-black uppercase tracking-widest text-white">Live Multiplayer Engine</span>
-                                    </div>
-                                    <div className="flex -space-x-2.5 justify-center mb-5">
-                                       {[1,2,3,4,5].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800 shadow-xl"></div>)}
-                                    </div>
-                                    <div className="flex items-center gap-2 justify-center text-cyan-400">
-                                       <MousePointer2 className="w-4 h-4 animate-bounce" />
-                                       <span className="text-[9px] font-black uppercase tracking-widest">Real-time Positional Sync</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           )}
-                           {idx === 2 && (
-                              <div className="absolute bottom-8 left-8 right-8 flex gap-4 animate-in slide-in-from-bottom-8 duration-1000">
-                                 <div className="flex-1 h-20 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-4 flex flex-col justify-end">
-                                    <div className="h-full w-full flex items-end gap-1.5">
-                                       <div className="h-[40%] flex-1 bg-purple-500/30 rounded-sm"></div>
-                                       <div className="h-[70%] flex-1 bg-purple-500/50 rounded-sm"></div>
-                                       <div className="h-[90%] flex-1 bg-purple-500/80 rounded-sm"></div>
-                                    </div>
-                                    <p className="text-[7px] font-black uppercase tracking-widest text-purple-400 mt-2">Tactical Retention Up 40%</p>
-                                 </div>
-                              </div>
-                           )}
-                           {idx === 3 && (
-                              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                 <div className="relative">
-                                   <div className="absolute inset-0 bg-indigo-500/20 blur-2xl animate-pulse rounded-full"></div>
-                                   <div className="relative glass-card p-5 rounded-full border-indigo-500/30 flex items-center gap-3">
-                                      <Globe className="w-5 h-5 text-indigo-400 animate-spin-slow" />
-                                      <span className="text-[9px] font-black uppercase tracking-widest text-white">Hybrid Cloud Sync</span>
-                                   </div>
-                                 </div>
-                              </div>
-                           )}
-                        </div>
-                      ))}
-                   </div>
-                   {/* Tablet Bottom Bar (Indicator) */}
-                   <div className="absolute bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 w-16 md:w-32 h-1 md:h-1.5 bg-white/10 rounded-full z-40"></div>
-                </div>
-              </div>
 
               {/* TIMELINE NAVIGATION (Moved below Tablet) */}
               <div className="relative w-full">
                 {/* Background Line */}
                 <div className="absolute top-1/2 left-0 right-0 h-[1px] -translate-y-1/2 bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-purple-500/20 hidden md:block"></div>
-                
+
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
                   {timelineSteps.map((step, idx) => (
                     <button
@@ -495,7 +341,7 @@ const Platform2: React.FC = () => {
                       </span>
                       {activeStep === idx && isStepAutoPlaying && (
                         <div className={`absolute -bottom-1 w-full h-0.5 overflow-hidden rounded-full`}>
-                           <div className={`h-full bg-${step.color}-500 animate-[progress_5s_linear_infinite]`}></div>
+                          <div className={`h-full bg-${step.color}-500 animate-[progress_5s_linear_infinite]`}></div>
                         </div>
                       )}
                     </button>
@@ -503,114 +349,215 @@ const Platform2: React.FC = () => {
                 </div>
               </div>
 
+              {/* TABLET MOCKUP (4:3 Ratio) */}
+              <div className="relative group h-full w-full">
+                {/* Hardware Frame Styling (Tablet ratio 4:3) */}
+                <div className={`absolute -inset-10 bg-${timelineSteps[activeStep].color}-500/10 blur-[100px] rounded-full transition-opacity duration-1000`}></div>
+
+                {/* Outer Tablet Shell - Frame padding stays stationary */}
+                <div
+                  className="relative p-0.5 md:p-1 bg-slate-800 rounded-[2.5rem] md:rounded-[3.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.8)] flex flex-col transition-all duration-700 overflow-hidden transition-shadow"
+                  style={{ boxShadow: `0 30px 70px rgba(0,0,0,0.8), 0 0 50px ${timelineSteps[activeStep].glow || 'rgba(34,211,238,0.2)'}` }}
+                >
+                  {/* Internal Hardware Detailing */}
+                  <div className="absolute top-0 left-12 md:left-24 w-8 md:w-12 h-1 bg-slate-700/50 rounded-b-full z-10"></div>
+                  <div className="absolute top-0 left-24 md:left-40 w-8 md:w-12 h-1 bg-slate-700/50 rounded-b-full z-10"></div>
+
+                  {/* Screen Container (4:3 Ratio) */}
+                  <div className="relative bg-slate-950 rounded-[2.3rem] md:rounded-[3.3rem] overflow-hidden aspect-[4/3] border-[2px] md:border-[5px] border-slate-950 shadow-inner">
+                    {/* Screen Camera Notch (Top center) */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-white/5 rounded-full mt-1 z-30 flex items-center justify-center">
+                      <div className="w-1 h-1 bg-blue-500/30 rounded-full"></div>
+                    </div>
+
+                    {/* Auto-sliding Loop for Tablet Content */}
+                    {timelineSteps.map((step, idx) => (
+                      <div
+                        key={`img-${step.id}`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${activeStep === idx ? 'opacity-60' : 'opacity-0'}`}
+                      >
+                        <img
+                          src={step.image}
+                          className={`w-full h-full object-cover transition-transform duration-[10s] ease-linear ${activeStep === idx ? 'scale-105' : 'scale-100'}`}
+                          alt={step.headline}
+                        />
+                      </div>
+                    ))}
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none"></div>
+
+                    {/* Step Specific UI Overlays with Smooth Fading */}
+                    {timelineSteps.map((step, idx) => (
+                      <div
+                        key={`overlay-${step.id}`}
+                        className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 ease-in-out ${activeStep === idx ? 'opacity-100' : 'opacity-0'}`}
+                      >
+                        {idx === 0 && (
+                          <div className="absolute top-8 right-8 glass-card p-5 rounded-xl border-white/20 animate-in fade-in slide-in-from-top-4 duration-1000">
+                            <div className="flex items-center gap-3">
+                              <Calendar className="w-4 h-4 text-blue-400" />
+                              <p className="text-[9px] font-black uppercase tracking-widest text-blue-400">Plan & Align</p>
+                            </div>
+                          </div>
+                        )}
+                        {idx === 1 && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="glass-card p-8 rounded-[2rem] text-center border-cyan-500/30 scale-100 shadow-[0_0_50px_rgba(34,211,238,0.3)] animate-in zoom-in-90 duration-700">
+                              <div className="flex items-center gap-3 mb-4 justify-center">
+                                <div className="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></div>
+                                <span className="text-[10px] font-black uppercase tracking-widest text-white">Execute & Record</span>
+                              </div>
+                              <div className="flex -space-x-2.5 justify-center mb-5">
+                                {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800 shadow-xl"></div>)}
+                              </div>
+                              <div className="flex items-center gap-2 justify-center text-cyan-400">
+                                <MousePointer2 className="w-4 h-4 animate-bounce" />
+                                <span className="text-[9px] font-black uppercase tracking-widest">Real-time Positional Sync</span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                        {idx === 2 && (
+                          <div className="absolute bottom-8 left-8 right-8 flex gap-4 animate-in slide-in-from-bottom-8 duration-1000">
+                            <div className="flex-1 h-20 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-4 flex flex-col justify-end">
+                              <div className="h-full w-full flex items-end gap-1.5">
+                                <div className="h-[40%] flex-1 bg-purple-500/30 rounded-sm"></div>
+                                <div className="h-[70%] flex-1 bg-purple-500/50 rounded-sm"></div>
+                                <div className="h-[90%] flex-1 bg-purple-500/80 rounded-sm"></div>
+                              </div>
+                              <p className="text-[7px] font-black uppercase tracking-widest text-purple-400 mt-2">Analyze & Improve</p>
+                            </div>
+                          </div>
+                        )}
+                        {idx === 3 && (
+                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div className="relative">
+                              <div className="absolute inset-0 bg-emerald-500/20 blur-2xl animate-pulse rounded-full"></div>
+                              <div className="relative glass-card p-5 rounded-full border-emerald-500/30 flex items-center gap-3">
+                                <Globe className="w-5 h-5 text-emerald-400 animate-spin-slow" />
+                                <span className="text-[9px] font-black uppercase tracking-widest text-white">Scale & Secure</span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {/* Tablet Bottom Bar (Indicator) */}
+                  <div className="absolute bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 w-16 md:w-32 h-1 md:h-1.5 bg-white/10 rounded-full z-40"></div>
+                </div>
+              </div>
+
+
+
             </div>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* 3. CORE CAPABILITIES SECTION */}
+      {/* 3. CORE CAPABILITIES SECTION - THE PERFORMANCE ECOSYSTEM */}
       <SectionWrapper id="core-capabilities" className="relative">
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] mb-6">
             <LayoutDashboard className="w-4 h-4" />
-            <span>Industrial-Grade Infrastructure</span>
+            <span>INDUSTRIAL-GRADE INFRASTRUCTURE</span>
           </div>
           <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-6">
-            CORE <br />
-            <span className="gradient-text">CAPABILITIES.</span>
+            THE PERFORMANCE <br />
+            <span className="gradient-text pr-4">ECOSYSTEM</span>
           </h2>
-          <p className="text-slate-500 text-sm md:text-lg font-black tracking-widest uppercase">
-            Everything you need to lead your team to mastery.
+          <p className="text-slate-500 text-sm md:text-lg font-black tracking-widest uppercase max-w-3xl mx-auto">
+            Opening the toolbox: Professional-grade features engineered for elite sports organizations.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-stretch">
           {/* Pillar 1: Management */}
-          <div className="group relative bg-slate-900/40 p-10 rounded-[3rem] border border-white/5 hover:border-blue-500/30 transition-all duration-500 hover:-translate-y-3 flex flex-col h-full">
+          <div className="group relative bg-slate-900/40 p-10 rounded-[3rem] border border-white/5 transition-all duration-500 hover:scale-105 hover:border-red-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.5)] flex flex-col h-full">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-500 text-white">
-              <Layers className="w-8 h-8" />
+              <Layers className="w-8 h-8 group-hover:animate-bounce" />
             </div>
-            <h3 className="text-3xl font-black italic uppercase tracking-tighter text-white mb-6 group-hover:text-blue-400 transition-colors">
-              Club & Team <br />Logistics
+            <h3 className="text-3xl font-black italic uppercase tracking-tighter text-white mb-2 group-hover:text-red-500 transition-colors">
+              Management
             </h3>
-            <p className="text-slate-400 font-bold leading-relaxed mb-8">
-              Enterprise-grade roster and operations management that scales with clubs, academies, and multi-team organizations.
+            <p className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-8">
+              Operational Intelligence
             </p>
             <div className="space-y-4 mt-auto">
               {[
-                "Multi-squad & multi-role dashboard",
-                "Automated parent & staff notifications",
-                "Health, availability & injury tracking",
-                "Centralized player database"
+                "Multi-Tier Hierarchy Management",
+                "Unified Stakeholder Sync",
+                "Health & Availability Suite",
+                "Enterprise-Grade Database"
               ].map((feature, i) => (
                 <div key={i} className="flex items-center gap-4 group/item">
-                  <div className="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-                    <Check className="w-3 h-3 text-blue-400" />
+                  <div className="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:bg-red-500/20 group-hover:border-red-500/50 transition-colors">
+                    <Check className="w-3 h-3 text-blue-400 group-hover:text-red-500 transition-colors" />
                   </div>
-                  <span className="text-slate-300 text-xs font-black uppercase tracking-widest">{feature}</span>
+                  <span className="text-slate-300 text-xs font-black uppercase tracking-widest group-hover:text-white transition-colors">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Pillar 2: Tactics (Highlighted) */}
-          <div className="group relative bg-slate-900/80 p-10 rounded-[3rem] border-2 border-cyan-500 shadow-[0_0_50px_rgba(34,211,238,0.1)] transition-all duration-500 scale-105 z-20 flex flex-col h-full">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-black px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg shadow-cyan-500/30 whitespace-nowrap">
+          <div className="group relative bg-slate-900/80 p-10 rounded-[3rem] border-2 border-cyan-500 transition-all duration-500 scale-105 hover:scale-110 hover:border-red-500 hover:shadow-[0_0_40px_rgba(220,38,38,0.6)] z-20 flex flex-col h-full text-left">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 group-hover:bg-red-600 text-black group-hover:text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg shadow-cyan-500/30 group-hover:shadow-red-500/50 whitespace-nowrap transition-all duration-500 animate-pulse">
               Patented Technology
             </div>
-            
+
             <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mb-8 shadow-2xl group-hover:scale-110 transition-transform duration-500 text-white">
-              <Zap className="w-10 h-10" />
+              <Zap className="w-10 h-10 group-hover:animate-[spin_3s_linear_infinite]" />
             </div>
-            <h3 className="text-4xl font-black italic uppercase tracking-tighter text-white mb-6 group-hover:text-cyan-400 transition-colors">
-              Interactive <br />Tactical Training
+            <h3 className="text-4xl font-black italic uppercase tracking-tighter text-white mb-2 group-hover:text-red-500 transition-colors">
+              Tactics
             </h3>
-            <p className="text-slate-300 font-black leading-relaxed mb-8">
-              Our patented real-time tactical board transforms passive observation into active, collaborative learning.
+            <p className="text-slate-300 font-bold uppercase tracking-widest text-xs mb-8">
+              The Patented Tactical Engine
             </p>
             <div className="space-y-4 mt-auto">
               {[
-                "Multiplayer real-time positional sync",
-                "Animated drill & formation libraries",
-                "Live & asynchronous session recording",
-                "Seamless cross-platform (mobile & web)"
+                "[PATENTED] Multiplayer Sync",
+                "Multi-Sport Visualization",
+                "Integrated Video Analysis Tools",
+                "Interactive Drill Libraries"
               ].map((feature, i) => (
                 <div key={i} className="flex items-center gap-4 group/item">
-                  <div className="w-7 h-7 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
-                    <MousePointer2 className="w-4 h-4 text-cyan-400 fill-cyan-400/20" />
+                  <div className="w-7 h-7 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(34,211,238,0.2)] group-hover:bg-red-500/20 group-hover:border-red-500/50 group-hover:shadow-[0_0_15px_rgba(220,38,38,0.4)] transition-all">
+                    <MousePointer2 className="w-4 h-4 text-cyan-400 fill-cyan-400/20 group-hover:text-red-500 group-hover:fill-red-500/20" />
                   </div>
-                  <span className="text-white text-[13px] font-black uppercase tracking-widest">{feature}</span>
+                  <span className="text-white text-[13px] font-black uppercase tracking-widest group-hover:text-red-100 transition-colors">{feature}</span>
                 </div>
               ))}
             </div>
-            
-            {/* Glow Effect */}
-            <div className="absolute -inset-2 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10 rounded-[3rem]"></div>
+
+            {/* Glow Effect - Red on Hover */}
+            <div className="absolute -inset-2 bg-gradient-to-br from-red-500/0 to-red-500/0 blur-xl opacity-0 group-hover:opacity-100 group-hover:from-red-500/20 group-hover:to-orange-500/20 transition-all duration-1000 -z-10 rounded-[3rem]"></div>
           </div>
 
-          {/* Pillar 3: Insights */}
-          <div className="group relative bg-slate-900/40 p-10 rounded-[3rem] border border-white/5 hover:border-purple-500/30 transition-all duration-500 hover:-translate-y-3 flex flex-col h-full">
+          {/* Pillar 3: Development */}
+          <div className="group relative bg-slate-900/40 p-10 rounded-[3rem] border border-white/5 transition-all duration-500 hover:scale-105 hover:border-red-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.5)] flex flex-col h-full">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-500 text-white">
-              <BarChart3 className="w-8 h-8" />
+              <TrendingUp className="w-8 h-8 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300" />
             </div>
-            <h3 className="text-3xl font-black italic uppercase tracking-tighter text-white mb-6 group-hover:text-purple-400 transition-colors">
-              Player Development <br />& Tracking
+            <h3 className="text-3xl font-black italic uppercase tracking-tighter text-white mb-2 group-hover:text-red-500 transition-colors">
+              Development
             </h3>
-            <p className="text-slate-400 font-bold leading-relaxed mb-8">
-              Turn subjective observations into objective, data-driven player development across seasons.
+            <p className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-8">
+              Digital Legacy & Analytics
             </p>
             <div className="space-y-4 mt-auto">
               {[
-                "Dynamic player CVs & development profiles",
-                "Tactical IQ & assessment engine",
-                "Attendance & participation heatmaps",
-                "Scouting & data access via API"
+                "Automated Player & Coach CVs",
+                "Tactical IQ & Retention Tracking",
+                "Multi-Season Performance Logs",
+                "Data-Driven Development Plans"
               ].map((feature, i) => (
                 <div key={i} className="flex items-center gap-4 group/item">
-                  <div className="w-6 h-6 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0">
-                    <TrendingUp className="w-3 h-3 text-purple-400" />
+                  <div className="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:bg-red-500/20 group-hover:border-red-500/50 transition-colors">
+                    <Check className="w-3 h-3 text-purple-400 group-hover:text-red-500 transition-colors" />
                   </div>
-                  <span className="text-slate-300 text-xs font-black uppercase tracking-widest">{feature}</span>
+                  <span className="text-slate-300 text-xs font-black uppercase tracking-widest group-hover:text-white transition-colors">{feature}</span>
                 </div>
               ))}
             </div>
@@ -618,85 +565,270 @@ const Platform2: React.FC = () => {
         </div>
       </SectionWrapper>
 
-      {/* 4. Why VTAC: Thought Leadership */}
-      <SectionWrapper className="bg-slate-900/30">
-        <div className="grid lg:grid-cols-2 gap-24 items-stretch">
-          <div className="flex flex-col justify-center space-y-12 py-8">
-            <div className="space-y-6">
-              <h2 className="text-5xl md:text-8xl font-black tracking-tight uppercase italic leading-none pr-8">
-                WHY VTAC <br /><span className="gradient-text inline-block">MATTERS NOW</span>
-              </h2>
-              <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed italic border-l-4 border-cyan-500 pl-8">
-                Traditional logistics tools are failing modern athletes. We bridge the gap between "Organization" and "Excellence."
+      {/* 4. THE PARADIGM SHIFT (Redesigned) */}
+      <SectionWrapper id="paradigm-shift" className="relative">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-purple-400 text-[10px] font-black uppercase tracking-[0.4em] mb-6">
+            <BrainCircuit className="w-4 h-4" />
+            <span>STRATEGIC TEAM INTELLIGENCE</span>
+          </div>
+          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-6">
+            FROM LOGISTICS <br />
+            <span className="gradient-text pr-4">TO MASTERY</span>
+          </h2>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+
+          {/* Card 1: The Boredom Barrier (Legacy) */}
+          <div className="relative group bg-slate-950/50 rounded-[3rem] border border-white/5 flex flex-col overflow-hidden hover:border-red-500/30 transition-all duration-500 h-full">
+            {/* Visual Header: Static/Legacy Slideshow */}
+            <div className="relative h-72 overflow-hidden border-b border-white/5 grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700">
+              <div className="absolute inset-0 bg-slate-900/40 z-10 pointer-events-none"></div>
+              <SimpleSlideshow
+                interval={5000}
+                images={[
+                  "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800", // Paperwork
+                  "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800", // Writing
+                  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800"  // Planning
+                ]}
+                overlay={
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 -rotate-12 border-4 border-red-500/50 px-6 py-2 rounded-xl mask-gradient">
+                    <span className="text-2xl font-black uppercase text-red-500/70 tracking-widest whitespace-nowrap">Session Canceled</span>
+                  </div>
+                }
+              />
+            </div>
+
+            <div className="relative z-10 p-10 md:p-14 space-y-8 flex-1 flex flex-col">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-red-500/20 via-transparent to-transparent"></div>
+              <div className="flex items-center gap-3 text-red-500/70 font-black uppercase tracking-widest text-xs">
+                <X className="w-5 h-5" />
+                <span>The Boredom & Disruption Barrier</span>
+              </div>
+
+              <h3 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-slate-500">
+                Legacy Learning
+              </h3>
+
+              <p className="text-lg text-slate-500 font-medium italic border-l-4 border-slate-700 pl-6">
+                Static homework and lost momentum.
+              </p>
+
+              <div className="space-y-8 pt-4">
+                <div className="flex gap-5">
+                  <div className="shrink-0 w-10 h-10 rounded-lg bg-slate-900 border border-white/5 flex items-center justify-center">
+                    <FileX className="w-5 h-5 text-slate-600" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-slate-400 font-black uppercase tracking-widest text-sm">The Boredom Gap</h4>
+                    <p className="text-slate-600 text-sm font-bold leading-relaxed">
+                      One-way learning via PDFs and video clips feels like tedious "homework," leading to low retention.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-5">
+                  <div className="shrink-0 w-10 h-10 rounded-lg bg-slate-900 border border-white/5 flex items-center justify-center">
+                    <CloudOff className="w-5 h-5 text-slate-600" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-slate-400 font-black uppercase tracking-widest text-sm">The Momentum Killer</h4>
+                    <p className="text-slate-600 text-sm font-bold leading-relaxed">
+                      When training is canceled, development grinds to a halt—leaving the team with invisible tactical gaps.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-white/5 mt-auto">
+                <p className="text-slate-500 font-black uppercase tracking-widest text-xs">
+                  The Bottom Line: <span className="text-slate-400">You are managing the clock, while the team remains in isolation.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: The Collective Edge (VTAC) */}
+          <div className="relative group glass-card rounded-[3rem] border-cyan-500/30 flex flex-col overflow-hidden shadow-[0_0_50px_rgba(34,211,238,0.1)] hover:border-cyan-400 hover:shadow-[0_0_80px_rgba(34,211,238,0.2)] transition-all duration-500 h-full">
+            {/* Visual Header: Digital/Active Slideshow */}
+            <div className="relative h-72 overflow-hidden border-b border-cyan-500/20">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10 pointer-events-none"></div>
+              <SimpleSlideshow
+                interval={5000}
+                images={[
+                  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800", // Cyberpunk 1
+                  "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800", // Gaming
+                  "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&q=80&w=800"  // VR/Tech
+                ]}
+                overlay={
+                  <div className="absolute inset-0 z-20 flex items-center justify-center p-8 pointer-events-none">
+                    <div className="glass-card px-6 py-3 rounded-xl border-cyan-500/40 shadow-xl backdrop-blur-md animate-in zoom-in duration-700 flex items-center gap-3">
+                      <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></div>
+                      <span className="text-white font-black uppercase tracking-widest text-xs">Live Tactical Sync</span>
+                    </div>
+                  </div>
+                }
+              />
+            </div>
+
+            <div className="relative z-10 p-10 md:p-14 space-y-8 flex-1 flex flex-col">
+              {/* Glowing Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+              <div className="flex items-center gap-3 text-cyan-400 font-black uppercase tracking-widest text-xs">
+                <Check className="w-5 h-5" />
+                <span>The Collective Edge</span>
+              </div>
+
+              <h3 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-white">
+                The Secret Sauce
+              </h3>
+
+              <p className="text-lg text-white font-medium italic border-l-4 border-cyan-500 pl-6 shadow-cyan-500/50">
+                Zero Downtime. Tactical Play, Together.
+              </p>
+
+              <div className="space-y-8 pt-4">
+                <div className="flex gap-5 group/item">
+                  <div className="shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform">
+                    <Gamepad2 className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-white font-black uppercase tracking-widest text-sm">The Fun Factor</h4>
+                    <p className="text-slate-300 text-sm font-bold leading-relaxed">
+                      We turn tactical prep into a live, multiplayer experience. Engaging as a video game, making learning effortless.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-5 group/item">
+                  <div className="shrink-0 w-10 h-10 rounded-lg bg-slate-900 border border-cyan-500/50 flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.3)] group-hover/item:border-cyan-400 transition-colors">
+                    <Zap className="w-5 h-5 text-cyan-400 group-hover/item:animate-pulse" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-white font-black uppercase tracking-widest text-sm">The Resilience Factor</h4>
+                    <p className="text-slate-300 text-sm font-bold leading-relaxed">
+                      Turn every cancellation into a high-value interactive session. Build chemistry and tactical IQ anytime, anywhere.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-white/10 mt-auto">
+                <p className="text-cyan-400 font-black uppercase tracking-widest text-xs">
+                  The Bottom Line: <span className="text-white">You are mastering performance through continuous team synergy.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </SectionWrapper>
+
+      {/* 5. Trust Signals (Built for Every Level) */}
+      <SectionWrapper id="trust-signals" className="relative">
+        {/* Background Gradients */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+
+        <div className="text-center mb-20 space-y-8 max-w-5xl mx-auto">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
+            <Shield className="w-4 h-4" />
+            <span>PROFESSIONAL PERFORMANCE. ACCESSIBLE TO ALL.</span>
+          </div>
+
+          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
+            THE MODERN ATHLETE <br />
+            <span className="gradient-text pr-4">AT EVERY SCALE</span>
+          </h2>
+
+          <p className="text-sm md:text-base text-slate-500 font-black uppercase tracking-widest leading-relaxed max-w-5xl mx-auto">
+            VTAC is engineered to be the universal language of sports. Whether you are a local school team, a rising university program, or an elite professional academy, our platform scales to meet your ambition. We provide the professional edge to every coach and player, regardless of the size of their field.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 relative z-10">
+
+          {/* Card 1: Unified Scalability (Blue) */}
+          <div className="group relative p-10 pb-0 rounded-[2.5rem] bg-slate-900/60 border border-white/5 hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-all duration-500 flex flex-col overflow-hidden min-h-[600px]">
+            <div className="relative z-10">
+              <div className="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-8 text-blue-400 group-hover:scale-110 transition-transform duration-500">
+                <Globe className="w-7 h-7" />
+              </div>
+              <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3 group-hover:text-blue-400 transition-colors">
+                Unified Scalability
+              </h3>
+              <p className="text-slate-400 leading-relaxed font-medium mb-8">
+                From grassroots local schools to global professional franchises. VTAC manages your rosters and tactics with the same elite precision, no matter the team size.
               </p>
             </div>
-            
-            <div className="space-y-12">
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 text-red-500 font-black uppercase tracking-[0.2em] text-sm">
-                  <X className="w-5 h-5" />
-                  The Problem: Static Learning
-                </div>
-                <p className="text-slate-500 font-bold leading-relaxed text-lg">
-                  WhatsApp groups, PDF playbooks, and static video reviews lead to a 40% drop in tactical retention. Modern athletes learn by doing, not just watching.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 text-cyan-400 font-black uppercase tracking-[0.2em] text-sm">
-                  <Check className="w-5 h-5" />
-                  The Solution: Interactive Mastery
-                </div>
-                <p className="text-slate-300 font-bold leading-relaxed text-lg">
-                  VTAC transforms passive observation into gamified interactivity. By many accounts, players develop spatial awareness 3x faster.
-                </p>
-              </div>
+            {/* Bottom Image */}
+            <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
+              <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Scalability" />
             </div>
           </div>
-          
-          <div className="relative group flex flex-col h-full">
-            <div className="absolute -inset-10 bg-cyan-500/10 blur-[120px] rounded-full group-hover:bg-cyan-500/20 transition-all duration-1000"></div>
-            <div className="relative h-full min-h-[500px] rounded-[2rem] bg-slate-900 border border-white/10 overflow-hidden shadow-3xl">
-              <img 
-                src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200" 
-                className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-[15s]" 
-                alt="Tactical Focus" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-slate-950/20 to-transparent"></div>
-              <div className="absolute inset-x-0 bottom-0 p-16 space-y-6">
-                 <h4 className="text-3xl font-black uppercase italic leading-tight">The Future is Interactive.</h4>
-                 <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Don't just manage the team. <br />Master the game.</p>
+
+          {/* Card 2: The Scholastic Edge (Purple) */}
+          <div className="group relative p-10 pb-0 rounded-[2.5rem] bg-slate-900/60 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.3)] transition-all duration-500 flex flex-col overflow-hidden min-h-[600px]">
+            <div className="relative z-10">
+              <div className="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-8 text-purple-400 group-hover:scale-110 transition-transform duration-500">
+                <GraduationCap className="w-7 h-7" />
               </div>
+              <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3 group-hover:text-purple-400 transition-colors">
+                The Scholastic Edge
+              </h3>
+              <p className="text-slate-400 leading-relaxed font-medium mb-8">
+                Perfectly tailored for high schools, colleges, and universities. We bridge the gap between academic schedules and athletic excellence through smart, remote-ready coordination.
+              </p>
+            </div>
+            {/* Bottom Image */}
+            <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
+              <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Scholastic" />
             </div>
           </div>
-        </div>
-      </SectionWrapper>
 
-      {/* 5. Trust Signals: Patent & Athlete focus */}
-      <SectionWrapper className="text-center">
-        <div className="max-w-4xl mx-auto space-y-16">
-          <div className="inline-flex items-center space-x-4 px-6 py-2.5 rounded-full glass-card border-white/10 mx-auto">
-            <Shield className="w-5 h-5 text-cyan-400" />
-            <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-slate-400">
-              More Than Team Management. <span className="text-white font-black">Real Interactive Training</span>
-            </span>
-          </div>
-          
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] text-white">
-            BUILT FOR THE <br />
-            <span className="gradient-text">MODERN ATHLETE.</span>
-          </h2>
-          
-          <p className="text-xl md:text-2xl text-slate-500 font-bold leading-relaxed">
-            Our infrastructure is engineered for professional clubs and elite academies who demand zero compromise on tactical integrity and organizational security.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 opacity-30 grayscale transition-all hover:grayscale-0 hover:opacity-100 items-center">
-            {['PRO ACADEMY', 'NATIONAL ORG', 'ELITE LEAGUE', 'GLOBAL CLUB'].map((logo, i) => (
-              <div key={i} className="text-xl md:text-3xl font-black italic tracking-tighter uppercase border-b border-white/10 pb-4">
-                {logo}
+          {/* Card 3: Pro-Tools for Every Team (Cyan) */}
+          <div className="group relative p-10 pb-0 rounded-[2.5rem] bg-slate-900/60 border border-white/5 hover:border-cyan-500/50 hover:shadow-[0_0_40px_rgba(34,211,238,0.3)] transition-all duration-500 flex flex-col overflow-hidden min-h-[600px]">
+            <div className="relative z-10">
+              <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-8 text-cyan-400 group-hover:scale-110 transition-transform duration-500">
+                <LayoutDashboard className="w-7 h-7" />
               </div>
-            ))}
+              <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                Pro-Tools For Every Team
+              </h3>
+              <p className="text-slate-400 leading-relaxed font-medium mb-8">
+                Empowering small and medium-sized clubs with the same interactive tools used by the pros. Get high-end tactical insights without the need for a massive technical staff.
+              </p>
+            </div>
+            {/* Bottom Image */}
+            <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
+              <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Pro Tools" />
+            </div>
           </div>
+
+          {/* Card 4: Athlete-Centric Engagement (Emerald - Distinct) */}
+          <div className="group relative p-10 pb-0 rounded-[2.5rem] bg-slate-900/60 border border-white/5 hover:border-emerald-500/50 hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] transition-all duration-500 flex flex-col overflow-hidden min-h-[600px]">
+            <div className="relative z-10">
+              <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-8 text-emerald-500 group-hover:scale-110 transition-transform duration-500">
+                <Smartphone className="w-7 h-7" />
+              </div>
+              <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3 group-hover:text-emerald-500 transition-colors">
+                Athlete-Centric Engagement
+              </h3>
+              <p className="text-slate-400 leading-relaxed font-medium mb-8">
+                Built for the Gen Z & Alpha mindset. We turn professional discipline into a high-engagement digital experience that modern athletes—at any level—actually want to use.
+              </p>
+            </div>
+            {/* Bottom Image */}
+            <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Engagement" />
+            </div>
+          </div>
+
         </div>
       </SectionWrapper>
 
@@ -705,29 +837,29 @@ const Platform2: React.FC = () => {
         <div className="relative group max-w-7xl mx-auto">
           {/* Immersive Stadium Radial Glow */}
           <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-cyan-500/20 blur-[160px] rounded-full pointer-events-none -z-10 group-hover:bg-purple-500/20 transition-colors duration-1000"></div>
-          
+
           {/* Main Container */}
           <div className="relative bg-slate-900/60 backdrop-blur-3xl rounded-[3rem] p-10 md:p-16 border border-white/10 overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.6)] flex flex-col items-center text-center">
             {/* Animated Grid Background Layer */}
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
-            
+
             <div className="relative z-10 space-y-8">
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-4">
+              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-8">
                 READY FOR THE <br />
                 <span className="gradient-text inline-block pr-10">NEXT LEVEL?</span>
               </h2>
-              
+
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
                 Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC Manager.</span>
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
                 {/* Primary Button */}
                 <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center">
                   <span className="relative z-10">Book a Demo</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                 </button>
-                
+
                 {/* Secondary Button */}
                 <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center">
                   <span className="relative z-10 flex items-center gap-2">

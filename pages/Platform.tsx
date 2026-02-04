@@ -1,19 +1,20 @@
 
 import React from 'react';
-import { 
-  SectionWrapper, 
-  FeatureCard, 
-  GradientBackground, 
-  CTASection 
+import {
+  SectionWrapper,
+  FeatureCard,
+  GradientBackground,
+  CTASection
 } from '../components/UI.tsx';
-import { 
-  Cpu, 
-  Zap, 
-  ShieldCheck, 
-  Database, 
-  Target, 
-  Play, 
-  TrendingUp, 
+import ToolCabinetScrollytelling from '../components/ToolCabinetScrollytelling.tsx';
+import {
+  Cpu,
+  Zap,
+  ShieldCheck,
+  Database,
+  Target,
+  Play,
+  TrendingUp,
   Calendar,
   Lock,
   MousePointer2,
@@ -23,12 +24,12 @@ import {
   Check
 } from 'lucide-react';
 
-const CapabilitySection: React.FC<{ 
-  title: string; 
-  subtitle: string; 
-  description: string; 
-  features: string[]; 
-  image: string; 
+const CapabilitySection: React.FC<{
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  image: string;
   isReversed?: boolean;
 }> = ({ title, subtitle, description, features, image, isReversed }) => (
   <div className={`grid lg:grid-cols-2 gap-16 lg:gap-32 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
@@ -81,6 +82,7 @@ const Platform: React.FC = () => {
           </p>
         </div>
       </header>
+      <ToolCabinetScrollytelling />
 
       {/* 2. TrustSignals (Patented Notice) */}
       <div className="border-y border-white/5 bg-slate-900/40 py-8">
@@ -144,7 +146,7 @@ const Platform: React.FC = () => {
                   <p className="text-sm font-black uppercase tracking-widest">Live Multiplayer Sync</p>
                 </div>
                 <div className="flex -space-x-3">
-                  {[1,2,3,4].map(i => <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800"></div>)}
+                  {[1, 2, 3, 4].map(i => <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800"></div>)}
                 </div>
               </div>
             </div>
@@ -191,16 +193,16 @@ const Platform: React.FC = () => {
               </div>
             </div>
             <div className="bg-slate-900 rounded-[4rem] border border-white/10 p-12 shadow-2xl">
-               <div className="space-y-8">
-                  <div className="flex justify-between items-end">
-                    <div className="h-32 w-12 bg-purple-500/20 rounded-t-xl border-t-2 border-purple-500"></div>
-                    <div className="h-48 w-12 bg-purple-500/40 rounded-t-xl border-t-2 border-purple-500"></div>
-                    <div className="h-24 w-12 bg-purple-500/10 rounded-t-xl border-t-2 border-purple-500"></div>
-                    <div className="h-56 w-12 bg-purple-600 rounded-t-xl border-t-2 border-purple-400"></div>
-                  </div>
-                  <div className="h-px bg-white/10"></div>
-                  <p className="text-center text-slate-500 font-black text-xs uppercase tracking-widest">Growth Analytics Enabled</p>
-               </div>
+              <div className="space-y-8">
+                <div className="flex justify-between items-end">
+                  <div className="h-32 w-12 bg-purple-500/20 rounded-t-xl border-t-2 border-purple-500"></div>
+                  <div className="h-48 w-12 bg-purple-500/40 rounded-t-xl border-t-2 border-purple-500"></div>
+                  <div className="h-24 w-12 bg-purple-500/10 rounded-t-xl border-t-2 border-purple-500"></div>
+                  <div className="h-56 w-12 bg-purple-600 rounded-t-xl border-t-2 border-purple-400"></div>
+                </div>
+                <div className="h-px bg-white/10"></div>
+                <p className="text-center text-slate-500 font-black text-xs uppercase tracking-widest">Growth Analytics Enabled</p>
+              </div>
             </div>
           </div>
         </div>
@@ -211,17 +213,17 @@ const Platform: React.FC = () => {
         <div className="mb-16">
           <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-none uppercase">Core <br /><span className="gradient-text">Capabilities.</span></h2>
         </div>
-        
+
         <div className="space-y-20">
-          <CapabilitySection 
+          <CapabilitySection
             subtitle="Management"
             title="CLUB & TEAM LOGISTICS"
             description="Enterprise-grade roster management that scales with your organization."
             features={['Multi-squad dashboard', 'Automated parent notifications', 'Health & Injury tracking', 'Centralized database']}
             image="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=1200"
           />
-          
-          <CapabilitySection 
+
+          <CapabilitySection
             subtitle="Tactics"
             title="INTERACTIVE TRAINING"
             description="Our patented real-time tactical board turns passive observation into active learning."
@@ -229,8 +231,8 @@ const Platform: React.FC = () => {
             image="https://images.unsplash.com/photo-1526232762682-d2f5f714d23a?auto=format&fit=crop&q=80&w=1200"
             isReversed
           />
-          
-          <CapabilitySection 
+
+          <CapabilitySection
             subtitle="Insights"
             title="DEVELOPMENT TRACKING"
             description="Transform subjective scouting into objective, data-driven player development."

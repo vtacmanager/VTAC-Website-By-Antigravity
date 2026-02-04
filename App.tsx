@@ -26,7 +26,7 @@ const App: React.FC = () => {
     <AuthProvider>
       <Router>
         <ScrollToTop />
-        <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-950 text-white">
+        <div className="flex flex-col min-h-screen relative bg-slate-950 text-white">
           <Navbar />
           <main className="flex-grow pt-20">
             <Routes>

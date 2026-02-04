@@ -5,6 +5,7 @@ import {
   GradientBackground
 } from '../components/UI.tsx';
 import StickyScrollFeature from '../components/StickyScrollFeature.tsx';
+
 import {
   Check,
   X,
@@ -514,7 +515,7 @@ const Home: React.FC = () => {
           <div className="absolute -inset-20 bg-blue-400/20 blur-[100px] opacity-50 group-hover:opacity-70 transition duration-1000 rounded-full"></div>
 
           {/* THE BIG SCREEN TV FRAME */}
-          <div className="relative bg-slate-950 p-[4px] md:p-[8px] rounded-[0.5rem] md:rounded-[1.2rem] border border-white/5 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)]">
+          <div className="relative bg-slate-950 p-[4px] md:p-[8px] rounded-[0.5rem] md:rounded-[1.2rem] border border-white/5 shadow-[0_50px_100px_-20px_rgba(0,0,0,1)]">
 
             {/* TV Bezel Detail */}
             <div className="relative bg-black rounded-[0.2rem] md:rounded-[0.8rem] overflow-hidden aspect-video shadow-inner flex flex-col">
@@ -1107,7 +1108,7 @@ const Home: React.FC = () => {
               </h2>
 
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
-                Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC Manager.</span>
+                Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC <span className="text-cyan-400">MANAGER.</span></span>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
