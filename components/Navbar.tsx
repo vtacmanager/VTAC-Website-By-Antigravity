@@ -30,7 +30,8 @@ const Navbar: React.FC = () => {
     { label: 'BASKET BALL', href: '#', active: false },
     { label: 'AMERICAN FOOTBALL', href: '#', active: false },
     { label: 'RUGBY', href: '#', active: false },
-    { label: 'HOCKY', href: '#', active: false },
+    { label: 'HOCKEY', href: '#', active: false },
+    { label: 'LACROSSE', href: '#', active: false },
   ];
 
   return (
@@ -45,8 +46,8 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center space-x-10">
           <div className="flex items-center space-x-10">
             <Link
-              to="/ihub"
-              className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+              to="/platform2"
+              className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
             >
               iHub
             </Link>
@@ -160,8 +161,8 @@ const Navbar: React.FC = () => {
       <div className={`md:hidden absolute top-full left-0 right-0 bg-slate-950 border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[85vh] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}>
         <div className="px-6 py-8 space-y-6 flex flex-col">
           <Link
-            to="/ihub"
-            className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300'}`}
+            to="/platform2"
+            className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300'}`}
           >
             iHub
           </Link>

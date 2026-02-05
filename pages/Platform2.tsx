@@ -91,7 +91,7 @@ const SimpleSlideshow = ({
   );
 };
 
-const iHub: React.FC = () => {
+const Platform2: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const timerRef = useRef<number | null>(null);
@@ -839,4 +839,4 @@ const iHub: React.FC = () => {
   );
 };
 
-export default iHub;
+export default Platform2;
