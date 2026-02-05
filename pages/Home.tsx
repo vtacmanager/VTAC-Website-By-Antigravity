@@ -497,7 +497,7 @@ const Home: React.FC = () => {
               }}>INTERACTIVE TRAINING&nbsp;</span>
             </div>
           </h1>
-          <p className="text-lg md:text-xl font-medium text-slate-400 max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             The complete digital ecosystem for modern sports. From smart scheduling and live match updates to automated player development and the world's first multiplayer tactical engine - everything your club needs to win, on and off the pitch.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full px-6 sm:px-0">

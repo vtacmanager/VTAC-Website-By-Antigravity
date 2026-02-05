@@ -47,9 +47,9 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-10">
             <Link
               to="/platform2"
-              className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+              className={`text-sm font-black tracking-widest transition-colors ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
             >
-              iHub
+              iHUB
             </Link>
 
             <Link
@@ -162,9 +162,9 @@ const Navbar: React.FC = () => {
         <div className="px-6 py-8 space-y-6 flex flex-col">
           <Link
             to="/platform2"
-            className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300'}`}
+            className={`text-lg font-black tracking-widest ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300'}`}
           >
-            iHub
+            iHUB
           </Link>
 
           <Link

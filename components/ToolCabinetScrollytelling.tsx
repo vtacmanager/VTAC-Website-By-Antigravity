@@ -1,14 +1,21 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { Volume2, VolumeX } from 'lucide-react';
 
 const FRAME_COUNT = 210;
 const IMAGES_DIR = '/red-tool-box/';
+const AUDIO_SRC = '/sounds/mechanism-loop.mp3'; // PLACEHOLDER: Change to your file
 
 export default function ToolCabinetScrollytelling() {
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    // Audio State
+    const [isMuted, setIsMuted] = useState(true);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+    const stopAudioTimeout = useRef<NodeJS.Timeout | null>(null);
 
     // Track verify progress
     const [loadingProgress, setLoadingProgress] = useState(0);
@@ -19,6 +26,28 @@ export default function ToolCabinetScrollytelling() {
     });
 
     const currentIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1]);
+
+    // Initialize Audio
+    useEffect(() => {
+        audioRef.current = new Audio(AUDIO_SRC);
+        audioRef.current.loop = true;
+        audioRef.current.volume = 0.5;
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current = null;
+            }
+        };
+    }, []);
+
+    const toggleAudio = () => {
+        setIsMuted(!isMuted);
+        if (!isMuted) {
+            // Muting
+            audioRef.current?.pause();
+        }
+        // Unmuting: Don't play immediately, wait for scroll
+    };
 
     // Preload Images
     useEffect(() => {
@@ -100,6 +129,24 @@ export default function ToolCabinetScrollytelling() {
 
     useMotionValueEvent(currentIndex, "change", (latest) => {
         render(latest);
+
+        // Audio Logic: Play while scrolling
+        if (!isMuted && audioRef.current && !isLoading) {
+            // If audio is paused, start playing
+            if (audioRef.current.paused) {
+                audioRef.current.play().catch(e => console.log("Audio play failed", e));
+            }
+
+            // Reset the "stop" timer
+            if (stopAudioTimeout.current) {
+                clearTimeout(stopAudioTimeout.current);
+            }
+
+            // Set a new timer to stop audio if no scroll happens for 150ms
+            stopAudioTimeout.current = setTimeout(() => {
+                audioRef.current?.pause();
+            }, 150);
+        }
     });
 
     // Initial render and resize handler
@@ -131,7 +178,7 @@ export default function ToolCabinetScrollytelling() {
 
                 {/* The Scrollytelling Cabinet - Positioned to overlay the TV Screen */}
                 {/* Scaling down to ~50% (w-1/2) and centering as requested */}
-                <div className="relative z-10 w-[90%] md:w-[50%] aspect-video shadow-2xl bg-black overflow-hidden rounded-sm md:rounded-lg transform -translate-y-[6%]">
+                <div className="relative z-10 w-[90%] md:w-[50%] aspect-video shadow-2xl bg-black overflow-hidden rounded-sm md:rounded-lg transform -translate-y-[6%] group">
                     {isLoading && (
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-cyan-400 z-50 bg-slate-950">
                             <div className="text-4xl font-black mb-4">{loadingProgress}%</div>
@@ -139,6 +186,24 @@ export default function ToolCabinetScrollytelling() {
                         </div>
                     )}
                     <canvas ref={canvasRef} className="w-full h-full object-contain" />
+
+                    {/* Audio Toggle Button */}
+                    <button
+                        onClick={toggleAudio}
+                        className="absolute bottom-4 right-4 z-50 p-3 rounded-full bg-slate-950/50 backdrop-blur-md border border-white/10 text-cyan-400 hover:bg-cyan-500/20 hover:text-white transition-all duration-300 group-hover:opacity-100 opacity-0 md:opacity-0"
+                    >
+                        {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                    </button>
+                    {/* Note: Added md:opacity-0 group-hover:opacity-100 to show mostly on hover, but accessible touches on mobile might need always visible. Keeping sleek for now. */}
+                    {/* Adjusting opacity to regular visibility for better UX on touch */}
+                    <div className="absolute bottom-4 right-4 z-50">
+                        <button
+                            onClick={toggleAudio}
+                            className="p-3 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/10 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all duration-300"
+                        >
+                            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Scroll Indicator */}

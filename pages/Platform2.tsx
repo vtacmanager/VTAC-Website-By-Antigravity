@@ -292,7 +292,7 @@ const Platform2: React.FC = () => {
             <span className="gradient-text text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] italic">DIGITALIZED. REMOTE-READY.</span>
           </h1>
 
-          <p className="text-sm md:text-lg text-slate-500 font-black tracking-widest uppercase max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 mt-12">
+          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 mt-12">
             Beyond whistles and clipboards. VTAC unifies your entire toolkit—for football, basketball, hockey, and all team sports—into one remote-ready system. Now, the locker room is wherever you are. Learn, sync, and lead from anywhere.
           </p>
 
@@ -313,7 +313,7 @@ const Platform2: React.FC = () => {
               <span className="text-white block">THE WORKFLOW</span>
               <span className="gradient-text block">OF WINNING</span>
             </h2>
-            <p className="text-slate-500 text-sm md:text-lg font-black tracking-widest uppercase">
+            <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase">
               A seamless digital loop from the locker room to the final whistle.
             </p>
           </div>
@@ -438,7 +438,7 @@ const Platform2: React.FC = () => {
             THE PERFORMANCE <br />
             <span className="gradient-text pr-4">ECOSYSTEM</span>
           </h2>
-          <p className="text-slate-500 text-sm md:text-lg font-black tracking-widest uppercase max-w-3xl mx-auto">
+          <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase max-w-3xl mx-auto">
             Opening the toolbox: Professional-grade features engineered for elite sports organizations.
           </p>
         </div>
@@ -698,12 +698,12 @@ const Platform2: React.FC = () => {
             <span>PROFESSIONAL PERFORMANCE. ACCESSIBLE TO ALL.</span>
           </div>
 
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
+          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white py-2">
             THE MODERN ATHLETE <br />
-            <span className="gradient-text pr-4">AT EVERY SCALE</span>
+            <span className="gradient-text box-decoration-clone pr-10 pb-2">AT EVERY SCALE</span>
           </h2>
 
-          <p className="text-sm md:text-base text-slate-500 font-black uppercase tracking-widest leading-relaxed max-w-5xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-400 font-medium uppercase leading-relaxed max-w-5xl mx-auto">
             VTAC is engineered to be the universal language of sports. Whether you are a local school team, a rising university program, or an elite professional academy, our platform scales to meet your ambition. We provide the professional edge to every coach and player, regardless of the size of their field.
           </p>
         </div>
