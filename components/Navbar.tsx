@@ -45,10 +45,10 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center space-x-10">
           <div className="flex items-center space-x-10">
             <Link
-              to="/platform2"
-              className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+              to="/ihub"
+              className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
             >
-              Platform
+              iHub
             </Link>
 
             <Link
@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
                   <span>Account</span>
                   <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
                 </button>
-                
+
                 <div className="absolute top-full right-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 p-2 rounded-2xl shadow-2xl min-w-[200px]">
                     <div className="px-4 py-3 border-b border-white/10">
@@ -160,10 +160,10 @@ const Navbar: React.FC = () => {
       <div className={`md:hidden absolute top-full left-0 right-0 bg-slate-950 border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[85vh] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}>
         <div className="px-6 py-8 space-y-6 flex flex-col">
           <Link
-            to="/platform2"
-            className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300'}`}
+            to="/ihub"
+            className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300'}`}
           >
-            Platform
+            iHub
           </Link>
 
           <Link

@@ -6,7 +6,7 @@ import Navbar from './components/Navbar.tsx';
 import Footer from './components/Footer.tsx';
 import Home from './pages/Home.tsx';
 import Platform from './pages/Platform.tsx';
-import Platform2 from './pages/Platform2.tsx';
+import iHub from './pages/iHub.tsx';
 import Solutions from './pages/Solutions.tsx';
 import Football from './pages/Football.tsx';
 import Pricing from './pages/Pricing.tsx';
@@ -32,7 +32,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/platform" element={<Platform />} />
-              <Route path="/platform2" element={<Platform2 />} />
+              <Route path="/ihub" element={<iHub />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/football" element={<Football />} />
               <Route path="/pricing" element={<Pricing />} />

@@ -91,7 +91,7 @@ const SimpleSlideshow = ({
   );
 };
 
-const Platform2: React.FC = () => {
+const iHub: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const timerRef = useRef<number | null>(null);
@@ -726,7 +726,7 @@ const Platform2: React.FC = () => {
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
-              <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Scalability" />
+              <img src="/images/PlatformSection5.1-UNIFIEDSCALABILITY.webp" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Scalability" />
             </div>
           </div>
 
@@ -746,7 +746,7 @@ const Platform2: React.FC = () => {
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
-              <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Scholastic" />
+              <img src="/images/PlatformSection5.2-THESCHOLASTICEDGE.webp" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Scholastic" />
             </div>
           </div>
 
@@ -766,7 +766,7 @@ const Platform2: React.FC = () => {
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
-              <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Pro Tools" />
+              <img src="/images/PlatformSection5.3-PRO-TOOLSFOREVERYTEAM.webp" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Pro Tools" />
             </div>
           </div>
 
@@ -786,7 +786,7 @@ const Platform2: React.FC = () => {
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Engagement" />
+              <img src="/images/PlatformSection5.4-ATHLETE-CENTRICENGAGEMENT.webp" className="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:grayscale-0 transition-all duration-700" alt="Engagement" />
             </div>
           </div>
 
@@ -839,4 +839,4 @@ const Platform2: React.FC = () => {
   );
 };
 
-export default Platform2;
+export default iHub;
