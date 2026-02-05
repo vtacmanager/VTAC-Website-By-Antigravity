@@ -54,15 +54,27 @@ import {
  * Player development system, Remote interactive training.
  */
 
-const SimpleSlideshow = ({ images, interval = 3000, overlay }: { images: string[], interval?: number, overlay?: React.ReactNode }) => {
-  const [index, setIndex] = useState(0);
+const SimpleSlideshow = ({
+  images,
+  interval = 3000,
+  overlay,
+  activeIndex
+}: {
+  images: string[],
+  interval?: number,
+  overlay?: React.ReactNode,
+  activeIndex?: number
+}) => {
+  const [internalIndex, setInternalIndex] = useState(0);
+  const index = activeIndex !== undefined ? activeIndex : internalIndex;
 
   useEffect(() => {
+    if (activeIndex !== undefined) return;
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
+      setInternalIndex((prev) => (prev + 1) % images.length);
     }, interval);
     return () => clearInterval(timer);
-  }, [images.length, interval]);
+  }, [images.length, interval, activeIndex]);
 
   return (
     <div className="absolute inset-0 w-full h-full">
@@ -85,9 +97,26 @@ const Platform2: React.FC = () => {
   const timerRef = useRef<number | null>(null);
 
   // State for Section 2 Timeline
+  // Section 2 Timeline Steps Data
   const [activeStep, setActiveStep] = useState(0);
   const [isStepAutoPlaying, setIsStepAutoPlaying] = useState(true);
   const stepTimerRef = useRef<number | null>(null);
+
+  // Section 4 Controlled Slideshow State
+  const [legacyIndex, setLegacyIndex] = useState(0);
+  const [vtacIndex, setVtacIndex] = useState(0);
+
+  // Cycle Legacy Index
+  useEffect(() => {
+    const timer = setInterval(() => setLegacyIndex((prev) => (prev + 1) % 2), 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Cycle VTAC Index
+  useEffect(() => {
+    const timer = setInterval(() => setVtacIndex((prev) => (prev + 1) % 2), 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const pillarItems = [
     {
@@ -162,7 +191,7 @@ const Platform2: React.FC = () => {
       body: "Don’t waste valuable pitch time. Use Interactive Remote Training to brief tactics from home or the locker room. Ensure every player is synchronized and ready to execute the moment they step onto the field.",
       bullets: ["Smart Scheduling", "Interactive Briefing", "Blueprint Design"],
       icon: <Calendar className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1552667466-07770ae110d0?auto=format&fit=crop&q=80&w=1200",
+      image: "/images/Platform Section2.1.webp",
       color: "blue",
       glow: "rgba(59,130,246,0.5)"
     },
@@ -174,7 +203,7 @@ const Platform2: React.FC = () => {
       body: "Replace manual logs with intelligent automation. Manage live lineups and record attendance, scores, and match events in real-time. All data is instantly updated and synced for coaches, players, and parents.",
       bullets: ["Real-time Attendance", "Dynamic Line-up Sync", "Live Event Tracking"],
       icon: <MousePointer2 className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200",
+      image: "/images/Platform Section2.2.webp",
       color: "cyan",
       glow: "rgba(34,211,238,0.5)",
       isHighlight: true
@@ -187,7 +216,7 @@ const Platform2: React.FC = () => {
       body: "Turn match data into progress. Combine our Interactive Engine with professional image and video analysis tools to break down performances, fix tactical gaps, and prepare for the next challenge.",
       bullets: ["Video & Image Analysis", "Tactical Feedback Loop", "Data-Driven Adjustments"],
       icon: <History className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1510051644265-934cb9742558?auto=format&fit=crop&get=80&w=1200",
+      image: "/images/Platform Section2.3.webp",
       color: "purple",
       glow: "rgba(168,85,247,0.5)"
     },
@@ -199,7 +228,7 @@ const Platform2: React.FC = () => {
       body: "Secure your club’s future. All data is automatically synced to the cloud, building professional individual profiles and multi-season CVs for both players and coaches—accessible anytime, anywhere.",
       bullets: ["Automated Player & Coach CVs", "Multi-Season Analytics", "Secure Cloud Ecosystem"],
       icon: <Smartphone className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&q=80&w=1200",
+      image: "/images/Platform Section2.4.webp",
       color: "emerald",
       glow: "rgba(16,185,129,0.5)"
     }
@@ -374,7 +403,7 @@ const Platform2: React.FC = () => {
                     {timelineSteps.map((step, idx) => (
                       <div
                         key={`img-${step.id}`}
-                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${activeStep === idx ? 'opacity-60' : 'opacity-0'}`}
+                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${activeStep === idx ? 'opacity-100' : 'opacity-0'}`}
                       >
                         <img
                           src={step.image}
@@ -384,64 +413,7 @@ const Platform2: React.FC = () => {
                       </div>
                     ))}
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none"></div>
 
-                    {/* Step Specific UI Overlays with Smooth Fading */}
-                    {timelineSteps.map((step, idx) => (
-                      <div
-                        key={`overlay-${step.id}`}
-                        className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 ease-in-out ${activeStep === idx ? 'opacity-100' : 'opacity-0'}`}
-                      >
-                        {idx === 0 && (
-                          <div className="absolute top-8 right-8 glass-card p-5 rounded-xl border-white/20 animate-in fade-in slide-in-from-top-4 duration-1000">
-                            <div className="flex items-center gap-3">
-                              <Calendar className="w-4 h-4 text-blue-400" />
-                              <p className="text-[9px] font-black uppercase tracking-widest text-blue-400">Plan & Align</p>
-                            </div>
-                          </div>
-                        )}
-                        {idx === 1 && (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="glass-card p-8 rounded-[2rem] text-center border-cyan-500/30 scale-100 shadow-[0_0_50px_rgba(34,211,238,0.3)] animate-in zoom-in-90 duration-700">
-                              <div className="flex items-center gap-3 mb-4 justify-center">
-                                <div className="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></div>
-                                <span className="text-[10px] font-black uppercase tracking-widest text-white">Execute & Record</span>
-                              </div>
-                              <div className="flex -space-x-2.5 justify-center mb-5">
-                                {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800 shadow-xl"></div>)}
-                              </div>
-                              <div className="flex items-center gap-2 justify-center text-cyan-400">
-                                <MousePointer2 className="w-4 h-4 animate-bounce" />
-                                <span className="text-[9px] font-black uppercase tracking-widest">Real-time Positional Sync</span>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                        {idx === 2 && (
-                          <div className="absolute bottom-8 left-8 right-8 flex gap-4 animate-in slide-in-from-bottom-8 duration-1000">
-                            <div className="flex-1 h-20 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 p-4 flex flex-col justify-end">
-                              <div className="h-full w-full flex items-end gap-1.5">
-                                <div className="h-[40%] flex-1 bg-purple-500/30 rounded-sm"></div>
-                                <div className="h-[70%] flex-1 bg-purple-500/50 rounded-sm"></div>
-                                <div className="h-[90%] flex-1 bg-purple-500/80 rounded-sm"></div>
-                              </div>
-                              <p className="text-[7px] font-black uppercase tracking-widest text-purple-400 mt-2">Analyze & Improve</p>
-                            </div>
-                          </div>
-                        )}
-                        {idx === 3 && (
-                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div className="relative">
-                              <div className="absolute inset-0 bg-emerald-500/20 blur-2xl animate-pulse rounded-full"></div>
-                              <div className="relative glass-card p-5 rounded-full border-emerald-500/30 flex items-center gap-3">
-                                <Globe className="w-5 h-5 text-emerald-400 animate-spin-slow" />
-                                <span className="text-[9px] font-black uppercase tracking-widest text-white">Scale & Secure</span>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    ))}
                   </div>
                   {/* Tablet Bottom Bar (Indicator) */}
                   <div className="absolute bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 w-16 md:w-32 h-1 md:h-1.5 bg-white/10 rounded-full z-40"></div>
@@ -587,16 +559,12 @@ const Platform2: React.FC = () => {
               <div className="absolute inset-0 bg-slate-900/40 z-10 pointer-events-none"></div>
               <SimpleSlideshow
                 interval={5000}
+                activeIndex={legacyIndex}
                 images={[
-                  "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800", // Paperwork
-                  "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800", // Writing
-                  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800"  // Planning
+                  "/images/Platform Section4.1.webp",
+                  "/images/Platform Section4.2.webp"
                 ]}
-                overlay={
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 -rotate-12 border-4 border-red-500/50 px-6 py-2 rounded-xl mask-gradient">
-                    <span className="text-2xl font-black uppercase text-red-500/70 tracking-widest whitespace-nowrap">Session Canceled</span>
-                  </div>
-                }
+
               />
             </div>
 
@@ -617,25 +585,25 @@ const Platform2: React.FC = () => {
               </p>
 
               <div className="space-y-8 pt-4">
-                <div className="flex gap-5">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-slate-900 border border-white/5 flex items-center justify-center">
-                    <FileX className="w-5 h-5 text-slate-600" />
+                <div className={`flex gap-5 transition-opacity duration-500 ${legacyIndex === 0 ? 'opacity-100' : 'opacity-40'}`}>
+                  <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-500 ${legacyIndex === 0 ? 'bg-red-500/20 border-red-500/50' : 'bg-slate-900 border-white/5'}`}>
+                    <FileX className={`w-5 h-5 ${legacyIndex === 0 ? 'text-red-500' : 'text-slate-600'}`} />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-slate-400 font-black uppercase tracking-widest text-sm">The Boredom Gap</h4>
-                    <p className="text-slate-600 text-sm font-bold leading-relaxed">
+                    <h4 className={`font-black uppercase tracking-widest text-sm transition-colors duration-500 ${legacyIndex === 0 ? 'text-red-500' : 'text-slate-400'}`}>The Boredom Gap</h4>
+                    <p className={`text-sm font-bold leading-relaxed transition-colors duration-500 ${legacyIndex === 0 ? 'text-white' : 'text-slate-600'}`}>
                       One-way learning via PDFs and video clips feels like tedious "homework," leading to low retention.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex gap-5">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-slate-900 border border-white/5 flex items-center justify-center">
-                    <CloudOff className="w-5 h-5 text-slate-600" />
+                <div className={`flex gap-5 transition-opacity duration-500 ${legacyIndex === 1 ? 'opacity-100' : 'opacity-40'}`}>
+                  <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-500 ${legacyIndex === 1 ? 'bg-red-500/20 border-red-500/50' : 'bg-slate-900 border-white/5'}`}>
+                    <CloudOff className={`w-5 h-5 ${legacyIndex === 1 ? 'text-red-500' : 'text-slate-600'}`} />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-slate-400 font-black uppercase tracking-widest text-sm">The Momentum Killer</h4>
-                    <p className="text-slate-600 text-sm font-bold leading-relaxed">
+                    <h4 className={`font-black uppercase tracking-widest text-sm transition-colors duration-500 ${legacyIndex === 1 ? 'text-red-500' : 'text-slate-400'}`}>The Momentum Killer</h4>
+                    <p className={`text-sm font-bold leading-relaxed transition-colors duration-500 ${legacyIndex === 1 ? 'text-white' : 'text-slate-600'}`}>
                       When training is canceled, development grinds to a halt—leaving the team with invisible tactical gaps.
                     </p>
                   </div>
@@ -657,19 +625,12 @@ const Platform2: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10 pointer-events-none"></div>
               <SimpleSlideshow
                 interval={5000}
+                activeIndex={vtacIndex}
                 images={[
-                  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800", // Cyberpunk 1
-                  "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800", // Gaming
-                  "https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&q=80&w=800"  // VR/Tech
+                  "/images/Platform Section4.3.webp",
+                  "/images/Platform Section4.4.webp"
                 ]}
-                overlay={
-                  <div className="absolute inset-0 z-20 flex items-center justify-center p-8 pointer-events-none">
-                    <div className="glass-card px-6 py-3 rounded-xl border-cyan-500/40 shadow-xl backdrop-blur-md animate-in zoom-in duration-700 flex items-center gap-3">
-                      <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></div>
-                      <span className="text-white font-black uppercase tracking-widest text-xs">Live Tactical Sync</span>
-                    </div>
-                  </div>
-                }
+
               />
             </div>
 
@@ -690,25 +651,25 @@ const Platform2: React.FC = () => {
               </p>
 
               <div className="space-y-8 pt-4">
-                <div className="flex gap-5 group/item">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform">
-                    <Gamepad2 className="w-5 h-5 text-white" />
+                <div className={`flex gap-5 group/item transition-opacity duration-500 ${vtacIndex === 0 ? 'opacity-100' : 'opacity-40'}`}>
+                  <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center shadow-lg transition-transform duration-500 ${vtacIndex === 0 ? 'bg-gradient-to-br from-cyan-400 to-blue-500 scale-110' : 'bg-slate-900 border border-white/10 scale-100'}`}>
+                    <Gamepad2 className={`w-5 h-5 ${vtacIndex === 0 ? 'text-white' : 'text-slate-500'}`} />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-white font-black uppercase tracking-widest text-sm">The Fun Factor</h4>
-                    <p className="text-slate-300 text-sm font-bold leading-relaxed">
+                    <h4 className={`font-black uppercase tracking-widest text-sm transition-colors duration-500 ${vtacIndex === 0 ? 'text-cyan-400' : 'text-slate-400'}`}>The Fun Factor</h4>
+                    <p className={`text-sm font-bold leading-relaxed transition-colors duration-500 ${vtacIndex === 0 ? 'text-white' : 'text-slate-500'}`}>
                       We turn tactical prep into a live, multiplayer experience. Engaging as a video game, making learning effortless.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex gap-5 group/item">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-slate-900 border border-cyan-500/50 flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.3)] group-hover/item:border-cyan-400 transition-colors">
-                    <Zap className="w-5 h-5 text-cyan-400 group-hover/item:animate-pulse" />
+                <div className={`flex gap-5 group/item transition-opacity duration-500 ${vtacIndex === 1 ? 'opacity-100' : 'opacity-40'}`}>
+                  <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center shadow-lg transition-transform duration-500 ${vtacIndex === 1 ? 'bg-gradient-to-br from-cyan-400 to-blue-500 scale-110' : 'bg-slate-900 border border-white/10 scale-100'}`}>
+                    <Zap className={`w-5 h-5 ${vtacIndex === 1 ? 'text-white' : 'text-slate-500'}`} />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-white font-black uppercase tracking-widest text-sm">The Resilience Factor</h4>
-                    <p className="text-slate-300 text-sm font-bold leading-relaxed">
+                    <h4 className={`font-black uppercase tracking-widest text-sm transition-colors duration-500 ${vtacIndex === 1 ? 'text-cyan-400' : 'text-slate-400'}`}>The Resilience Factor</h4>
+                    <p className={`text-sm font-bold leading-relaxed transition-colors duration-500 ${vtacIndex === 1 ? 'text-white' : 'text-slate-500'}`}>
                       Turn every cancellation into a high-value interactive session. Build chemistry and tactical IQ anytime, anywhere.
                     </p>
                   </div>
@@ -846,11 +807,11 @@ const Platform2: React.FC = () => {
             <div className="relative z-10 space-y-8">
               <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-8">
                 READY FOR THE <br />
-                <span className="gradient-text inline-block pr-10">NEXT LEVEL?</span>
+                <span className="gradient-text inline-block pr-10">NEXT SEASON?</span>
               </h2>
 
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
-                Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC Manager.</span>
+                Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC</span> <span className="text-cyan-400 font-black">MANAGER.</span>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
