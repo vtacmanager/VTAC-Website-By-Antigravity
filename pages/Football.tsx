@@ -41,7 +41,7 @@ const Football: React.FC = () => {
 
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
             DOMINATE <br />
-            THE PITCH <br />
+            THE 5G PITCH <br />
             <span className="gradient-text box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>FROM ANYWHERE</span>
           </h1>
 
@@ -105,47 +105,8 @@ const Football: React.FC = () => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-green-600/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-10 relative z-10">
-            <div className="space-y-8">
-              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
-                <Zap className="w-3 h-3 md:w-4 md:h-4" />
-                <span>UNSTOPPABLE MOMENTUM</span>
-              </div>
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
-                ZERO DOWNTIME. <br />
-                <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>NO EXCUSES.</span>
-              </h2>
-            </div>
-
-            <div className="space-y-8">
-              <div className="flex gap-6 group">
-                <div className="shrink-0 w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors">
-                  <Globe className="w-8 h-8 text-blue-400" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-black uppercase text-white mb-2">Rainy Day? No Problem</h4>
-                  <p className="text-slate-400 leading-relaxed">
-                    When the pitch is closed or travel is disrupted, instantly pivot to a Remote Tactics Session. The learning never stops.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 group">
-                <div className="shrink-0 w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors">
-                  <Smartphone className="w-8 h-8 text-blue-400" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-black uppercase text-white mb-2">Mobile-First Briefing</h4>
-                  <p className="text-slate-400 leading-relaxed">
-                    Players access tactical plans from any device. Ensure the squad is "In-Sync" even while on the team bus heading to an away game.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Visual Side */}
+        <div className="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
+          {/* Visual Side (Moved to Left) */}
           <div className="relative h-[600px] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
             {/* Placeholder for Remote Session Image */}
             <div className="absolute inset-0 bg-slate-900">
@@ -161,6 +122,45 @@ const Football: React.FC = () => {
               <div className="flex items-center gap-4">
                 <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                 <p className="text-sm font-bold uppercase text-white">Live Sync: 24 Players Connected</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-10 relative z-10">
+            <div className="space-y-8">
+              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
+                <Zap className="w-3 h-3 md:w-4 md:h-4" />
+                <span>UNSTOPPABLE MOMENTUM</span>
+              </div>
+              <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
+                ZERO DOWNTIME <br />
+                <span className="gradient-text box-decoration-clone pr-10" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>NO EXCUSES</span>
+              </h2>
+            </div>
+
+            <div className="space-y-8">
+              <div className="flex gap-6 group">
+                <div className="shrink-0 w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors">
+                  <Globe className="w-8 h-8 text-blue-400" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-black uppercase text-white mb-2">Disrupted Session? No Problem</h4>
+                  <p className="text-slate-400 leading-relaxed">
+                    When physical training is interrupted by travel, weather, or scheduling conflicts—pivot instantly to a Remote Tactics Session.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 group">
+                <div className="shrink-0 w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors">
+                  <Smartphone className="w-8 h-8 text-blue-400" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-black uppercase text-white mb-2">Mobile-First Briefing</h4>
+                  <p className="text-slate-400 leading-relaxed">
+                    Players access tactical plans from any device. Ensure the squad is "In-Sync" even while on the team bus heading to an away game.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
