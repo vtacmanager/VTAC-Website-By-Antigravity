@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SectionWrapper, CTASection, GradientBackground } from '../components/UI.tsx';
 import {
   Trophy,
@@ -20,6 +20,27 @@ import {
 } from 'lucide-react';
 
 const Football: React.FC = () => {
+  // Traffic Light Logic for Section 4
+  const [activeTrafficLight, setActiveTrafficLight] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    if (isHovering) return; // Pause automatic rotation when hovering
+
+    let timeout: number;
+    if (activeTrafficLight === 0) {
+      // RED: 2 Seconds
+      timeout = window.setTimeout(() => setActiveTrafficLight(1), 2000);
+    } else if (activeTrafficLight === 1) {
+      // YELLOW: 2 Seconds
+      timeout = window.setTimeout(() => setActiveTrafficLight(2), 2000);
+    } else if (activeTrafficLight === 2) {
+      // GREEN: 5 Seconds ("Go" state)
+      timeout = window.setTimeout(() => setActiveTrafficLight(0), 5000);
+    }
+    return () => window.clearTimeout(timeout);
+  }, [activeTrafficLight, isHovering]);
+
   return (
     <div className="bg-slate-950 text-white min-h-screen">
       {/* SECTION 1: HERO SECTION (Football Intelligence) */}
@@ -184,41 +205,119 @@ const Football: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6">
-            {/* Step 1: Scan */}
-            <div className="bg-slate-950/50 p-8 rounded-3xl border border-white/5 hover:border-purple-500/50 transition-all duration-300 group">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-6 text-2xl font-black">1</div>
-              <div className="h-48 rounded-2xl bg-black/50 mb-6 flex items-center justify-center border border-white/5 group-hover:border-purple-500/30 transition-colors relative overflow-hidden">
-                <Scan className="w-16 h-16 text-white/20 group-hover:text-purple-400 transition-colors duration-500" />
-                <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="grid lg:grid-cols-3 gap-6" onMouseLeave={() => setIsHovering(false)}>
+            {/* Step 1: Scan (RED - STOP/CONNECT) */}
+            <div
+              onMouseEnter={() => { setIsHovering(true); setActiveTrafficLight(0); }}
+              className={`group relative flex flex-col p-8 rounded-[2.5rem] border transition-all duration-700 backdrop-blur-sm ${activeTrafficLight === 0 ? 'bg-slate-900/60 scale-105 opacity-100 z-10' : 'bg-slate-900/20 scale-95 opacity-50 z-0'}`}
+              style={{
+                borderColor: activeTrafficLight === 0 ? '#ef444480' : 'rgba(255,255,255,0.05)',
+                boxShadow: activeTrafficLight === 0 ? '0 0 50px -10px #ef444450' : 'none'
+              }}
+            >
+              {activeTrafficLight === 0 && (
+                <>
+                  <div className="absolute -top-px left-1/2 -translate-x-1/2 h-[3px] w-2/3 rounded-full bg-red-500 shadow-[0_0_15px_#ef4444]"></div>
+                  <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full blur-[80px] opacity-20 pointer-events-none -mr-10 -mt-10 bg-red-500"></div>
+                </>
+              )}
+
+              <div className="relative z-10 w-full">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-2xl font-black transition-colors duration-500 ${activeTrafficLight === 0 ? 'bg-red-500/20 text-red-400' : 'bg-slate-800 text-slate-600'}`}>1</div>
+                <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 0 ? 'bg-black/50 border-red-500/30' : 'bg-black/20 border-white/5'}`}>
+                  <img
+                    src="/images/Football-Section4.1.webp"
+                    alt="Instant Connect"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-500"
+                  />
+                </div>
+                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 0 ? 'text-white' : 'text-slate-500'}`}>INSTANT CONNECT</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Scan QR)</p>
+                <p className="text-slate-400">Scan the iHub QR code to instantly pair your smartphone as your personal tactical controller.</p>
+
+                {/* Interactive Dot Animation (Only when active) */}
+                <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 0 ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className="w-1 h-1 rounded-full bg-red-500 animate-pulse"></div>
+                  <div className="w-1 h-1 rounded-full bg-red-500 animate-pulse delay-75"></div>
+                  <div className="w-1 h-1 rounded-full bg-red-500 animate-pulse delay-150"></div>
+                </div>
               </div>
-              <h3 className="text-2xl font-black uppercase italic text-white mb-2">INSTANT CONNECT</h3>
-              <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Scan QR)</p>
-              <p className="text-slate-400">Scan the iHub QR code to instantly pair your smartphone as your personal tactical controller.</p>
             </div>
 
-            {/* Step 2: Control */}
-            <div className="bg-slate-950/50 p-8 rounded-3xl border border-white/5 hover:border-pink-500/50 transition-all duration-300 group">
-              <div className="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center mb-6 text-2xl font-black">2</div>
-              <div className="h-48 rounded-2xl bg-black/50 mb-6 flex items-center justify-center border border-white/5 group-hover:border-pink-500/30 transition-colors relative overflow-hidden">
-                <Gamepad2 className="w-16 h-16 text-white/20 group-hover:text-pink-400 transition-colors duration-500" />
-                <div className="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            {/* Step 2: Control (YELLOW - READY/WAIT) */}
+            <div
+              onMouseEnter={() => { setIsHovering(true); setActiveTrafficLight(1); }}
+              className={`group relative flex flex-col p-8 rounded-[2.5rem] border transition-all duration-700 backdrop-blur-sm ${activeTrafficLight === 1 ? 'bg-slate-900/60 scale-105 opacity-100 z-10' : 'bg-slate-900/20 scale-95 opacity-50 z-0'}`}
+              style={{
+                borderColor: activeTrafficLight === 1 ? '#eab30880' : 'rgba(255,255,255,0.05)',
+                boxShadow: activeTrafficLight === 1 ? '0 0 50px -10px #eab30850' : 'none'
+              }}
+            >
+              {activeTrafficLight === 1 && (
+                <>
+                  <div className="absolute -top-px left-1/2 -translate-x-1/2 h-[3px] w-2/3 rounded-full bg-yellow-500 shadow-[0_0_15px_#eab308]"></div>
+                  <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full blur-[80px] opacity-20 pointer-events-none -mr-10 -mt-10 bg-yellow-500"></div>
+                </>
+              )}
+
+              <div className="relative z-10 w-full">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-2xl font-black transition-colors duration-500 ${activeTrafficLight === 1 ? 'bg-yellow-500/20 text-yellow-400' : 'bg-slate-800 text-slate-600'}`}>2</div>
+                <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 1 ? 'bg-black/50 border-yellow-500/30' : 'bg-black/20 border-white/5'}`}>
+                  <img
+                    src="/images/Football-Section4.2.webp"
+                    alt="Remote Joy Control"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-500"
+                  />
+                </div>
+                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 1 ? 'text-white' : 'text-slate-500'}`}>REMOTE JOY CONTROL</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Play Live)</p>
+                <p className="text-slate-400">Take command of your avatar. Execute group movements and tactical shifts with millisecond precision.</p>
+
+                {/* Interactive Dot Animation */}
+                <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 1 ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className="w-1 h-1 rounded-full bg-yellow-500 animate-pulse"></div>
+                  <div className="w-1 h-1 rounded-full bg-yellow-500 animate-pulse delay-75"></div>
+                  <div className="w-1 h-1 rounded-full bg-yellow-500 animate-pulse delay-150"></div>
+                </div>
               </div>
-              <h3 className="text-2xl font-black uppercase italic text-white mb-2">REMOTE JOY CONTROL</h3>
-              <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Play Live)</p>
-              <p className="text-slate-400">Take command of your avatar. Execute group movements and tactical shifts with millisecond precision.</p>
             </div>
 
-            {/* Step 3: Sync */}
-            <div className="bg-slate-950/50 p-8 rounded-3xl border border-white/5 hover:border-red-500/50 transition-all duration-300 group">
-              <div className="w-12 h-12 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center mb-6 text-2xl font-black">3</div>
-              <div className="h-48 rounded-2xl bg-black/50 mb-6 flex items-center justify-center border border-white/5 group-hover:border-red-500/30 transition-colors relative overflow-hidden">
-                <Users className="w-16 h-16 text-white/20 group-hover:text-red-400 transition-colors duration-500" />
-                <div className="absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            {/* Step 3: Sync (GREEN - GO/PLAY) */}
+            <div
+              onMouseEnter={() => { setIsHovering(true); setActiveTrafficLight(2); }}
+              className={`group relative flex flex-col p-8 rounded-[2.5rem] border transition-all duration-700 backdrop-blur-sm ${activeTrafficLight === 2 ? 'bg-slate-900/60 scale-105 opacity-100 z-10' : 'bg-slate-900/20 scale-95 opacity-50 z-0'}`}
+              style={{
+                borderColor: activeTrafficLight === 2 ? '#22c55e80' : 'rgba(255,255,255,0.05)',
+                boxShadow: activeTrafficLight === 2 ? '0 0 50px -10px #22c55e50' : 'none'
+              }}
+            >
+              {activeTrafficLight === 2 && (
+                <>
+                  <div className="absolute -top-px left-1/2 -translate-x-1/2 h-[3px] w-2/3 rounded-full bg-green-500 shadow-[0_0_15px_#22c55e]"></div>
+                  <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full blur-[80px] opacity-20 pointer-events-none -mr-10 -mt-10 bg-green-500"></div>
+                </>
+              )}
+
+              <div className="relative z-10 w-full">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-2xl font-black transition-colors duration-500 ${activeTrafficLight === 2 ? 'bg-green-500/20 text-green-400' : 'bg-slate-800 text-slate-600'}`}>3</div>
+                <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 2 ? 'bg-black/50 border-green-500/30' : 'bg-black/20 border-white/5'}`}>
+                  <img
+                    src="/images/Football-Section4.3.webp"
+                    alt="Multiplayer Sync"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-500"
+                  />
+                </div>
+                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 2 ? 'text-white' : 'text-slate-500'}`}>MULTIPLAYER SYNC</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Team Practice)</p>
+                <p className="text-slate-400">Enter the virtual pitch together. Practice the coach's vision with the entire squad, from any location, on one shared field.</p>
+
+                {/* Interactive Dot Animation */}
+                <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 2 ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse"></div>
+                  <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse delay-75"></div>
+                  <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse delay-150"></div>
+                </div>
               </div>
-              <h3 className="text-2xl font-black uppercase italic text-white mb-2">MULTIPLAYER SYNC</h3>
-              <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Team Practice)</p>
-              <p className="text-slate-400">Enter the virtual pitch together. Practice the coach's vision with the entire squad, from any location, on one shared field.</p>
             </div>
           </div>
         </div>
@@ -315,7 +414,7 @@ const Football: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </div>
+    </div >
   );
 };
 
