@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { SectionWrapper, CTASection, GradientBackground } from '../components/UI.tsx';
 import {
   Trophy,
@@ -27,7 +27,13 @@ import {
   Radio, // For Broadcast/Feed
   IdCard, // For Scout Card
   Database, // For Data CV
-  Briefcase // For Portfolio
+  Briefcase, // For Portfolio
+  BrainCircuit,
+  LayoutDashboard,
+  Pause,
+  Play,
+  Volume2,
+  VolumeX
 } from 'lucide-react';
 
 const StepBadge = ({ children, color = 'red' }: { children: React.ReactNode, color?: 'red' | 'purple' | 'orange' | 'blue' | 'pink' | 'green' }) => {
@@ -175,6 +181,29 @@ const Football: React.FC = () => {
   // Traffic Light Logic for Section 4 (Now Virtual Experience)
   const [activeTrafficLight, setActiveTrafficLight] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+
+  // Video Controls for Section 3.5
+  const remoteVideoRef = useRef<HTMLVideoElement>(null);
+  const [isRemoteVideoPlaying, setIsRemoteVideoPlaying] = useState(true);
+  const [isRemoteVideoMuted, setIsRemoteVideoMuted] = useState(true);
+
+  const toggleRemoteVideo = () => {
+    if (remoteVideoRef.current) {
+      if (isRemoteVideoPlaying) {
+        remoteVideoRef.current.pause();
+      } else {
+        remoteVideoRef.current.play();
+      }
+      setIsRemoteVideoPlaying(!isRemoteVideoPlaying);
+    }
+  };
+
+  const toggleRemoteMute = () => {
+    if (remoteVideoRef.current) {
+      remoteVideoRef.current.muted = !remoteVideoRef.current.muted;
+      setIsRemoteVideoMuted(remoteVideoRef.current.muted);
+    }
+  };
 
   useEffect(() => {
     if (isHovering) return; // Pause automatic rotation when hovering
@@ -367,6 +396,60 @@ const Football: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
+
+      {/* 3.5 Full Screen BG / Video Container - Locked Ratio (Like iHub) */}
+      <div className="relative w-full h-screen overflow-hidden bg-black">
+
+        {/* Constrained Aspect Ratio Container: Locks BG and Video together */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto aspect-video flex items-center justify-center">
+
+          {/* Background Image - Acts as the anchor */}
+          <img
+            src="/images/Football S3 BG for REMOTE RESILIENCE.webp"
+            alt="Remote Resilience Background"
+            className="w-full h-full object-cover opacity-80"
+          />
+
+          {/* Overlay for depth */}
+          <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
+
+          {/* TV Screen Video Overlay (Position Locked Relative to Image) */}
+          <div className="absolute top-[49.1%] left-[50.26%] -translate-x-1/2 -translate-y-1/2 w-[38.39%] aspect-[1.837] bg-black overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] group">
+            <video
+              ref={remoteVideoRef}
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/videos/remote-resilience.mp4" type="video/mp4" />
+            </video>
+
+            {/* Shine/Reflection Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none"></div>
+
+            {/* Video Controls (Bottom Center) */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-50 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <button
+                onClick={toggleRemoteVideo}
+                className="p-1 md:p-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white hover:bg-green-500 hover:border-green-500 transition-all active:scale-95"
+                title={isRemoteVideoPlaying ? "Pause" : "Play"}
+              >
+                {isRemoteVideoPlaying ? <Pause className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" /> : <Play className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" />}
+              </button>
+              <button
+                onClick={toggleRemoteMute}
+                className="p-1 md:p-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white hover:bg-blue-500 hover:border-blue-500 transition-all active:scale-95"
+                title={isRemoteVideoMuted ? "Unmute" : "Mute"}
+              >
+                {isRemoteVideoMuted ? <VolumeX className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" /> : <Volume2 className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       {/* 4. [THE WOW FACTOR] VIRTUAL EXPERIENCE (Reused Section 4) */}
       <div className="py-24 bg-slate-900 relative overflow-hidden">

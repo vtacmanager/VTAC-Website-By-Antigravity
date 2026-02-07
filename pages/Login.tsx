@@ -23,9 +23,9 @@ const Login: React.FC = () => {
     }
 
     const success = await login(email, password);
-    
+
     if (success) {
-      navigate('/platform2');
+      navigate('/ihub');
     } else {
       setError('Login failed. Please check your credentials and try again.');
     }
@@ -34,7 +34,7 @@ const Login: React.FC = () => {
   return (
     <SectionWrapper className="min-h-screen flex items-center justify-center">
       <GradientBackground />
-      
+
       <div className="w-full max-w-md relative z-10">
         <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-[3rem] p-12 shadow-2xl">
           {/* Logo and Title */}

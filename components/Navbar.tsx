@@ -46,8 +46,8 @@ const Navbar: React.FC = () => {
         <div className="hidden lg:flex items-center space-x-10">
           <div className="flex items-center space-x-10">
             <Link
-              to="/platform2"
-              className={`text-sm font-black tracking-widest transition-colors ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+              to="/ihub"
+              className={`text-sm font-black tracking-widest transition-colors ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
             >
               iHUB
             </Link>
@@ -161,8 +161,8 @@ const Navbar: React.FC = () => {
       <div className={`lg:hidden absolute top-full left-0 right-0 bg-slate-950 border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[85vh] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}>
         <div className="px-6 py-8 space-y-6 flex flex-col">
           <Link
-            to="/platform2"
-            className={`text-lg font-black tracking-widest ${location.pathname === '/platform2' ? 'text-cyan-400' : 'text-slate-300'}`}
+            to="/ihub"
+            className={`text-lg font-black tracking-widest ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300'}`}
           >
             iHUB
           </Link>

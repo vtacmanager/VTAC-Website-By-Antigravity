@@ -768,7 +768,7 @@ const Home: React.FC = () => {
       </SectionWrapper>
 
       {/* 5. What VTAC Manager Covers (NOTEBOOK DESIGN) */}
-      <SectionWrapper ref={section5Ref} id="coverage" className="bg-slate-950 overflow-visible pt-12 pb-24 md:pt-20 md:pb-40">
+      <SectionWrapper ref={section5Ref} id="coverage" className="bg-slate-950 pt-12 pb-24 md:pt-20 md:pb-40">
         <div className="text-center space-y-6 max-w-4xl mx-auto px-6 overflow-visible">
           <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em]">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
