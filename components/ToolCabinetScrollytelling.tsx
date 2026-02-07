@@ -163,51 +163,53 @@ export default function ToolCabinetScrollytelling() {
     }, [isLoading, images]);
 
     return (
-        <div ref={containerRef} className="relative h-[300vh] bg-slate-950 w-full">
+        <div ref={containerRef} className="relative h-[200vh] bg-slate-950 w-full">
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
 
-                {/* Background Image containing the TV Screen */}
-                <div className="absolute inset-0 z-0">
+                {/* Constraint Container: Wraps the image tightly so overlay scales with it 
+                    We assume the image is roughly 16:9. If it's different, the max-h/max-w will still constrain it correctly,
+                    and the div will shrink to fit the image dimensions (thanks to flex behavior on parent).
+                */}
+                <div className="relative w-auto h-auto max-w-full max-h-screen aspect-video flex items-center justify-center">
+
+                    {/* Background Image: Acts as the source of truth for dimensions */}
                     <img
                         src="/Platform2%20Section1.1.jpg"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                         alt="Background Environment"
                     />
-                    <div className="absolute inset-0 bg-black/20"></div> {/* Optional overlay for depth */}
-                </div>
 
-                {/* The Scrollytelling Cabinet - Positioned to overlay the TV Screen */}
-                {/* Scaling down to ~50% (w-1/2) and centering as requested */}
-                <div className="relative z-10 w-[90%] md:w-[50%] aspect-video shadow-2xl bg-black overflow-hidden rounded-sm md:rounded-lg transform -translate-y-[6%] group">
-                    {isLoading && (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-cyan-400 z-50 bg-slate-950">
-                            <div className="text-4xl font-black mb-4">{loadingProgress}%</div>
-                            <div className="text-[10px] font-bold uppercase tracking-widest text-white/50">Loading Cabinet...</div>
+                    {/* The Scrollytelling Cabinet - Now absolutely positioned relative to the IMAGE boundaries
+                        Adjust width% and position to match the TV screen in the image. 
+                        Assuming TV is roughly centered and takes up ~50% width.
+                    */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="relative w-[43.6%] h-[45%] shadow-2xl bg-black overflow-hidden rounded-sm md:rounded-lg transform -translate-y-[6%] group">
+                            {isLoading && (
+                                <div className="absolute inset-0 flex flex-col items-center justify-center text-cyan-400 z-50 bg-slate-950">
+                                    <div className="text-4xl font-black mb-4">{loadingProgress}%</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-white/50">Loading Cabinet...</div>
+                                </div>
+                            )}
+                            <canvas ref={canvasRef} className="w-full h-full object-contain" />
+
+                            {/* Audio Toggle Button */}
+                            <div className="absolute bottom-4 right-4 z-50">
+                                <button
+                                    onClick={toggleAudio}
+                                    className="p-3 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/10 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all duration-300"
+                                >
+                                    {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                                </button>
+                            </div>
                         </div>
-                    )}
-                    <canvas ref={canvasRef} className="w-full h-full object-contain" />
-
-                    {/* Audio Toggle Button */}
-                    <button
-                        onClick={toggleAudio}
-                        className="absolute bottom-4 right-4 z-50 p-3 rounded-full bg-slate-950/50 backdrop-blur-md border border-white/10 text-cyan-400 hover:bg-cyan-500/20 hover:text-white transition-all duration-300 group-hover:opacity-100 opacity-0 md:opacity-0"
-                    >
-                        {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                    </button>
-                    {/* Note: Added md:opacity-0 group-hover:opacity-100 to show mostly on hover, but accessible touches on mobile might need always visible. Keeping sleek for now. */}
-                    {/* Adjusting opacity to regular visibility for better UX on touch */}
-                    <div className="absolute bottom-4 right-4 z-50">
-                        <button
-                            onClick={toggleAudio}
-                            className="p-3 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/10 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all duration-300"
-                        >
-                            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                        </button>
                     </div>
                 </div>
 
-                {/* Scroll Indicator */}
-                <div className="absolute top-24 md:top-32 left-0 w-full text-center pointer-events-none z-20 animate-pulse">
+                {/* Scroll Indicator - Outside current scaling context to keep it readable, or inside? 
+                    Keep it relative to screen to ensure visibility.
+                */}
+                <div className="absolute top-24 md:top-32 left-0 w-full text-center pointer-events-none z-20 animate-pulse mix-blend-difference">
                     <p className="text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                         OPEN THE ULTIMATE TEAM SPORT OS
                     </p>

@@ -316,9 +316,9 @@ const Solutions: React.FC = () => {
       < SectionWrapper className="bg-slate-900/30 border-t border-white/5" >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h3 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
+            <h3 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
               THE VTAC <br />
-              <span className="gradient-text box-decoration-clone pr-10 py-2">ADVANTAGE</span>
+              <span className="gradient-text box-decoration-clone pr-6 py-2">ADVANTAGE</span>
             </h3>
           </div>
 
@@ -386,9 +386,9 @@ const Solutions: React.FC = () => {
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
             <div className="relative z-10 space-y-8">
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-8">
+              <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase">
                 READY FOR THE <br />
-                <span className="gradient-text inline-block pr-10 box-decoration-clone">NEXT TRAINING?</span>
+                <span className="gradient-text inline-block box-decoration-clone pr-6">NEXT TRAINING?</span>
               </h2>
 
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">

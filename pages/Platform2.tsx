@@ -309,7 +309,7 @@ const Platform2: React.FC = () => {
               <Workflow className="w-3 h-3" />
               <span>BEYOND PASSIVE INSTRUCTION</span>
             </div>
-            <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-none mb-6">
+            <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-none mb-6">
               <span className="text-white block">THE WORKFLOW</span>
               <span className="gradient-text block">OF WINNING</span>
             </h2>
@@ -434,7 +434,7 @@ const Platform2: React.FC = () => {
             <LayoutDashboard className="w-4 h-4" />
             <span>INDUSTRIAL-GRADE INFRASTRUCTURE</span>
           </div>
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-6">
+          <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-6">
             THE PERFORMANCE <br />
             <span className="gradient-text pr-4">ECOSYSTEM</span>
           </h2>
@@ -544,7 +544,7 @@ const Platform2: React.FC = () => {
             <BrainCircuit className="w-4 h-4" />
             <span>STRATEGIC TEAM INTELLIGENCE</span>
           </div>
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-6">
+          <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-6">
             FROM LOGISTICS <br />
             <span className="gradient-text pr-4">TO MASTERY</span>
           </h2>
@@ -805,9 +805,9 @@ const Platform2: React.FC = () => {
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
             <div className="relative z-10 space-y-8">
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-8">
+              <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase">
                 READY FOR THE <br />
-                <span className="gradient-text inline-block pr-10">NEXT SEASON?</span>
+                <span className="gradient-text inline-block pr-6">NEXT SEASON?</span>
               </h2>
 
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">

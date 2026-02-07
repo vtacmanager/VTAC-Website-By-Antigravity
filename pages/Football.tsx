@@ -16,11 +16,163 @@ import {
   Globe,
   Clock,
   TrendingUp,
-  ChevronRight
+  ChevronRight,
+  Calendar,
+  Settings, // For Standards
+  LayoutTemplate, // For Blueprints
+  PenTool, // For Command Lines
+  Bot, // For AI Squad
+  BarChart, // For Analytics
+  Cloud, // For Cloud Logging
+  Radio, // For Broadcast/Feed
+  IdCard, // For Scout Card
+  Database, // For Data CV
+  Briefcase // For Portfolio
 } from 'lucide-react';
 
+const StepBadge = ({ children, color = 'red' }: { children: React.ReactNode, color?: 'red' | 'purple' | 'orange' | 'blue' | 'pink' | 'green' }) => {
+  let borderColor = 'border-red-500';
+  let shadowColor = 'shadow-[0_0_15px_rgba(239,68,68,0.6)]';
+  let textColor = 'text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,1)]';
+
+  if (color === 'purple') {
+    borderColor = 'border-purple-500';
+    shadowColor = 'shadow-[0_0_15px_rgba(168,85,247,0.6)]';
+    textColor = 'text-purple-400 drop-shadow-[0_0_5px_rgba(168,85,247,0.8)]';
+  } else if (color === 'orange') {
+    borderColor = 'border-orange-500';
+    shadowColor = 'shadow-[0_0_15px_rgba(249,115,22,0.6)]';
+    textColor = 'text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,1)]';
+  } else if (color === 'blue') {
+    borderColor = 'border-blue-500';
+    shadowColor = 'shadow-[0_0_15px_rgba(59,130,246,0.6)]';
+    textColor = 'text-blue-400';
+  } else if (color === 'pink') {
+    borderColor = 'border-pink-500';
+    shadowColor = 'shadow-[0_0_15px_rgba(236,72,153,0.6)]';
+    textColor = 'text-pink-400';
+  } else if (color === 'green') {
+    borderColor = 'border-green-500';
+    shadowColor = 'shadow-[0_0_15px_rgba(34,197,94,0.6)]';
+    textColor = 'text-green-400';
+  }
+
+  return (
+    <div className={`inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card ${textColor} text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border ${borderColor} ${shadowColor} animate-pulse`}>
+      {children}
+    </div>
+  );
+};
+
+const StepSectionHeader = ({ badge, title, subtitle, step, stepColor = 'red', badgeColor = 'red', titleSize = "text-4xl md:text-7xl" }: { badge: string, title: React.ReactNode, subtitle: string, step: string, stepColor?: 'red' | 'purple' | 'orange' | 'blue' | 'pink' | 'green', badgeColor?: 'red' | 'purple' | 'orange' | 'blue' | 'pink' | 'green', titleSize?: string }) => {
+  let stepTextColor = 'text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]';
+  if (stepColor === 'purple') {
+    stepTextColor = 'text-purple-500 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]';
+  } else if (stepColor === 'orange') {
+    stepTextColor = 'text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]';
+  } else if (stepColor === 'blue') {
+    stepTextColor = 'text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]';
+  } else if (stepColor === 'pink') {
+    stepTextColor = 'text-pink-500 drop-shadow-[0_0_8px_rgba(236,72,153,0.8)]';
+  } else if (stepColor === 'green') {
+    stepTextColor = 'text-green-500 drop-shadow-[0_0_8px_rgba(34,197,94,0.8)]';
+  }
+  return (
+    <div className="text-center mb-16 space-y-8">
+      <StepBadge color={badgeColor}>
+        <span className={`${stepTextColor} mr-2 animate-pulse`}>{step}</span>
+        <span>{badge}</span>
+      </StepBadge>
+      <h2 className={`${titleSize} font-black tracking-tighter uppercase italic leading-[0.9] text-white`}>
+        {title}
+      </h2>
+      <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto">
+        {subtitle}
+      </p>
+    </div>
+  );
+};
+
+const FeatureCard = ({ title, description, image, icon: Icon, color = 'green', withGlow = false }: { title: string, description: string, image?: string, icon?: React.ElementType, color?: 'green' | 'orange' | 'blue' | 'pink' | 'purple' | 'red', withGlow?: boolean }) => {
+  let hoverBorderClass = 'hover:border-green-500/50';
+  let iconColorClass = 'text-green-400';
+  let titleHoverClass = 'group-hover:text-green-400';
+  let hoverShadowClass = 'hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]';
+
+  let containerTransform = 'hover:-translate-y-2';
+  let imageClass = 'opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700';
+
+  if (color === 'green') {
+    hoverBorderClass = 'hover:border-green-500/50';
+    iconColorClass = 'text-green-400';
+    titleHoverClass = 'group-hover:text-green-400';
+    hoverShadowClass = 'hover:shadow-[0_0_30px_rgba(34,197,94,0.3)]';
+  } else if (color === 'orange') {
+    hoverBorderClass = 'hover:border-orange-500/50';
+    iconColorClass = 'text-orange-400';
+    titleHoverClass = 'group-hover:text-orange-400';
+    hoverShadowClass = 'hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]';
+  } else if (color === 'blue') {
+    hoverBorderClass = 'hover:border-blue-500/50';
+    iconColorClass = 'text-blue-400';
+    titleHoverClass = 'group-hover:text-blue-400';
+    hoverShadowClass = 'hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]';
+  } else if (color === 'pink') {
+    hoverBorderClass = 'hover:border-pink-500/50';
+    iconColorClass = 'text-pink-400';
+    titleHoverClass = 'group-hover:text-pink-400';
+    hoverShadowClass = 'hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]';
+  } else if (color === 'purple') {
+    hoverBorderClass = 'hover:border-purple-500/50';
+    iconColorClass = 'text-purple-400';
+    titleHoverClass = 'group-hover:text-purple-400';
+    hoverShadowClass = 'hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]';
+  } else if (color === 'red') {
+    hoverBorderClass = 'hover:border-red-500/50';
+    iconColorClass = 'text-red-400';
+    titleHoverClass = 'group-hover:text-red-400';
+    hoverShadowClass = 'hover:shadow-[0_0_30px_rgba(239,68,68,0.3)]';
+  }
+
+  return (
+    <div className={`group relative bg-slate-900 border border-white/5 rounded-[2rem] overflow-hidden ${hoverBorderClass} ${hoverShadowClass} transition-all duration-500 ${containerTransform} h-full flex flex-col`}>
+      {/* Image Area */}
+      <div className={`${image ? 'h-48 md:h-64' : 'h-32'} bg-slate-800 relative overflow-hidden transition-all duration-500`}>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10" />
+        {image ? (
+          <img src={image} alt={title} className={`w-full h-full object-cover ${imageClass}`} />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center opacity-10">
+            {Icon && <Icon className="w-16 h-16 text-white" />}
+          </div>
+        )}
+        {/* Floating Icon */}
+        <div className={`absolute bottom-4 left-4 z-20 w-12 h-12 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/10 flex items-center justify-center ${iconColorClass} shadow-lg group-hover:scale-110 transition-transform`}>
+          {Icon ? <Icon className="w-6 h-6" /> : <Activity className="w-6 h-6" />}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className={`${image ? 'p-8' : 'p-6'} relative z-20 flex-1`}>
+        <h3 className={`text-xl font-black uppercase italic text-white mb-3 ${titleHoverClass} transition-colors`}>{title}</h3>
+        <p className="text-slate-400 text-sm font-medium leading-relaxed">{description}</p>
+      </div>
+    </div>
+  );
+};
+
 const Football: React.FC = () => {
-  // Traffic Light Logic for Section 4
+  /* State for Section 2 Slideshow */
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveFeatureIndex((prev) => (prev + 1) % 3);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Traffic Light Logic for Section 4 (Now Virtual Experience)
   const [activeTrafficLight, setActiveTrafficLight] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -41,15 +193,15 @@ const Football: React.FC = () => {
     return () => window.clearTimeout(timeout);
   }, [activeTrafficLight, isHovering]);
 
+
+
   return (
     <div className="bg-slate-950 text-white min-h-screen">
-      {/* SECTION 1: HERO SECTION (Football Intelligence) */}
-      <header className="relative py-24 md:py-32 overflow-hidden px-6">
-        <GradientBackground />
 
-        {/* Background Image / Texture */}
+      {/* 1. HERO SECTION (Reused) */}
+      <header className="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden px-6">
+        <GradientBackground />
         <div className="absolute inset-0 z-0">
-          {/* Placeholder for Stadium/Pitch Background */}
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522778119026-d647f0565c6a?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950"></div>
         </div>
@@ -62,7 +214,7 @@ const Football: React.FC = () => {
 
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
             DOMINATE <br />
-            THE 5G PITCH <br />
+            <span className="bg-clip-text text-transparent box-decoration-clone pr-8" style={{ backgroundImage: 'linear-gradient(135deg, #15803d 0%, #22c55e 50%, #4ade80 100%)' }}>THE 5G PITCH</span> <br />
             <span className="gradient-text box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>FROM ANYWHERE</span>
           </h1>
 
@@ -72,93 +224,122 @@ const Football: React.FC = () => {
         </div>
       </header>
 
-      {/* SECTION 2: THE TACTICAL EDGE */}
-      <SectionWrapper className="bg-slate-900/10">
-        <div className="text-center mb-16 space-y-8">
-          <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
-            <Target className="w-3 h-3 md:w-4 md:h-4" />
-            <span>ELITE VISUAL INTELLIGENCE</span>
-          </div>
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-none text-white">
-            TOTAL TACTICAL <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>CLARITY</span>
-          </h2>
+      {/* STEP NAVIGATION BAR */}
+      <div className="py-6 bg-slate-950 border-y border-white/5 relative lg:sticky lg:top-0 z-40 backdrop-blur-md bg-slate-950/80">
+        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-3 md:gap-6">
+          <button onClick={() => document.getElementById('step-1')?.scrollIntoView({ behavior: 'smooth' })} className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-3 rounded-2xl bg-slate-900/50 border border-green-500/30 hover:border-green-500 hover:bg-green-500/10 transition-all cursor-pointer hover:scale-105 active:scale-95">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-xs font-black uppercase tracking-widest text-green-500 group-hover:text-green-400">STEP 01</span>
+            </div>
+            <span className="hidden md:block w-px h-4 bg-white/10 group-hover:bg-green-500/50 transition-colors"></span>
+            <span className="text-[10px] md:text-xs font-bold uppercase text-green-500/80 group-hover:text-white transition-colors">ORGANIZE & SCHEDULE</span>
+          </button>
+
+          <button onClick={() => document.getElementById('step-2')?.scrollIntoView({ behavior: 'smooth' })} className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-3 rounded-2xl bg-slate-900/50 border border-purple-500/30 hover:border-purple-500 hover:bg-purple-500/10 transition-all cursor-pointer hover:scale-105 active:scale-95">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></div>
+              <span className="text-xs font-black uppercase tracking-widest text-purple-500 group-hover:text-purple-400">STEP 02</span>
+            </div>
+            <span className="hidden md:block w-px h-4 bg-white/10 group-hover:bg-purple-500/50 transition-colors"></span>
+            <span className="text-[10px] md:text-xs font-bold uppercase text-purple-500/80 group-hover:text-white transition-colors">TACTICAL PREP</span>
+          </button>
+
+          <button onClick={() => document.getElementById('step-3')?.scrollIntoView({ behavior: 'smooth' })} className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-3 rounded-2xl bg-slate-900/50 border border-orange-500/30 hover:border-orange-500 hover:bg-orange-500/10 transition-all cursor-pointer hover:scale-105 active:scale-95">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>
+              <span className="text-xs font-black uppercase tracking-widest text-orange-500 group-hover:text-orange-400">STEP 03</span>
+            </div>
+            <span className="hidden md:block w-px h-4 bg-white/10 group-hover:bg-orange-500/50 transition-colors"></span>
+            <span className="text-[10px] md:text-xs font-bold uppercase text-orange-500/80 group-hover:text-white transition-colors">SIDELINE SYNC</span>
+          </button>
+
+          <button onClick={() => document.getElementById('step-4')?.scrollIntoView({ behavior: 'smooth' })} className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-3 rounded-2xl bg-slate-900/50 border border-red-500/30 hover:border-red-500 hover:bg-red-500/10 transition-all cursor-pointer hover:scale-105 active:scale-95">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+              <span className="text-xs font-black uppercase tracking-widest text-red-500 group-hover:text-red-400">STEP 04</span>
+            </div>
+            <span className="hidden md:block w-px h-4 bg-white/10 group-hover:bg-red-500/50 transition-colors"></span>
+            <span className="text-[10px] md:text-xs font-bold uppercase text-red-500/80 group-hover:text-white transition-colors">DIGITAL CAREER</span>
+          </button>
         </div>
+      </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Feature 1 */}
-          <div className="group bg-slate-950 p-10 rounded-[2.5rem] border border-white/5 hover:border-green-500/50 shadow-[0_0_30px_-10px_rgba(34,197,94,0.1)] hover:shadow-[0_0_60px_-10px_rgba(34,197,94,0.4)] transition-all duration-500 hover:-translate-y-2">
-            <div className="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mb-8 text-green-400 group-hover:scale-110 transition-transform">
-              <Users className="w-8 h-8" />
-            </div>
-            <h3 className="text-2xl font-black uppercase italic mb-4 text-white">Patented 11v11 Sync</h3>
-            <p className="text-slate-400 leading-relaxed">
-              Brief your 4-3-3 or 3-5-2 in real-time. Players see the movement of the entire squad simultaneously, not just static dots on a screen.
-            </p>
-          </div>
+      {/* 2. STEP 01 | ORGANIZE & SCHEDULE (New) */}
+      <SectionWrapper id="step-1" className="bg-slate-900/10">
+        <StepSectionHeader
+          step="STEP 01"
+          badge="OPERATIONAL FOUNDATION"
+          title={
+            <>
+              MANAGEMENT <br />
+              <span className="gradient-text box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>
+                MADE <br />
+                EFFORTLESS
+              </span>
+            </>
+          }
+          subtitle="Total club management in one place: Team hierarchy, training calendars, match fixtures, and pre-game line-up checks."
+          badgeColor="green"
+          titleSize="text-4xl md:text-8xl"
+        />
 
-          {/* Feature 2 */}
-          <div className="group bg-slate-950 p-10 rounded-[2.5rem] border border-white/5 hover:border-orange-500/50 shadow-[0_0_30px_-10px_rgba(249,115,22,0.1)] hover:shadow-[0_0_60px_-10px_rgba(249,115,22,0.4)] transition-all duration-500 hover:-translate-y-2">
-            <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center mb-8 text-orange-400 group-hover:scale-110 transition-transform">
-              <Monitor className="w-8 h-8" />
-            </div>
-            <h3 className="text-2xl font-black uppercase italic mb-4 text-white">High-Definition Assets</h3>
-            <p className="text-slate-400 leading-relaxed">
-              4K realistic pitch graphics and player icons for professional-grade simulations that mirror real-match scenarios.
-            </p>
-          </div>
-
-          {/* Feature 3 */}
-          <div className="group bg-slate-950 p-10 rounded-[2.5rem] border border-white/5 hover:border-purple-500/50 shadow-[0_0_30px_-10px_rgba(168,85,247,0.1)] hover:shadow-[0_0_60px_-10px_rgba(168,85,247,0.4)] transition-all duration-500 hover:-translate-y-2">
-            <div className="w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-8 text-purple-400 group-hover:scale-110 transition-transform">
-              <Target className="w-8 h-8" />
-            </div>
-            <h3 className="text-2xl font-black uppercase italic mb-4 text-white">Set-Piece Mastery</h3>
-            <p className="text-slate-400 leading-relaxed">
-              Design and rehearse corners and free-kick routines with perfection before stepping onto the grass. Save valuable pitch time for physical execution.
-            </p>
-          </div>
+        <div className="grid md:grid-cols-3 gap-6 relative">
+          {/* Background Glow for Middle Card */}
+          <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-600/20 blur-[150px] rounded-full pointer-events-none"></div>
+          <FeatureCard
+            title="Unified Squad Hierarchy"
+            description="Manage rosters and team structures with enterprise-grade precision."
+            image="/images/Football S2.1.UnifiedSquadHierarc.webp"
+            icon={Layers}
+            color="green"
+          />
+          <FeatureCard
+            title="Synchronized Matchday Hub"
+            description="Align training calendars and finalize lineups in one click."
+            image="/images/Football S2.2.SynchronizedMatchdayHub.webp"
+            icon={Calendar}
+            color="green"
+          />
+          <FeatureCard
+            title="Performance Readiness Suite"
+            description="Monitor staff workflows and real-time player health status."
+            image="/images/Football S2.3.PerformanceReadines.webp"
+            icon={Activity}
+            color="green"
+          />
         </div>
       </SectionWrapper>
 
-      {/* SECTION 3: REMOTE RESILIENCE */}
+      {/* 3. [THE SOLUTION] REMOTE RESILIENCE (Reused Section 3) */}
       <SectionWrapper className="bg-slate-950 relative overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-green-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+        {/* White Glow behind Top-Left of Left Image */}
+        <div className="absolute -top-32 -left-20 w-[500px] h-[500px] bg-white/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
-          {/* Visual Side (Moved to Left) */}
-          <div className="relative h-[600px] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
-            {/* Placeholder for Remote Session Image */}
-            <div className="absolute inset-0 bg-slate-900">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950"></div>
-              {/* Simulated UI elements could go here */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center p-8 w-full">
-                <Wifi className="w-20 h-20 text-blue-500/50 mx-auto mb-6 animate-pulse" />
-                <p className="text-2xl font-black uppercase tracking-widest text-white/20">Remote Session Active</p>
-              </div>
+          {/* Visual Side */}
+          <div className="relative h-[600px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+            <div className="absolute inset-0">
+              <img src="/images/FootballS3.1.webp" alt="Remote Resilience" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
-            {/* Overlay Content */}
-            <div className="absolute bottom-8 left-8 right-8 glass-card p-6 rounded-2xl border-t border-white/10">
-              <div className="flex items-center gap-4">
-                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                <p className="text-sm font-bold uppercase text-white">Live Sync: 24 Players Connected</p>
-              </div>
-            </div>
+
           </div>
 
           <div className="space-y-10 relative z-10">
             <div className="space-y-8">
-              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
+              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse">
                 <Zap className="w-3 h-3 md:w-4 md:h-4" />
                 <span>UNSTOPPABLE MOMENTUM</span>
               </div>
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
+              <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
                 ZERO DOWNTIME <br />
                 <span className="gradient-text box-decoration-clone pr-10" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>NO EXCUSES</span>
               </h2>
             </div>
-
             <div className="space-y-8">
               <div className="flex gap-6 group">
                 <div className="shrink-0 w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors">
@@ -171,7 +352,6 @@ const Football: React.FC = () => {
                   </p>
                 </div>
               </div>
-
               <div className="flex gap-6 group">
                 <div className="shrink-0 w-16 h-16 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors">
                   <Smartphone className="w-8 h-8 text-blue-400" />
@@ -188,15 +368,15 @@ const Football: React.FC = () => {
         </div>
       </SectionWrapper>
 
-      {/* SECTION 4: THE VIRTUAL TRAINING EXPERIENCE (The "Wow" Factor) */}
+      {/* 4. [THE WOW FACTOR] VIRTUAL EXPERIENCE (Reused Section 4) */}
       <div className="py-24 bg-slate-900 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-20 space-y-8">
-            <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
+            <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse">
               <Smartphone className="w-3 h-3 md:w-4 md:h-4" />
               <span>SCAN. SYNC. PLAY.</span>
             </div>
-            <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.8] text-white">
+            <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-[0.8] text-white">
               THE <br />
               <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>CONTROLLER</span>
             </h2>
@@ -206,7 +386,8 @@ const Football: React.FC = () => {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6" onMouseLeave={() => setIsHovering(false)}>
-            {/* Step 1: Scan (RED - STOP/CONNECT) */}
+            {/* TRAFFIC LIGHT LOGIC REUSED */}
+            {/* Step 1: Scan (RED) */}
             <div
               onMouseEnter={() => { setIsHovering(true); setActiveTrafficLight(0); }}
               className={`group relative flex flex-col p-8 rounded-[2.5rem] border transition-all duration-700 backdrop-blur-sm ${activeTrafficLight === 0 ? 'bg-slate-900/60 scale-105 opacity-100 z-10' : 'bg-slate-900/20 scale-95 opacity-50 z-0'}`}
@@ -221,21 +402,14 @@ const Football: React.FC = () => {
                   <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full blur-[80px] opacity-20 pointer-events-none -mr-10 -mt-10 bg-red-500"></div>
                 </>
               )}
-
               <div className="relative z-10 w-full">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-2xl font-black transition-colors duration-500 ${activeTrafficLight === 0 ? 'bg-red-500/20 text-red-400' : 'bg-slate-800 text-slate-600'}`}>1</div>
                 <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 0 ? 'bg-black/50 border-red-500/30' : 'bg-black/20 border-white/5'}`}>
-                  <img
-                    src="/images/Football-Section4.1.webp"
-                    alt="Instant Connect"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-500"
-                  />
+                  <img src="/images/Football-Section4.1.webp" alt="Instant Connect" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                 </div>
                 <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 0 ? 'text-white' : 'text-slate-500'}`}>INSTANT CONNECT</h3>
                 <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Scan QR)</p>
                 <p className="text-slate-400">Scan the iHub QR code to instantly pair your smartphone as your personal tactical controller.</p>
-
-                {/* Interactive Dot Animation (Only when active) */}
                 <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 0 ? 'opacity-100' : 'opacity-0'}`}>
                   <div className="w-1 h-1 rounded-full bg-red-500 animate-pulse"></div>
                   <div className="w-1 h-1 rounded-full bg-red-500 animate-pulse delay-75"></div>
@@ -244,7 +418,7 @@ const Football: React.FC = () => {
               </div>
             </div>
 
-            {/* Step 2: Control (YELLOW - READY/WAIT) */}
+            {/* Step 2: Control (YELLOW) */}
             <div
               onMouseEnter={() => { setIsHovering(true); setActiveTrafficLight(1); }}
               className={`group relative flex flex-col p-8 rounded-[2.5rem] border transition-all duration-700 backdrop-blur-sm ${activeTrafficLight === 1 ? 'bg-slate-900/60 scale-105 opacity-100 z-10' : 'bg-slate-900/20 scale-95 opacity-50 z-0'}`}
@@ -259,21 +433,14 @@ const Football: React.FC = () => {
                   <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full blur-[80px] opacity-20 pointer-events-none -mr-10 -mt-10 bg-yellow-500"></div>
                 </>
               )}
-
               <div className="relative z-10 w-full">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-2xl font-black transition-colors duration-500 ${activeTrafficLight === 1 ? 'bg-yellow-500/20 text-yellow-400' : 'bg-slate-800 text-slate-600'}`}>2</div>
                 <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 1 ? 'bg-black/50 border-yellow-500/30' : 'bg-black/20 border-white/5'}`}>
-                  <img
-                    src="/images/Football-Section4.2.webp"
-                    alt="Remote Joy Control"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-500"
-                  />
+                  <img src="/images/Football-Section4.2.webp" alt="Remote Joy Control" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                 </div>
                 <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 1 ? 'text-white' : 'text-slate-500'}`}>REMOTE JOY CONTROL</h3>
                 <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Play Live)</p>
                 <p className="text-slate-400">Take command of your avatar. Execute group movements and tactical shifts with millisecond precision.</p>
-
-                {/* Interactive Dot Animation */}
                 <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 1 ? 'opacity-100' : 'opacity-0'}`}>
                   <div className="w-1 h-1 rounded-full bg-yellow-500 animate-pulse"></div>
                   <div className="w-1 h-1 rounded-full bg-yellow-500 animate-pulse delay-75"></div>
@@ -282,7 +449,7 @@ const Football: React.FC = () => {
               </div>
             </div>
 
-            {/* Step 3: Sync (GREEN - GO/PLAY) */}
+            {/* Step 3: Sync (GREEN) */}
             <div
               onMouseEnter={() => { setIsHovering(true); setActiveTrafficLight(2); }}
               className={`group relative flex flex-col p-8 rounded-[2.5rem] border transition-all duration-700 backdrop-blur-sm ${activeTrafficLight === 2 ? 'bg-slate-900/60 scale-105 opacity-100 z-10' : 'bg-slate-900/20 scale-95 opacity-50 z-0'}`}
@@ -297,21 +464,14 @@ const Football: React.FC = () => {
                   <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full blur-[80px] opacity-20 pointer-events-none -mr-10 -mt-10 bg-green-500"></div>
                 </>
               )}
-
               <div className="relative z-10 w-full">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-2xl font-black transition-colors duration-500 ${activeTrafficLight === 2 ? 'bg-green-500/20 text-green-400' : 'bg-slate-800 text-slate-600'}`}>3</div>
                 <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 2 ? 'bg-black/50 border-green-500/30' : 'bg-black/20 border-white/5'}`}>
-                  <img
-                    src="/images/Football-Section4.3.webp"
-                    alt="Multiplayer Sync"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 transition-opacity duration-500"
-                  />
+                  <img src="/images/Football-Section4.3.webp" alt="Multiplayer Sync" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                 </div>
                 <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 2 ? 'text-white' : 'text-slate-500'}`}>MULTIPLAYER SYNC</h3>
                 <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Team Practice)</p>
                 <p className="text-slate-400">Enter the virtual pitch together. Practice the coach's vision with the entire squad, from any location, on one shared field.</p>
-
-                {/* Interactive Dot Animation */}
                 <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 2 ? 'opacity-100' : 'opacity-0'}`}>
                   <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse"></div>
                   <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse delay-75"></div>
@@ -321,100 +481,336 @@ const Football: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* SECTION 5: FOOTBALL DEVELOPMENT WORKFLOW */}
-      <SectionWrapper className="bg-slate-950">
-        <div className="text-center mb-16 space-y-8">
-          <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
-            <Trophy className="w-3 h-3 md:w-4 md:h-4" />
-            <span>BEYOND INSTRUCTION: SHOW YOUR MIND</span>
-          </div>
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-none text-white">
-            PLAY ON <br />
-            <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>THE 5G PITCH</span>
-          </h2>
-          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto">
-            Where tactical vision becomes live movement. <br /> Get everyone in sync.
-          </p>
-        </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1 */}
-          <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-white/20 transition-all group hover:-translate-y-2 duration-500">
-            <div className="flex items-start justify-between mb-6">
-              <span className="text-4xl font-black text-white/20 group-hover:text-cyan-400 transition-colors">01</span>
-              <Target className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+
+        {/* 5. STEP 02 | PRE & POST-MATCH (New) */}
+        <SectionWrapper id="step-2" className="bg-slate-900/30 border-y border-white/5" >
+          <StepSectionHeader
+            step="STEP 02"
+            badge="TACTICAL MASTERY"
+            title={
+              <>
+                INTERACTIVE <br />
+                <span className="bg-clip-text text-transparent box-decoration-clone pr-4" style={{ backgroundImage: 'linear-gradient(135deg, #a855f7 0%, #a855f7 33%, #a855f7 66%, #ffffff 100%)' }}>
+                  REMOTE PREP
+                </span>
+              </>
+            }
+            subtitle="High-engagement team meetings using the Digital Tactics Board. Draw, erase, and record sessions to ensure every player understands their role."
+            badgeColor="purple"
+            titleSize="text-4xl md:text-8xl"
+          />
+
+          {/* Core Features: 3 Cards */}
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">01</span>
+                <Video className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">ANALYZE & ADAPT</h3>
+              <p className="text-slate-400">Break down opponent footage and overlay tactical drawings to pinpoint growth areas.</p>
             </div>
-            <h3 className="text-xl font-black uppercase text-white mb-2">ACTIVE PLAYER DOTS</h3>
-            <p className="text-slate-400">Run your mind. Verify understanding instantly as players express their thoughts through live movement on the 5G Pitch.</p>
-          </div>
 
-          {/* Card 2 */}
-          <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-white/20 transition-all group hover:-translate-y-2 duration-500">
-            <div className="flex items-start justify-between mb-6">
-              <span className="text-4xl font-black text-white/20 group-hover:text-green-400 transition-colors">02</span>
-              <Zap className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">02</span>
+                <Wifi className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">PLAY ON 5G PITCH</h3>
+              <p className="text-slate-400">Activate the Virtual Field where everyone controls their player dots simultaneously. Communicate and solve tactical problems as a team.</p>
             </div>
-            <h3 className="text-xl font-black uppercase text-white mb-2">COLLECTIVE INTELLIGENCE</h3>
-            <p className="text-slate-400">Move by instinct. Transition from "following orders" to shared team intuition. Sync every brain onto one virtual field.</p>
-          </div>
 
-          {/* Card 3 */}
-          <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-white/20 transition-all group hover:-translate-y-2 duration-500">
-            <div className="flex items-start justify-between mb-6">
-              <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">03</span>
-              <Users className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">03</span>
+                <Bot className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">AI SQUAD CHALLENGE</h3>
+              <p className="text-slate-400">Take training to the next level by challenging our intelligent AI Squad in collaborative team drills.</p>
             </div>
-            <h3 className="text-xl font-black uppercase text-white mb-2">TACTICAL JOY</h3>
-            <p className="text-slate-400">Kill the boredom. Turn tactical prep into high-energy interactive play that strengthens team chemistry and bonds.</p>
           </div>
-        </div>
-      </SectionWrapper>
 
-      {/* SECTION 6: CTA (Copied from Solutions) */}
-      <SectionWrapper id="cta-solutions" className="pb-32 overflow-visible bg-slate-950">
-        <div className="relative group max-w-7xl mx-auto">
-          {/* Immersive Stadium Radial Glow */}
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-cyan-500/20 blur-[160px] rounded-full pointer-events-none -z-10 group-hover:bg-purple-500/20 transition-colors duration-1000"></div>
-
-          {/* Main Container */}
-          <div className="relative bg-slate-900/60 backdrop-blur-3xl rounded-[3rem] p-10 md:p-16 border border-white/10 overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.6)] flex flex-col items-center text-center">
-            {/* Animated Grid Background Layer */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
-
-            <div className="relative z-10 space-y-8">
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-8">
-                READY FOR THE <br />
-                <span className="gradient-text inline-block pr-10 box-decoration-clone" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>NEXT GAME?</span>
-              </h2>
-
-              <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
-                Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC</span> <span className="text-cyan-400 font-black">MANAGER.</span>
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
-                {/* Primary Button */}
-                <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center">
-                  <span className="relative z-10">Book a Demo</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
-                </button>
-
-                {/* Secondary Button */}
-                <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center">
-                  <span className="relative z-10 flex items-center gap-2">
-                    Start Trial <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
-                  </span>
-                </button>
+          {/* Feature Grid: 7 Items - Bento Style */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[300px]">
+            {/* Item 1: Large - The Digital War Room */}
+            <div className="lg:col-span-2 lg:row-span-2 group relative bg-slate-800 rounded-3xl overflow-hidden border border-white/10 hover:border-green-500/50 transition-all">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+              <img src="/images/Football S5.3.TheDigitalWarRoom.webp" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt="The Digital War Room" />
+              <div className="absolute bottom-6 left-6 z-20 max-w-lg">
+                <div className="flex items-center gap-3 mb-2 text-green-400">
+                  <Target className="w-5 h-5" />
+                  <span className="text-xs font-black uppercase tracking-widest">The Digital War Room</span>
+                </div>
+                <h3 className="text-3xl font-black uppercase italic text-white leading-none mb-2">A Limitless Interactive Canvas</h3>
+                <p className="text-slate-300">For every tactical idea. Draw, drag, and simulate scenarios.</p>
               </div>
             </div>
 
-            {/* Bottom Glow */}
-            <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full h-40 bg-gradient-to-t from-cyan-500/20 to-transparent blur-3xl opacity-50"></div>
+            {/* Item 2 - Custom Match Standards */}
+            <div className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-white/10 p-6 flex flex-col justify-between hover:border-green-500/30 transition-all">
+              <div className="absolute inset-0 bg-black/60 z-0" />
+              <img src="/images/Football S5.1.CustomMatchStadards.webp" className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 group-hover:scale-105 transition-transform duration-700" alt="Custom Match Standards" />
+              <div className="bg-white/10 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center text-green-400 mb-4 border border-white/10 relative z-10">
+                <Settings className="w-6 h-6" />
+              </div>
+              <div className="relative z-10">
+                <h4 className="text-lg font-black uppercase italic text-white mb-1">Custom Match Standards</h4>
+                <p className="text-xs text-slate-200">Tailor every session to match your professional league format.</p>
+              </div>
+            </div>
+
+            {/* Item 3 - Strategic Blueprints */}
+            <div className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-white/10 p-6 flex flex-col justify-between hover:border-green-500/30 transition-all">
+              <div className="absolute inset-0 bg-black/60 z-0" />
+              <img src="/images/Football S5.2.StrategicBlueprints.webp" className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 group-hover:scale-105 transition-transform duration-700" alt="Strategic Blueprints" />
+              <div className="bg-white/10 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center text-blue-400 mb-4 border border-white/10 relative z-10">
+                <LayoutTemplate className="w-6 h-6" />
+              </div>
+              <div className="relative z-10">
+                <h4 className="text-lg font-black uppercase italic text-white mb-1">Strategic Blueprints</h4>
+                <p className="text-xs text-slate-200">Set up complex formations (4-3-3, 3-5-2) with one touch.</p>
+              </div>
+            </div>
+
+            {/* Item 4 - Visual Command Lines */}
+            <div className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-white/10 p-6 flex flex-col justify-between hover:border-green-500/30 transition-all">
+              <div className="absolute inset-0 bg-black/60 z-0" />
+              <img src="/images/Football S5.4.VisualCommandLines.webp" className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 group-hover:scale-105 transition-transform duration-700" alt="Visual Command Lines" />
+              <div className="bg-white/10 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center text-purple-400 mb-4 border border-white/10 relative z-10">
+                <PenTool className="w-6 h-6" />
+              </div>
+              <div className="relative z-10">
+                <h4 className="text-lg font-black uppercase italic text-white mb-1">Visual Command Lines</h4>
+                <p className="text-xs text-slate-200">Sketch movement paths and coaching cues with surgical precision.</p>
+              </div>
+            </div>
+
+            {/* Item 5 - Augmented Video Insight */}
+            <div className="group relative bg-slate-900 rounded-3xl overflow-hidden border border-white/10 p-6 flex flex-col justify-between hover:border-green-500/30 transition-all">
+              <div className="absolute inset-0 bg-black/60 z-0" />
+              <img src="/images/Football S5.5.AugmentedVideoIn.webp" className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 group-hover:scale-105 transition-transform duration-700" alt="Augmented Video Insight" />
+              <div className="bg-white/10 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center text-red-400 mb-4 border border-white/10 relative z-10">
+                <Video className="w-6 h-6" />
+              </div>
+              <div className="relative z-10">
+                <h4 className="text-lg font-black uppercase italic text-white mb-1">Augmented Video Insight</h4>
+                <p className="text-xs text-slate-200">Overlay tactical drawings directly on match footage.</p>
+              </div>
+            </div>
+
+            {/* Item 6: Wide - AI Squad Challenge */}
+            <div className="lg:col-span-2 group relative bg-slate-800 rounded-3xl overflow-hidden border border-white/10 hover:border-green-500/50 transition-all">
+              <div className="absolute inset-0 bg-black/60 z-10" />
+              <img src="/images/Football S5.7.TheAISquadChallenge.webp" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt="AI Squad Challenge" />
+              <div className="absolute bottom-6 left-6 z-20">
+                <div className="flex items-center gap-3 mb-2 text-yellow-400">
+                  <Bot className="w-5 h-5" />
+                  <span className="text-xs font-black uppercase tracking-widest">The AI Squad Challenge</span>
+                </div>
+                <h3 className="text-2xl font-black uppercase italic text-white">Test team chemistry against AI opponents.</h3>
+              </div>
+            </div>
+
+            {/* Item 7: Wide - Precision Handheld Control */}
+            <div className="lg:col-span-2 group relative bg-slate-800 rounded-3xl overflow-hidden border border-white/10 hover:border-green-500/50 transition-all">
+              <div className="absolute inset-0 bg-black/60 z-10" />
+              <img src="/images/Football S5.6.PrecisionHandheld.webp" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt="Precision Handheld Control" />
+              <div className="absolute bottom-6 left-6 z-20">
+                <div className="flex items-center gap-3 mb-2 text-cyan-400">
+                  <Gamepad2 className="w-5 h-5" />
+                  <span className="text-xs font-black uppercase tracking-widest">Precision Handheld Control</span>
+                </div>
+                <h3 className="text-2xl font-black uppercase italic text-white">Your smartphone is your joystick.</h3>
+              </div>
+            </div>
           </div>
-        </div>
-      </SectionWrapper>
-    </div >
+        </SectionWrapper>
+
+
+        {/* 6. [THE PHILOSOPHY] TACTICAL SYNERGY (Reused Section 5) */}
+        <SectionWrapper className="bg-slate-950" >
+          <div className="text-center mb-16 space-y-8">
+            <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-purple-400 drop-shadow-[0_0_5px_rgba(168,85,247,0.8)] text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.6)] animate-pulse">
+              <Trophy className="w-3 h-3 md:w-4 md:h-4" />
+              <span>BEYOND INSTRUCTION: SHOW YOUR MIND</span>
+            </div>
+            <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-none text-white">
+              PLAY ON <br />
+              <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #a855f7 0%, #a855f7 33%, #a855f7 66%, #ffffff 100%)' }}>THE 5G PITCH</span>
+            </h2>
+            <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto">
+              Where tactical vision becomes live movement. <br /> Get everyone in sync.
+            </p>
+          </div>
+
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">01</span>
+                <Target className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">ACTIVE PLAYER DOTS</h3>
+              <p className="text-slate-400">Run your mind. Verify understanding instantly as players express their thoughts through live movement on the 5G Pitch.</p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">02</span>
+                <Zap className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">COLLECTIVE INTELLIGENCE</h3>
+              <p className="text-slate-400">Move by instinct. Transition from "following orders" to shared team intuition. Sync every brain onto one virtual field.</p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">03</span>
+                <Users className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">TACTICAL JOY</h3>
+              <p className="text-slate-400">Kill the boredom. Turn tactical prep into high-energy interactive play that strengthens team chemistry and bonds.</p>
+            </div>
+          </div>
+        </SectionWrapper >
+
+        {/* 7. STEP 03 | LIVE-SYNC (New) */}
+        <SectionWrapper id="step-3" className="bg-slate-900/10 border-t border-white/5 relative overflow-hidden" >
+          {/* Background Glow for Left Card */}
+          <div className="absolute -left-20 bottom-0 w-[600px] h-[600px] bg-orange-600/20 blur-[150px] rounded-full pointer-events-none" ></div >
+
+          <StepSectionHeader
+            step="STEP 03"
+            badge="SIDELINE INTELLIGENCE"
+            title={
+              <>
+                SIDELINE <br />
+                <span className="bg-clip-text text-transparent box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #f97316 0%, #f97316 33%, #f97316 66%, #ffffff 100%)' }}>
+                  OPERATIONS
+                </span>
+              </>
+            }
+            subtitle="Manage live line-ups, track attendance, and record key match events in real-time. Instantly sync updates to parents and fans."
+            badgeColor="orange"
+            titleSize="text-4xl md:text-8xl"
+          />
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <FeatureCard
+              title="Instant Sideline Analytics"
+              description="Monitor game flow and player performance metrics as they happen."
+              image="/images/Football S7.1.InstantSidelineAnalytics.webp"
+              icon={BarChart}
+              color="orange"
+            />
+            <FeatureCard
+              title="Cloud-Powered Event Logging"
+              description="Record goals, substitutions, and cards with seamless cloud synchronization."
+              image="/images/Football S7.2.Cloud-PoweredEventLogging.webp"
+              icon={Cloud}
+              color="orange"
+            />
+            <FeatureCard
+              title="Unified Stakeholder Feed"
+              description="Broadcast live match updates directly to parents, fans, and club members."
+              image="/images/Football S7.3.UnifiedStakehold.webp"
+              icon={Radio}
+              color="orange"
+            />
+          </div>
+        </SectionWrapper >
+
+        {/* 8. STEP 04 | RECRUITMENT (New) */}
+        <SectionWrapper id="step-4" className="bg-slate-950 border-t border-white/5 relative overflow-hidden" >
+          {/* Background Glow for Right Card */}
+          <div className="absolute -right-20 bottom-0 w-[600px] h-[600px] bg-red-600/20 blur-[150px] rounded-full pointer-events-none" ></div >
+
+          <StepSectionHeader
+            step="STEP 04"
+            badge="DIGITAL LEGACY"
+            title={
+              <>
+                SCOUT-READY <br />
+                <span className="bg-clip-text text-transparent box-decoration-clone pr-10" style={{ backgroundImage: 'linear-gradient(135deg, #ef4444 0%, #ef4444 33%, #ef4444 66%, #ffffff 100%)' }}>
+                  DIGITAL CV
+                </span>
+              </>
+            }
+            badgeColor="red"
+            subtitle="Automatically build professional Digital CVs for players and coaches, capturing multi-season stats and Tactical IQ for scouts and top-tier clubs."
+            titleSize="text-5xl md:text-8xl"
+          />
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <FeatureCard
+              title="Elite Visual Scout Card"
+              description="A premium snapshot of player talent designed to catch every scout’s eye."
+              image="/images/Football S8.1.EliteVisualScoutCard-ezgif.com-jpg-to-webp-converter.webp"
+              icon={IdCard}
+              color="red"
+            />
+            <FeatureCard
+              title="Verified Data CV"
+              description="A complete history of performance stats and Tactical IQ across multiple seasons."
+              image="/images/Football S8.2.VerifiedDataCV-ezgif.com-jpg-to-webp-converter.webp"
+              icon={Database}
+              color="red"
+            />
+            <FeatureCard
+              title="Strategic Coaching Portfolio"
+              description="Showcase your tactical mastery and leadership legacy to top-tier clubs."
+              image="/images/Football S8.3.StrategicCoachingPortfolio-ezgif.com-jpg-to-webp-converter.webp"
+              icon={Briefcase}
+              color="red"
+            />
+          </div>
+        </SectionWrapper >
+
+        {/* 9. CTA (Reused from Solutions Code in previous files, same as existing Grid Section 6) */}
+        <SectionWrapper id="cta-solutions" className="pb-32 overflow-visible bg-slate-950" >
+          <div className="relative group max-w-7xl mx-auto">
+            {/* Immersive Stadium Radial Glow */}
+            <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-cyan-500/20 blur-[160px] rounded-full pointer-events-none -z-10 group-hover:bg-purple-500/20 transition-colors duration-1000"></div>
+
+            {/* Main Container */}
+            <div className="relative bg-slate-900/60 backdrop-blur-3xl rounded-[3rem] p-10 md:p-16 border border-white/10 overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.6)] flex flex-col items-center text-center">
+              {/* Animated Grid Background Layer */}
+              <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+              <div className="relative z-10 space-y-8">
+                <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-8">
+                  READY FOR THE <br />
+                  <span className="gradient-text inline-block pr-10 box-decoration-clone" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>NEXT GAME?</span>
+                </h2>
+
+                <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
+                  Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC</span> <span className="text-cyan-400 font-black">MANAGER.</span>
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
+                  {/* Primary Button */}
+                  <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center">
+                    <span className="relative z-10">Book a Demo</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
+                  </button>
+
+                  {/* Secondary Button */}
+                  <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center">
+                    <span className="relative z-10 flex items-center gap-2">
+                      Start Trial <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Bottom Glow */}
+              <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full h-40 bg-gradient-to-t from-cyan-500/20 to-transparent blur-3xl opacity-50"></div>
+            </div>
+          </div>
+        </SectionWrapper>
+      </div>
+    </div>
   );
 };
 
