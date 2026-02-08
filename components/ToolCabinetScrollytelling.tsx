@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { Volume2, VolumeX } from 'lucide-react';
 
 const FRAME_COUNT = 210;
 const IMAGES_DIR = '/red-tool-box/';
-const AUDIO_SRC = '/sounds/mechanism-loop.mp3'; // PLACEHOLDER: Change to your file
+const AUDIO_SRC = '/sounds/Drawer Sound.MP3';
 
 export default function ToolCabinetScrollytelling() {
+    const { t } = useTranslation();
     const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [images, setImages] = useState<HTMLImageElement[]>([]);
@@ -164,7 +166,7 @@ export default function ToolCabinetScrollytelling() {
 
     return (
         <div ref={containerRef} className="relative h-[200vh] bg-slate-950 w-full">
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden pb-32">
 
                 {/* Constraint Container: Wraps the image tightly so overlay scales with it 
                     We assume the image is roughly 16:9. If it's different, the max-h/max-w will still constrain it correctly,
@@ -179,16 +181,19 @@ export default function ToolCabinetScrollytelling() {
                         alt="Background Environment"
                     />
 
+                    {/* Top & Bottom Fade Overlay - Similar to Football Page */}
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,#020617_0%,transparent_20%,transparent_80%,#020617_100%)] pointer-events-none z-20"></div>
+
                     {/* The Scrollytelling Cabinet - Now absolutely positioned relative to the IMAGE boundaries
                         Adjust width% and position to match the TV screen in the image. 
                         Assuming TV is roughly centered and takes up ~50% width.
                     */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center z-20">
                         <div className="relative w-[43.6%] h-[45%] shadow-2xl bg-black overflow-hidden rounded-sm md:rounded-lg transform -translate-y-[6%] group">
                             {isLoading && (
                                 <div className="absolute inset-0 flex flex-col items-center justify-center text-cyan-400 z-50 bg-slate-950">
                                     <div className="text-4xl font-black mb-4">{loadingProgress}%</div>
-                                    <div className="text-[10px] font-bold uppercase tracking-widest text-white/50">Loading Cabinet...</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-white/50">{t('platform.cabinet.loading')}</div>
                                 </div>
                             )}
                             <canvas ref={canvasRef} className="w-full h-full object-contain" />
@@ -211,7 +216,7 @@ export default function ToolCabinetScrollytelling() {
                 */}
                 <div className="absolute top-24 md:top-32 left-0 w-full text-center pointer-events-none z-20 animate-pulse mix-blend-difference">
                     <p className="text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                        OPEN THE ULTIMATE TEAM SPORT OS
+                        {t('platform.cabinet.cta')}
                     </p>
                 </div>
             </div>

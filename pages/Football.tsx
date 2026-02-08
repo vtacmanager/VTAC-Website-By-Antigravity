@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next'; // Added import
 import { SectionWrapper, CTASection, GradientBackground } from '../components/UI.tsx';
 import {
   Trophy,
@@ -168,6 +169,7 @@ const FeatureCard = ({ title, description, image, icon: Icon, color = 'green', w
 };
 
 const Football: React.FC = () => {
+  const { t } = useTranslation(); // Initialize hook
   /* State for Section 2 Slideshow */
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
 
@@ -284,17 +286,17 @@ const Football: React.FC = () => {
         <div className="max-w-7xl mx-auto relative z-10 text-center space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
             <Globe className="w-3 h-3 md:w-4 md:h-4" />
-            <span>WORLD-FIRST REMOTE INTERACTIVE FOOTBALL TRAINING</span>
+            <span>{t('football.hero.badge')}</span>
           </div>
 
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
-            DOMINATE <br />
-            <span className="bg-clip-text text-transparent box-decoration-clone pr-8" style={{ backgroundImage: 'linear-gradient(135deg, #15803d 0%, #22c55e 50%, #4ade80 100%)' }}>THE 5G PITCH</span> <br />
-            <span className="gradient-text box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>FROM ANYWHERE</span>
+            {t('football.hero.title.line1')} <br />
+            <span className="bg-clip-text text-transparent box-decoration-clone pr-8" style={{ backgroundImage: 'linear-gradient(135deg, #15803d 0%, #22c55e 50%, #4ade80 100%)' }}>{t('football.hero.title.line2')}</span> <br />
+            <span className="gradient-text box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.hero.title.line3')}</span>
           </h1>
 
           <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto border-l-4 border-green-500 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
-            Take your tactical briefing beyond the white board. VTAC MANAGER delivers the world’s first multiplayer tactical engine designed for the speed and complexity of modern football.
+            {t('football.hero.subtitle')}
           </p>
         </div>
 
@@ -313,7 +315,7 @@ const Football: React.FC = () => {
             <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[42%] aspect-video bg-black overflow-hidden group/video1">
               <video
                 ref={section1VideoRef}
-                src="/videos/Football S1_Hero Section_720.mp4"
+                src="/videos/Football S1_Hero Section_720-Compress.mp4"
                 className="w-full h-full object-cover"
                 autoPlay
                 loop
@@ -353,7 +355,7 @@ const Football: React.FC = () => {
               <span className="text-xs font-black uppercase tracking-widest text-green-500 group-hover:text-green-400">STEP 01</span>
             </div>
             <span className="hidden md:block w-px h-4 bg-white/10 group-hover:bg-green-500/50 transition-colors"></span>
-            <span className="text-[10px] md:text-xs font-bold uppercase text-green-500/80 group-hover:text-white transition-colors">ORGANIZE & SCHEDULE</span>
+            <span className="text-[10px] md:text-xs font-bold uppercase text-green-500/80 group-hover:text-white transition-colors">{t('football.stepsNav.step1')}</span>
           </button>
 
           <button onClick={() => document.getElementById('step-2')?.scrollIntoView({ behavior: 'smooth' })} className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-3 rounded-2xl bg-slate-900/50 border border-purple-500/30 hover:border-purple-500 hover:bg-purple-500/10 transition-all cursor-pointer hover:scale-105 active:scale-95">
@@ -362,7 +364,7 @@ const Football: React.FC = () => {
               <span className="text-xs font-black uppercase tracking-widest text-purple-500 group-hover:text-purple-400">STEP 02</span>
             </div>
             <span className="hidden md:block w-px h-4 bg-white/10 group-hover:bg-purple-500/50 transition-colors"></span>
-            <span className="text-[10px] md:text-xs font-bold uppercase text-purple-500/80 group-hover:text-white transition-colors">TACTICAL PREP</span>
+            <span className="text-[10px] md:text-xs font-bold uppercase text-purple-500/80 group-hover:text-white transition-colors">{t('football.stepsNav.step2')}</span>
           </button>
 
           <button onClick={() => document.getElementById('step-3')?.scrollIntoView({ behavior: 'smooth' })} className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-3 rounded-2xl bg-slate-900/50 border border-orange-500/30 hover:border-orange-500 hover:bg-orange-500/10 transition-all cursor-pointer hover:scale-105 active:scale-95">
@@ -371,7 +373,7 @@ const Football: React.FC = () => {
               <span className="text-xs font-black uppercase tracking-widest text-orange-500 group-hover:text-orange-400">STEP 03</span>
             </div>
             <span className="hidden md:block w-px h-4 bg-white/10 group-hover:bg-orange-500/50 transition-colors"></span>
-            <span className="text-[10px] md:text-xs font-bold uppercase text-orange-500/80 group-hover:text-white transition-colors">SIDELINE SYNC</span>
+            <span className="text-[10px] md:text-xs font-bold uppercase text-orange-500/80 group-hover:text-white transition-colors">{t('football.stepsNav.step3')}</span>
           </button>
 
           <button onClick={() => document.getElementById('step-4')?.scrollIntoView({ behavior: 'smooth' })} className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-3 rounded-2xl bg-slate-900/50 border border-red-500/30 hover:border-red-500 hover:bg-red-500/10 transition-all cursor-pointer hover:scale-105 active:scale-95">
@@ -380,7 +382,7 @@ const Football: React.FC = () => {
               <span className="text-xs font-black uppercase tracking-widest text-red-500 group-hover:text-red-400">STEP 04</span>
             </div>
             <span className="hidden md:block w-px h-4 bg-white/10 group-hover:bg-red-500/50 transition-colors"></span>
-            <span className="text-[10px] md:text-xs font-bold uppercase text-red-500/80 group-hover:text-white transition-colors">DIGITAL CAREER</span>
+            <span className="text-[10px] md:text-xs font-bold uppercase text-red-500/80 group-hover:text-white transition-colors">{t('football.stepsNav.step4')}</span>
           </button>
         </div>
       </div >
@@ -388,18 +390,18 @@ const Football: React.FC = () => {
       {/* 2. STEP 01 | ORGANIZE & SCHEDULE (New) */}
       < SectionWrapper id="step-1" className="bg-slate-900/10" >
         <StepSectionHeader
-          step="STEP 01"
-          badge="OPERATIONAL FOUNDATION"
+          step={t('football.step1.step')}
+          badge={t('football.step1.badge')}
           title={
             <>
-              MANAGEMENT <br />
+              {t('football.step1.title.line1')} <br />
               <span className="gradient-text box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>
-                MADE <br />
-                EFFORTLESS
+                {t('football.step1.title.line2')} <br />
+                {t('football.step1.title.line3')}
               </span>
             </>
           }
-          subtitle="Total club management in one place: Team hierarchy, training calendars, match fixtures, and pre-game line-up checks."
+          subtitle={t('football.step1.subtitle')}
           badgeColor="green"
           titleSize="text-4xl md:text-8xl"
         />
@@ -408,22 +410,22 @@ const Football: React.FC = () => {
           {/* Background Glow for Middle Card */}
           <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-600/20 blur-[150px] rounded-full pointer-events-none"></div>
           <FeatureCard
-            title="Unified Squad Hierarchy"
-            description="Manage rosters and team structures with enterprise-grade precision."
+            title={t('football.step1.cards.card1.title')}
+            description={t('football.step1.cards.card1.desc')}
             image="/images/Football S2.1.UnifiedSquadHierarc.webp"
             icon={Layers}
             color="green"
           />
           <FeatureCard
-            title="Synchronized Matchday Hub"
-            description="Align training calendars and finalize lineups in one click."
+            title={t('football.step1.cards.card2.title')}
+            description={t('football.step1.cards.card2.desc')}
             image="/images/Football S2.2.SynchronizedMatchdayHub.webp"
             icon={Calendar}
             color="green"
           />
           <FeatureCard
-            title="Performance Readiness Suite"
-            description="Monitor staff workflows and real-time player health status."
+            title={t('football.step1.cards.card3.title')}
+            description={t('football.step1.cards.card3.desc')}
             image="/images/Football S2.3.PerformanceReadines.webp"
             icon={Activity}
             color="green"
@@ -453,11 +455,11 @@ const Football: React.FC = () => {
             <div className="space-y-8">
               <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse">
                 <Zap className="w-3 h-3 md:w-4 md:h-4" />
-                <span>UNSTOPPABLE MOMENTUM</span>
+                <span>{t('football.section3.badge')}</span>
               </div>
               <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
-                ZERO DOWNTIME <br />
-                <span className="gradient-text box-decoration-clone pr-10" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>NO EXCUSES</span>
+                {t('football.section3.title.line1')} <br />
+                <span className="gradient-text box-decoration-clone pr-10" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section3.title.line2')}</span>
               </h2>
             </div>
             <div className="space-y-8">
@@ -466,9 +468,9 @@ const Football: React.FC = () => {
                   <Globe className="w-8 h-8 text-blue-400" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-black uppercase text-white mb-2">Disrupted Session? No Problem</h4>
+                  <h4 className="text-xl font-black uppercase text-white mb-2">{t('football.section3.features.feat1.title')}</h4>
                   <p className="text-slate-400 leading-relaxed">
-                    When physical training is interrupted by travel, weather, or scheduling conflicts—pivot instantly to a Remote Tactics Session.
+                    {t('football.section3.features.feat1.desc')}
                   </p>
                 </div>
               </div>
@@ -477,9 +479,9 @@ const Football: React.FC = () => {
                   <Smartphone className="w-8 h-8 text-blue-400" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-black uppercase text-white mb-2">Mobile-First Briefing</h4>
+                  <h4 className="text-xl font-black uppercase text-white mb-2">{t('football.section3.features.feat2.title')}</h4>
                   <p className="text-slate-400 leading-relaxed">
-                    Players access tactical plans from any device. Ensure the squad is "In-Sync" even while on the team bus heading to an away game.
+                    {t('football.section3.features.feat2.desc')}
                   </p>
                 </div>
               </div>
@@ -514,7 +516,7 @@ const Football: React.FC = () => {
               muted
               playsInline
             >
-              <source src="/videos/remote-resilience.mp4" type="video/mp4" />
+              <source src="/videos/remote-resilience-Compress.mp4" type="video/mp4" />
             </video>
 
             {/* Shine/Reflection Overlay */}
@@ -548,14 +550,14 @@ const Football: React.FC = () => {
           <div className="text-center mb-20 space-y-8">
             <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse">
               <Smartphone className="w-3 h-3 md:w-4 md:h-4" />
-              <span>SCAN. SYNC. PLAY.</span>
+              <span>{t('football.section4.badge')}</span>
             </div>
             <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-[0.8] text-white">
-              THE <br />
-              <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>CONTROLLER</span>
+              {t('football.section4.title.line1')} <br />
+              <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section4.title.line2')}</span>
             </h2>
             <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-3xl mx-auto">
-              Turn your smartphone into a high-precision tactical tool in seconds. No apps, no friction—just pure tactical engagement.
+              {t('football.section4.subtitle')}
             </p>
           </div>
 
@@ -581,9 +583,9 @@ const Football: React.FC = () => {
                 <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 0 ? 'bg-black/50 border-red-500/30' : 'bg-black/20 border-white/5'}`}>
                   <img src="/images/Football-Section4.1.webp" alt="Instant Connect" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                 </div>
-                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 0 ? 'text-white' : 'text-slate-500'}`}>INSTANT CONNECT</h3>
-                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Scan QR)</p>
-                <p className="text-slate-400">Scan the iHub QR code to instantly pair your smartphone as your personal tactical controller.</p>
+                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 0 ? 'text-white' : 'text-slate-500'}`}>{t('football.section4.cards.card1.title')}</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">{t('football.section4.cards.card1.tag')}</p>
+                <p className="text-slate-400">{t('football.section4.cards.card1.desc')}</p>
                 <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 0 ? 'opacity-100' : 'opacity-0'}`}>
                   <div className="w-1 h-1 rounded-full bg-red-500 animate-pulse"></div>
                   <div className="w-1 h-1 rounded-full bg-red-500 animate-pulse delay-75"></div>
@@ -612,9 +614,9 @@ const Football: React.FC = () => {
                 <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 1 ? 'bg-black/50 border-yellow-500/30' : 'bg-black/20 border-white/5'}`}>
                   <img src="/images/Football-Section4.2.webp" alt="Remote Joy Control" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                 </div>
-                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 1 ? 'text-white' : 'text-slate-500'}`}>REMOTE JOY CONTROL</h3>
-                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Play Live)</p>
-                <p className="text-slate-400">Take command of your avatar. Execute group movements and tactical shifts with millisecond precision.</p>
+                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 1 ? 'text-white' : 'text-slate-500'}`}>{t('football.section4.cards.card2.title')}</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">{t('football.section4.cards.card2.tag')}</p>
+                <p className="text-slate-400">{t('football.section4.cards.card2.desc')}</p>
                 <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 1 ? 'opacity-100' : 'opacity-0'}`}>
                   <div className="w-1 h-1 rounded-full bg-yellow-500 animate-pulse"></div>
                   <div className="w-1 h-1 rounded-full bg-yellow-500 animate-pulse delay-75"></div>
@@ -643,9 +645,9 @@ const Football: React.FC = () => {
                 <div className={`w-full aspect-[4/3] h-auto rounded-2xl mb-6 flex items-center justify-center border transition-colors duration-500 relative overflow-hidden ${activeTrafficLight === 2 ? 'bg-black/50 border-green-500/30' : 'bg-black/20 border-white/5'}`}>
                   <img src="/images/Football-Section4.3.webp" alt="Multiplayer Sync" className="absolute inset-0 w-full h-full object-cover opacity-80" />
                 </div>
-                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 2 ? 'text-white' : 'text-slate-500'}`}>MULTIPLAYER SYNC</h3>
-                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">(Team Practice)</p>
-                <p className="text-slate-400">Enter the virtual pitch together. Practice the coach's vision with the entire squad, from any location, on one shared field.</p>
+                <h3 className={`text-2xl font-black uppercase italic mb-2 transition-colors duration-500 ${activeTrafficLight === 2 ? 'text-white' : 'text-slate-500'}`}>{t('football.section4.cards.card3.title')}</h3>
+                <p className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4">{t('football.section4.cards.card3.tag')}</p>
+                <p className="text-slate-400">{t('football.section4.cards.card3.desc')}</p>
                 <div className={`mt-6 flex gap-1 transition-opacity duration-500 ${activeTrafficLight === 2 ? 'opacity-100' : 'opacity-0'}`}>
                   <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse"></div>
                   <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse delay-75"></div>
@@ -659,17 +661,17 @@ const Football: React.FC = () => {
         {/* 5. STEP 02 | PRE & POST-MATCH (New) */}
         <SectionWrapper id="step-2" className="bg-slate-900/30 border-y border-white/5" >
           <StepSectionHeader
-            step="STEP 02"
-            badge="TACTICAL MASTERY"
+            step={t('football.step2.step')}
+            badge={t('football.step2.badge')}
             title={
               <>
-                INTERACTIVE <br />
+                {t('football.step2.title.line1')} <br />
                 <span className="bg-clip-text text-transparent box-decoration-clone pr-4" style={{ backgroundImage: 'linear-gradient(135deg, #a855f7 0%, #a855f7 33%, #a855f7 66%, #ffffff 100%)' }}>
-                  REMOTE PREP
+                  {t('football.step2.title.line2')}
                 </span>
               </>
             }
-            subtitle="High-engagement team meetings using the Digital Tactics Board. Draw, erase, and record sessions to ensure every player understands their role."
+            subtitle={t('football.step2.subtitle')}
             badgeColor="purple"
             titleSize="text-4xl md:text-8xl"
           />
@@ -681,8 +683,8 @@ const Football: React.FC = () => {
                 <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">01</span>
                 <Video className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">ANALYZE & ADAPT</h3>
-              <p className="text-slate-400">Break down opponent footage and overlay tactical drawings to pinpoint growth areas.</p>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">{t('football.step2.cards.card1.title')}</h3>
+              <p className="text-slate-400">{t('football.step2.cards.card1.desc')}</p>
             </div>
 
             <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
@@ -690,8 +692,8 @@ const Football: React.FC = () => {
                 <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">02</span>
                 <Wifi className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">PLAY ON 5G PITCH</h3>
-              <p className="text-slate-400">Activate the Virtual Field where everyone controls their player dots simultaneously. Communicate and solve tactical problems as a team.</p>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">{t('football.step2.cards.card2.title')}</h3>
+              <p className="text-slate-400">{t('football.step2.cards.card2.desc')}</p>
             </div>
 
             <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
@@ -699,8 +701,8 @@ const Football: React.FC = () => {
                 <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">03</span>
                 <Bot className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">AI SQUAD CHALLENGE</h3>
-              <p className="text-slate-400">Take training to the next level by challenging our intelligent AI Squad in collaborative team drills.</p>
+              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">{t('football.step2.cards.card3.title')}</h3>
+              <p className="text-slate-400">{t('football.step2.cards.card3.desc')}</p>
             </div>
           </div>
 
@@ -713,10 +715,10 @@ const Football: React.FC = () => {
               <div className="absolute bottom-6 left-6 z-20 max-w-lg">
                 <div className="flex items-center gap-3 mb-2 text-green-400">
                   <Target className="w-5 h-5" />
-                  <span className="text-xs font-black uppercase tracking-widest">The Digital War Room</span>
+                  <span className="text-xs font-black uppercase tracking-widest">{t('football.step2.grid.item1.badge')}</span>
                 </div>
-                <h3 className="text-3xl font-black uppercase italic text-white leading-none mb-2">A Limitless Interactive Canvas</h3>
-                <p className="text-slate-300">For every tactical idea. Draw, drag, and simulate scenarios.</p>
+                <h3 className="text-3xl font-black uppercase italic text-white leading-none mb-2">{t('football.step2.grid.item1.title')}</h3>
+                <p className="text-slate-300">{t('football.step2.grid.item1.desc')}</p>
               </div>
             </div>
 
@@ -728,8 +730,8 @@ const Football: React.FC = () => {
                 <Settings className="w-6 h-6" />
               </div>
               <div className="relative z-10">
-                <h4 className="text-lg font-black uppercase italic text-white mb-1">Custom Match Standards</h4>
-                <p className="text-xs text-slate-200">Tailor every session to match your professional league format.</p>
+                <h4 className="text-lg font-black uppercase italic text-white mb-1">{t('football.step2.grid.item2.title')}</h4>
+                <p className="text-xs text-slate-200">{t('football.step2.grid.item2.desc')}</p>
               </div>
             </div>
 
@@ -741,8 +743,8 @@ const Football: React.FC = () => {
                 <LayoutTemplate className="w-6 h-6" />
               </div>
               <div className="relative z-10">
-                <h4 className="text-lg font-black uppercase italic text-white mb-1">Strategic Blueprints</h4>
-                <p className="text-xs text-slate-200">Set up complex formations (4-3-3, 3-5-2) with one touch.</p>
+                <h4 className="text-lg font-black uppercase italic text-white mb-1">{t('football.step2.grid.item3.title')}</h4>
+                <p className="text-xs text-slate-200">{t('football.step2.grid.item3.desc')}</p>
               </div>
             </div>
 
@@ -754,8 +756,8 @@ const Football: React.FC = () => {
                 <PenTool className="w-6 h-6" />
               </div>
               <div className="relative z-10">
-                <h4 className="text-lg font-black uppercase italic text-white mb-1">Visual Command Lines</h4>
-                <p className="text-xs text-slate-200">Sketch movement paths and coaching cues with surgical precision.</p>
+                <h4 className="text-lg font-black uppercase italic text-white mb-1">{t('football.step2.grid.item4.title')}</h4>
+                <p className="text-xs text-slate-200">{t('football.step2.grid.item4.desc')}</p>
               </div>
             </div>
 
@@ -767,8 +769,8 @@ const Football: React.FC = () => {
                 <Video className="w-6 h-6" />
               </div>
               <div className="relative z-10">
-                <h4 className="text-lg font-black uppercase italic text-white mb-1">Augmented Video Insight</h4>
-                <p className="text-xs text-slate-200">Overlay tactical drawings directly on match footage.</p>
+                <h4 className="text-lg font-black uppercase italic text-white mb-1">{t('football.step2.grid.item5.title')}</h4>
+                <p className="text-xs text-slate-200">{t('football.step2.grid.item5.desc')}</p>
               </div>
             </div>
 
@@ -779,9 +781,9 @@ const Football: React.FC = () => {
               <div className="absolute bottom-6 left-6 z-20">
                 <div className="flex items-center gap-3 mb-2 text-yellow-400">
                   <Bot className="w-5 h-5" />
-                  <span className="text-xs font-black uppercase tracking-widest">The AI Squad Challenge</span>
+                  <span className="text-xs font-black uppercase tracking-widest">{t('football.step2.grid.item6.badge')}</span>
                 </div>
-                <h3 className="text-2xl font-black uppercase italic text-white">Test team chemistry against AI opponents.</h3>
+                <h3 className="text-2xl font-black uppercase italic text-white">{t('football.step2.grid.item6.title')}</h3>
               </div>
             </div>
 
@@ -792,9 +794,9 @@ const Football: React.FC = () => {
               <div className="absolute bottom-6 left-6 z-20">
                 <div className="flex items-center gap-3 mb-2 text-cyan-400">
                   <Gamepad2 className="w-5 h-5" />
-                  <span className="text-xs font-black uppercase tracking-widest">Precision Handheld Control</span>
+                  <span className="text-xs font-black uppercase tracking-widest">{t('football.step2.grid.item7.badge')}</span>
                 </div>
-                <h3 className="text-2xl font-black uppercase italic text-white">Your smartphone is your joystick.</h3>
+                <h3 className="text-2xl font-black uppercase italic text-white">{t('football.step2.grid.item7.title')}</h3>
               </div>
             </div>
           </div>
@@ -805,45 +807,53 @@ const Football: React.FC = () => {
         <div className="relative min-h-screen py-24 overflow-hidden bg-slate-950">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div className="text-center mb-16 space-y-8">
-              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-purple-400 drop-shadow-[0_0_5px_rgba(168,85,247,0.8)] text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.6)] animate-pulse">
-                <Trophy className="w-3 h-3 md:w-4 md:h-4" />
-                <span>BEYOND INSTRUCTION: SHOW YOUR MIND</span>
+              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-blue-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] animate-pulse">
+                <BrainCircuit className="w-3 h-3 md:w-4 md:h-4" />
+                <span>{t('football.section6.badge')}</span>
               </div>
-              <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-none text-white">
-                PLAY ON <br />
-                <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #a855f7 0%, #a855f7 33%, #a855f7 66%, #ffffff 100%)' }}>THE 5G PITCH</span>
+              <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-[0.8] text-white">
+                {t('football.section6.title.line1')} <br />
+                <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #ffffff 70%, #a855f7 100%)' }}>{t('football.section6.title.line2')}</span>
               </h2>
-              <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto">
-                Where tactical vision becomes live movement. <br /> Get everyone in sync.
+              <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-3xl mx-auto">
+                {t('football.section6.subtitle')}
               </p>
             </div>
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+              <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all group hover:-translate-y-2 duration-500">
                 <div className="flex items-start justify-between mb-6">
-                  <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">01</span>
+                  <span className="text-4xl font-black text-white/20 group-hover:text-blue-400 transition-colors">01</span>
                   <Target className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">ACTIVE PLAYER DOTS</h3>
-                <p className="text-slate-400">Run your mind. Verify understanding instantly as players express their thoughts through live movement on the 5G Pitch.</p>
+                <h3 className="text-xl font-black uppercase italic text-white mb-2 group-hover:text-blue-400 transition-colors">{t('football.section6.cards.card1.title')}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{t('football.section6.cards.card1.desc')}</p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
-                <div className="flex items-start justify-between mb-6">
-                  <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">02</span>
-                  <Zap className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              <div className="group relative p-8 rounded-3xl bg-slate-900/50 border border-white/5 hover:bg-slate-800/50 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-500">
+                <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <Users className="w-6 h-6 text-blue-500" />
                 </div>
-                <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">COLLECTIVE INTELLIGENCE</h3>
-                <p className="text-slate-400">Move by instinct. Transition from "following orders" to shared team intuition. Sync every brain onto one virtual field.</p>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-500">
+                    <BrainCircuit className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-black uppercase italic text-white mb-2 group-hover:text-blue-400 transition-colors">{t('football.section6.cards.card2.title')}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{t('football.section6.cards.card2.desc')}</p>
+                </div>
               </div>
 
-              <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
-                <div className="flex items-start justify-between mb-6">
-                  <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">03</span>
-                  <Users className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              <div className="group relative p-8 rounded-3xl bg-slate-900/50 border border-white/5 hover:bg-slate-800/50 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-500">
+                <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <Users className="w-6 h-6 text-blue-500" />
                 </div>
-                <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">TACTICAL JOY</h3>
-                <p className="text-slate-400">Kill the boredom. Turn tactical prep into high-energy interactive play that strengthens team chemistry and bonds.</p>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-500">
+                    <Gamepad2 className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-black uppercase italic text-white mb-2 group-hover:text-blue-400 transition-colors">{t('football.section6.cards.card3.title')}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{t('football.section6.cards.card3.desc')}</p>
+                </div>
               </div>
             </div>
 
@@ -864,7 +874,7 @@ const Football: React.FC = () => {
                 <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[34.5%] aspect-video bg-black overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] group/video z-10">
                   <video
                     ref={section6VideoRef}
-                    src="/videos/Football S6.mp4"
+                    src="/videos/Football S6-Compress.mp4"
                     className="w-full h-full object-cover"
                     autoPlay
                     loop
@@ -907,39 +917,39 @@ const Football: React.FC = () => {
           < div className="absolute -left-20 bottom-0 w-[600px] h-[600px] bg-orange-600/20 blur-[150px] rounded-full pointer-events-none" ></div >
 
           <StepSectionHeader
-            step="STEP 03"
-            badge="SIDELINE INTELLIGENCE"
+            step={t('football.step3.step')}
+            badge={t('football.step3.badge')}
             title={
               <>
-                SIDELINE <br />
-                <span className="bg-clip-text text-transparent box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #f97316 0%, #f97316 33%, #f97316 66%, #ffffff 100%)' }}>
-                  OPERATIONS
+                {t('football.step3.title.line1')} <br />
+                <span className="bg-clip-text text-transparent box-decoration-clone pr-4" style={{ backgroundImage: 'linear-gradient(135deg, #f97316 0%, #f97316 40%, #ffffff 70%, #f97316 100%)' }}>
+                  {t('football.step3.title.line2')}
                 </span>
               </>
             }
-            subtitle="Manage live line-ups, track attendance, and record key match events in real-time. Instantly sync updates to parents and fans."
+            subtitle={t('football.step3.subtitle')}
             badgeColor="orange"
             titleSize="text-4xl md:text-8xl"
           />
 
           <div className="grid md:grid-cols-3 gap-6">
             <FeatureCard
-              title="Instant Sideline Analytics"
-              description="Monitor game flow and player performance metrics as they happen."
+              title={t('football.step3.cards.card1.title')}
+              description={t('football.step3.cards.card1.desc')}
               image="/images/Football S7.1.InstantSidelineAnalytics.webp"
               icon={BarChart}
               color="orange"
             />
             <FeatureCard
-              title="Cloud-Powered Event Logging"
-              description="Record goals, substitutions, and cards with seamless cloud synchronization."
+              title={t('football.step3.cards.card2.title')}
+              description={t('football.step3.cards.card2.desc')}
               image="/images/Football S7.2.Cloud-PoweredEventLogging.webp"
               icon={Cloud}
               color="orange"
             />
             <FeatureCard
-              title="Unified Stakeholder Feed"
-              description="Broadcast live match updates directly to parents, fans, and club members."
+              title={t('football.step3.cards.card3.title')}
+              description={t('football.step3.cards.card3.desc')}
               image="/images/Football S7.3.UnifiedStakehold.webp"
               icon={Radio}
               color="orange"
@@ -953,39 +963,39 @@ const Football: React.FC = () => {
           < div className="absolute -right-20 bottom-0 w-[600px] h-[600px] bg-red-600/20 blur-[150px] rounded-full pointer-events-none" ></div >
 
           <StepSectionHeader
-            step="STEP 04"
-            badge="DIGITAL LEGACY"
+            step={t('football.step4.step')}
+            badge={t('football.step4.badge')}
             title={
               <>
-                SCOUT-READY <br />
-                <span className="bg-clip-text text-transparent box-decoration-clone pr-10" style={{ backgroundImage: 'linear-gradient(135deg, #ef4444 0%, #ef4444 33%, #ef4444 66%, #ffffff 100%)' }}>
-                  DIGITAL CV
+                {t('football.step4.title.line1')} <br />
+                <span className="bg-clip-text text-transparent box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #ef4444 0%, #ef4444 33%, #ef4444 66%, #ffffff 100%)' }}>
+                  {t('football.step4.title.line2')}
                 </span>
               </>
             }
+            subtitle={t('football.step4.subtitle')}
             badgeColor="red"
-            subtitle="Automatically build professional Digital CVs for players and coaches, capturing multi-season stats and Tactical IQ for scouts and top-tier clubs."
-            titleSize="text-5xl md:text-8xl"
+            titleSize="text-4xl md:text-8xl"
           />
 
           <div className="grid md:grid-cols-3 gap-6">
             <FeatureCard
-              title="Elite Visual Scout Card"
-              description="A premium snapshot of player talent designed to catch every scout’s eye."
+              title={t('football.step4.cards.card1.title')}
+              description={t('football.step4.cards.card1.desc')}
               image="/images/Football S8.1.EliteVisualScoutCard-ezgif.com-jpg-to-webp-converter.webp"
               icon={IdCard}
               color="red"
             />
             <FeatureCard
-              title="Verified Data CV"
-              description="A complete history of performance stats and Tactical IQ across multiple seasons."
+              title={t('football.step4.cards.card2.title')}
+              description={t('football.step4.cards.card2.desc')}
               image="/images/Football S8.2.VerifiedDataCV-ezgif.com-jpg-to-webp-converter.webp"
               icon={Database}
               color="red"
             />
             <FeatureCard
-              title="Strategic Coaching Portfolio"
-              description="Showcase your tactical mastery and leadership legacy to top-tier clubs."
+              title={t('football.step4.cards.card3.title')}
+              description={t('football.step4.cards.card3.desc')}
               image="/images/Football S8.3.StrategicCoachingPortfolio-ezgif.com-jpg-to-webp-converter.webp"
               icon={Briefcase}
               color="red"
@@ -994,7 +1004,8 @@ const Football: React.FC = () => {
         </SectionWrapper >
 
         {/* 9. CTA (Reused from Solutions Code in previous files, same as existing Grid Section 6) */}
-        < SectionWrapper id="cta-solutions" className="pb-32 overflow-visible bg-slate-950" >
+        {/* 9. CTA */}
+        <SectionWrapper id="cta-solutions" className="pb-32 overflow-visible bg-slate-950">
           <div className="relative group max-w-7xl mx-auto">
             {/* Immersive Stadium Radial Glow */}
             <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-cyan-500/20 blur-[160px] rounded-full pointer-events-none -z-10 group-hover:bg-purple-500/20 transition-colors duration-1000"></div>
@@ -1006,25 +1017,25 @@ const Football: React.FC = () => {
 
               <div className="relative z-10 space-y-8">
                 <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-8">
-                  READY FOR THE <br />
-                  <span className="gradient-text inline-block pr-10 box-decoration-clone" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>NEXT GAME?</span>
+                  {t('football.cta.title.line1')} <br />
+                  <span className="gradient-text inline-block pr-10 box-decoration-clone" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.cta.title.line2')}</span>
                 </h2>
 
                 <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
-                  Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC</span> <span className="text-cyan-400 font-black">MANAGER.</span>
+                  {t('football.cta.subtitle')}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
                   {/* Primary Button */}
                   <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center">
-                    <span className="relative z-10">Book a Demo</span>
+                    <span className="relative z-10">{t('football.cta.btnDemo')}</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                   </button>
 
                   {/* Secondary Button */}
                   <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center">
                     <span className="relative z-10 flex items-center gap-2">
-                      Start Trial <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
+                      {t('football.cta.btnTrial')} <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
                     </span>
                   </button>
                 </div>
@@ -1034,7 +1045,7 @@ const Football: React.FC = () => {
               <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full h-40 bg-gradient-to-t from-cyan-500/20 to-transparent blur-3xl opacity-50"></div>
             </div>
           </div>
-        </SectionWrapper >
+        </SectionWrapper>
       </div >
     </div >
   );

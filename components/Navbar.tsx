@@ -4,8 +4,11 @@ import { ChevronDown, Menu, X, LogOut, User } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 import Logo from './Logo';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,7 +57,7 @@ const Navbar: React.FC = () => {
               <button
                 className={`flex items-center gap-1.5 text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/football' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
               >
-                TEAM SPORT
+                {t('nav.teamSport')}
                 <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -93,30 +96,34 @@ const Navbar: React.FC = () => {
               to="/solutions"
               className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/solutions' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
             >
-              Solutions
+              {t('nav.solutions')}
             </Link>
 
             <Link
               to="/pricing"
               className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/pricing' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
             >
-              Pricing
+              {t('nav.pricing')}
             </Link>
           </div>
 
-          <div className="flex items-center space-x-8 border-l border-white/10 pl-10">
+          <div className="hidden lg:flex items-center space-x-6 border-l border-white/10 pl-6 ml-6">
+            <LanguageSwitcher />
+          </div>
+
+          <div className="flex items-center space-x-6 border-l border-white/10 pl-6">
             {isLoggedIn ? (
               <div className="relative group">
                 <button className="flex items-center space-x-3 text-sm font-black uppercase tracking-widest text-slate-300 hover:text-white transition-colors">
                   <User className="w-4 h-4" />
-                  <span>Account</span>
+                  <span>{t('nav.account')}</span>
                   <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
                 </button>
 
                 <div className="absolute top-full right-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 p-2 rounded-2xl shadow-2xl min-w-[200px]">
                     <div className="px-4 py-3 border-b border-white/10">
-                      <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Signed in as</p>
+                      <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">{t('nav.signedInAs')}</p>
                       <p className="text-sm text-white font-medium truncate">{user?.email}</p>
                     </div>
                     <button
@@ -124,7 +131,7 @@ const Navbar: React.FC = () => {
                       className="w-full flex items-center space-x-3 px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all"
                     >
                       <LogOut className="w-4 h-4" />
-                      <span>Sign Out</span>
+                      <span>{t('nav.signOut')}</span>
                     </button>
                   </div>
                 </div>
@@ -135,13 +142,13 @@ const Navbar: React.FC = () => {
                   to="/login"
                   className="text-sm font-black uppercase tracking-widest text-slate-300 hover:text-white transition-colors"
                 >
-                  Login
+                  {t('nav.login')}
                 </Link>
                 <Link
                   to="/register"
                   className="bg-white text-black px-7 py-3 rounded-full font-black text-sm hover:bg-cyan-400 transition-all shadow-lg shadow-white/5 active:scale-95 uppercase"
                 >
-                  Register
+                  {t('nav.register')}
                 </Link>
               </>
             )}
@@ -160,13 +167,16 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu Overlay */}
       <div className={`lg:hidden absolute top-full left-0 right-0 bg-slate-950 border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[85vh] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}>
         <div className="px-6 py-8 space-y-6 flex flex-col">
+          <div className="flex justify-end">
+            <LanguageSwitcher />
+          </div>
           {/* Mobile TEAM SPORT with Toggle - Moved to First Position */}
           <div className="space-y-4">
             <button
               onClick={() => setIsMobileTeamSportOpen(!isMobileTeamSportOpen)}
               className={`flex items-center justify-between w-full text-lg font-black uppercase tracking-widest ${location.pathname === '/football' ? 'text-cyan-400' : 'text-slate-300'}`}
             >
-              TEAM SPORT
+              {t('nav.teamSport')}
               <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${isMobileTeamSportOpen ? 'rotate-180' : ''}`} />
             </button>
 
@@ -203,21 +213,21 @@ const Navbar: React.FC = () => {
             to="/solutions"
             className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/solutions' ? 'text-cyan-400' : 'text-slate-300'}`}
           >
-            Solutions
+            {t('nav.solutions')}
           </Link>
 
           <Link
             to="/pricing"
             className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/pricing' ? 'text-cyan-400' : 'text-slate-300'}`}
           >
-            Pricing
+            {t('nav.pricing')}
           </Link>
 
           <div className="pt-6 border-t border-white/10">
             {isLoggedIn ? (
               <div className="space-y-4">
                 <div className="px-4 py-3 bg-white/5 rounded-2xl">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-2">Signed in as</p>
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500 mb-2">{t('nav.signedInAs')}</p>
                   <p className="text-sm text-white font-medium">{user?.email}</p>
                 </div>
                 <button
@@ -225,7 +235,7 @@ const Navbar: React.FC = () => {
                   className="w-full flex items-center justify-center space-x-3 py-4 text-lg font-black uppercase tracking-widest text-slate-300 hover:text-white transition-colors"
                 >
                   <LogOut className="w-6 h-6" />
-                  <span>Sign Out</span>
+                  <span>{t('nav.signOut')}</span>
                 </button>
               </div>
             ) : (
@@ -234,13 +244,13 @@ const Navbar: React.FC = () => {
                   to="/login"
                   className="text-center py-4 text-lg font-black uppercase tracking-widest text-slate-300"
                 >
-                  Login
+                  {t('nav.login')}
                 </Link>
                 <Link
                   to="/register"
                   className="bg-white text-black text-center py-4 rounded-2xl font-black text-lg uppercase shadow-xl"
                 >
-                  Register
+                  {t('nav.register')}
                 </Link>
               </div>
             )}

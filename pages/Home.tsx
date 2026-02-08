@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   SectionWrapper,
   FeatureCard,
@@ -164,183 +165,119 @@ const SportsMarquee: React.FC = () => {
   );
 };
 
-const manifestoItems = [
-  {
-    icon: Layers,
-    title: '1. ONE UNIFIED PLATFORM',
-    desc: 'Stop Operational Chaos. Replace fragmented tools for scheduling, chat, and match reports with one seamless, high-performance ecosystem.',
-    image: '/images/Section2-1.webp'
-  },
-  {
-    icon: Globe,
-    title: '2. REMOTE-READY BY DESIGN',
-    desc: 'Practice Without Boundaries. Turn weather disruptions into elite training opportunities with real-time, multiplayer tactical sessions on any device.',
-    image: '/images/Section2-2.webp'
-  },
-  {
-    icon: TrendingUp,
-    title: '3. PLAYER DEVELOPMENT AT SCALE',
-    desc: 'Build a Digital Legacy. Automate player growth tracking with professional CVs and multi-season histories backed by real-time data.',
-    image: '/images/Section2-3.webp'
-  },
-  {
-    icon: Users,
-    title: '4. STRONGER BONDS, LASTING COMMITMENT',
-    desc: 'Build a Culture, Not Just a Roster. Teams that learn together, stay together. VTAC creates a deep sense of belonging that keeps players inspired and parents engaged, ensuring your sports community stays together season after season.',
-    image: '/images/Section2-4.webp'
-  }
-];
+/* MOVED TO COMPONENT BODY TO USE HOOK */
 
-const managementStages = [
-  {
-    id: 'problem',
-    title: 'The Problem',
-    ipadTitle: 'THE FRAGMENTED REALITY',
-    icon: <AlertCircle className="w-6 h-6 md:w-8 md:h-8" />,
-    color: 'purple',
-    accent: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-    desc: 'Teams lose valuable time to administrative work, scatter training data across disconnected tools.',
-    images: [
-      '/images/Section3-1.1.webp',
-      '/images/Section3-1.2.webp',
-      '/images/Section3-1.3.webp'
-    ],
-    details: 'Scattered data and administrative bloat lead to a 40% drop in tactical retention. While aligning an entire squad is difficult, verifying who truly understands the plan is nearly impossible—leaving coaches blind to tactical gaps until it\'s too late on match day.',
-    tags: ['Admin Burnout', 'Invisible Tactical Gaps', 'Scattered Data']
-  },
-  {
-    id: 'solution',
-    title: 'The Solution',
-    ipadTitle: 'THE INTEGRATED APPROACH',
-    icon: <Sparkles className="w-6 h-6 md:w-8 md:h-8" />,
-    color: 'orange',
-    accent: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
-    desc: 'VTAC brings club operations and interactive tactical training into one seamless platform.',
-    images: [
-      '/images/Section3-2.1.webp',
-      '/images/Section3-2.2.webp',
-      '/images/Section3-2.3.webp'
-    ],
-    details: 'VTAC unifies team organization and management with our patented Interactive Remote Tactics engine. One digital home to deliver your club philosophy to every player—ensuring total tactical clarity on any device, anywhere, anytime.',
-    tags: ['Unified Management', 'Patented Tactical Engine', 'Real-time Sync']
-  },
-  {
-    id: 'outcome',
-    title: 'The Outcome',
-    ipadTitle: 'THE PERFORMANCE EDGE',
-    icon: <Trophy className="w-6 h-6 md:w-8 md:h-8" />,
-    color: 'green',
-    accent: 'bg-green-500/10 text-green-400 border-green-500/20',
-    desc: 'More time for coaching. Clearer tactical understanding. Stronger team performance supported by data.',
-    images: [
-      '/images/Section3-3.1.webp',
-      '/images/Section3-3.2.webp',
-      '/images/Section3-3.3.webp'
-    ],
-    details: 'VTAC streamlines management, making it fast and simple for everyone to stay in sync. By ensuring coaches and players share one clear tactical vision, teams play with total confidence and perfect execution—achieving elite standards through measurable, data-driven growth.',
-    tags: ['Tactical Mastery', 'Performance Edge', 'Trackable Growth']
-  }
-];
-
-const coverageItems = [
-  {
-    id: 'ops',
-    title: 'Club & Academy Operations',
-    description: 'Streamline your organization and eliminate administrative friction.',
-    icon: <Settings className="w-10 h-10 md:w-16 md:h-16" />,
-    color: 'purple',
-    image: '/images/Section5.1.webp',
-    features: [
-      'Multi-Team Management',
-      'Unified Scheduling (Train/Match)',
-      'Live Attendance & Availability',
-      'Centralized Communication',
-      'Total Access'
-    ]
-  },
-  {
-    id: 'tactics',
-    title: 'Interactive Tactical Training Engine',
-    description: 'Bring your philosophy to life with our patented visual engine.',
-    icon: <Gamepad2 className="w-10 h-10 md:w-16 md:h-16" />,
-    color: 'orange',
-    image: '/images/Section5.2.webp',
-    features: [
-      'Patented Multiplayer Sessions',
-      'Hybrid Training (Live & Async)',
-      'Visual Learning Environment',
-      'Tactical Libraries'
-    ]
-  },
-  {
-    id: 'dev',
-    title: 'Performance & Legacy System',
-    description: 'Build a digital history of growth for every member of your club.',
-    icon: <BarChart3 className="w-10 h-10 md:w-16 md:h-16" />,
-    color: 'green',
-    image: '/images/Section5.3.webp',
-    features: [
-      'Dynamic CVs',
-      'Individual Development Plans (IDP)',
-      'Participation & Performance Logs',
-      'Multi-Season History'
-    ]
-  }
-];
-
-const comparisonRows = [
-  {
-    feature: 'Unified Roster & Attendance',
-    vtac: true,
-    organizer: true,
-    video: false,
-    img: '/images/Section7.1.webp'
-  },
-  {
-    feature: 'Interactive Remote Tactical Board',
-    vtac: true,
-    organizer: false,
-    video: false,
-    img: '/images/Section7.2.webp'
-  },
-  {
-    feature: 'Multiplayer Remote Real-time Training',
-    vtac: true,
-    organizer: false,
-    video: false,
-    img: '/images/Section7.3.webp'
-  },
-  {
-    feature: 'Dynamic Player Development CV',
-    vtac: true,
-    organizer: false,
-    video: true,
-    img: '/images/Section7.4.webp'
-  },
-  {
-    feature: 'Unified Communication',
-    vtac: true,
-    organizer: true,
-    video: false,
-    img: '/images/Section7.5.webp'
-  },
-  {
-    feature: 'Image & Video Tactics Tool',
-    vtac: true,
-    organizer: false,
-    video: true,
-    img: '/images/Section7.6.webp'
-  },
-  {
-    feature: 'All-in-One Solution',
-    vtac: true,
-    organizer: false,
-    video: false,
-    img: '/images/Section7.7.webp'
-  }
-];
+/* MOVED TO COMPONENT BODY TO USE HOOK */
 
 const Home: React.FC = () => {
+  const { t } = useTranslation();
+
+  const manifestoItems = [
+    {
+      icon: Layers,
+      title: t('home.manifesto.items.item1.title'),
+      desc: t('home.manifesto.items.item1.desc'),
+      image: '/images/Section2-1.webp'
+    },
+    {
+      icon: Globe,
+      title: t('home.manifesto.items.item2.title'),
+      desc: t('home.manifesto.items.item2.desc'),
+      image: '/images/Section2-2.webp'
+    },
+    {
+      icon: TrendingUp,
+      title: t('home.manifesto.items.item3.title'),
+      desc: t('home.manifesto.items.item3.desc'),
+      image: '/images/Section2-3.webp'
+    },
+    {
+      icon: Users,
+      title: t('home.manifesto.items.item4.title'),
+      desc: t('home.manifesto.items.item4.desc'),
+      image: '/images/Section2-4.webp'
+    }
+  ];
+
+  const managementStages = [
+    {
+      id: 'problem',
+      title: t('home.management.stages.problem.title'),
+      ipadTitle: t('home.management.stages.problem.ipadTitle'),
+      icon: <AlertCircle className="w-6 h-6 md:w-8 md:h-8" />,
+      color: 'purple',
+      accent: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+      desc: t('home.management.stages.problem.desc'),
+      images: ['/images/Section3-1.1.webp', '/images/Section3-1.2.webp', '/images/Section3-1.3.webp'],
+      details: t('home.management.stages.problem.details'),
+      tags: t('home.management.stages.problem.tags', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'solution',
+      title: t('home.management.stages.solution.title'),
+      ipadTitle: t('home.management.stages.solution.ipadTitle'),
+      icon: <Sparkles className="w-6 h-6 md:w-8 md:h-8" />,
+      color: 'orange',
+      accent: 'bg-orange-500/10 text-orange-500 border-orange-500/20',
+      desc: t('home.management.stages.solution.desc'),
+      images: ['/images/Section3-2.1.webp', '/images/Section3-2.2.webp', '/images/Section3-2.3.webp'],
+      details: t('home.management.stages.solution.details'),
+      tags: t('home.management.stages.solution.tags', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'outcome',
+      title: t('home.management.stages.outcome.title'),
+      ipadTitle: t('home.management.stages.outcome.ipadTitle'),
+      icon: <Trophy className="w-6 h-6 md:w-8 md:h-8" />,
+      color: 'green',
+      accent: 'bg-green-500/10 text-green-400 border-green-500/20',
+      desc: t('home.management.stages.outcome.desc'),
+      images: ['/images/Section3-3.1.webp', '/images/Section3-3.2.webp', '/images/Section3-3.3.webp'],
+      details: t('home.management.stages.outcome.details'),
+      tags: t('home.management.stages.outcome.tags', { returnObjects: true }) as string[]
+    }
+  ];
+
+  const coverageItems = [
+    {
+      id: 'ops',
+      title: t('home.coverage.items.ops.title'),
+      description: t('home.coverage.items.ops.desc'),
+      icon: <Settings className="w-10 h-10 md:w-16 md:h-16" />,
+      color: 'purple',
+      image: '/images/Section5.1.webp',
+      features: t('home.coverage.items.ops.features', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'tactics',
+      title: t('home.coverage.items.tactics.title'),
+      description: t('home.coverage.items.tactics.desc'),
+      icon: <Gamepad2 className="w-10 h-10 md:w-16 md:h-16" />,
+      color: 'orange',
+      image: '/images/Section5.2.webp',
+      features: t('home.coverage.items.tactics.features', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'dev',
+      title: t('home.coverage.items.dev.title'),
+      description: t('home.coverage.items.dev.desc'),
+      icon: <BarChart3 className="w-10 h-10 md:w-16 md:h-16" />,
+      color: 'green',
+      image: '/images/Section5.3.webp',
+      features: t('home.coverage.items.dev.features', { returnObjects: true }) as string[]
+    }
+  ];
+
+  const comparisonRows = [
+    { feature: t('home.comparison.table.rows.0.feature'), vtac: true, organizer: true, video: false, img: '/images/Section7.1.webp' },
+    { feature: t('home.comparison.table.rows.1.feature'), vtac: true, organizer: false, video: false, img: '/images/Section7.2.webp' },
+    { feature: t('home.comparison.table.rows.2.feature'), vtac: true, organizer: false, video: false, img: '/images/Section7.3.webp' },
+    { feature: t('home.comparison.table.rows.3.feature'), vtac: true, organizer: false, video: true, img: '/images/Section7.4.webp' },
+    { feature: t('home.comparison.table.rows.4.feature'), vtac: true, organizer: true, video: false, img: '/images/Section7.5.webp' },
+    { feature: t('home.comparison.table.rows.5.feature'), vtac: true, organizer: false, video: true, img: '/images/Section7.6.webp' },
+    { feature: t('home.comparison.table.rows.6.feature'), vtac: true, organizer: false, video: false, img: '/images/Section7.7.webp' }
+  ];
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedStage, setSelectedStage] = useState(1);
   const [selectedCoverage, setSelectedCoverage] = useState(0);
@@ -483,29 +420,29 @@ const Home: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
             </span>
-            <span>TEAM MANAGEMENT + INTERACTIVE REMOTE TACTICAL TRAINING</span>
+            <span>{t('home.hero.badge')}</span>
           </div>
           <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase py-4">
-            <span className="text-6xl md:text-[8rem] block leading-[0.9] mb-1">ONE PLATFORM</span>
-            <span className="gradient-text text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] italic">SMART MANAGEMENT</span>
+            <span className="text-6xl md:text-[8rem] block leading-[0.9] mb-1">{t('home.hero.title.line1')}</span>
+            <span className="gradient-text text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] italic">{t('home.hero.title.line2')}</span>
             <div className="relative inline-block overflow-visible">
               {/* Animated Background Glow */}
               <div className="absolute -inset-4 bg-orange-500/30 blur-[40px] rounded-full animate-[breathe-glow_4s_ease-in-out_infinite]"></div>
               <span className="relative text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] mt-2 italic pr-8 overflow-visible" style={{
                 color: '#fb923c',
                 filter: 'drop-shadow(0 0 25px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 50px rgba(251, 146, 60, 0.4))'
-              }}>INTERACTIVE TRAINING&nbsp;</span>
+              }}>{t('home.hero.title.line3')}&nbsp;</span>
             </div>
           </h1>
           <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            The complete digital ecosystem for modern sports. From smart scheduling and live match updates to automated player development and the world's first multiplayer tactical engine - everything your club needs to win, on and off the pitch.
+            {t('home.hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full px-6 sm:px-0">
             <button className="bg-white text-black text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-cyan-400 transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-cyan-500/20 uppercase w-full sm:w-auto">
-              REQUEST DEMO
+              {t('home.hero.requestDemo')}
             </button>
             <button className="glass-card text-white text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-white/10 transition-all border border-white/10 active:scale-95 uppercase w-full sm:w-auto">
-              START FREE TRIAL
+              {t('home.hero.startTrial')}
             </button>
           </div>
         </div>
@@ -522,7 +459,7 @@ const Home: React.FC = () => {
 
               <video
                 ref={videoRef}
-                src="/videos/hero-video-2.mp4"
+                src="/videos/hero-video-2-Compress.mp4"
                 className="w-full h-full object-cover"
                 autoPlay
                 loop
@@ -550,7 +487,7 @@ const Home: React.FC = () => {
 
               {/* Status Indicator (Bottom Chin area) */}
               <div className="absolute bottom-3 right-6 flex items-center gap-2">
-                <span className="text-[8px] font-black text-white/20 tracking-widest uppercase hidden md:block">ULTRA TACTICAL 4K</span>
+                <span className="text-[8px] font-black text-white/20 tracking-widest uppercase hidden md:block">{t('home.hero.ultraTactical')}</span>
                 <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.8)] animate-pulse"></div>
               </div>
 
@@ -572,17 +509,17 @@ const Home: React.FC = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
-                <span>THE END OF TOOLS FRAGMENTATION</span>
+                <span>{t('home.manifesto.badge')}</span>
               </div>
               <h2 className="font-black tracking-tighter uppercase italic flex flex-col space-y-1">
-                <span className="text-white italic text-3xl md:text-[5rem] leading-none">CLOSING</span>
-                <span className="gradient-text italic text-2xl md:text-[3.5rem] md:pr-12 leading-none">THE GAP</span>
-                <span className="text-white italic text-3xl md:text-[5rem] leading-none mt-2">UNITING</span>
-                <span className="gradient-text italic text-2xl md:text-[3.5rem] md:pr-12 leading-none">THE TEAM</span>
+                <span className="text-white italic text-3xl md:text-[5rem] leading-none">{t('home.manifesto.title.closing')}</span>
+                <span className="gradient-text italic text-2xl md:text-[3.5rem] md:pr-12 leading-none">{t('home.manifesto.title.theGap')}</span>
+                <span className="text-white italic text-3xl md:text-[5rem] leading-none mt-2">{t('home.manifesto.title.uniting')}</span>
+                <span className="gradient-text italic text-2xl md:text-[3.5rem] md:pr-12 leading-none">{t('home.manifesto.title.theTeam')}</span>
               </h2>
             </div>
             <p className="text-lg md:text-xl text-slate-300 font-bold leading-relaxed italic border-l-4 border-cyan-500 pl-6 py-2">
-              Built to bridge the divide between coaching and execution—keeping your team aligned, even when they're apart.
+              {t('home.manifesto.description')}
             </p>
             <div className="grid gap-4 md:gap-4 mt-8 flex-grow">
               {manifestoItems.map((item, i) => (
@@ -656,11 +593,11 @@ const Home: React.FC = () => {
           <div className="text-center space-y-6 max-w-4xl mx-auto px-6">
             <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] border border-white/10">
               <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"></div>
-              <span>Built for How Teams Train Today</span>
+              <span>{t('home.management.badge')}</span>
             </div>
             <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center py-4 italic">
-              <span className="text-white block">BEYOND</span>
-              <span className="gradient-text block pr-8 overflow-visible">Management&nbsp;</span>
+              <span className="text-white block">{t('home.management.title.beyond')}</span>
+              <span className="gradient-text block pr-8 overflow-visible">{t('home.management.title.management')}&nbsp;</span>
             </h2>
           </div>
         }
@@ -687,11 +624,11 @@ const Home: React.FC = () => {
           <div className="text-center space-y-6 max-w-4xl mx-auto px-6">
             <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] border border-white/10">
               <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"></div>
-              <span>System Evolution</span>
+              <span>{t('home.evolution.badge')}</span>
             </div>
             <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center italic">
-              <span className="text-white block">FROM CHAOS</span>
-              <span className="gradient-text block">TO CLARITY</span>
+              <span className="text-white block">{t('home.evolution.title.fromChaos')}</span>
+              <span className="gradient-text block">{t('home.evolution.title.toClarity')}</span>
             </h2>
           </div>
 
@@ -702,8 +639,8 @@ const Home: React.FC = () => {
               <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-8 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'border-red-500/20 bg-[#1a1a1a]/60' : 'border-white/5 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
-                    <span className="text-red-500/60 text-[10px] font-black uppercase tracking-widest leading-none">Legacy System</span>
-                    <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white/90">THE FRAGMENTED CHAOS</h3>
+                    <span className="text-red-500/60 text-[10px] font-black uppercase tracking-widest leading-none">{t('home.evolution.legacy.badge')}</span>
+                    <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white/90">{t('home.evolution.legacy.title')}</h3>
                   </div>
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 border border-red-500/20 shadow-lg shadow-red-500/10 animate-pulse z-30 shrink-0">
                     <X className="w-6 h-6 md:w-8 md:h-8" />
@@ -711,13 +648,7 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="grid gap-6">
-                  {[
-                    { title: 'Information Silos', desc: 'Critical instructions lost in fragmented group chats and endless messaging threads.' },
-                    { title: 'Manual Workflows', desc: 'Coaches wasting hours on paper logs and scattered spreadsheets.' },
-                    { title: 'Static Learning', desc: 'Tactical plans delivered via outdated PDFs and one-way video.' },
-                    { title: 'Invisible Progress', desc: 'Zero insight into player understanding until the match starts.' },
-                    { title: 'Vanishing Data', desc: 'Statistics and professional CVs lost between seasons.' }
-                  ].map((item, i) => (
+                  {(t('home.evolution.legacy.items', { returnObjects: true }) as Array<{ title: string; desc: string }>).map((item, i) => (
                     <div key={i} className="flex gap-6 p-6 rounded-3xl bg-white/[0.02] border border-white/5 group/item hover:bg-red-500/[0.03] transition-colors">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
                       <div className="space-y-1">
@@ -736,8 +667,8 @@ const Home: React.FC = () => {
               <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-8 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'border-cyan-500/40 bg-[#1a1a1a]/60' : 'border-cyan-500/20 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
-                    <span className="text-cyan-400 text-[10px] font-black uppercase tracking-widest leading-none">Unified Future</span>
-                    <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white">VTAC Unified Flow</h3>
+                    <span className="text-cyan-400 text-[10px] font-black uppercase tracking-widest leading-none">{t('home.evolution.vtac.badge')}</span>
+                    <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white">{t('home.evolution.vtac.title')}</h3>
                   </div>
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 border border-cyan-500/30 shadow-lg shadow-cyan-500/20 z-30 shrink-0">
                     <Check className="w-6 h-6 md:w-8 md:h-8" />
@@ -745,13 +676,7 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="grid gap-6">
-                  {[
-                    { title: 'Centralized Hub', desc: 'One secure, high-performance dashboard for all team communications.' },
-                    { title: 'Intelligent Automation', desc: 'Instant attendance, performance logs, and player health tracking.' },
-                    { title: 'Patented Tactical Engine', desc: 'Multi-player interactive sessions that bring plans to life, live.' },
-                    { title: 'Real-Time Synergy', desc: 'Our live-sync technology ensures every player is on the same page, always.' },
-                    { title: 'Digital Legacy', desc: 'Automated history for both players and coaches.' }
-                  ].map((item, i) => (
+                  {(t('home.evolution.vtac.items', { returnObjects: true }) as Array<{ title: string; desc: string }>).map((item, i) => (
                     <div key={i} className="flex gap-6 p-6 rounded-3xl bg-cyan-500/[0.05] border border-cyan-500/10 group/item hover:bg-cyan-500/[0.08] transition-colors">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0 shadow-[0_0_10px_rgba(34,211,238,0.8)] group-hover/item:scale-150 transition-transform"></div>
                       <div className="space-y-1">
@@ -772,14 +697,14 @@ const Home: React.FC = () => {
         <div className="text-center space-y-6 max-w-4xl mx-auto px-6 overflow-visible">
           <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em]">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
-            <span>Everything You Need to Run a High-Performance Team</span>
+            <span>{t('home.coverage.badge')}</span>
           </div>
           <h2 className="font-black uppercase flex flex-col items-center italic overflow-visible leading-[1.05] tracking-tighter">
-            <span className="text-3xl xs:text-4xl md:text-8xl text-white block">WHAT</span>
+            <span className="text-3xl xs:text-4xl md:text-8xl text-white block">{t('home.coverage.title.what')}</span>
             <div className="relative overflow-visible">
-              <span className="text-3xl xs:text-4xl md:text-8xl gradient-text whitespace-nowrap px-12 block py-0">VTAC MANAGER</span>
+              <span className="text-3xl xs:text-4xl md:text-8xl gradient-text whitespace-nowrap px-12 block py-0">{t('home.coverage.title.vtacManager')}</span>
             </div>
-            <span className="text-3xl xs:text-4xl md:text-8xl text-white block">COVERS</span>
+            <span className="text-3xl xs:text-4xl md:text-8xl text-white block">{t('home.coverage.title.covers')}</span>
           </h2>
         </div>
 
@@ -902,38 +827,28 @@ const Home: React.FC = () => {
         <div className="flex flex-col items-center mb-16 space-y-4">
           <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] border border-white/10">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
-            <span className="uppercase">SMARTER TRAINING. BETTER PERFORMANCE. STRONGER UNITY.</span>
+            <span className="uppercase">{t('home.features.badge')}</span>
           </div>
           <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-[0.85]">
-            <span className="text-white block">More Than</span>
-            <span className="gradient-text block">TRAINING</span>
+            <span className="text-white block">{t('home.features.title.moreThan')}</span>
+            <span className="gradient-text block">{t('home.features.title.training')}</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <FeatureCard
-            icon={<Users className="w-8 h-8" />}
-            title="Operations Core"
-            tag="Management"
-            description="Manage rosters, live attendance, and player health profiles with enterprise-grade security. Everything you need to run a professional organization."
-          />
-          <FeatureCard
-            icon={<div className="relative w-8 h-8"><Gamepad2 className="w-6 h-6 absolute top-0 left-0 z-10" /><Gamepad2 className="w-6 h-6 absolute bottom-0 right-0 opacity-50" /></div>}
-            title="Tactical Sync"
-            tag="Interactive"
-            description="Master tactics through play. Our patented tech turns plans into a live, game-like experience that's interactive and fun for the whole squad."
-          />
-          <FeatureCard
-            icon={<Smartphone className="w-8 h-8" />}
-            title="Remote Mastery"
-            tag="FLEXIBILITY"
-            description="Host elite tactical briefings from any device, anywhere. Turn cancellations or travel time into high-value remote training opportunities."
-          />
-          <FeatureCard
-            icon={<Target className="w-8 h-8" />}
-            title="Legacy Builder"
-            tag="PLAYER & COACH CV"
-            description="Build automated, multi-season performance histories. A professional digital portfolio that tracks growth and success for every member."
-          />
+          {(t('home.features.cards', { returnObjects: true }) as Array<{ title: string; tag: string; desc: string }>).map((card, i) => (
+            <FeatureCard
+              key={i}
+              icon={
+                i === 0 ? <Users className="w-8 h-8" /> :
+                  i === 1 ? <div className="relative w-8 h-8"><Gamepad2 className="w-6 h-6 absolute top-0 left-0 z-10" /><Gamepad2 className="w-6 h-6 absolute bottom-0 right-0 opacity-50" /></div> :
+                    i === 2 ? <Smartphone className="w-8 h-8" /> :
+                      <Target className="w-8 h-8" />
+              }
+              title={card.title}
+              tag={card.tag}
+              description={card.desc}
+            />
+          ))}
         </div>
       </SectionWrapper>
 
@@ -942,10 +857,10 @@ const Home: React.FC = () => {
         <div className="flex flex-col items-center mb-10 space-y-4">
           <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] border border-white/10">
             <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
-            <span>Why We are Different</span>
+            <span>{t('home.comparison.badge')}</span>
           </div>
           <h2 className="text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-[0.9] overflow-visible">
-            <span className="gradient-text pr-10 md:pr-16 block md:inline-block overflow-visible">Compare the Edge&nbsp;</span>
+            <span className="gradient-text pr-10 md:pr-16 block md:inline-block overflow-visible">{t('home.comparison.title')}&nbsp;</span>
           </h2>
         </div>
 
@@ -957,18 +872,18 @@ const Home: React.FC = () => {
                 <thead>
                   <tr className="border-b border-white/10 bg-white/5">
                     <th className="p-4 md:p-8 text-slate-400 uppercase tracking-[0.2em] text-[8px] md:text-[11px] font-black w-[45%]">
-                      Advantage
+                      {t('home.comparison.table.headers.advantage')}
                     </th>
                     <th className="p-2 md:p-6 text-center bg-cyan-500/5 w-[18%]">
                       <div className="flex flex-col items-center">
-                        <span className="gradient-text font-black text-[7px] md:text-sm italic tracking-tighter uppercase leading-none">VTAC</span>
+                        <span className="gradient-text font-black text-[7px] md:text-sm italic tracking-tighter uppercase leading-none">{t('home.comparison.table.headers.vtac')}</span>
                       </div>
                     </th>
                     <th className="p-2 md:p-6 text-center text-slate-500 font-black text-[7px] md:text-[10px] italic tracking-tighter uppercase opacity-60 w-[18%]">
-                      ORG
+                      {t('home.comparison.table.headers.org')}
                     </th>
                     <th className="p-2 md:p-6 text-center text-slate-500 font-black text-[7px] md:text-[10px] italic tracking-tighter uppercase opacity-60 w-[18%]">
-                      VIDEO
+                      {t('home.comparison.table.headers.video')}
                     </th>
                   </tr>
                 </thead>
