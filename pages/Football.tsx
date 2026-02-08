@@ -205,6 +205,52 @@ const Football: React.FC = () => {
     }
   };
 
+  // Video Controls for Section 6 (Tactical Synergy)
+  const section6VideoRef = useRef<HTMLVideoElement>(null);
+  const [isSection6Playing, setIsSection6Playing] = useState(true);
+  const [isSection6Muted, setIsSection6Muted] = useState(true);
+
+  const toggleSection6Video = () => {
+    if (section6VideoRef.current) {
+      if (isSection6Playing) {
+        section6VideoRef.current.pause();
+      } else {
+        section6VideoRef.current.play();
+      }
+      setIsSection6Playing(!isSection6Playing);
+    }
+  };
+
+  const toggleSection6Mute = () => {
+    if (section6VideoRef.current) {
+      section6VideoRef.current.muted = !section6VideoRef.current.muted;
+      setIsSection6Muted(section6VideoRef.current.muted);
+    }
+  };
+
+  // Video Controls for Section 1 (Hero)
+  const section1VideoRef = useRef<HTMLVideoElement>(null);
+  const [isSection1Playing, setIsSection1Playing] = useState(true);
+  const [isSection1Muted, setIsSection1Muted] = useState(true);
+
+  const toggleSection1Video = () => {
+    if (section1VideoRef.current) {
+      if (isSection1Playing) {
+        section1VideoRef.current.pause();
+      } else {
+        section1VideoRef.current.play();
+      }
+      setIsSection1Playing(!isSection1Playing);
+    }
+  };
+
+  const toggleSection1Mute = () => {
+    if (section1VideoRef.current) {
+      section1VideoRef.current.muted = !section1VideoRef.current.muted;
+      setIsSection1Muted(section1VideoRef.current.muted);
+    }
+  };
+
   useEffect(() => {
     if (isHovering) return; // Pause automatic rotation when hovering
 
@@ -251,10 +297,55 @@ const Football: React.FC = () => {
             Take your tactical briefing beyond the white board. VTAC MANAGER delivers the world’s first multiplayer tactical engine designed for the speed and complexity of modern football.
           </p>
         </div>
-      </header>
+
+        {/* Full Width Background Container (Similar to Section 6) */}
+        <div className="relative mt-20 w-screen left-1/2 -translate-x-1/2 overflow-hidden bg-black h-[50vw] md:h-[60vh] max-h-[800px] group z-20">
+
+          {/* Constrained Aspect Ratio Container: Locks BG and Video together */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto aspect-video flex items-center justify-center">
+            <img
+              src="/images/Football S1-BG.webp"
+              alt="Hero Wide Background"
+              className="w-full h-full object-cover"
+            />
+
+            {/* iMac Video Overlay - Position Locked relative to Image */}
+            <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[42%] aspect-video bg-black overflow-hidden group/video1">
+              <video
+                ref={section1VideoRef}
+                src="/videos/Football S1_Hero Section_720.mp4"
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+
+              {/* Control Overlay - Bottom Center */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3 opacity-0 group-hover/video1:opacity-100 transition-opacity duration-300 z-20">
+                <button
+                  onClick={toggleSection1Video}
+                  className="p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:scale-110 transition-all text-white"
+                >
+                  {isSection1Playing ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
+                </button>
+
+                <button
+                  onClick={toggleSection1Mute}
+                  className="p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:scale-110 transition-all text-white"
+                >
+                  {isSection1Muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+          </div>
+          {/* Top & Bottom Fade Overlay - Reduced */}
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,#020617_0%,transparent_20%,transparent_80%,#020617_100%)] pointer-events-none z-20"></div>
+        </div>
+      </header >
 
       {/* STEP NAVIGATION BAR */}
-      <div className="py-6 bg-slate-950 border-y border-white/5 relative lg:sticky lg:top-0 z-40 backdrop-blur-md bg-slate-950/80">
+      < div className="py-6 bg-slate-950 border-y border-white/5 relative lg:sticky lg:top-0 z-40 backdrop-blur-md bg-slate-950/80" >
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-3 md:gap-6">
           <button onClick={() => document.getElementById('step-1')?.scrollIntoView({ behavior: 'smooth' })} className="group flex flex-col md:flex-row items-center gap-2 md:gap-3 px-6 py-3 rounded-2xl bg-slate-900/50 border border-green-500/30 hover:border-green-500 hover:bg-green-500/10 transition-all cursor-pointer hover:scale-105 active:scale-95">
             <div className="flex items-center gap-2">
@@ -292,10 +383,10 @@ const Football: React.FC = () => {
             <span className="text-[10px] md:text-xs font-bold uppercase text-red-500/80 group-hover:text-white transition-colors">DIGITAL CAREER</span>
           </button>
         </div>
-      </div>
+      </div >
 
       {/* 2. STEP 01 | ORGANIZE & SCHEDULE (New) */}
-      <SectionWrapper id="step-1" className="bg-slate-900/10">
+      < SectionWrapper id="step-1" className="bg-slate-900/10" >
         <StepSectionHeader
           step="STEP 01"
           badge="OPERATIONAL FOUNDATION"
@@ -338,12 +429,12 @@ const Football: React.FC = () => {
             color="green"
           />
         </div>
-      </SectionWrapper>
+      </SectionWrapper >
 
       {/* 3. [THE SOLUTION] REMOTE RESILIENCE (Reused Section 3) */}
-      <SectionWrapper className="bg-slate-950 relative overflow-hidden">
+      < SectionWrapper className="bg-slate-950 relative overflow-hidden" >
         {/* Background Gradients */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+        < div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" ></div >
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-green-600/10 blur-[120px] rounded-full pointer-events-none"></div>
         {/* White Glow behind Top-Left of Left Image */}
         <div className="absolute -top-32 -left-20 w-[500px] h-[500px] bg-white/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
@@ -395,26 +486,26 @@ const Football: React.FC = () => {
             </div>
           </div>
         </div>
-      </SectionWrapper>
+      </SectionWrapper >
 
       {/* 3.5 Full Screen BG / Video Container - Locked Ratio (Like iHub) */}
-      <div className="relative w-full h-screen overflow-hidden bg-black">
+      < div className="relative w-full h-screen overflow-hidden bg-black" >
 
         {/* Constrained Aspect Ratio Container: Locks BG and Video together */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto aspect-video flex items-center justify-center">
+        < div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto aspect-video flex items-center justify-center" >
 
           {/* Background Image - Acts as the anchor */}
-          <img
+          < img
             src="/images/Football S3 BG for REMOTE RESILIENCE.webp"
             alt="Remote Resilience Background"
             className="w-full h-full object-cover opacity-80"
           />
 
           {/* Overlay for depth */}
-          <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
+          < div className="absolute inset-0 bg-black/20 pointer-events-none" ></div >
 
           {/* TV Screen Video Overlay (Position Locked Relative to Image) */}
-          <div className="absolute top-[49.1%] left-[50.26%] -translate-x-1/2 -translate-y-1/2 w-[38.39%] aspect-[1.837] bg-black overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] group">
+          < div className="absolute top-[49.1%] left-[50.26%] -translate-x-1/2 -translate-y-1/2 w-[38.39%] aspect-[1.837] bg-black overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] group" >
             <video
               ref={remoteVideoRef}
               className="w-full h-full object-cover"
@@ -446,13 +537,13 @@ const Football: React.FC = () => {
                 {isRemoteVideoMuted ? <VolumeX className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" /> : <Volume2 className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" />}
               </button>
             </div>
-          </div>
-        </div>
-      </div>
+          </div >
+        </div >
+      </div >
 
 
       {/* 4. [THE WOW FACTOR] VIRTUAL EXPERIENCE (Reused Section 4) */}
-      <div className="py-24 bg-slate-900 relative overflow-hidden">
+      < div className="py-24 bg-slate-900 relative overflow-hidden" >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-20 space-y-8">
             <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse">
@@ -564,8 +655,6 @@ const Football: React.FC = () => {
             </div>
           </div>
         </div>
-
-
 
         {/* 5. STEP 02 | PRE & POST-MATCH (New) */}
         <SectionWrapper id="step-2" className="bg-slate-900/30 border-y border-white/5" >
@@ -712,56 +801,110 @@ const Football: React.FC = () => {
         </SectionWrapper>
 
 
-        {/* 6. [THE PHILOSOPHY] TACTICAL SYNERGY (Reused Section 5) */}
-        <SectionWrapper className="bg-slate-950" >
-          <div className="text-center mb-16 space-y-8">
-            <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-purple-400 drop-shadow-[0_0_5px_rgba(168,85,247,0.8)] text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.6)] animate-pulse">
-              <Trophy className="w-3 h-3 md:w-4 md:h-4" />
-              <span>BEYOND INSTRUCTION: SHOW YOUR MIND</span>
+        {/* 6. [THE PHILOSOPHY] TACTICAL SYNERGY (Reused Section 5) - Full Screen BG */}
+        <div className="relative min-h-screen py-24 overflow-hidden bg-slate-950">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div className="text-center mb-16 space-y-8">
+              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-purple-400 drop-shadow-[0_0_5px_rgba(168,85,247,0.8)] text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.6)] animate-pulse">
+                <Trophy className="w-3 h-3 md:w-4 md:h-4" />
+                <span>BEYOND INSTRUCTION: SHOW YOUR MIND</span>
+              </div>
+              <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-none text-white">
+                PLAY ON <br />
+                <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #a855f7 0%, #a855f7 33%, #a855f7 66%, #ffffff 100%)' }}>THE 5G PITCH</span>
+              </h2>
+              <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto">
+                Where tactical vision becomes live movement. <br /> Get everyone in sync.
+              </p>
             </div>
-            <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-none text-white">
-              PLAY ON <br />
-              <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #a855f7 0%, #a855f7 33%, #a855f7 66%, #ffffff 100%)' }}>THE 5G PITCH</span>
-            </h2>
-            <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto">
-              Where tactical vision becomes live movement. <br /> Get everyone in sync.
-            </p>
+
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+                <div className="flex items-start justify-between mb-6">
+                  <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">01</span>
+                  <Target className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">ACTIVE PLAYER DOTS</h3>
+                <p className="text-slate-400">Run your mind. Verify understanding instantly as players express their thoughts through live movement on the 5G Pitch.</p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+                <div className="flex items-start justify-between mb-6">
+                  <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">02</span>
+                  <Zap className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">COLLECTIVE INTELLIGENCE</h3>
+                <p className="text-slate-400">Move by instinct. Transition from "following orders" to shared team intuition. Sync every brain onto one virtual field.</p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
+                <div className="flex items-start justify-between mb-6">
+                  <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">03</span>
+                  <Users className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">TACTICAL JOY</h3>
+                <p className="text-slate-400">Kill the boredom. Turn tactical prep into high-energy interactive play that strengthens team chemistry and bonds.</p>
+              </div>
+            </div>
+
+            {/* Background Image placed below the cards */}
+            {/* Background Image placed below the cards */}
+            {/* Full Width Background Container (For Video) - Locked Ratio Logic */}
+            <div className="relative mt-20 w-screen left-1/2 -translate-x-1/2 overflow-hidden bg-black h-[50vw] md:h-[60vh] max-h-[800px] group">
+
+              {/* Constrained Aspect Ratio Container: Locks BG and Video together */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto aspect-video flex items-center justify-center">
+                <img
+                  src="/images/Football S6-BG.webp"
+                  alt="Tactical Synergy Background"
+                  className="w-full h-full object-cover opacity-80"
+                />
+
+                {/* Phone Screen Video Overlay - Position Locked relative to Image */}
+                <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[34.5%] aspect-video bg-black overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] group/video z-10">
+                  <video
+                    ref={section6VideoRef}
+                    src="/videos/Football S6.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+
+                  {/* Control Overlay - Bottom Center */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center gap-4 opacity-0 group-hover/video:opacity-100 transition-opacity duration-300 z-20">
+                    <button
+                      onClick={toggleSection6Video}
+                      className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:scale-110 transition-all text-white"
+                    >
+                      {isSection6Playing ? <Pause className="w-6 h-6 fill-current" /> : <Play className="w-6 h-6 fill-current" />}
+                    </button>
+
+                    <button
+                      onClick={toggleSection6Mute}
+                      className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:scale-110 transition-all text-white"
+                    >
+                      {isSection6Muted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Gradient removed from here to prevent clipping */}
+              </div>
+
+              {/* Blending Gradients - Placed on Outer Container to ensure visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950 pointer-events-none z-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-slate-950/80 pointer-events-none z-20"></div>
+            </div>
+
           </div>
-
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
-              <div className="flex items-start justify-between mb-6">
-                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">01</span>
-                <Target className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">ACTIVE PLAYER DOTS</h3>
-              <p className="text-slate-400">Run your mind. Verify understanding instantly as players express their thoughts through live movement on the 5G Pitch.</p>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
-              <div className="flex items-start justify-between mb-6">
-                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">02</span>
-                <Zap className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">COLLECTIVE INTELLIGENCE</h3>
-              <p className="text-slate-400">Move by instinct. Transition from "following orders" to shared team intuition. Sync every brain onto one virtual field.</p>
-            </div>
-
-            <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all group hover:-translate-y-2 duration-500">
-              <div className="flex items-start justify-between mb-6">
-                <span className="text-4xl font-black text-white/20 group-hover:text-purple-400 transition-colors">03</span>
-                <Users className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-xl font-black uppercase text-white mb-2 group-hover:text-purple-400 transition-colors">TACTICAL JOY</h3>
-              <p className="text-slate-400">Kill the boredom. Turn tactical prep into high-energy interactive play that strengthens team chemistry and bonds.</p>
-            </div>
-          </div>
-        </SectionWrapper >
+        </div>
 
         {/* 7. STEP 03 | LIVE-SYNC (New) */}
         <SectionWrapper id="step-3" className="bg-slate-900/10 border-t border-white/5 relative overflow-hidden" >
           {/* Background Glow for Left Card */}
-          <div className="absolute -left-20 bottom-0 w-[600px] h-[600px] bg-orange-600/20 blur-[150px] rounded-full pointer-events-none" ></div >
+          < div className="absolute -left-20 bottom-0 w-[600px] h-[600px] bg-orange-600/20 blur-[150px] rounded-full pointer-events-none" ></div >
 
           <StepSectionHeader
             step="STEP 03"
@@ -805,9 +948,9 @@ const Football: React.FC = () => {
         </SectionWrapper >
 
         {/* 8. STEP 04 | RECRUITMENT (New) */}
-        <SectionWrapper id="step-4" className="bg-slate-950 border-t border-white/5 relative overflow-hidden" >
+        < SectionWrapper id="step-4" className="bg-slate-950 border-t border-white/5 relative overflow-hidden" >
           {/* Background Glow for Right Card */}
-          <div className="absolute -right-20 bottom-0 w-[600px] h-[600px] bg-red-600/20 blur-[150px] rounded-full pointer-events-none" ></div >
+          < div className="absolute -right-20 bottom-0 w-[600px] h-[600px] bg-red-600/20 blur-[150px] rounded-full pointer-events-none" ></div >
 
           <StepSectionHeader
             step="STEP 04"
@@ -851,7 +994,7 @@ const Football: React.FC = () => {
         </SectionWrapper >
 
         {/* 9. CTA (Reused from Solutions Code in previous files, same as existing Grid Section 6) */}
-        <SectionWrapper id="cta-solutions" className="pb-32 overflow-visible bg-slate-950" >
+        < SectionWrapper id="cta-solutions" className="pb-32 overflow-visible bg-slate-950" >
           <div className="relative group max-w-7xl mx-auto">
             {/* Immersive Stadium Radial Glow */}
             <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-cyan-500/20 blur-[160px] rounded-full pointer-events-none -z-10 group-hover:bg-purple-500/20 transition-colors duration-1000"></div>
@@ -891,9 +1034,9 @@ const Football: React.FC = () => {
               <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full h-40 bg-gradient-to-t from-cyan-500/20 to-transparent blur-3xl opacity-50"></div>
             </div>
           </div>
-        </SectionWrapper>
-      </div>
-    </div>
+        </SectionWrapper >
+      </div >
+    </div >
   );
 };
 

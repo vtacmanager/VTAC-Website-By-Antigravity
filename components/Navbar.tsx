@@ -45,21 +45,7 @@ const Navbar: React.FC = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center space-x-10">
           <div className="flex items-center space-x-10">
-            <Link
-              to="/ihub"
-              className={`text-sm font-black tracking-widest transition-colors ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
-            >
-              iHUB
-            </Link>
-
-            <Link
-              to="/solutions"
-              className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/solutions' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
-            >
-              Solutions
-            </Link>
-
-            {/* TEAM SPORT Dropdown */}
+            {/* TEAM SPORT Dropdown - Moved to First Position */}
             <div
               className="relative"
               onMouseEnter={() => setIsDropdownOpen(true)}
@@ -95,6 +81,20 @@ const Navbar: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            <Link
+              to="/ihub"
+              className={`text-sm font-black tracking-widest transition-colors ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+            >
+              iHUB
+            </Link>
+
+            <Link
+              to="/solutions"
+              className={`text-sm font-black uppercase tracking-widest transition-colors ${location.pathname === '/solutions' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+            >
+              Solutions
+            </Link>
 
             <Link
               to="/pricing"
@@ -160,21 +160,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu Overlay */}
       <div className={`lg:hidden absolute top-full left-0 right-0 bg-slate-950 border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[85vh] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}>
         <div className="px-6 py-8 space-y-6 flex flex-col">
-          <Link
-            to="/ihub"
-            className={`text-lg font-black tracking-widest ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300'}`}
-          >
-            iHUB
-          </Link>
-
-          <Link
-            to="/solutions"
-            className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/solutions' ? 'text-cyan-400' : 'text-slate-300'}`}
-          >
-            Solutions
-          </Link>
-
-          {/* Mobile TEAM SPORT with Toggle */}
+          {/* Mobile TEAM SPORT with Toggle - Moved to First Position */}
           <div className="space-y-4">
             <button
               onClick={() => setIsMobileTeamSportOpen(!isMobileTeamSportOpen)}
@@ -205,6 +191,20 @@ const Navbar: React.FC = () => {
               ))}
             </div>
           </div>
+
+          <Link
+            to="/ihub"
+            className={`text-lg font-black tracking-widest ${location.pathname === '/ihub' ? 'text-cyan-400' : 'text-slate-300'}`}
+          >
+            iHUB
+          </Link>
+
+          <Link
+            to="/solutions"
+            className={`text-lg font-black uppercase tracking-widest ${location.pathname === '/solutions' ? 'text-cyan-400' : 'text-slate-300'}`}
+          >
+            Solutions
+          </Link>
 
           <Link
             to="/pricing"
