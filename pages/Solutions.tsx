@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   SectionWrapper,
   CTASection,
@@ -25,6 +26,7 @@ import {
 } from 'lucide-react';
 
 const Solutions: React.FC = () => {
+  const { t } = useTranslation();
   const [activeSector, setActiveSector] = useState<'schools' | 'youth' | 'pro'>('schools');
 
   // Auto-slideshow functionality
@@ -53,86 +55,98 @@ const Solutions: React.FC = () => {
   const content = {
     schools: {
       id: 'schools',
-      label: 'SCHOOLS & UNIVERSITIES',
-      tag: 'The Scholastic iHub',
+      label: t('solutions.sectors.schools.label'),
+      tag: t('solutions.sectors.schools.tag'),
       icon: <GraduationCap className="w-6 h-6 md:w-8 md:h-8" />,
       color: 'purple',
       colorCode: '#8b5cf6', // Violet-500
-      heading: "The Smart Student-Athlete Ecosystem",
-      subHeading: "Bridging the gap between academic schedules and athletic excellence.",
+      heading: t('solutions.sectors.schools.heading'),
+      subHeading: t('solutions.sectors.schools.subHeading'),
       features: [
         {
-          title: "Academic-Athletic Harmony",
-          desc: "Seamlessly integrate training sessions with school calendars. Reduce administrative friction and ensure student-athletes never miss a beat.",
+          title: t('solutions.sectors.schools.features.harmony.title'),
+          desc: t('solutions.sectors.schools.features.harmony.desc'),
           icon: <Calendar className="w-6 h-6" />
         },
         {
-          title: "Remote Tactical Education",
-          desc: "Empower students to master game theory from their dorms or classrooms. Maximize limited pitch hours by ensuring players arrive 100% prepared.",
+          title: t('solutions.sectors.schools.features.remote.title'),
+          desc: t('solutions.sectors.schools.features.remote.desc'),
           icon: <Monitor className="w-6 h-6" />
         },
         {
-          title: "Centralized Student Analytics",
-          desc: "Build verified long-term development logs that support academic grading and future scholarship opportunities.",
+          title: t('solutions.sectors.schools.features.analytics.title'),
+          desc: t('solutions.sectors.schools.features.analytics.desc'),
           icon: <FileCheck className="w-6 h-6" />
         }
       ],
+      targetOutcome: {
+        label: t('solutions.sectors.schools.targetOutcome.label'),
+        text: t('solutions.sectors.schools.targetOutcome.text')
+      },
       image: "/images/SOLUTIONSS1.1.webp"
     },
     youth: {
       id: 'youth',
-      label: 'YOUTH ACADEMIES',
-      tag: 'The Talent iHub',
+      label: t('solutions.sectors.youth.label'),
+      tag: t('solutions.sectors.youth.tag'),
       icon: <Star className="w-6 h-6 md:w-8 md:h-8" />,
       color: 'orange',
       colorCode: '#d97757', // Earthy Orange
-      heading: "The Future Star Factory",
-      subHeading: "Maximize engagement, build family trust, and develop the stars of tomorrow.",
+      heading: t('solutions.sectors.youth.heading'),
+      subHeading: t('solutions.sectors.youth.subHeading'),
       features: [
         {
-          title: "Gamified Retention (The Secret Sauce)",
-          desc: "Transform tactical drills into high-energy, multiplayer experiences. By making \"learning\" feel like \"playing with friends,\" we keep young athletes coming back.",
+          title: t('solutions.sectors.youth.features.retention.title'),
+          desc: t('solutions.sectors.youth.features.retention.desc'),
           icon: <Gamepad2 className="w-6 h-6" />
         },
         {
-          title: "Parent Connection & Transparency",
-          desc: "Build family trust with real-time updates. Live-sync attendance, lineups, and milestones directly to parents' devices.",
+          title: t('solutions.sectors.youth.features.parents.title'),
+          desc: t('solutions.sectors.youth.features.parents.desc'),
           icon: <Users className="w-6 h-6" />
         },
         {
-          title: "Digital Player Portfolios",
-          desc: "Start building a professional legacy early. Every session contributes to a verified Digital CV, preparing athletes for the next step in their careers.",
+          title: t('solutions.sectors.youth.features.portfolios.title'),
+          desc: t('solutions.sectors.youth.features.portfolios.desc'),
           icon: <Award className="w-6 h-6" />
         }
       ],
+      targetOutcome: {
+        label: t('solutions.sectors.youth.targetOutcome.label'),
+        text: t('solutions.sectors.youth.targetOutcome.text')
+      },
       image: "/images/SOLUTIONSS1.2.webp"
     },
     pro: {
       id: 'pro',
-      label: 'PRO & AMATEUR CLUBS',
-      tag: 'The Elite iHub',
+      label: t('solutions.sectors.pro.label'),
+      tag: t('solutions.sectors.pro.tag'),
       icon: <Trophy className="w-6 h-6 md:w-8 md:h-8" />,
       color: 'green',
       colorCode: '#788c5d', // Muted Green
-      heading: "The Elite Performance Engine",
-      subHeading: "Dominance through tactical clarity, operational resilience, and winning results.",
+      heading: t('solutions.sectors.pro.heading'),
+      subHeading: t('solutions.sectors.pro.subHeading'),
       features: [
         {
-          title: "Tactical Dominance (Patented)",
-          desc: "Deploy complex game plans through an interactive engine that provides deeper clarity and faster understanding than traditional video sessions.",
+          title: t('solutions.sectors.pro.features.dominance.title'),
+          desc: t('solutions.sectors.pro.features.dominance.desc'),
           icon: <Crosshair className="w-6 h-6" />
         },
         {
-          title: "Zero Downtime Resilience",
-          desc: "Never let weather or travel break your momentum. Convert canceled pitch sessions into high-value, remote interactive briefings—anytime, anywhere.",
+          title: t('solutions.sectors.pro.features.resilience.title'),
+          desc: t('solutions.sectors.pro.features.resilience.desc'),
           icon: <Zap className="w-6 h-6" />
         },
         {
-          title: "Staff Efficiency & Intelligence",
-          desc: "Automate manual operations and data logs. Empower your coaching staff to focus 100% on strategy and winning the next match.",
+          title: t('solutions.sectors.pro.features.efficiency.title'),
+          desc: t('solutions.sectors.pro.features.efficiency.desc'),
           icon: <BarChart3 className="w-6 h-6" />
         }
       ],
+      targetOutcome: {
+        label: t('solutions.sectors.pro.targetOutcome.label'),
+        text: t('solutions.sectors.pro.targetOutcome.text')
+      },
       image: "/images/SOLUTIONSS1.3.webp"
     }
   };
@@ -147,14 +161,14 @@ const Solutions: React.FC = () => {
         <div className="max-w-4xl mx-auto space-y-8 relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] border border-cyan-500/20">
             <Layout className="w-3 h-3" />
-            <span>ONE SYSTEM. INFINITE ADAPTABILITY.</span>
+            <span>{t('solutions.hero.badge')}</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
-            FOR YOUR <br />
-            <span className="gradient-text box-decoration-clone pr-10 py-1">SPECIFIC GOALS</span>
+            {t('solutions.hero.title.line1')} <br />
+            <span className="gradient-text box-decoration-clone pr-10 py-1">{t('solutions.hero.title.line2')}</span>
           </h1>
           <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed">
-            An Integrated Ecosystem. Custom-fit for your unique field of play.
+            {t('solutions.hero.subtitle')}
           </p>
         </div>
       </header>
@@ -299,8 +313,8 @@ const Solutions: React.FC = () => {
                         <Check className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-300">Target Outcome</p>
-                        <p className="text-white font-bold text-sm leading-tight">Optimized for {activeContent.label}</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-300">{activeContent.targetOutcome?.label}</p>
+                        <p className="text-white font-bold text-sm leading-tight">{activeContent.targetOutcome?.text}</p>
                       </div>
                     </div>
                   </div>
@@ -317,8 +331,8 @@ const Solutions: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h3 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
-              THE VTAC <br />
-              <span className="gradient-text box-decoration-clone pr-6 py-2">ADVANTAGE</span>
+              {t('solutions.advantage.title.line1')} <br />
+              <span className="gradient-text box-decoration-clone pr-6 py-2">{t('solutions.advantage.title.line2')}</span>
             </h3>
           </div>
 
@@ -332,10 +346,10 @@ const Solutions: React.FC = () => {
               <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform">
                 <Clock className="w-7 h-7" />
               </div>
-              <h4 className="text-4xl font-black text-white mb-2 italic">10+ HRS</h4>
-              <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">Efficiency Gained</p>
+              <h4 className="text-4xl font-black text-white mb-2 italic">{t('solutions.advantage.cards.efficiency.value')}</h4>
+              <p className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">{t('solutions.advantage.cards.efficiency.label')}</p>
               <p className="text-slate-400 font-medium leading-relaxed">
-                Save 10+ hours of administration per week. Automate the mundane, focus on the strategy.
+                {t('solutions.advantage.cards.efficiency.desc')}
               </p>
             </div>
 
@@ -348,10 +362,10 @@ const Solutions: React.FC = () => {
               <div className="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform">
                 <Users className="w-7 h-7" />
               </div>
-              <h4 className="text-4xl font-black text-white mb-2 italic">100%</h4>
-              <p className="text-xs font-black uppercase tracking-widest text-purple-500 mb-4">Player Engagement</p>
+              <h4 className="text-4xl font-black text-white mb-2 italic">{t('solutions.advantage.cards.engagement.value')}</h4>
+              <p className="text-xs font-black uppercase tracking-widest text-purple-500 mb-4">{t('solutions.advantage.cards.engagement.label')}</p>
               <p className="text-slate-400 font-medium leading-relaxed">
-                Achieve 100% player participation in tactical prep through interactive, gamified learning.
+                {t('solutions.advantage.cards.engagement.desc')}
               </p>
             </div>
 
@@ -364,10 +378,10 @@ const Solutions: React.FC = () => {
               <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 text-green-400 group-hover:scale-110 transition-transform">
                 <TrendingUp className="w-7 h-7" />
               </div>
-              <h4 className="text-4xl font-black text-white mb-2 italic">LIFETIME</h4>
-              <p className="text-xs font-black uppercase tracking-widest text-green-500 mb-4">Digital Legacy</p>
+              <h4 className="text-4xl font-black text-white mb-2 italic">{t('solutions.advantage.cards.legacy.value')}</h4>
+              <p className="text-xs font-black uppercase tracking-widest text-green-500 mb-4">{t('solutions.advantage.cards.legacy.label')}</p>
               <p className="text-slate-400 font-medium leading-relaxed">
-                Build a verified professional digital legacy for every member of your organization.
+                {t('solutions.advantage.cards.legacy.desc')}
               </p>
             </div>
           </div>
@@ -387,25 +401,25 @@ const Solutions: React.FC = () => {
 
             <div className="relative z-10 space-y-8">
               <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase">
-                READY FOR THE <br />
-                <span className="gradient-text inline-block box-decoration-clone pr-6">NEXT TRAINING?</span>
+                {t('solutions.cta.title.line1')} <br />
+                <span className="gradient-text inline-block box-decoration-clone pr-6">{t('solutions.cta.title.line2')}</span>
               </h2>
 
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
-                Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC</span> <span className="text-cyan-400 font-black">MANAGER.</span>
+                {t('solutions.cta.subtitle')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
                 {/* Primary Button */}
                 <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center">
-                  <span className="relative z-10">Book a Demo</span>
+                  <span className="relative z-10">{t('solutions.cta.btnDemo')}</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                 </button>
 
                 {/* Secondary Button */}
                 <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center">
                   <span className="relative z-10 flex items-center gap-2">
-                    Start Trial <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
+                    {t('solutions.cta.btnTrial')} <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
                   </span>
                 </button>
               </div>
