@@ -223,7 +223,10 @@
         },
         "comparison": {
             "badge": "Why We are Different",
-            "title": "Compare the Edge",
+            "title": {
+                "line1": "Compare",
+                "line2": "the Edge"
+            },
             "table": {
                 "headers": {
                     "advantage": "Advantage",
@@ -255,6 +258,14 @@
                     }
                 ]
             }
+        },
+        "cta": {
+            "title": {
+                "line1": "READY FOR THE",
+                "line2": "NEXT LEVEL?"
+            },
+            "subtitle": "Join the elite organizations redefining training standards with",
+            "button": "Book a Demo"
         }
     },
     "football": {

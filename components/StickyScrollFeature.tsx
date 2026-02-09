@@ -238,18 +238,18 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                                                     </div>
                                                 </div>
 
-                                                <h5 className="text-white text-xl md:text-3xl font-black italic uppercase tracking-tighter leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] pr-2">
+                                                <h5 className="text-white text-xl md:text-3xl font-black italic uppercase tracking-tighter leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] pr-2 whitespace-pre-line">
                                                     {item.ipadTitle || item.title}
                                                 </h5>
-                                                <p className="text-slate-100 text-[10px] md:text-base font-bold leading-tight md:leading-relaxed max-w-[160px] xs:max-w-[200px] md:max-w-md drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">
+                                                <p className="text-slate-100 text-[10px] md:text-base font-bold leading-tight md:leading-relaxed max-w-[160px] xs:max-w-[200px] md:max-w-md drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] whitespace-pre-line">
                                                     {item.details || item.description}
                                                 </p>
 
                                                 {item.tags && (
-                                                    <div className="flex flex-wrap gap-1.5 pt-1 justify-end">
+                                                    <div className="flex flex-wrap gap-1.5 pt-4 justify-end">
                                                         {item.tags.map((tag, i) => (
-                                                            <div key={i} className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-white/10 backdrop-blur-md border border-white/10 text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white/80">
-                                                                <div className="w-1 h-1 rounded-full bg-current" style={{ color: activeHexColor }}></div>
+                                                            <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/10 backdrop-blur-md border border-white/10 text-[10px] md:text-xs font-black uppercase tracking-widest text-white/80">
+                                                                <div className="w-1.5 h-1.5 rounded-full bg-current" style={{ color: activeHexColor }}></div>
                                                                 <span>{tag}</span>
                                                             </div>
                                                         ))}

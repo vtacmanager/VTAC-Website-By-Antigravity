@@ -415,26 +415,39 @@ const Home: React.FC = () => {
       <header className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-12 pb-6">
         <GradientBackground />
         <div className="relative z-10 max-w-6xl space-y-12">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            <span className="relative flex h-2 w-2">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] animate-in fade-in slide-in-from-bottom-4 duration-1000">
+            <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
             </span>
-            <span>{t('home.hero.badge')}</span>
+            {/* Conditional branding for Thai language to adjust font sizes */}
+            {t('home.hero.badge').includes('Multiplayer') ? (
+              <span>
+                <span className="text-sm md:text-base">ระบบบริหารจัดการทีม + การฝึกซ้อมแผนการเล่น </span>
+                <span className="text-[0.6rem] md:text-xs font-bold">MULTIPLAYER</span>
+                <span className="text-sm md:text-base"> รายแรกของโลก</span>
+              </span>
+            ) : (
+              <span>{t('home.hero.badge')}</span>
+            )}
           </div>
           <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase py-4">
-            <span className="text-6xl md:text-[8rem] block leading-[0.9] mb-1">{t('home.hero.title.line1')}</span>
-            <span className="gradient-text text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] italic">{t('home.hero.title.line2')}</span>
-            <div className="relative inline-block overflow-visible">
-              {/* Animated Background Glow */}
-              <div className="absolute -inset-4 bg-orange-500/30 blur-[40px] rounded-full animate-[breathe-glow_4s_ease-in-out_infinite]"></div>
-              <span className="relative text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] mt-2 italic pr-8 overflow-visible" style={{
-                color: '#fb923c',
-                filter: 'drop-shadow(0 0 25px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 50px rgba(251, 146, 60, 0.4))'
-              }}>{t('home.hero.title.line3')}&nbsp;</span>
-            </div>
+            <span className="text-6xl md:text-[8rem] block leading-[0.9] mb-2 md:mb-4 relative z-10">{t('home.hero.title.line1')}</span>
+            {t('home.hero.title.line2') && (
+              <span className="gradient-text text-6xl md:text-[8rem] block tracking-tighter leading-[1.2] pt-2 pb-2 relative z-20">{t('home.hero.title.line2')}</span>
+            )}
+            {t('home.hero.title.line3') && (
+              <div className="relative inline-block overflow-visible">
+                {/* Animated Background Glow */}
+                <div className="absolute -inset-4 bg-orange-500/30 blur-[40px] rounded-full animate-[breathe-glow_4s_ease-in-out_infinite]"></div>
+                <span className="relative text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] mt-2 italic pr-8 overflow-visible" style={{
+                  color: '#fb923c',
+                  filter: 'drop-shadow(0 0 25px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 50px rgba(251, 146, 60, 0.4))'
+                }}>{t('home.hero.title.line3')}&nbsp;</span>
+              </div>
+            )}
           </h1>
-          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="text-lg md:text-xl font-medium text-white uppercase max-w-6xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 whitespace-pre-line -mt-8">
             {t('home.hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full px-6 sm:px-0">
@@ -504,18 +517,16 @@ const Home: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
           <div className="space-y-10 flex flex-col">
             <div className="space-y-8">
-              <div className="inline-flex items-center space-x-3 px-5 py-2 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em]">
-                <span className="relative flex h-2 w-2">
+              <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em]">
+                <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
                 </span>
                 <span>{t('home.manifesto.badge')}</span>
               </div>
-              <h2 className="font-black tracking-tighter uppercase italic flex flex-col space-y-1">
-                <span className="text-white italic text-3xl md:text-[5rem] leading-none">{t('home.manifesto.title.closing')}</span>
-                <span className="gradient-text italic text-2xl md:text-[3.5rem] md:pr-12 leading-none">{t('home.manifesto.title.theGap')}</span>
-                <span className="text-white italic text-3xl md:text-[5rem] leading-none mt-2">{t('home.manifesto.title.uniting')}</span>
-                <span className="gradient-text italic text-2xl md:text-[3.5rem] md:pr-12 leading-none">{t('home.manifesto.title.theTeam')}</span>
+              <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter uppercase italic flex flex-col space-y-1 leading-[1.05] overflow-visible">
+                <span className="text-white italic block">{t('home.manifesto.title.closing')}</span>
+                <span className="gradient-text italic block whitespace-pre-line py-2 pr-12 overflow-visible">{t('home.manifesto.title.theGap')}</span>
               </h2>
             </div>
             <p className="text-lg md:text-xl text-slate-300 font-bold leading-relaxed italic border-l-4 border-cyan-500 pl-6 py-2">
@@ -530,7 +541,7 @@ const Home: React.FC = () => {
                 >
                   <item.icon className="w-6 h-6 md:w-8 md:h-8 shrink-0 filter drop-shadow-md" />
                   <div className="space-y-0">
-                    <h4 className={`font-black tracking-tight leading-tight uppercase text-base md:text-lg transition-colors ${activeIndex === i ? 'text-cyan-400' : 'text-white'}`}>{item.title}</h4>
+                    <h4 className={`font-black tracking-tight leading-tight uppercase text-base md:text-lg transition-colors whitespace-pre-line ${activeIndex === i ? 'text-cyan-400' : 'text-white'}`}>{item.title}</h4>
                   </div>
                 </button>
               ))}
@@ -591,13 +602,16 @@ const Home: React.FC = () => {
       <StickyScrollFeature
         title={
           <div className="text-center space-y-6 max-w-4xl mx-auto px-6">
-            <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] border border-white/10">
-              <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"></div>
+            <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] border border-white/10">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+              </span>
               <span>{t('home.management.badge')}</span>
             </div>
             <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center py-4 italic">
               <span className="text-white block">{t('home.management.title.beyond')}</span>
-              <span className="gradient-text block pr-8 overflow-visible">{t('home.management.title.management')}&nbsp;</span>
+              <span className="gradient-text block pr-8 overflow-visible whitespace-pre-line">{t('home.management.title.management')}&nbsp;</span>
             </h2>
           </div>
         }
@@ -622,13 +636,13 @@ const Home: React.FC = () => {
 
         <div className="relative z-10">
           <div className="text-center space-y-6 max-w-4xl mx-auto px-6">
-            <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] border border-white/10">
-              <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"></div>
+            <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] border border-white/10">
+              <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.8)] animate-ping"></div>
               <span>{t('home.evolution.badge')}</span>
             </div>
-            <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center italic">
-              <span className="text-white block">{t('home.evolution.title.fromChaos')}</span>
-              <span className="gradient-text block">{t('home.evolution.title.toClarity')}</span>
+            <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.1] uppercase text-center italic whitespace-pre-line overflow-visible">
+              <span className="text-white block py-2 overflow-visible">{t('home.evolution.title.fromChaos')}</span>
+              <span className="gradient-text block -mt-2 py-4 overflow-visible">{t('home.evolution.title.toClarity')}</span>
             </h2>
           </div>
 
@@ -639,7 +653,7 @@ const Home: React.FC = () => {
               <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-8 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'border-red-500/20 bg-[#1a1a1a]/60' : 'border-white/5 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
-                    <span className="text-red-500/60 text-[10px] font-black uppercase tracking-widest leading-none">{t('home.evolution.legacy.badge')}</span>
+                    <span className="text-red-500/60 text-base font-black uppercase tracking-widest leading-none">{t('home.evolution.legacy.badge')}</span>
                     <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white/90">{t('home.evolution.legacy.title')}</h3>
                   </div>
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 border border-red-500/20 shadow-lg shadow-red-500/10 animate-pulse z-30 shrink-0">
@@ -667,7 +681,7 @@ const Home: React.FC = () => {
               <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-8 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'border-cyan-500/40 bg-[#1a1a1a]/60' : 'border-cyan-500/20 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
-                    <span className="text-cyan-400 text-[10px] font-black uppercase tracking-widest leading-none">{t('home.evolution.vtac.badge')}</span>
+                    <span className="text-cyan-400 text-base font-black uppercase tracking-widest leading-none">{t('home.evolution.vtac.badge')}</span>
                     <h3 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white">{t('home.evolution.vtac.title')}</h3>
                   </div>
                   <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 border border-cyan-500/30 shadow-lg shadow-cyan-500/20 z-30 shrink-0">
@@ -695,8 +709,8 @@ const Home: React.FC = () => {
       {/* 5. What VTAC Manager Covers (NOTEBOOK DESIGN) */}
       <SectionWrapper ref={section5Ref} id="coverage" className="bg-slate-950 pt-12 pb-24 md:pt-20 md:pb-40">
         <div className="text-center space-y-6 max-w-4xl mx-auto px-6 overflow-visible">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em]">
-            <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em]">
+            <div className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
             <span>{t('home.coverage.badge')}</span>
           </div>
           <h2 className="font-black uppercase flex flex-col items-center italic overflow-visible leading-[1.05] tracking-tighter">
@@ -825,13 +839,13 @@ const Home: React.FC = () => {
       {/* 6. Feature Summary */}
       <SectionWrapper className="bg-slate-900/30">
         <div className="flex flex-col items-center mb-16 space-y-4">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] border border-white/10">
-            <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] border border-white/10">
+            <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)] animate-pulse"></div>
             <span className="uppercase">{t('home.features.badge')}</span>
           </div>
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-[0.85]">
-            <span className="text-white block">{t('home.features.title.moreThan')}</span>
-            <span className="gradient-text block">{t('home.features.title.training')}</span>
+          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-tight overflow-visible">
+            <span className="text-white block py-2">{t('home.features.title.moreThan')}</span>
+            <span className="gradient-text block -mt-6 py-4 px-4 overflow-visible whitespace-pre-line leading-[1.1]">{t('home.features.title.training')}</span>
           </h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -855,12 +869,13 @@ const Home: React.FC = () => {
       {/* 7. Comparison Section */}
       <SectionWrapper ref={compareRef}>
         <div className="flex flex-col items-center mb-10 space-y-4">
-          <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] border border-white/10">
-            <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] border border-white/10">
+            <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)] animate-pulse"></div>
             <span>{t('home.comparison.badge')}</span>
           </div>
-          <h2 className="text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-[0.9] overflow-visible">
-            <span className="gradient-text pr-10 md:pr-16 block md:inline-block overflow-visible">{t('home.comparison.title')}&nbsp;</span>
+          <h2 className="text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-[1.1] overflow-visible">
+            <span className="text-white block whitespace-pre-line overflow-visible py-2">{t('home.comparison.title.line1')}</span>
+            <span className="gradient-text block whitespace-pre-line overflow-visible -mt-2 md:mt-0 py-2 md:py-4 px-4">{t('home.comparison.title.line2')}</span>
           </h2>
         </div>
 
@@ -871,7 +886,7 @@ const Home: React.FC = () => {
               <table className="w-full text-left border-collapse table-fixed">
                 <thead>
                   <tr className="border-b border-white/10 bg-white/5">
-                    <th className="p-4 md:p-8 text-slate-400 uppercase tracking-[0.2em] text-[8px] md:text-[11px] font-black w-[45%]">
+                    <th className="p-4 md:p-8 text-slate-400 uppercase tracking-[0.2em] text-[10px] md:text-sm font-black w-[45%]">
                       {t('home.comparison.table.headers.advantage')}
                     </th>
                     <th className="p-2 md:p-6 text-center bg-cyan-500/5 w-[18%]">
@@ -879,10 +894,10 @@ const Home: React.FC = () => {
                         <span className="gradient-text font-black text-[7px] md:text-sm italic tracking-tighter uppercase leading-none">{t('home.comparison.table.headers.vtac')}</span>
                       </div>
                     </th>
-                    <th className="p-2 md:p-6 text-center text-slate-500 font-black text-[7px] md:text-[10px] italic tracking-tighter uppercase opacity-60 w-[18%]">
+                    <th className="p-2 md:p-6 text-center text-slate-500 font-black text-[9px] md:text-xs italic tracking-tighter uppercase opacity-60 w-[18%]">
                       {t('home.comparison.table.headers.org')}
                     </th>
-                    <th className="p-2 md:p-6 text-center text-slate-500 font-black text-[7px] md:text-[10px] italic tracking-tighter uppercase opacity-60 w-[18%]">
+                    <th className="p-2 md:p-6 text-center text-slate-500 font-black text-[9px] md:text-xs italic tracking-tighter uppercase opacity-60 w-[18%]">
                       {t('home.comparison.table.headers.video')}
                     </th>
                   </tr>
@@ -1017,19 +1032,19 @@ const Home: React.FC = () => {
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
             <div className="relative z-10 space-y-8">
-              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-4">
-                READY FOR THE <br />
-                <span className="gradient-text inline-block pr-10">NEXT LEVEL?</span>
+              <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[1.1] text-white italic uppercase pr-4 overflow-visible">
+                {t('home.cta.title.line1')} <br />
+                <span className="gradient-text inline-block pr-10 py-4 overflow-visible">{t('home.cta.title.line2')}</span>
               </h2>
 
-              <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
-                Join the elite organizations redefining training standards with <span className="text-white font-black">VTAC <span className="text-cyan-400">MANAGER.</span></span>
+              <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2 whitespace-pre-line">
+                {t('home.cta.subtitle')} <span className="not-italic inline-block font-black ml-1"><span className="text-white">VTAC</span> <span className="text-cyan-400">MANAGER</span></span>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
                 {/* Primary Button */}
                 <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center min-w-[200px]">
-                  <span className="relative z-10">Book a Demo</span>
+                  <span className="relative z-10">{t('home.cta.button')}</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                 </button>
 
