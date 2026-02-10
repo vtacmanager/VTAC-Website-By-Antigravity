@@ -486,24 +486,25 @@
         "hero": {
             "badge": "THE ESSENTIAL OS FOR TEAM SPORTS",
             "title": {
-                "line1": "YOUR TOOLKIT.",
-                "line2": "DIGITALIZED. REMOTE-READY."
+                "line1": "YOUR TOOLKIT",
+                "line2": "DIGITALIZED",
+                "line3": "REMOTE-READY"
             },
-            "subtitle": "Beyond whistles and clipboards. VTAC unifies your entire toolkit—for football, basketball, hockey, and all team sports—into one remote-ready system. Now, the locker room is wherever you are. Learn, sync, and lead from anywhere."
+            "subtitle": "Beyond whistles and clipboards. VTAC unifies your entire toolkit—for football, basketball, hockey, and all team sports—into one remote-ready system. Now, the dressing room is wherever you are. Learn, sync, and lead from anywhere."
         },
         "workflow": {
-            "badge": "BEYOND PASSIVE INSTRUCTION",
+            "badge": "BEYOND THE WHITEBOARD",
             "title": {
-                "line1": "THE WORKFLOW",
-                "line2": "OF WINNING"
+                "line1": "HOW VTAC",
+                "line2": "WORKS"
             },
-            "subtitle": "A seamless digital loop from the locker room to the final whistle.",
+            "subtitle": "A seamless digital loop from the dressing room to the final whistle.",
             "steps": {
                 "before": {
-                    "label": "PRE-PITCH",
-                    "navLabel": "Pre-Pitch",
-                    "headline": "Tactical Blueprint",
-                    "body": "Don’t waste valuable pitch time. Use Interactive Remote Training to brief tactics from home or the locker room. Ensure every player is synchronized and ready to execute the moment they step onto the pitch.",
+                    "label": "STEP 1: PRE-MATCH",
+                    "navLabel": "BEFORE",
+                    "headline": "THE DIGITAL WAR ROOM",
+                    "body": "Don’t waste valuable pitch time. Use Interactive Remote Training to brief tactics from home or the dressing room. Ensure every player is synchronized and ready to execute the moment they step onto the pitch.",
                     "bullets": [
                         "Smart Scheduling",
                         "Interactive Briefing",

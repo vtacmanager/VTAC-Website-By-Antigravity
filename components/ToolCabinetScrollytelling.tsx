@@ -15,7 +15,7 @@ export default function ToolCabinetScrollytelling() {
     const [isLoading, setIsLoading] = useState(true);
 
     // Audio State
-    const [isMuted, setIsMuted] = useState(true);
+    const [isMuted, setIsMuted] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const stopAudioTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -215,7 +215,7 @@ export default function ToolCabinetScrollytelling() {
                     Keep it relative to screen to ensure visibility.
                 */}
                 <div className="absolute top-24 md:top-32 left-0 w-full text-center pointer-events-none z-20 animate-pulse mix-blend-difference">
-                    <p className="text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    <p className="text-white text-xs md:text-sm font-black uppercase tracking-[0.3em] drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">
                         {t('platform.cabinet.cta')}
                     </p>
                 </div>

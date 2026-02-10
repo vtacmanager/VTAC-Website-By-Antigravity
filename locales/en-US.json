@@ -487,8 +487,9 @@
         "hero": {
             "badge": "THE ESSENTIAL OS FOR TEAM SPORTS",
             "title": {
-                "line1": "YOUR TOOLKIT.",
-                "line2": "DIGITALIZED. REMOTE-READY."
+                "line1": "YOUR TOOLKIT",
+                "line2": "DIGITALIZED",
+                "line3": "REMOTE-READY"
             },
             "subtitle": "Beyond whistles and clipboards. VTAC unifies your entire toolkit—for football, basketball, hockey, and all team sports—into one remote-ready system. Now, the locker room is wherever you are. Learn, sync, and lead from anywhere."
         },

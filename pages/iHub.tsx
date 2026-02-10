@@ -93,7 +93,7 @@ const SimpleSlideshow = ({
 };
 
 const IHub: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const timerRef = useRef<number | null>(null);
@@ -268,17 +268,27 @@ const IHub: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-6xl flex flex-col items-center">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] animate-in fade-in slide-in-from-bottom-4 duration-1000 mb-12">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] animate-in fade-in slide-in-from-bottom-4 duration-1000 mt-8 mb-[24px]">
             <Cpu className="w-4 h-4" />
             <span>{t('platform.hero.badge')}</span>
           </div>
 
-          <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase py-4">
-            <span className="text-6xl md:text-[8rem] block leading-[0.9] mb-1">{t('platform.hero.title.line1')}</span>
-            <span className="gradient-text text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] italic">{t('platform.hero.title.line2')}</span>
+          <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase pt-8 pb-0">
+            {i18n.language === 'th' ? (
+              <>
+                <span className="text-4xl md:text-[6rem] block leading-tight -mb-10">{t('platform.hero.title.line1')}</span>
+                <span className="gradient-text text-5xl md:text-[7rem] block tracking-tight leading-normal italic py-2 px-4">{t('platform.hero.title.line2')}</span>
+              </>
+            ) : (
+              <>
+                <span className="text-5xl md:text-[7rem] block tracking-tight leading-none italic -mb-4">{t('platform.hero.title.line1')}</span>
+                <span className="gradient-text text-5xl md:text-[7rem] block tracking-tight leading-none italic -mb-4 py-0">{t('platform.hero.title.line2')}</span>
+                <span className="gradient-text text-5xl md:text-[7rem] block tracking-tight leading-none italic px-4">{t('platform.hero.title.line3')}</span>
+              </>
+            )}
           </h1>
 
-          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 mt-12">
+          <p className={`text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 ${i18n.language === 'th' ? 'mt-[24px]' : 'mt-[56px]'} whitespace-pre-line`}>
             {t('platform.hero.subtitle')}
           </p>
 
@@ -290,12 +300,12 @@ const IHub: React.FC = () => {
       <SectionWrapper id="how-it-works" className="bg-slate-900/10 border-y border-white/5">
         <div className="max-w-6xl mx-auto px-4">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-3 px-5 py-2 rounded-full glass-card text-purple-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center space-x-3 px-5 py-2 rounded-full glass-card text-purple-400 text-[10px] font-black uppercase tracking-[0.3em] mb-[56px]">
               <Workflow className="w-3 h-3" />
               <span>{t('platform.workflow.badge')}</span>
             </div>
-            <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-none mb-6">
+            <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-none mb-[56px]">
               <span className="text-white block">{t('platform.workflow.title.line1')}</span>
               <span className="gradient-text block">{t('platform.workflow.title.line2')}</span>
             </h2>
@@ -416,11 +426,11 @@ const IHub: React.FC = () => {
       {/* 3. CORE CAPABILITIES SECTION - THE PERFORMANCE ECOSYSTEM */}
       <SectionWrapper id="core-capabilities" className="relative">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] mb-6">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.4em] mb-[56px]">
             <LayoutDashboard className="w-4 h-4" />
             <span>{t('platform.capabilities.badge')}</span>
           </div>
-          <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-6">
+          <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-[56px]">
             {t('platform.capabilities.title.line1')} <br />
             <span className="gradient-text pr-4">{t('platform.capabilities.title.line2')}</span>
           </h2>
@@ -511,7 +521,7 @@ const IHub: React.FC = () => {
       {/* 4. THE PARADIGM SHIFT (Redesigned) */}
       <SectionWrapper id="paradigm-shift" className="relative">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-purple-400 text-[10px] font-black uppercase tracking-[0.4em] mb-6">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-purple-400 text-[10px] font-black uppercase tracking-[0.4em] mb-[56px]">
             <BrainCircuit className="w-4 h-4" />
             <span>{t('platform.paradigm.badge')}</span>
           </div>
@@ -663,13 +673,13 @@ const IHub: React.FC = () => {
         {/* Background Gradients */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-        <div className="text-center mb-20 space-y-8 max-w-5xl mx-auto">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">
+        <div className="text-center mb-20 max-w-5xl mx-auto">
+          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] mb-[56px]">
             <Shield className="w-4 h-4" />
             <span>{t('platform.trust.badge')}</span>
           </div>
 
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white py-2">
+          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white py-2 mb-[56px]">
             {t('platform.trust.title.line1')} <br />
             <span className="gradient-text box-decoration-clone pr-10 pb-2">{t('platform.trust.title.line2')}</span>
           </h2>
@@ -775,13 +785,13 @@ const IHub: React.FC = () => {
             {/* Animated Grid Background Layer */}
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
-            <div className="relative z-10 space-y-8">
-              <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase">
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase mb-[56px]">
                 {t('platform.cta.title.line1')} <br />
                 <span className="gradient-text inline-block pr-6">{t('platform.cta.title.line2')}</span>
               </h2>
 
-              <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
+              <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2 mb-8">
                 {t('platform.cta.subtitle')}
               </p>
 
