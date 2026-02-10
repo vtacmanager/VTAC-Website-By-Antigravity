@@ -85,15 +85,17 @@ const StepSectionHeader = ({ badge, title, subtitle, step, stepColor = 'red', ba
     stepTextColor = 'text-green-500 drop-shadow-[0_0_8px_rgba(34,197,94,0.8)]';
   }
   return (
-    <div className="text-center mb-16 space-y-8">
-      <StepBadge color={badgeColor}>
-        <span className={`${stepTextColor} mr-2 animate-pulse`}>{step}</span>
-        <span>{badge}</span>
-      </StepBadge>
+    <div className="text-center mb-16">
+      <div className="mb-12">
+        <StepBadge color={badgeColor}>
+          <span className={`${stepTextColor} mr-2 animate-pulse`}>{step}</span>
+          <span>{badge}</span>
+        </StepBadge>
+      </div>
       <h2 className={`${titleSize} font-black tracking-tighter uppercase italic leading-[0.9] text-white`}>
         {title}
       </h2>
-      <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto">
+      <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto !mt-12 whitespace-pre-line">
         {subtitle}
       </p>
     </div>
@@ -169,7 +171,7 @@ const FeatureCard = ({ title, description, image, icon: Icon, color = 'green', w
 };
 
 const Football: React.FC = () => {
-  const { t } = useTranslation(); // Initialize hook
+  const { t, i18n } = useTranslation(); // Initialize hook
   /* State for Section 2 Slideshow */
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
 
@@ -283,19 +285,29 @@ const Football: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10 text-center space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)]">
+        <div className="max-w-7xl mx-auto relative z-10 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.2)] mb-12">
             <Globe className="w-3 h-3 md:w-4 md:h-4" />
             <span>{t('football.hero.badge')}</span>
           </div>
 
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
-            {t('football.hero.title.line1')} <br />
-            <span className="bg-clip-text text-transparent box-decoration-clone pr-8" style={{ backgroundImage: 'linear-gradient(135deg, #15803d 0%, #22c55e 50%, #4ade80 100%)' }}>{t('football.hero.title.line2')}</span> <br />
-            <span className="gradient-text box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.hero.title.line3')}</span>
+            {t('football.hero.title.line1')}
+            {t('football.hero.title.line2') && (
+              <>
+                <br />
+                <span className="bg-clip-text text-transparent box-decoration-clone pr-8" style={{ backgroundImage: 'linear-gradient(135deg, #15803d 0%, #22c55e 50%, #4ade80 100%)' }}>{t('football.hero.title.line2')}</span>
+              </>
+            )}
+            {t('football.hero.title.line3') && (
+              <>
+                <br />
+                <span className="gradient-text box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.hero.title.line3')}</span>
+              </>
+            )}
           </h1>
 
-          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto border-l-4 border-green-500 pl-6 text-left md:text-center md:border-l-0 md:pl-0">
+          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed whitespace-pre-line max-w-4xl mx-auto border-l-4 border-green-500 pl-6 text-left md:text-center md:border-l-0 md:pl-0 mt-12">
             {t('football.hero.subtitle')}
           </p>
         </div>
@@ -452,14 +464,14 @@ const Football: React.FC = () => {
           </div>
 
           <div className="space-y-10 relative z-10">
-            <div className="space-y-8">
-              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse">
+            <div>
+              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse mb-12">
                 <Zap className="w-3 h-3 md:w-4 md:h-4" />
                 <span>{t('football.section3.badge')}</span>
               </div>
-              <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
+              <h2 className={`text-4xl md:text-7xl font-black tracking-tighter uppercase italic text-white ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.9]'}`}>
                 {t('football.section3.title.line1')} <br />
-                <span className="gradient-text box-decoration-clone pr-10" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section3.title.line2')}</span>
+                <span className={`gradient-text box-decoration-clone pr-10 ${i18n.language === 'th' ? 'inline-block py-4' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section3.title.line2')}</span>
               </h2>
             </div>
             <div className="space-y-8">
@@ -480,7 +492,7 @@ const Football: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-black uppercase text-white mb-2">{t('football.section3.features.feat2.title')}</h4>
-                  <p className="text-slate-400 leading-relaxed">
+                  <p className="text-slate-400 leading-relaxed whitespace-pre-line">
                     {t('football.section3.features.feat2.desc')}
                   </p>
                 </div>
@@ -547,8 +559,8 @@ const Football: React.FC = () => {
       {/* 4. [THE WOW FACTOR] VIRTUAL EXPERIENCE (Reused Section 4) */}
       < div className="py-24 bg-slate-900 relative overflow-hidden" >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-20 space-y-8">
-            <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-green-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse mb-12">
               <Smartphone className="w-3 h-3 md:w-4 md:h-4" />
               <span>{t('football.section4.badge')}</span>
             </div>
@@ -556,7 +568,7 @@ const Football: React.FC = () => {
               {t('football.section4.title.line1')} <br />
               <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section4.title.line2')}</span>
             </h2>
-            <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-3xl mx-auto mt-12 whitespace-pre-line">
               {t('football.section4.subtitle')}
             </p>
           </div>
@@ -713,12 +725,14 @@ const Football: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
               <img src="/images/Football S5.3.TheDigitalWarRoom.webp" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt="The Digital War Room" />
               <div className="absolute bottom-6 left-6 z-20 max-w-lg">
-                <div className="flex items-center gap-3 mb-2 text-green-400">
-                  <Target className="w-5 h-5" />
-                  <span className="text-xs font-black uppercase tracking-widest">{t('football.step2.grid.item1.badge')}</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-white/10 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center border border-white/10 text-green-400">
+                    <Target className="w-6 h-6" />
+                  </div>
+                  <span className="text-sm md:text-base font-black uppercase tracking-widest text-green-400">{t('football.step2.grid.item1.badge')}</span>
                 </div>
-                <h3 className="text-3xl font-black uppercase italic text-white leading-none mb-2">{t('football.step2.grid.item1.title')}</h3>
-                <p className="text-slate-300">{t('football.step2.grid.item1.desc')}</p>
+                <h3 className="text-slate-300 text-base font-normal whitespace-pre-line">{t('football.step2.grid.item1.title')}</h3>
+                <p className="text-base text-slate-300 font-normal leading-relaxed whitespace-pre-line">{t('football.step2.grid.item1.desc')}</p>
               </div>
             </div>
 
@@ -731,7 +745,7 @@ const Football: React.FC = () => {
               </div>
               <div className="relative z-10">
                 <h4 className="text-lg font-black uppercase italic text-white mb-1">{t('football.step2.grid.item2.title')}</h4>
-                <p className="text-xs text-slate-200">{t('football.step2.grid.item2.desc')}</p>
+                <p className="text-base text-slate-300 font-normal whitespace-pre-line">{t('football.step2.grid.item2.desc')}</p>
               </div>
             </div>
 
@@ -744,7 +758,7 @@ const Football: React.FC = () => {
               </div>
               <div className="relative z-10">
                 <h4 className="text-lg font-black uppercase italic text-white mb-1">{t('football.step2.grid.item3.title')}</h4>
-                <p className="text-xs text-slate-200">{t('football.step2.grid.item3.desc')}</p>
+                <p className="text-base text-slate-300 font-normal whitespace-pre-line">{t('football.step2.grid.item3.desc')}</p>
               </div>
             </div>
 
@@ -757,7 +771,7 @@ const Football: React.FC = () => {
               </div>
               <div className="relative z-10">
                 <h4 className="text-lg font-black uppercase italic text-white mb-1">{t('football.step2.grid.item4.title')}</h4>
-                <p className="text-xs text-slate-200">{t('football.step2.grid.item4.desc')}</p>
+                <p className="text-base text-slate-300 font-normal whitespace-pre-line">{t('football.step2.grid.item4.desc')}</p>
               </div>
             </div>
 
@@ -770,7 +784,7 @@ const Football: React.FC = () => {
               </div>
               <div className="relative z-10">
                 <h4 className="text-lg font-black uppercase italic text-white mb-1">{t('football.step2.grid.item5.title')}</h4>
-                <p className="text-xs text-slate-200">{t('football.step2.grid.item5.desc')}</p>
+                <p className="text-base text-slate-300 font-normal whitespace-pre-line">{t('football.step2.grid.item5.desc')}</p>
               </div>
             </div>
 
@@ -779,11 +793,13 @@ const Football: React.FC = () => {
               <div className="absolute inset-0 bg-black/60 z-10" />
               <img src="/images/Football S5.7.TheAISquadChallenge.webp" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt="AI Squad Challenge" />
               <div className="absolute bottom-6 left-6 z-20">
-                <div className="flex items-center gap-3 mb-2 text-yellow-400">
-                  <Bot className="w-5 h-5" />
-                  <span className="text-xs font-black uppercase tracking-widest">{t('football.step2.grid.item6.badge')}</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-white/10 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center border border-white/10 text-yellow-400">
+                    <Bot className="w-6 h-6" />
+                  </div>
+                  <span className="text-sm md:text-base font-black uppercase tracking-widest text-yellow-400">{t('football.step2.grid.item6.badge')}</span>
                 </div>
-                <h3 className="text-2xl font-black uppercase italic text-white">{t('football.step2.grid.item6.title')}</h3>
+                <h3 className="text-slate-300 text-base font-normal whitespace-pre-line">{t('football.step2.grid.item6.title')}</h3>
               </div>
             </div>
 
@@ -792,11 +808,13 @@ const Football: React.FC = () => {
               <div className="absolute inset-0 bg-black/60 z-10" />
               <img src="/images/Football S5.6.PrecisionHandheld.webp" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt="Precision Handheld Control" />
               <div className="absolute bottom-6 left-6 z-20">
-                <div className="flex items-center gap-3 mb-2 text-cyan-400">
-                  <Gamepad2 className="w-5 h-5" />
-                  <span className="text-xs font-black uppercase tracking-widest">{t('football.step2.grid.item7.badge')}</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-white/10 backdrop-blur-md w-12 h-12 rounded-xl flex items-center justify-center border border-white/10 text-cyan-400">
+                    <Gamepad2 className="w-6 h-6" />
+                  </div>
+                  <span className="text-sm md:text-base font-black uppercase tracking-widest text-cyan-400">{t('football.step2.grid.item7.badge')}</span>
                 </div>
-                <h3 className="text-2xl font-black uppercase italic text-white">{t('football.step2.grid.item7.title')}</h3>
+                <h3 className="text-slate-300 text-base font-normal whitespace-pre-line">{t('football.step2.grid.item7.title')}</h3>
               </div>
             </div>
           </div>
@@ -806,8 +824,8 @@ const Football: React.FC = () => {
         {/* 6. [THE PHILOSOPHY] TACTICAL SYNERGY (Reused Section 5) - Full Screen BG */}
         <div className="relative min-h-screen py-24 overflow-hidden bg-slate-950">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div className="text-center mb-16 space-y-8">
-              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-blue-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] animate-pulse">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-blue-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)] animate-pulse mb-12">
                 <BrainCircuit className="w-3 h-3 md:w-4 md:h-4" />
                 <span>{t('football.section6.badge')}</span>
               </div>
@@ -815,19 +833,23 @@ const Football: React.FC = () => {
                 {t('football.section6.title.line1')} <br />
                 <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #ffffff 70%, #a855f7 100%)' }}>{t('football.section6.title.line2')}</span>
               </h2>
-              <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-5xl mx-auto mt-12 whitespace-pre-line">
                 {t('football.section6.subtitle')}
               </p>
             </div>
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-8 rounded-3xl bg-slate-900 border border-white/5 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all group hover:-translate-y-2 duration-500">
-                <div className="flex items-start justify-between mb-6">
-                  <span className="text-4xl font-black text-white/20 group-hover:text-blue-400 transition-colors">01</span>
-                  <Target className="w-8 h-8 text-slate-500 group-hover:text-white transition-colors" />
+              <div className="group relative p-8 rounded-3xl bg-slate-900/50 border border-white/5 hover:bg-slate-800/50 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-500">
+                <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <Users className="w-6 h-6 text-blue-500" />
                 </div>
-                <h3 className="text-xl font-black uppercase italic text-white mb-2 group-hover:text-blue-400 transition-colors">{t('football.section6.cards.card1.title')}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{t('football.section6.cards.card1.desc')}</p>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-500">
+                    <Target className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-black uppercase italic text-white mb-2 group-hover:text-blue-400 transition-colors">{t('football.section6.cards.card1.title')}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{t('football.section6.cards.card1.desc')}</p>
+                </div>
               </div>
 
               <div className="group relative p-8 rounded-3xl bg-slate-900/50 border border-white/5 hover:bg-slate-800/50 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-500">
@@ -968,7 +990,7 @@ const Football: React.FC = () => {
             title={
               <>
                 {t('football.step4.title.line1')} <br />
-                <span className="bg-clip-text text-transparent box-decoration-clone pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #ef4444 0%, #ef4444 33%, #ef4444 66%, #ffffff 100%)' }}>
+                <span className="bg-clip-text text-transparent box-decoration-clone pr-6 pb-4" style={{ backgroundImage: 'linear-gradient(135deg, #ef4444 0%, #ef4444 33%, #ef4444 66%, #ffffff 100%)' }}>
                   {t('football.step4.title.line2')}
                 </span>
               </>
@@ -1016,9 +1038,9 @@ const Football: React.FC = () => {
               <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
               <div className="relative z-10 space-y-8">
-                <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase pr-8">
+                <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-tight text-white italic uppercase pr-8">
                   {t('football.cta.title.line1')} <br />
-                  <span className="gradient-text inline-block pr-10 box-decoration-clone" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.cta.title.line2')}</span>
+                  <span className="gradient-text inline-block pr-10 pt-2 pb-4 box-decoration-clone" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.cta.title.line2')}</span>
                 </h2>
 
                 <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">

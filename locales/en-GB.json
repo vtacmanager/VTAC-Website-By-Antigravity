@@ -430,8 +430,8 @@
             "step": "STEP 03",
             "badge": "SIDELINE INTELLIGENCE",
             "title": {
-                "line1": "SIDELINE",
-                "line2": "OPERATIONS"
+                "line1": "Instant Updates",
+                "line2": "Just One Tap Away"
             },
             "subtitle": "Manage live line-ups, track attendance, and record key match events in real-time. Instantly sync updates to parents and fans.",
             "cards": {
@@ -453,8 +453,8 @@
             "step": "STEP 04",
             "badge": "DIGITAL LEGACY",
             "title": {
-                "line1": "SCOUT-READY",
-                "line2": "DIGITAL CV"
+                "line1": "Get on Every",
+                "line2": "Scout’s Radar"
             },
             "subtitle": "Automatically build professional Digital CVs for players and coaches, capturing multi-season stats and Tactical IQ for scouts and top-tier clubs.",
             "cards": {

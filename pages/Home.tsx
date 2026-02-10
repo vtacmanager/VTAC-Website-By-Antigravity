@@ -170,7 +170,7 @@ const SportsMarquee: React.FC = () => {
 /* MOVED TO COMPONENT BODY TO USE HOOK */
 
 const Home: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const manifestoItems = [
     {
@@ -414,8 +414,8 @@ const Home: React.FC = () => {
       {/* 1. Hero Section */}
       <header className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-12 pb-6">
         <GradientBackground />
-        <div className="relative z-10 max-w-6xl space-y-12">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <div className="relative z-10 max-w-6xl">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] animate-in fade-in slide-in-from-bottom-4 duration-1000 mb-8">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
@@ -432,25 +432,25 @@ const Home: React.FC = () => {
             )}
           </div>
           <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase py-4">
-            <span className="text-6xl md:text-[8rem] block leading-[0.9] mb-2 md:mb-4 relative z-10">{t('home.hero.title.line1')}</span>
+            <span className="text-6xl md:text-[8rem] block leading-[0.9] relative z-10">{t('home.hero.title.line1')}</span>
             {t('home.hero.title.line2') && (
-              <span className="gradient-text text-6xl md:text-[8rem] block tracking-tighter leading-[1.2] pt-2 pb-2 relative z-20">{t('home.hero.title.line2')}</span>
+              <span className={`gradient-text block tracking-tighter relative z-20 ${i18n.language === 'th' ? 'text-4xl md:text-[5.5rem] lg:text-[8rem] -mt-4 leading-normal py-4 whitespace-nowrap' : 'text-4xl md:text-[6.5rem] leading-[0.9]'}`}>{t('home.hero.title.line2')}</span>
             )}
             {t('home.hero.title.line3') && (
               <div className="relative inline-block overflow-visible">
                 {/* Animated Background Glow */}
                 <div className="absolute -inset-4 bg-orange-500/30 blur-[40px] rounded-full animate-[breathe-glow_4s_ease-in-out_infinite]"></div>
-                <span className="relative text-2xl md:text-[3.5rem] block tracking-tight leading-[0.9] mt-2 italic pr-8 overflow-visible" style={{
+                <span className={`relative block tracking-tight leading-[0.9] italic pr-8 overflow-visible ${i18n.language === 'th' ? 'text-2xl md:text-[3.5rem]' : 'text-3xl md:text-[5rem]'}`} style={{
                   color: '#fb923c',
                   filter: 'drop-shadow(0 0 25px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 50px rgba(251, 146, 60, 0.4))'
                 }}>{t('home.hero.title.line3')}&nbsp;</span>
               </div>
             )}
           </h1>
-          <p className="text-lg md:text-xl font-medium text-white uppercase max-w-6xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 whitespace-pre-line -mt-8">
+          <p className={`text-lg md:text-xl font-medium text-white uppercase max-w-6xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 whitespace-pre-line ${i18n.language === 'th' ? '-mt-1' : 'mt-16'}`}>
             {t('home.hero.subtitle')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full px-6 sm:px-0">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full px-6 sm:px-0 mt-8">
             <button className="bg-white text-black text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-cyan-400 transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-cyan-500/20 uppercase w-full sm:w-auto">
               {t('home.hero.requestDemo')}
             </button>
@@ -517,7 +517,7 @@ const Home: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
           <div className="space-y-10 flex flex-col">
             <div className="space-y-8">
-              <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em]">
+              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em]">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
@@ -602,7 +602,7 @@ const Home: React.FC = () => {
       <StickyScrollFeature
         title={
           <div className="text-center space-y-6 max-w-4xl mx-auto px-6">
-            <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] border border-white/10">
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-white/10">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
@@ -611,7 +611,7 @@ const Home: React.FC = () => {
             </div>
             <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.05] uppercase text-center py-4 italic">
               <span className="text-white block">{t('home.management.title.beyond')}</span>
-              <span className="gradient-text block pr-8 overflow-visible whitespace-pre-line">{t('home.management.title.management')}&nbsp;</span>
+              <span className={`gradient-text block overflow-visible whitespace-pre-line ${i18n.language === 'th' ? 'pr-20' : 'pr-8'}`}>{t('home.management.title.management')}&nbsp;</span>
             </h2>
           </div>
         }
@@ -636,13 +636,13 @@ const Home: React.FC = () => {
 
         <div className="relative z-10">
           <div className="text-center space-y-6 max-w-4xl mx-auto px-6">
-            <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] border border-white/10">
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-white/10">
               <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.8)] animate-ping"></div>
               <span>{t('home.evolution.badge')}</span>
             </div>
-            <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter leading-[1.1] uppercase text-center italic whitespace-pre-line overflow-visible">
+            <h2 className={`text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter uppercase text-center italic whitespace-pre-line overflow-visible ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.9]'}`}>
               <span className="text-white block py-2 overflow-visible">{t('home.evolution.title.fromChaos')}</span>
-              <span className="gradient-text block -mt-2 py-4 overflow-visible">{t('home.evolution.title.toClarity')}</span>
+              <span className={`gradient-text block overflow-visible ${i18n.language === 'th' ? 'py-4 -mt-2' : 'py-2 -mt-6'}`}>{t('home.evolution.title.toClarity')}</span>
             </h2>
           </div>
 
@@ -709,7 +709,7 @@ const Home: React.FC = () => {
       {/* 5. What VTAC Manager Covers (NOTEBOOK DESIGN) */}
       <SectionWrapper ref={section5Ref} id="coverage" className="bg-slate-950 pt-12 pb-24 md:pt-20 md:pb-40">
         <div className="text-center space-y-6 max-w-4xl mx-auto px-6 overflow-visible">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em]">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em]">
             <div className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] animate-pulse"></div>
             <span>{t('home.coverage.badge')}</span>
           </div>
@@ -839,7 +839,7 @@ const Home: React.FC = () => {
       {/* 6. Feature Summary */}
       <SectionWrapper className="bg-slate-900/30">
         <div className="flex flex-col items-center mb-16 space-y-4">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] border border-white/10">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-white/10">
             <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)] animate-pulse"></div>
             <span className="uppercase">{t('home.features.badge')}</span>
           </div>
@@ -869,13 +869,13 @@ const Home: React.FC = () => {
       {/* 7. Comparison Section */}
       <SectionWrapper ref={compareRef}>
         <div className="flex flex-col items-center mb-10 space-y-4">
-          <div className="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full glass-card text-cyan-400 text-xs md:text-sm font-black uppercase tracking-[0.3em] border border-white/10">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] border border-white/10">
             <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)] animate-pulse"></div>
             <span>{t('home.comparison.badge')}</span>
           </div>
-          <h2 className="text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center leading-[1.1] overflow-visible">
+          <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center overflow-visible ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.9]'}`}>
             <span className="text-white block whitespace-pre-line overflow-visible py-2">{t('home.comparison.title.line1')}</span>
-            <span className="gradient-text block whitespace-pre-line overflow-visible -mt-2 md:mt-0 py-2 md:py-4 px-4">{t('home.comparison.title.line2')}</span>
+            <span className={`gradient-text block whitespace-pre-line overflow-visible px-4 ${i18n.language === 'th' ? '-mt-2 py-4' : '-mt-4 py-2'}`}>{t('home.comparison.title.line2')}</span>
           </h2>
         </div>
 
