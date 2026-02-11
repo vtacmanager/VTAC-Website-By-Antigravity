@@ -305,9 +305,19 @@ const IHub: React.FC = () => {
               <Workflow className="w-3 h-3" />
               <span>{t('platform.workflow.badge')}</span>
             </div>
-            <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-none mb-[56px]">
-              <span className="text-white block">{t('platform.workflow.title.line1')}</span>
-              <span className="gradient-text block">{t('platform.workflow.title.line2')}</span>
+            <h2 className={`text-4xl md:text-8xl font-black tracking-tighter uppercase italic ${i18n.language === 'th' ? 'leading-normal' : 'leading-none'} mb-[56px]`}>
+              {i18n.language === 'th' ? (
+                <>
+                  <span className="text-white block">{t('platform.workflow.title.line1')}</span>
+                  <span className="text-white block">{t('platform.workflow.title.line2')}</span>
+                  <span className="gradient-text block py-4">{t('platform.workflow.title.line3')}</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-white block">{t('platform.workflow.title.line1')}</span>
+                  <span className="gradient-text block">{t('platform.workflow.title.line2')}</span>
+                </>
+              )}
             </h2>
             <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase">
               {t('platform.workflow.subtitle')}
@@ -322,7 +332,7 @@ const IHub: React.FC = () => {
                 <span className={`inline-block text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400`}>
                   {timelineSteps[activeStep].label}
                 </span>
-                <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic leading-none gradient-text transition-all duration-700">
+                <h3 className={`text-4xl md:text-6xl font-black uppercase tracking-tighter italic ${i18n.language === 'th' ? 'leading-normal' : 'leading-none'} gradient-text transition-all duration-700 py-2`}>
                   {timelineSteps[activeStep].headline}
                 </h3>
               </div>
@@ -434,7 +444,7 @@ const IHub: React.FC = () => {
             {t('platform.capabilities.title.line1')} <br />
             <span className="gradient-text pr-4">{t('platform.capabilities.title.line2')}</span>
           </h2>
-          <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase max-w-3xl mx-auto">
+          <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase max-w-5xl mx-auto whitespace-pre-line">
             {t('platform.capabilities.subtitle')}
           </p>
         </div>
@@ -445,7 +455,7 @@ const IHub: React.FC = () => {
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-500 text-white">
               <Layers className="w-8 h-8 group-hover:animate-bounce" />
             </div>
-            <h3 className="text-3xl font-black italic uppercase tracking-tighter text-white mb-2 group-hover:text-red-500 transition-colors">
+            <h3 className="text-4xl font-black italic uppercase tracking-tighter text-white mb-2 group-hover:text-red-500 transition-colors">
               {t('platform.capabilities.pillars.management.title')}
             </h3>
             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-8">
@@ -457,7 +467,7 @@ const IHub: React.FC = () => {
                   <div className="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:bg-red-500/20 group-hover:border-red-500/50 transition-colors">
                     <Check className="w-3 h-3 text-blue-400 group-hover:text-red-500 transition-colors" />
                   </div>
-                  <span className="text-slate-300 text-xs font-black uppercase tracking-widest group-hover:text-white transition-colors">{feature}</span>
+                  <span className="text-slate-300 text-[13px] font-black uppercase tracking-widest group-hover:text-white transition-colors">{feature}</span>
                 </div>
               ))}
             </div>
@@ -498,7 +508,7 @@ const IHub: React.FC = () => {
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-500 text-white">
               <TrendingUp className="w-8 h-8 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300" />
             </div>
-            <h3 className="text-3xl font-black italic uppercase tracking-tighter text-white mb-2 group-hover:text-red-500 transition-colors">
+            <h3 className="text-4xl font-black italic uppercase tracking-tighter text-white mb-2 group-hover:text-red-500 transition-colors">
               {t('platform.capabilities.pillars.development.title')}
             </h3>
             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-8">
@@ -510,7 +520,7 @@ const IHub: React.FC = () => {
                   <div className="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover:bg-red-500/20 group-hover:border-red-500/50 transition-colors">
                     <Check className="w-3 h-3 text-purple-400 group-hover:text-red-500 transition-colors" />
                   </div>
-                  <span className="text-slate-300 text-xs font-black uppercase tracking-widest group-hover:text-white transition-colors">{feature}</span>
+                  <span className="text-slate-300 text-[13px] font-black uppercase tracking-widest group-hover:text-white transition-colors">{feature}</span>
                 </div>
               ))}
             </div>
@@ -525,10 +535,13 @@ const IHub: React.FC = () => {
             <BrainCircuit className="w-4 h-4" />
             <span>{t('platform.paradigm.badge')}</span>
           </div>
-          <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-6">
+          <h2 className={`text-4xl md:text-8xl font-black tracking-tighter uppercase italic ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.85]'} mb-6`}>
             {t('platform.paradigm.title.line1')} <br />
-            <span className="gradient-text pr-4">{t('platform.paradigm.title.line2')}</span>
+            <span className="gradient-text pr-4 block py-4 -mt-2">{t('platform.paradigm.title.line2')}</span>
           </h2>
+          <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase max-w-5xl mx-auto whitespace-pre-line">
+            {t('platform.paradigm.subtitle')}
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
@@ -684,7 +697,7 @@ const IHub: React.FC = () => {
             <span className="gradient-text box-decoration-clone pr-10 pb-2">{t('platform.trust.title.line2')}</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-slate-400 font-medium uppercase leading-relaxed max-w-5xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-400 font-medium uppercase leading-relaxed max-w-5xl mx-auto whitespace-pre-line">
             {t('platform.trust.subtitle')}
           </p>
         </div>
@@ -700,9 +713,20 @@ const IHub: React.FC = () => {
               <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3 group-hover:text-blue-400 transition-colors">
                 {t('platform.trust.cards.scalability.title')}
               </h3>
-              <p className="text-slate-400 leading-relaxed font-medium mb-8">
+              <p className="text-slate-400 leading-relaxed font-medium mb-6">
                 {t('platform.trust.cards.scalability.desc')}
               </p>
+              <ul className="space-y-3 mb-8">
+                {(() => {
+                  const points = t('platform.trust.cards.scalability.points', { returnObjects: true });
+                  return Array.isArray(points) ? points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-300 text-sm font-bold">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0 shadow-[0_0_8px_rgba(96,165,250,0.6)]" />
+                      <span>{point}</span>
+                    </li>
+                  )) : null;
+                })()}
+              </ul>
             </div>
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
@@ -720,9 +744,20 @@ const IHub: React.FC = () => {
               <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3 group-hover:text-purple-400 transition-colors">
                 {t('platform.trust.cards.scholastic.title')}
               </h3>
-              <p className="text-slate-400 leading-relaxed font-medium mb-8">
+              <p className="text-slate-400 leading-relaxed font-medium mb-6">
                 {t('platform.trust.cards.scholastic.desc')}
               </p>
+              <ul className="space-y-3 mb-8">
+                {(() => {
+                  const points = t('platform.trust.cards.scholastic.points', { returnObjects: true });
+                  return Array.isArray(points) ? points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-300 text-sm font-bold">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0 shadow-[0_0_8px_rgba(192,132,252,0.6)]" />
+                      <span>{point}</span>
+                    </li>
+                  )) : null;
+                })()}
+              </ul>
             </div>
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
@@ -740,9 +775,20 @@ const IHub: React.FC = () => {
               <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3 group-hover:text-cyan-400 transition-colors">
                 {t('platform.trust.cards.proTools.title')}
               </h3>
-              <p className="text-slate-400 leading-relaxed font-medium mb-8">
+              <p className="text-slate-400 leading-relaxed font-medium mb-6">
                 {t('platform.trust.cards.proTools.desc')}
               </p>
+              <ul className="space-y-3 mb-8">
+                {(() => {
+                  const points = t('platform.trust.cards.proTools.points', { returnObjects: true });
+                  return Array.isArray(points) ? points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-300 text-sm font-bold">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.6)]" />
+                      <span>{point}</span>
+                    </li>
+                  )) : null;
+                })()}
+              </ul>
             </div>
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
@@ -760,9 +806,20 @@ const IHub: React.FC = () => {
               <h3 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3 group-hover:text-emerald-500 transition-colors">
                 {t('platform.trust.cards.engagement.title')}
               </h3>
-              <p className="text-slate-400 leading-relaxed font-medium mb-8">
+              <p className="text-slate-400 leading-relaxed font-medium mb-6">
                 {t('platform.trust.cards.engagement.desc')}
               </p>
+              <ul className="space-y-3 mb-8">
+                {(() => {
+                  const points = t('platform.trust.cards.engagement.points', { returnObjects: true });
+                  return Array.isArray(points) ? points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-300 text-sm font-bold">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                      <span>{point}</span>
+                    </li>
+                  )) : null;
+                })()}
+              </ul>
             </div>
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
@@ -786,13 +843,16 @@ const IHub: React.FC = () => {
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase mb-[56px]">
+              <h2 className={`text-4xl md:text-8xl font-black tracking-tighter ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.9]'} text-white italic uppercase mb-[56px]`}>
                 {t('platform.cta.title.line1')} <br />
-                <span className="gradient-text inline-block pr-6">{t('platform.cta.title.line2')}</span>
+                <span className="gradient-text inline-block pr-6 py-4 -my-4">{t('platform.cta.title.line2')}</span>
               </h2>
 
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2 mb-8">
                 {t('platform.cta.subtitle')}
+                <>
+                  <span className="text-white font-black not-italic ml-1">VTAC</span> <span className="text-cyan-400 font-black not-italic">MANAGER.</span>
+                </>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">

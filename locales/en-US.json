@@ -277,7 +277,7 @@
                 "line2": "THE 5G PITCH",
                 "line3": "FROM ANYWHERE"
             },
-            "subtitle": "Take your tactical briefing beyond the white board. VTAC MANAGER delivers the world’s first patented multiplayer tactical engine designed for the speed and complexity of modern football."
+            "subtitle": "TAKE YOUR TACTICAL BRIEFING BEYOND THE WHITE BOARD. VTAC MANAGER DELIVERS\nTHE WORLD’S FIRST PATENTED MULTIPLAYER TACTICAL ENGINE DESIGNED FOR\nTHE SPEED AND COMPLEXITY OF MODERN FOOTBALL."
         },
         "stepsNav": {
             "step1": "ORGANIZE & SCHEDULE",
@@ -293,7 +293,7 @@
                 "line2": "MADE",
                 "line3": "EFFORTLESS"
             },
-            "subtitle": "Total club management in one place: Team hierarchy, training calendars, match fixtures, and pre-game line-up checks.",
+            "subtitle": "TOTAL CLUB MANAGEMENT IN ONE PLACE: TEAM HIERARCHY, TRAINING CALENDARS,\nMATCH FIXTURES, AND PRE-GAME LINE-UP CHECKS.",
             "cards": {
                 "card1": {
                     "title": "Unified Squad Hierarchy",
@@ -332,7 +332,7 @@
                 "line1": "THE",
                 "line2": "CONTROLLER"
             },
-            "subtitle": "Turn your smartphone into a high-precision tactical tool in seconds. No apps, no friction—just pure tactical engagement.",
+            "subtitle": "TURN YOUR SMARTPHONE INTO A HIGH-PRECISION TACTICAL TOOL IN SECONDS.\nNO APPS, NO FRICTION—JUST PURE TACTICAL ENGAGEMENT.",
             "cards": {
                 "card1": {
                     "title": "INSTANT CONNECT",
@@ -358,7 +358,7 @@
                 "line1": "INTERACTIVE",
                 "line2": "REMOTE PREP"
             },
-            "subtitle": "High-engagement team meetings using the Digital Tactics Board. Draw, erase, and record sessions to ensure every player understands their role.",
+            "subtitle": "HIGH-ENGAGEMENT TEAM MEETINGS USING THE DIGITAL TACTICS BOARD.\nDRAW, ERASE, AND RECORD SESSIONS TO ENSURE EVERY PLAYER\nUNDERSTANDS THEIR ROLE.",
             "cards": {
                 "card1": {
                     "title": "ANALYZE & ADAPT",
@@ -411,7 +411,7 @@
                 "line1": "PLAY ON",
                 "line2": "THE 5G PITCH"
             },
-            "subtitle": "Translate theory into live action. The 5G Pitch is an interactive canvas for players to express their tactical IQ or offer unique insights, bridging the gap between a coach’s vision and a team’s execution.",
+            "subtitle": "TRANSLATE THEORY INTO LIVE ACTION. THE 5G PITCH IS AN INTERACTIVE CANVAS FOR PLAYERS\nTO EXPRESS THEIR TACTICAL IQ OR OFFER UNIQUE INSIGHTS, BRIDGING THE GAP\nBETWEEN A COACH’S VISION AND A TEAM’S EXECUTION.",
             "cards": {
                 "card1": {
                     "title": "ACTIVE PLAYER DOTS",
@@ -434,7 +434,7 @@
                 "line1": "Instant Updates",
                 "line2": "Just One Tap Away"
             },
-            "subtitle": "Manage live line-ups, track attendance, and record key match events in real-time. Instantly sync updates to parents and fans.",
+            "subtitle": "MANAGE LIVE LINE-UPS, TRACK ATTENDANCE, AND RECORD KEY MATCH EVENTS IN REAL-TIME.\nINSTANTLY SYNC UPDATES TO PARENTS AND FANS.",
             "cards": {
                 "card1": {
                     "title": "Instant Sideline Analytics",
@@ -457,7 +457,7 @@
                 "line1": "Get on Every",
                 "line2": "Scout’s Radar"
             },
-            "subtitle": "Automatically build professional Digital CVs for players and coaches, capturing multi-season stats and Tactical IQ for scouts and top-tier clubs.",
+            "subtitle": "AUTOMATICALLY BUILD PROFESSIONAL DIGITAL CVS FOR PLAYERS AND COACHES,\nCAPTURING MULTI-SEASON STATS AND TACTICAL IQ\nFOR SCOUTS AND TOP-TIER CLUBS.",
             "cards": {
                 "card1": {
                     "title": "Elite Visual Scout Card",
@@ -478,7 +478,7 @@
                 "line1": "READY FOR THE",
                 "line2": "NEXT GAME?"
             },
-            "subtitle": "Join the elite organizations redefining training standards with VTAC MANAGER.",
+            "subtitle": "Join the elite organizations redefining training standards with",
             "btnDemo": "Book a Demo",
             "btnTrial": "Start Trial"
         }
@@ -491,10 +491,10 @@
                 "line2": "DIGITALIZED",
                 "line3": "REMOTE-READY"
             },
-            "subtitle": "Beyond whistles and clipboards. VTAC unifies your entire toolkit—for football, basketball, hockey, and all team sports—into one remote-ready system. Now, the locker room is wherever you are. Learn, sync, and lead from anywhere."
+            "subtitle": "BEYOND WHISTLES AND CLIPBOARDS. VTAC UNIFIES YOUR ENTIRE TOOLKIT\nFOR FOOTBALL, BASKETBALL, HOCKEY, AND ALL TEAM SPORTS\nINTO ONE REMOTE-READY SYSTEM. NOW, THE LOCKER ROOM IS WHEREVER YOU ARE.\nLEARN, SYNC, AND LEAD FROM ANYWHERE."
         },
         "workflow": {
-            "badge": "BEYOND PASSIVE INSTRUCTION",
+            "badge": "Elite Team Workflow",
             "title": {
                 "line1": "THE WORKFLOW",
                 "line2": "OF WINNING"
@@ -553,7 +553,7 @@
                 "line1": "THE PERFORMANCE",
                 "line2": "ECOSYSTEM"
             },
-            "subtitle": "Opening the toolbox: Professional-grade features engineered for elite sports organizations.",
+            "subtitle": "BRIDGING THE GAP BETWEEN TACTICAL THEORY AND MATCHDAY EXECUTION WITH\nA HOLISTIC SYSTEM BUILT FOR SUSTAINABLE ELITE DEVELOPMENT.",
             "pillars": {
                 "management": {
                     "title": "Management",
@@ -591,46 +591,47 @@
         "paradigm": {
             "badge": "STRATEGIC TEAM INTELLIGENCE",
             "title": {
-                "line1": "FROM LOGISTICS",
-                "line2": "TO MASTERY"
+                "line1": "Are you ready",
+                "line2": "to redefine your game?"
             },
+            "subtitle": "Unlock your potential by leaving legacy constraints behind. When obsolete learning hinders growth, your team’s continuity shouldn’t have to pay the price.",
             "cards": {
                 "legacy": {
-                    "tag": "The Boredom & Disruption Barrier",
-                    "title": "Legacy Learning",
-                    "subtitle": "Static homework and lost momentum.",
+                    "tag": "THE LEGACY WAY: Non-Interactive Learning",
+                    "title": "Where training feels like a chore, and the locker room loses its spark.",
+                    "subtitle": "Static Practicing and Lost Momentum.",
                     "points": {
                         "gap": {
                             "title": "The Boredom Gap",
-                            "desc": "One-way learning via PDFs and video clips feels like tedious \"homework,\" leading to low retention."
+                            "desc": "One-way learning via static PDFs or fragmented video clips feels like tedious \"homework.\" The result? Low tactical retention, drained energy, and a disconnected team spirit."
                         },
                         "killer": {
                             "title": "The Momentum Killer",
-                            "desc": "When training is canceled, development grinds to a halt—leaving the team with invisible tactical gaps."
+                            "desc": "When training is canceled due to weather or logistical hurdles, development grinds to a halt - leaving invisible tactical gaps that haunt you on matchday."
                         }
                     },
                     "bottomLine": {
-                        "label": "The Bottom Line:",
-                        "text": "You are managing the clock, while the team remains in isolation."
+                        "label": "The Verdict:",
+                        "text": "You are bogged down by messy, complex management, watching valuable developmental windows vanish every time the pitch becomes unavailable."
                     }
                 },
                 "vtac": {
-                    "tag": "The Collective Edge",
-                    "title": "The Secret Sauce",
+                    "tag": "THE VTAC WAY: Interactive Training",
+                    "title": "Solve problems in real-time. Win together as one.",
                     "subtitle": "Zero Downtime. Tactical Play, Together.",
                     "points": {
                         "fun": {
-                            "title": "The Fun Factor",
-                            "desc": "We turn tactical prep into a live, multiplayer experience. Engaging as a video game, making learning effortless."
+                            "title": "Our Secret Sauce (The Fun Factor)",
+                            "desc": "We transform tactical drills into a live, Multiplayer Experience. As engaging as a team video game, it makes learning effortless, high-energy, and deeply ingrained in muscle memory."
                         },
                         "resilience": {
-                            "title": "The Resilience Factor",
-                            "desc": "Turn every cancellation into a high-value interactive session. Build chemistry and tactical IQ anytime, anywhere."
+                            "title": "Unstoppable Progress",
+                            "desc": "Pitch closed? The learning never stops. Turn any cancellation into a high-value Remote Interactive session, building unstoppable team chemistry and Tactical IQ—anytime, anywhere."
                         }
                     },
                     "bottomLine": {
-                        "label": "The Bottom Line:",
-                        "text": "You are mastering performance through continuous team synergy."
+                        "label": "The Verdict:",
+                        "text": "You are turning every minute into elite-level growth, scaling your team’s intelligence through a shared experience that is both measurable and incredibly fun."
                     }
                 }
             }
@@ -641,7 +642,7 @@
                 "line1": "THE MODERN ATHLETE",
                 "line2": "AT EVERY SCALE"
             },
-            "subtitle": "VTAC is engineered to be the universal language of sports. Whether you are a local school team, a rising university program, or an elite professional academy, our platform scales to meet your ambition. We provide the professional edge to every coach and player, regardless of the size of their field.",
+            "subtitle": "VTAC IS ENGINEERED TO BE THE UNIVERSAL LANGUAGE OF SPORTS. WHETHER YOU ARE\nA LOCAL SCHOOL TEAM, A RISING UNIVERSITY PROGRAM, OR AN ELITE PROFESSIONAL ACADEMY,\nOUR PLATFORM SCALES TO MEET YOUR AMBITION. WE PROVIDE THE PROFESSIONAL EDGE\nTO EVERY COACH AND PLAYER, REGARDLESS OF THE SIZE OF THEIR PITCH.",
             "cards": {
                 "scalability": {
                     "title": "Unified Scalability",
@@ -670,7 +671,7 @@
                 "line1": "READY FOR THE",
                 "line2": "NEXT SEASON?"
             },
-            "subtitle": "Join the elite organizations redefining training standards with VTAC MANAGER.",
+            "subtitle": "Join the elite organizations redefining training standards with",
             "btnDemo": "Book a Demo",
             "btnTrial": "Start Trial"
         }
@@ -687,7 +688,7 @@
         "sectors": {
             "schools": {
                 "label": "SCHOOLS & UNIVERSITIES",
-                "tag": "The Scholastic iHub",
+                "tag": "VTAC SCHOLASTIC",
                 "heading": "The Smart Student-Athlete Ecosystem",
                 "subHeading": "Bridging the gap between academic schedules and athletic excellence.",
                 "features": {
@@ -711,7 +712,7 @@
             },
             "youth": {
                 "label": "YOUTH ACADEMIES",
-                "tag": "The Talent iHub",
+                "tag": "VTAC ACADEMY",
                 "heading": "The Future Star Factory",
                 "subHeading": "Maximize engagement, build family trust, and develop the stars of tomorrow.",
                 "features": {
@@ -735,7 +736,7 @@
             },
             "pro": {
                 "label": "PRO & AMATEUR CLUBS",
-                "tag": "The Elite iHub",
+                "tag": "VTAC PRO",
                 "heading": "The Elite Performance Engine",
                 "subHeading": "Dominance through tactical clarity, operational resilience, and winning results.",
                 "features": {
@@ -759,10 +760,12 @@
             }
         },
         "advantage": {
+            "badge": "THE STRATEGIC EDGE",
             "title": {
-                "line1": "THE VTAC",
-                "line2": "ADVANTAGE"
+                "line1": "EXCELLENCE",
+                "line2": "YOU CAN ACTUALLY FEEL"
             },
+            "subtitle": "Experience the transformation. Designed to eliminate administrative friction and unlock peak team performance.",
             "cards": {
                 "efficiency": {
                     "value": "10+ HRS",
@@ -783,10 +786,10 @@
         },
         "cta": {
             "title": {
-                "line1": "READY FOR THE",
-                "line2": "NEXT TRAINING?"
+                "line1": "READY FOR THE\nNEXT TRAINING",
+                "line2": "ON 5G PITCH?"
             },
-            "subtitle": "Join the elite organizations redefining training standards with VTAC MANAGER.",
+            "subtitle": "Join the elite organizations redefining training standards with",
             "btnDemo": "Book a Demo",
             "btnTrial": "Start Trial"
         }

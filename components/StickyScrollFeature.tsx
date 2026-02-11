@@ -238,7 +238,7 @@ const StickyScrollFeature: React.FC<StickyScrollSectionProps> = ({ items, title 
                                                     </div>
                                                 </div>
 
-                                                <h5 className="text-white text-xl md:text-3xl font-black italic uppercase tracking-tighter leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] pr-2 whitespace-pre-line">
+                                                <h5 className="text-white text-xl md:text-3xl font-black italic uppercase tracking-tighter leading-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] pr-2 whitespace-pre-line">
                                                     {item.ipadTitle || item.title}
                                                 </h5>
                                                 <p className="text-slate-100 text-[10px] md:text-base font-bold leading-tight md:leading-relaxed max-w-[160px] xs:max-w-[200px] md:max-w-md drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)] whitespace-pre-line">

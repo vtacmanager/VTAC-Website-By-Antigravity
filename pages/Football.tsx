@@ -95,7 +95,7 @@ const StepSectionHeader = ({ badge, title, subtitle, step, stepColor = 'red', ba
       <h2 className={`${titleSize} font-black tracking-tighter uppercase italic leading-[0.9] text-white`}>
         {title}
       </h2>
-      <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-4xl mx-auto !mt-12 whitespace-pre-line">
+      <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-6xl mx-auto !mt-12 whitespace-pre-line">
         {subtitle}
       </p>
     </div>
@@ -568,7 +568,7 @@ const Football: React.FC = () => {
               {t('football.section4.title.line1')} <br />
               <span className="bg-clip-text text-transparent pr-6" style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section4.title.line2')}</span>
             </h2>
-            <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-3xl mx-auto mt-12 whitespace-pre-line">
+            <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-6xl mx-auto mt-12 whitespace-pre-line">
               {t('football.section4.subtitle')}
             </p>
           </div>
@@ -1045,6 +1045,9 @@ const Football: React.FC = () => {
 
                 <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
                   {t('football.cta.subtitle')}
+                  <>
+                    <span className="text-white font-black not-italic ml-1">VTAC</span> <span className="text-cyan-400 font-black not-italic">MANAGER.</span>
+                  </>
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">

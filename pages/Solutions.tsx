@@ -158,16 +158,16 @@ const Solutions: React.FC = () => {
       {/* 1. Page Header */}
       <header className="relative pt-24 pb-16 overflow-hidden text-center px-6">
         <GradientBackground />
-        <div className="max-w-4xl mx-auto space-y-8 relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+        <div className="max-w-6xl mx-auto space-y-12 relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <div className="inline-flex items-center space-x-3 px-6 py-2 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] border border-cyan-500/20">
             <Layout className="w-3 h-3" />
             <span>{t('solutions.hero.badge')}</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
+          <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white whitespace-pre-line">
             {t('solutions.hero.title.line1')} <br />
             <span className="gradient-text box-decoration-clone pr-10 py-1">{t('solutions.hero.title.line2')}</span>
           </h1>
-          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
             {t('solutions.hero.subtitle')}
           </p>
         </div>
@@ -209,7 +209,7 @@ const Solutions: React.FC = () => {
                 </span>
 
                 {/* Main Label */}
-                <h3 className={`text-xl md:text-3xl font-black uppercase tracking-tighter leading-tight transition-transform duration-500 ${isActive ? 'text-white scale-110' : 'text-slate-500 scale-100'}`}>
+                <h3 className={`text-lg md:text-2xl font-black uppercase tracking-tighter leading-tight transition-transform duration-500 whitespace-pre-line ${isActive ? 'text-white scale-110' : 'text-slate-500 scale-100'}`}>
                   {item.label}
                 </h3>
 
@@ -329,11 +329,18 @@ const Solutions: React.FC = () => {
       {/* 4. The "Key Outcomes" Summary */}
       < SectionWrapper className="bg-slate-900/30 border-t border-white/5" >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-16 space-y-12">
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] border border-blue-500/20">
+              <Zap className="w-3 h-3" />
+              <span>{t('solutions.advantage.badge')}</span>
+            </div>
             <h3 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
               {t('solutions.advantage.title.line1')} <br />
               <span className="gradient-text box-decoration-clone pr-6 py-2">{t('solutions.advantage.title.line2')}</span>
             </h3>
+            <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
+              {t('solutions.advantage.subtitle')}
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -376,7 +383,7 @@ const Solutions: React.FC = () => {
               }`}
             >
               <div className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 text-green-400 group-hover:scale-110 transition-transform">
-                <TrendingUp className="w-7 h-7" />
+                <FileCheck className="w-7 h-7" />
               </div>
               <h4 className="text-4xl font-black text-white mb-2 italic">{t('solutions.advantage.cards.legacy.value')}</h4>
               <p className="text-xs font-black uppercase tracking-widest text-green-500 mb-4">{t('solutions.advantage.cards.legacy.label')}</p>
@@ -400,13 +407,16 @@ const Solutions: React.FC = () => {
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
             <div className="relative z-10 space-y-8">
-              <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase">
+              <h2 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white italic uppercase whitespace-pre-line">
                 {t('solutions.cta.title.line1')} <br />
-                <span className="gradient-text inline-block box-decoration-clone pr-6">{t('solutions.cta.title.line2')}</span>
+                <span className="gradient-green-text inline-block box-decoration-clone pr-6">{t('solutions.cta.title.line2')}</span>
               </h2>
 
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2">
                 {t('solutions.cta.subtitle')}
+                <>
+                  <span className="text-white font-black not-italic ml-1">VTAC</span> <span className="text-cyan-400 font-black not-italic">MANAGER.</span>
+                </>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
