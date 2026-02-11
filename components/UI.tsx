@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const SectionWrapper = React.forwardRef<HTMLElement, { children: React.ReactNode; className?: string; id?: string }>(
   ({ children, className = '', id }, ref) => (
@@ -32,27 +34,33 @@ export const FeatureCard: React.FC<{ title: string; description: string; tag?: s
   </div>
 );
 
-export const CTASection: React.FC = () => (
-  <SectionWrapper className="bg-slate-950">
-    <div className="relative bg-slate-900 rounded-[5rem] p-6 md:p-16 text-center border border-white/10 overflow-hidden group">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-purple-600/30 opacity-40 group-hover:opacity-60 transition-opacity duration-1000"></div>
-      <div className="relative z-10 space-y-16">
-        <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.8] text-white">
-          READY FOR THE <br />
-          <span className="gradient-text">NEXT LEVEL?</span>
-        </h2>
-        <p className="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto font-medium leading-tight">
-          Join the elite organizations redefining training standards with VTAC Manager.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-10 justify-center pt-8">
-          <button className="bg-white text-black text-2xl px-20 py-8 rounded-full font-black hover:bg-cyan-400 transition-all shadow-3xl shadow-cyan-400/20 active:scale-95">
-            Book a Demo
-          </button>
-          <button className="glass-card text-white border border-white/20 text-2xl px-20 py-8 rounded-full font-black hover:bg-white/10 transition-all active:scale-95">
-            Start Trial
-          </button>
+export const CTASection: React.FC = () => {
+  const { t } = useTranslation();
+  return (
+    <SectionWrapper className="bg-slate-950">
+      <div className="relative bg-slate-900 rounded-[5rem] p-6 md:p-16 text-center border border-white/10 overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-purple-600/30 opacity-40 group-hover:opacity-60 transition-opacity duration-1000"></div>
+        <div className="relative z-10 space-y-16">
+          <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.85] text-white whitespace-pre-line">
+            {t('solutions.cta.title.line1')} <br />
+            <span className="gradient-text">{t('solutions.cta.title.line2')}</span>
+          </h2>
+          <p className="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto font-medium leading-tight italic">
+            {t('solutions.cta.subtitle')} <span className="text-white font-black not-italic ml-1">VTAC MANAGER.</span>
+          </p>
+          <div className="flex flex-col sm:flex-row gap-10 justify-center pt-8">
+            <Link
+              to="/book-demo"
+              className="bg-white text-black text-2xl px-20 py-8 rounded-full font-black hover:bg-cyan-400 transition-all shadow-3xl shadow-cyan-400/20 active:scale-95 flex items-center justify-center font-sans tracking-tight"
+            >
+              {t('solutions.cta.btnDemo')}
+            </Link>
+            <button className="glass-card text-white border border-white/20 text-2xl px-20 py-8 rounded-full font-black hover:bg-white/10 transition-all active:scale-95 uppercase">
+              {t('solutions.cta.btnTrial')}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </SectionWrapper>
-);
+    </SectionWrapper>
+  );
+};

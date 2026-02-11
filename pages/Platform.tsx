@@ -101,7 +101,7 @@ const Platform: React.FC = () => {
       </div>
 
       {/* 3. How It Works (Phase Lifecycle) */}
-      <SectionWrapper>
+      <SectionWrapper id="coaching-flow">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-7xl font-black tracking-tighter uppercase italic">The Coaching Flow</h2>
           <p className="text-slate-500 font-black uppercase tracking-widest text-sm">One Platform. End-to-End Excellence.</p>
@@ -136,7 +136,7 @@ const Platform: React.FC = () => {
           </div>
 
           {/* Phase 2: During */}
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div id="remote-interactive" className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1 bg-slate-900 rounded-[4rem] border border-cyan-500/20 p-8 shadow-2xl relative overflow-hidden group">
               <div className="absolute inset-0 bg-cyan-500/5 group-hover:bg-cyan-500/10 transition-colors"></div>
               <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover rounded-[3rem] opacity-40" alt="Live Sync" />

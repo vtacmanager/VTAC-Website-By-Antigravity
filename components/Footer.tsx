@@ -1,19 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-slate-950 border-t border-white/5 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-16 mb-24">
-          <div className="col-span-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 lg:gap-8 mb-24">
+          <div className="col-span-2 lg:col-span-2 pr-8">
             <Link to="/" className="flex items-center mb-10 group">
               <span className="text-2xl font-black tracking-tighter text-white">
-                VTAC <span className="text-slate-500 font-medium">MANAGER</span>
+                VTAC <span className="text-cyan-400 font-black">MANAGER</span>
               </span>
             </Link>
             <p className="text-slate-400 max-w-sm mb-10 text-lg leading-relaxed font-medium">
-              The world's first unified platform for sports management and interactive tactical mastery.
+              {t('footer.slogan')}
             </p>
             <div className="flex space-x-6 opacity-30">
               {['Twitter', 'Instagram', 'LinkedIn', 'YouTube'].map(s => (
@@ -22,28 +25,52 @@ const Footer: React.FC = () => {
             </div>
           </div>
           <div>
-            <h4 className="text-white font-black uppercase tracking-widest text-xs mb-8">Platform</h4>
+            <h4 className="text-white font-black uppercase tracking-widest text-xs mb-8">{t('footer.product.title')}</h4>
             <ul className="space-y-4 text-slate-400 text-sm font-bold">
-              <li><Link to="/platform" className="hover:text-cyan-400 transition-colors">Tactical Engine</Link></li>
-              <li><Link to="/platform" className="hover:text-cyan-400 transition-colors">Management Suite</Link></li>
-              <li><Link to="/pricing" className="hover:text-cyan-400 transition-colors">Pricing Plans</Link></li>
+              <li><Link to="/ihub" className="hover:text-cyan-400 transition-colors">{t('footer.product.ihub')}</Link></li>
+              <li><Link to="/football#step-1" className="hover:text-cyan-400 transition-colors">{t('footer.product.howItWorks')}</Link></li>
+              <li><Link to="/football#step-2" className="hover:text-cyan-400 transition-colors">{t('footer.product.remoteInteractive')}</Link></li>
+              <li><Link to="/pricing" className="hover:text-cyan-400 transition-colors">{t('footer.product.pricing')}</Link></li>
+              <li><Link to="/book-demo" className="hover:text-cyan-400 transition-colors">{t('footer.product.bookDemo')}</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-black uppercase tracking-widest text-xs mb-8">Solutions</h4>
+            <h4 className="text-white font-black uppercase tracking-widest text-xs mb-8">{t('footer.teamSports.title')}</h4>
             <ul className="space-y-4 text-slate-400 text-sm font-bold">
-              <li><Link to="/solutions" className="hover:text-cyan-400 transition-colors">For Academies</Link></li>
-              <li><Link to="/solutions" className="hover:text-cyan-400 transition-colors">For Pro Coaches</Link></li>
-              <li><Link to="/solutions" className="hover:text-cyan-400 transition-colors">Multi-Sport Orgs</Link></li>
+              <li><Link to="/football" className="hover:text-cyan-400 transition-colors">{t('footer.teamSports.football')}</Link></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.teamSports.basketball')}</span></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.teamSports.rugby')}</span></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.teamSports.americanFootball')}</span></li>
+              <li><span className="text-slate-600 text-[10px] uppercase tracking-widest">{t('footer.teamSports.more')}</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-black uppercase tracking-widest text-xs mb-8">{t('footer.solutions.title')}</h4>
+            <ul className="space-y-4 text-slate-400 text-sm font-bold">
+              <li><Link to="/solutions" className="hover:text-cyan-400 transition-colors">{t('footer.solutions.schools')}</Link></li>
+              <li><Link to="/solutions" className="hover:text-cyan-400 transition-colors">{t('footer.solutions.academies')}</Link></li>
+              <li><Link to="/solutions" className="hover:text-cyan-400 transition-colors">{t('footer.solutions.proClubs')}</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-black uppercase tracking-widest text-xs mb-8">{t('footer.resources.title')}</h4>
+            <ul className="space-y-4 text-slate-400 text-sm font-bold">
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.news')}</span></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.blog')}</span></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.videoTutorials')}</span></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.supports')}</span></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.career')}</span></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.affiliate')}</span></li>
+              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.aboutUs')}</span></li>
             </ul>
           </div>
         </div>
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs font-black uppercase tracking-[0.3em]">
-          <p>© 2024 VTAC Manager Technologies. Built on Patented Technology.</p>
+          <p>{t('footer.copyright')}</p>
           <div className="flex space-x-10 mt-6 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Security</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.links.terms')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.links.privacy')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.links.security')}</a>
           </div>
         </div>
       </div>

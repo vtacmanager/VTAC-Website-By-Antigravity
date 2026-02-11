@@ -11,8 +11,10 @@ const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileTeamSportOpen, setIsMobileTeamSportOpen] = useState(false);
+  const [isMobileResourcesOpen, setIsMobileResourcesOpen] = useState(false);
   const location = useLocation();
   const { user, isLoggedIn, logout } = useAuth();
 
@@ -26,6 +28,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsMobileTeamSportOpen(false);
+    setIsMobileResourcesOpen(false);
   }, [location]);
 
   const teamSports = [
@@ -35,6 +38,16 @@ const Navbar: React.FC = () => {
     { label: 'RUGBY', href: '#', active: false },
     { label: 'HOCKEY', href: '#', active: false },
     { label: 'LACROSSE', href: '#', active: false },
+  ];
+
+  const resourcesItems = [
+    { label: t('footer.resources.news'), href: '#' },
+    { label: t('footer.resources.blog'), href: '#' },
+    { label: t('footer.resources.videoTutorials'), href: '#' },
+    { label: t('footer.resources.supports'), href: '#' },
+    { label: t('footer.resources.career'), href: '#' },
+    { label: t('footer.resources.affiliate'), href: '#' },
+    { label: t('footer.resources.aboutUs'), href: '#' },
   ];
 
   return (
@@ -105,6 +118,33 @@ const Navbar: React.FC = () => {
             >
               {t('nav.pricing')}
             </Link>
+
+            {/* RESOURCES Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setIsResourcesOpen(true)}
+              onMouseLeave={() => setIsResourcesOpen(false)}
+            >
+              <button
+                className="flex items-center gap-1.5 text-sm font-black uppercase tracking-widest text-slate-300 hover:text-white transition-colors"
+              >
+                {t('nav.resources')}
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isResourcesOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${isResourcesOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}>
+                <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 p-2 rounded-2xl shadow-2xl min-w-[200px]">
+                  {resourcesItems.map((item, i) => (
+                    <div
+                      key={i}
+                      className="block px-5 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] text-slate-600 cursor-not-allowed select-none transition-all"
+                    >
+                      {item.label}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="hidden lg:flex items-center space-x-6 border-l border-white/10 pl-6 ml-6">
@@ -222,6 +262,28 @@ const Navbar: React.FC = () => {
           >
             {t('nav.pricing')}
           </Link>
+
+          {/* Mobile RESOURCES with Toggle */}
+          <div className="space-y-4">
+            <button
+              onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
+              className="flex items-center justify-between w-full text-lg font-black uppercase tracking-widest text-slate-300"
+            >
+              {t('nav.resources')}
+              <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${isMobileResourcesOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            <div className={`space-y-2 pl-4 border-l border-white/10 transition-all duration-300 ${isMobileResourcesOpen ? 'block' : 'hidden'}`}>
+              {resourcesItems.map((item, i) => (
+                <div
+                  key={i}
+                  className="py-3 text-xs font-black uppercase tracking-[0.2em] text-slate-700"
+                >
+                  {item.label}
+                </div>
+              ))}
+            </div>
+          </div>
 
           <div className="pt-6 border-t border-white/10">
             {isLoggedIn ? (

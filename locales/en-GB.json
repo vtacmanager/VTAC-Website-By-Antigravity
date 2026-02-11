@@ -8,7 +8,8 @@
         "register": "Register",
         "account": "Account",
         "signOut": "Sign Out",
-        "signedInAs": "Signed in as"
+        "signedInAs": "Signed in as",
+        "resources": "Resources"
     },
     "home": {
         "hero": {
@@ -851,6 +852,47 @@
             "submitSubtext": "No commitment required. Let’s just see if we’re a fit.",
             "successTitle": "Victory Starts Here.",
             "successMessage": "Thank you for reaching out. VTAC MANAGER performance expert will review your goals and confirm your demo time via email soon. Get ready to see your field of play in a whole new light."
+        }
+    },
+    "footer": {
+        "slogan": "The world's first unified platform for team sports management and interactive tactical mastery.",
+        "product": {
+            "title": "PRODUCT",
+            "ihub": "iHUB",
+            "howItWorks": "How It Works",
+            "remoteInteractive": "Remote Interactive Way",
+            "pricing": "Pricing",
+            "bookDemo": "Book a Demo"
+        },
+        "solutions": {
+            "title": "SOLUTIONS",
+            "schools": "For Schools",
+            "academies": "For Academies",
+            "proClubs": "For Pro Clubs"
+        },
+        "teamSports": {
+            "title": "TEAM SPORTS",
+            "football": "Football / Soccer",
+            "basketball": "Basketball",
+            "rugby": "Rugby",
+            "americanFootball": "American Football",
+            "more": "More coming soon"
+        },
+        "resources": {
+            "title": "RESOURCES",
+            "news": "News",
+            "blog": "Blog",
+            "videoTutorials": "Video Tutorials",
+            "supports": "Supports",
+            "career": "Career",
+            "affiliate": "Affiliate",
+            "aboutUs": "About Us"
+        },
+        "copyright": "© 2024 VTAC Manager Technologies. Built on Patented Technology.",
+        "links": {
+            "terms": "Terms",
+            "privacy": "Privacy",
+            "security": "Security"
         }
     }
 }

@@ -447,7 +447,7 @@ const Football: React.FC = () => {
       </SectionWrapper >
 
       {/* 3. [THE SOLUTION] REMOTE RESILIENCE (Reused Section 3) */}
-      < SectionWrapper className="bg-slate-950 relative overflow-hidden" >
+      <SectionWrapper id="section-3" className="bg-slate-950 relative overflow-hidden" >
         {/* Background Gradients */}
         < div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" ></div >
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-green-600/10 blur-[120px] rounded-full pointer-events-none"></div>

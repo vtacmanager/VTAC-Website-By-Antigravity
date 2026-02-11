@@ -14,12 +14,23 @@ const Football = lazy(() => import('./pages/Football.tsx'));
 const Pricing = lazy(() => import('./pages/Pricing.tsx'));
 const Login = lazy(() => import('./pages/Login.tsx'));
 const Register = lazy(() => import('./pages/Register.tsx'));
+const BookDemo = lazy(() => import('./pages/BookDemo.tsx'));
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
   return null;
 };
 
@@ -47,6 +58,7 @@ const App: React.FC = () => {
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/book-demo" element={<BookDemo />} />
               </Routes>
             </Suspense>
           </main>
