@@ -19,7 +19,7 @@
                 "line3": "INTERACTIVE TRAINING"
             },
             "subtitle": "The complete digital ecosystem for modern sports. From smart scheduling and live match updates to automated player development and the world's first multiplayer tactical engine - everything your club needs to win, on and off the pitch.",
-            "requestDemo": "REQUEST DEMO",
+            "requestDemo": "BOOK A DEMO",
             "startTrial": "START FREE TRIAL",
             "ultraTactical": "ULTRA TACTICAL 4K"
         },
@@ -791,6 +791,66 @@
             "subtitle": "Join the elite organisations redefining training standards with",
             "btnDemo": "Book a Demo",
             "btnTrial": "Start Trial"
+        }
+    },
+    "bookDemo": {
+        "hero": {
+            "badge": "THE FIRST STEP TO VICTORY",
+            "title": {
+                "line1": "Experience",
+                "line2": "The Future",
+                "line3": "of Your Team"
+            },
+            "subtitle": {
+                "line1": "Don't just take our word for it — see it in action.",
+                "line2": "Join our performance experts for a personalised tour of VTAC MANAGER",
+                "line3": "and discover how we redefine tactical execution for the modern era."
+            }
+        },
+        "form": {
+            "personal": "Personal Details",
+            "organization": "Organisation",
+            "goals": "Goals & Logistics",
+            "firstName": "First Name",
+            "lastName": "Surname",
+            "email": "Work Email",
+            "phone": "Phone Number",
+            "orgName": "Team / Organisation",
+            "role": "Position",
+            "roleOptions": {
+                "headCoach": "Head Coach",
+                "director": "Director of Coaching",
+                "teamManager": "Team Manager",
+                "athleticDirector": "Athletic Director",
+                "academyOwner": "Academy Owner",
+                "player": "Player",
+                "parent": "Parent",
+                "other": "Other"
+            },
+            "otherRole": "Please specify your position",
+            "segment": "Which segment describes you best?",
+            "segmentOptions": {
+                "amateur": "VTAC Amateur > Single Team",
+                "scholastic": "VTAC Scholastic > School, University",
+                "academy": "VTAC Academy > Academy, Club",
+                "pro": "VTAC Semi-Pro / VTAC Pro"
+            },
+            "goal": "What is your primary goal?",
+            "goalOptions": {
+                "tactical": "Improving Tactical Clarity",
+                "admin": "Saving Administrative Time",
+                "engagement": "Enhancing Player Engagement",
+                "legacy": "Building a Digital Legacy",
+                "other": "Other"
+            },
+            "otherGoal": "Please specify your goal",
+            "preferredTime": "Preferred Time",
+            "timezone": "Time Zone",
+            "message": "Message",
+            "submit": "Schedule My Live Demo",
+            "submitSubtext": "No commitment required. Let’s just see if we’re a fit.",
+            "successTitle": "Victory Starts Here.",
+            "successMessage": "Thank you for reaching out. VTAC MANAGER performance expert will review your goals and confirm your demo time via email soon. Get ready to see your field of play in a whole new light."
         }
     }
 }

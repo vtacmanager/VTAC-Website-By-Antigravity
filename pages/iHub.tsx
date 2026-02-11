@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import {
   SectionWrapper,
   GradientBackground,
@@ -273,11 +274,11 @@ const IHub: React.FC = () => {
             <span>{t('platform.hero.badge')}</span>
           </div>
 
-          <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase pt-8 pb-0">
+          <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase pt-8 pb-0 overflow-visible">
             {i18n.language === 'th' ? (
               <>
-                <span className="text-4xl md:text-[6rem] block leading-tight -mb-10">{t('platform.hero.title.line1')}</span>
-                <span className="gradient-text text-5xl md:text-[7rem] block tracking-tight leading-normal italic py-2 px-4">{t('platform.hero.title.line2')}</span>
+                <span className="text-5xl md:text-[7rem] block tracking-tight leading-[1.3] italic mb-2">{t('platform.hero.title.line1')}</span>
+                <span className="gradient-text text-5xl md:text-[7rem] inline-block tracking-tight leading-[1.3] italic py-8 px-10 box-decoration-clone -mt-14">{t('platform.hero.title.line2')}</span>
               </>
             ) : (
               <>
@@ -440,9 +441,9 @@ const IHub: React.FC = () => {
             <LayoutDashboard className="w-4 h-4" />
             <span>{t('platform.capabilities.badge')}</span>
           </div>
-          <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.85] mb-[56px]">
+          <h2 className="text-4xl md:text-[5.25rem] lg:text-8xl font-black tracking-tighter uppercase italic leading-[1.1] mb-[56px] whitespace-pre-line overflow-visible">
             {t('platform.capabilities.title.line1')} <br />
-            <span className="gradient-text pr-4">{t('platform.capabilities.title.line2')}</span>
+            <span className="gradient-text pr-10 md:pr-16 box-decoration-clone inline-block -mt-2 py-4">{t('platform.capabilities.title.line2')}</span>
           </h2>
           <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase max-w-5xl mx-auto whitespace-pre-line">
             {t('platform.capabilities.subtitle')}
@@ -857,10 +858,13 @@ const IHub: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
                 {/* Primary Button */}
-                <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center">
+                <Link
+                  to="/book-demo"
+                  className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center font-sans"
+                >
                   <span className="relative z-10">{t('platform.cta.btnDemo')}</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
-                </button>
+                </Link>
 
                 {/* Secondary Button */}
                 <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center">

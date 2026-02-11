@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next'; // Added import
+import { Link } from 'react-router-dom';
 import { SectionWrapper, CTASection, GradientBackground } from '../components/UI.tsx';
 import {
   Trophy,
@@ -1052,10 +1053,13 @@ const Football: React.FC = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
                   {/* Primary Button */}
-                  <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center">
+                  <Link
+                    to="/book-demo"
+                    className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center"
+                  >
                     <span className="relative z-10">{t('football.cta.btnDemo')}</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
-                  </button>
+                  </Link>
 
                   {/* Secondary Button */}
                   <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   SectionWrapper,
@@ -451,9 +452,12 @@ const Home: React.FC = () => {
             {t('home.hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full px-6 sm:px-0 mt-8">
-            <button className="bg-white text-black text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-cyan-400 transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-cyan-500/20 uppercase w-full sm:w-auto">
+            <Link
+              to="/book-demo"
+              className="bg-white text-black text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-cyan-400 transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-cyan-500/20 uppercase w-full sm:w-auto flex items-center justify-center font-sans tracking-tight"
+            >
               {t('home.hero.requestDemo')}
-            </button>
+            </Link>
             <button className="glass-card text-white text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-white/10 transition-all border border-white/10 active:scale-95 uppercase w-full sm:w-auto">
               {t('home.hero.startTrial')}
             </button>
@@ -1043,10 +1047,13 @@ const Home: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-6">
                 {/* Primary Button */}
-                <button className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center min-w-[200px]">
+                <Link
+                  to="/book-demo"
+                  className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center min-w-[200px]"
+                >
                   <span className="relative z-10">{t('home.cta.button')}</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
-                </button>
+                </Link>
 
                 {/* Secondary Button */}
                 <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center min-w-[200px]">
