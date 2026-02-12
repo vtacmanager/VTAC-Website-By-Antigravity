@@ -627,7 +627,7 @@ const Home: React.FC = () => {
             </div>
             <h2 className={`text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter uppercase text-center flex flex-col items-center py-4 italic ${i18n.language.startsWith('th') ? 'leading-[1.3]' : 'leading-[1.05]'}`}>
               <span className={`text-white block overflow-visible ${i18n.language.startsWith('th') ? 'py-4 px-2 whitespace-nowrap' : ''}`}>{t('home.management.title.beyond')}</span>
-              <span className={`gradient-text block overflow-visible whitespace-pre-line ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-8' : 'pr-8'}`}>{t('home.management.title.management')}&nbsp;</span>
+              <span className={`gradient-text block overflow-visible whitespace-pre-line ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-8' : 'md:pr-8'}`}>{t('home.management.title.management')}</span>
             </h2>
           </div>
         }
@@ -730,11 +730,11 @@ const Home: React.FC = () => {
             <span>{t('home.coverage.badge')}</span>
           </div>
           <h2 className={`font-black uppercase flex flex-col items-center italic overflow-visible tracking-tighter ${i18n.language.startsWith('th') ? 'leading-[1.15]' : 'leading-[1.05]'}`}>
-            <span className={`text-3xl xs:text-4xl md:text-8xl text-white block ${i18n.language.startsWith('th') ? 'py-4 px-2' : ''}`}>{t('home.coverage.title.what')}</span>
+            <span className={`text-3xl xs:text-4xl ${i18n.language.startsWith('th') ? 'md:text-7xl' : 'md:text-8xl'} text-white block ${i18n.language.startsWith('th') ? 'py-4 px-2' : ''}`}>{t('home.coverage.title.what')}</span>
             <div className="relative overflow-visible">
-              <span className={`text-3xl xs:text-4xl md:text-8xl gradient-text whitespace-nowrap px-12 block ${i18n.language.startsWith('th') ? 'py-6 -mt-8 md:-mt-4' : 'py-0'}`}>{t('home.coverage.title.vtacManager')}</span>
+              <span className={`text-3xl xs:text-4xl ${i18n.language.startsWith('th') ? 'md:text-7xl' : 'md:text-8xl'} gradient-text block px-12 ${i18n.language.startsWith('th') ? 'py-6 -mt-10 md:-mt-8 whitespace-nowrap md:whitespace-normal text-center' : 'py-0 whitespace-nowrap'}`}>{t('home.coverage.title.vtacManager')}</span>
             </div>
-            <span className={`text-3xl xs:text-4xl md:text-8xl text-white block ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-8 md:-mt-4 whitespace-nowrap' : ''}`}>{t('home.coverage.title.covers')}</span>
+            <span className={`text-3xl xs:text-4xl ${i18n.language.startsWith('th') ? 'md:text-7xl' : 'md:text-8xl'} text-white block ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-10 md:-mt-8 whitespace-nowrap md:whitespace-normal text-center' : ''}`}>{t('home.coverage.title.covers')}</span>
           </h2>
         </div>
 
