@@ -274,13 +274,13 @@ const IHub: React.FC = () => {
             <span>{t('platform.hero.badge')}</span>
           </div>
 
-          <h1 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase text-center italic overflow-visible animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 ${i18n.language.startsWith('th') ? 'leading-[1.5]' : 'leading-[0.9]'}`}>
+          <h1 className={`text-4xl xs:text-5xl md:text-8xl font-black uppercase text-center italic overflow-visible animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 ${i18n.language.startsWith('th') ? 'leading-[1.6] tracking-normal' : 'leading-[0.9] tracking-tighter'}`}>
             {i18n.language.startsWith('th') ? (
               <>
-                <span className="text-white block py-6 px-4 overflow-visible">
+                <span className="text-white block py-8 px-4 overflow-visible">
                   {t('platform.hero.title.line1')}
                 </span>
-                <span className={`gradient-text block overflow-visible px-4 py-6`}>
+                <span className={`gradient-text block overflow-visible px-4 py-8 box-decoration-clone`}>
                   {t('platform.hero.title.line2')}
                 </span>
               </>
