@@ -730,11 +730,11 @@ const Home: React.FC = () => {
             <span>{t('home.coverage.badge')}</span>
           </div>
           <h2 className={`font-black uppercase flex flex-col items-center italic overflow-visible tracking-tighter ${i18n.language.startsWith('th') ? 'leading-[1.15]' : 'leading-[1.05]'}`}>
-            <span className={`text-3xl xs:text-4xl md:text-8xl text-white block ${i18n.language.startsWith('th') ? 'py-4' : ''}`}>{t('home.coverage.title.what')}</span>
+            <span className={`text-3xl xs:text-4xl md:text-8xl text-white block ${i18n.language.startsWith('th') ? 'py-4 px-2' : ''}`}>{t('home.coverage.title.what')}</span>
             <div className="relative overflow-visible">
-              <span className={`text-3xl xs:text-4xl md:text-8xl gradient-text whitespace-nowrap px-12 block ${i18n.language.startsWith('th') ? 'py-6 -mt-4' : 'py-0'}`}>{t('home.coverage.title.vtacManager')}</span>
+              <span className={`text-3xl xs:text-4xl md:text-8xl gradient-text whitespace-nowrap px-12 block ${i18n.language.startsWith('th') ? 'py-6 -mt-8 md:-mt-4' : 'py-0'}`}>{t('home.coverage.title.vtacManager')}</span>
             </div>
-            <span className={`text-3xl xs:text-4xl md:text-8xl text-white block ${i18n.language.startsWith('th') ? 'py-4 -mt-4' : ''}`}>{t('home.coverage.title.covers')}</span>
+            <span className={`text-3xl xs:text-4xl md:text-8xl text-white block ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-8 md:-mt-4 whitespace-nowrap' : ''}`}>{t('home.coverage.title.covers')}</span>
           </h2>
         </div>
 
