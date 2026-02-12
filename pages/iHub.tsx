@@ -258,11 +258,11 @@ const IHub: React.FC = () => {
   return (
     <div className="bg-slate-950 text-white selection:bg-cyan-500/30">
       {/* 1. Platform Overview: One Connected System */}
-      <header className="relative flex flex-col items-center text-center px-6 overflow-hidden pt-12 pb-10">
+      <header className="relative flex flex-col items-center text-center px-6 overflow-visible pt-12 pb-10">
         <GradientBackground />
 
         {/* Subtle schematic background element */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-cyan-500/20 rounded-full"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-blue-500/20 rounded-full"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-purple-500/20 rounded-full"></div>
@@ -277,10 +277,10 @@ const IHub: React.FC = () => {
           <h1 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase text-center italic overflow-visible animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 ${i18n.language.startsWith('th') ? 'leading-[1.5]' : 'leading-[0.9]'}`}>
             {i18n.language.startsWith('th') ? (
               <>
-                <span className="text-white block py-4 overflow-visible">
+                <span className="text-white block py-6 px-4 overflow-visible">
                   {t('platform.hero.title.line1')}
                 </span>
-                <span className={`gradient-text block overflow-visible px-4 py-4 -mt-2`}>
+                <span className={`gradient-text block overflow-visible px-4 py-6`}>
                   {t('platform.hero.title.line2')}
                 </span>
               </>
