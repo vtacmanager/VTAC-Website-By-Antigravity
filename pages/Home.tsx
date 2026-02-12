@@ -438,13 +438,13 @@ const Home: React.FC = () => {
               <span className={`gradient-text block tracking-tighter relative z-20 ${i18n.language.startsWith('th') ? 'text-4xl md:text-[5.5rem] lg:text-[8rem] -mt-4 leading-normal py-4 whitespace-nowrap' : 'text-4xl md:text-[6.5rem] leading-[0.9]'}`}>{t('home.hero.title.line2')}</span>
             )}
             {t('home.hero.title.line3') && (
-              <div className="relative inline-block overflow-visible">
+              <div className="relative inline-block overflow-visible w-full">
                 {/* Animated Background Glow */}
-                <div className="absolute -inset-4 bg-orange-500/30 blur-[40px] rounded-full animate-[breathe-glow_4s_ease-in-out_infinite]"></div>
-                <span className={`relative block tracking-tight leading-[0.9] italic pr-8 overflow-visible ${i18n.language.startsWith('th') ? 'text-2xl md:text-[3.5rem]' : 'text-3xl md:text-[5rem]'}`} style={{
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-2/3 bg-orange-500/30 blur-[40px] rounded-full animate-[breathe-glow_4s_ease-in-out_infinite] pointer-events-none"></div>
+                <span className={`relative block tracking-tight leading-[0.9] italic px-4 overflow-visible ${i18n.language.startsWith('th') ? 'text-2xl md:text-[3.5rem]' : 'text-3xl md:text-[5rem]'}`} style={{
                   color: '#fb923c',
                   filter: 'drop-shadow(0 0 25px rgba(251, 146, 60, 0.8)) drop-shadow(0 0 50px rgba(251, 146, 60, 0.4))'
-                }}>{t('home.hero.title.line3')}&nbsp;</span>
+                }}>{t('home.hero.title.line3')}</span>
               </div>
             )}
           </h1>
