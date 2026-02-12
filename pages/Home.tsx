@@ -626,8 +626,8 @@ const Home: React.FC = () => {
               <span>{t('home.management.badge')}</span>
             </div>
             <h2 className={`text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter uppercase text-center flex flex-col items-center py-4 italic ${i18n.language.startsWith('th') ? 'leading-[1.3]' : 'leading-[1.05]'}`}>
-              <span className={`text-white block overflow-visible ${i18n.language.startsWith('th') ? 'py-4 px-2 whitespace-nowrap' : ''}`}>{t('home.management.title.beyond')}</span>
-              <span className={`gradient-text block overflow-visible whitespace-pre-line ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-8' : 'md:pr-8'}`}>{t('home.management.title.management')}</span>
+              <span className={`text-white block overflow-visible ${i18n.language.startsWith('th') ? 'py-4 px-2 whitespace-nowrap' : 'px-4'}`}>{t('home.management.title.beyond')}</span>
+              <span className={`gradient-text block overflow-visible whitespace-pre-line ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-8' : 'px-4 md:pr-8'}`}>{t('home.management.title.management')}</span>
             </h2>
           </div>
         }
@@ -662,11 +662,11 @@ const Home: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 lg:items-stretch gap-8 md:gap-12 max-w-7xl mx-auto px-4 md:px-0 mt-16">
+          <div className="grid lg:grid-cols-2 lg:items-stretch gap-8 md:gap-12 max-w-7xl mx-auto px-2 md:px-0 mt-16">
             {/* The Old Way */}
             <div className={`relative group min-h-full transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'scale-[1.02]' : 'scale-100'}`}>
               <div className={`absolute -inset-1 bg-gradient-to-b from-red-500/20 to-transparent blur-xl transition-opacity duration-1000 ${activeEvolutionGlow === 0 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}></div>
-              <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-8 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'border-red-500/20 bg-[#1a1a1a]/60' : 'border-white/5 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
+              <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-6 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'border-red-500/20 bg-[#1a1a1a]/60' : 'border-white/5 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
                     <span className="text-red-500/60 text-base font-black uppercase tracking-widest leading-none">{t('home.evolution.legacy.badge')}</span>
@@ -679,7 +679,7 @@ const Home: React.FC = () => {
 
                 <div className="grid gap-6">
                   {(t('home.evolution.legacy.items', { returnObjects: true }) as Array<{ title: string; desc: string }>).map((item, i) => (
-                    <div key={i} className="flex gap-6 p-6 rounded-3xl bg-white/[0.02] border border-white/5 group/item hover:bg-red-500/[0.03] transition-colors">
+                    <div key={i} className="flex gap-4 p-4 md:p-6 rounded-3xl bg-white/[0.02] border border-white/5 group/item hover:bg-red-500/[0.03] transition-colors">
                       <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
                       <div className="space-y-1">
                         <span className="text-white/80 font-black uppercase text-sm tracking-tight">{item.title}</span>
@@ -694,7 +694,7 @@ const Home: React.FC = () => {
             {/* The VTAC Way */}
             <div className={`relative group min-h-full transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'scale-[1.02]' : 'scale-100'}`}>
               <div className={`absolute -inset-1 bg-gradient-to-b from-cyan-500/20 to-transparent blur-xl transition-opacity duration-1000 ${activeEvolutionGlow === 1 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}></div>
-              <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-8 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'border-cyan-500/40 bg-[#1a1a1a]/60' : 'border-cyan-500/20 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
+              <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-6 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'border-cyan-500/40 bg-[#1a1a1a]/60' : 'border-cyan-500/20 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
                     <span className="text-cyan-400 text-base font-black uppercase tracking-widest leading-none">{t('home.evolution.vtac.badge')}</span>
@@ -707,7 +707,7 @@ const Home: React.FC = () => {
 
                 <div className="grid gap-6">
                   {(t('home.evolution.vtac.items', { returnObjects: true }) as Array<{ title: string; desc: string }>).map((item, i) => (
-                    <div key={i} className="flex gap-6 p-6 rounded-3xl bg-cyan-500/[0.05] border border-cyan-500/10 group/item hover:bg-cyan-500/[0.08] transition-colors">
+                    <div key={i} className="flex gap-4 p-4 md:p-6 rounded-3xl bg-cyan-500/[0.05] border border-cyan-500/10 group/item hover:bg-cyan-500/[0.08] transition-colors">
                       <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0 shadow-[0_0_10px_rgba(34,211,238,0.8)] group-hover/item:scale-150 transition-transform"></div>
                       <div className="space-y-1">
                         <span className="text-white font-black uppercase text-sm tracking-tight">{item.title}</span>
