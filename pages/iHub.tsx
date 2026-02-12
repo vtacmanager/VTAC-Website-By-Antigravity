@@ -277,10 +277,10 @@ const IHub: React.FC = () => {
           <h1 className={`text-4xl xs:text-5xl md:text-8xl font-black uppercase text-center italic overflow-visible animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 ${i18n.language.startsWith('th') ? 'leading-[1.6] tracking-normal' : 'leading-[0.9] tracking-tighter'}`}>
             {i18n.language.startsWith('th') ? (
               <>
-                <span className="text-white block py-4 px-4 overflow-visible">
+                <span className="text-white block py-6 px-4 overflow-visible">
                   {t('platform.hero.title.line1')}
                 </span>
-                <span className={`gradient-text block overflow-visible px-4 py-4 -mt-2 md:-mt-4 box-decoration-clone`}>
+                <span className={`gradient-text block overflow-visible px-4 py-12 -mt-16 md:-mt-20 box-decoration-clone relative z-10`}>
                   {t('platform.hero.title.line2')}
                 </span>
               </>
