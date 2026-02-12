@@ -274,17 +274,21 @@ const IHub: React.FC = () => {
             <span>{t('platform.hero.badge')}</span>
           </div>
 
-          <h1 className="font-black tracking-tighter text-white animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 uppercase pt-8 pb-0 overflow-visible">
+          <h1 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase text-center italic overflow-visible animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100 ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
             {i18n.language === 'th' ? (
               <>
-                <span className="text-5xl md:text-[7rem] block tracking-tight leading-[1.3] italic mb-2">{t('platform.hero.title.line1')}</span>
-                <span className="gradient-text text-5xl md:text-[7rem] inline-block tracking-tight leading-[1.3] italic py-8 px-10 box-decoration-clone -mt-14">{t('platform.hero.title.line2')}</span>
+                <span className="text-white block py-2 overflow-visible">
+                  {t('platform.hero.title.line1')}
+                </span>
+                <span className={`gradient-text block overflow-visible px-4 ${i18n.language === 'th' ? 'py-4 -mt-5' : 'py-2 -mt-10 md:-mt-6'}`}>
+                  {t('platform.hero.title.line2')}
+                </span>
               </>
             ) : (
               <>
-                <span className="text-5xl md:text-[7rem] block tracking-tight leading-none italic -mb-4">{t('platform.hero.title.line1')}</span>
-                <span className="gradient-text text-5xl md:text-[7rem] block tracking-tight leading-none italic -mb-4 py-0">{t('platform.hero.title.line2')}</span>
-                <span className="gradient-text text-5xl md:text-[7rem] block tracking-tight leading-none italic px-4">{t('platform.hero.title.line3')}</span>
+                <span className="text-white block py-2 overflow-visible">{t('platform.hero.title.line1')}</span>
+                <span className={`gradient-text block overflow-visible px-4 py-2 -mt-4 md:-mt-6`}>{t('platform.hero.title.line2')}</span>
+                <span className={`gradient-text block overflow-visible px-4 py-2 -mt-4 md:-mt-6`}>{t('platform.hero.title.line3')}</span>
               </>
             )}
           </h1>
@@ -306,17 +310,17 @@ const IHub: React.FC = () => {
               <Workflow className="w-3 h-3" />
               <span>{t('platform.workflow.badge')}</span>
             </div>
-            <h2 className={`text-4xl md:text-8xl font-black tracking-tighter uppercase italic ${i18n.language === 'th' ? 'leading-normal' : 'leading-none'} mb-[56px]`}>
+            <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center overflow-visible ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'} mb-[56px]`}>
               {i18n.language === 'th' ? (
                 <>
-                  <span className="text-white block">{t('platform.workflow.title.line1')}</span>
-                  <span className="text-white block">{t('platform.workflow.title.line2')}</span>
-                  <span className="gradient-text block py-4">{t('platform.workflow.title.line3')}</span>
+                  <span className="text-white block py-2 overflow-visible">{t('platform.workflow.title.line1')}</span>
+                  <span className="text-white block py-2 overflow-visible -mt-5 md:-mt-4">{t('platform.workflow.title.line2')}</span>
+                  <span className={`gradient-text block overflow-visible px-4 py-4 -mt-5 md:-mt-4`}>{t('platform.workflow.title.line3')}</span>
                 </>
               ) : (
                 <>
-                  <span className="text-white block">{t('platform.workflow.title.line1')}</span>
-                  <span className="gradient-text block">{t('platform.workflow.title.line2')}</span>
+                  <span className="text-white block py-2 overflow-visible">{t('platform.workflow.title.line1')}</span>
+                  <span className={`gradient-text block overflow-visible px-4 py-2 -mt-4 md:-mt-6`}>{t('platform.workflow.title.line2')}</span>
                 </>
               )}
             </h2>
@@ -441,9 +445,13 @@ const IHub: React.FC = () => {
             <LayoutDashboard className="w-4 h-4" />
             <span>{t('platform.capabilities.badge')}</span>
           </div>
-          <h2 className="text-4xl md:text-[5.25rem] lg:text-8xl font-black tracking-tighter uppercase italic leading-[1.1] mb-[56px] whitespace-pre-line overflow-visible">
-            {t('platform.capabilities.title.line1')} <br />
-            <span className="gradient-text pr-10 md:pr-16 box-decoration-clone inline-block -mt-2 py-4">{t('platform.capabilities.title.line2')}</span>
+          <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase text-center italic overflow-visible mb-[56px] ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
+            <span className="text-white block py-2 overflow-visible">
+              {t('platform.capabilities.title.line1')}
+            </span>
+            <span className={`gradient-text block overflow-visible px-4 ${i18n.language === 'th' ? 'py-4 -mt-5' : 'py-2 -mt-4 md:-mt-6'}`}>
+              {t('platform.capabilities.title.line2')}
+            </span>
           </h2>
           <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase max-w-5xl mx-auto whitespace-pre-line">
             {t('platform.capabilities.subtitle')}
@@ -536,9 +544,13 @@ const IHub: React.FC = () => {
             <BrainCircuit className="w-4 h-4" />
             <span>{t('platform.paradigm.badge')}</span>
           </div>
-          <h2 className={`text-4xl md:text-8xl font-black tracking-tighter uppercase italic ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.85]'} mb-6`}>
-            {t('platform.paradigm.title.line1')} <br />
-            <span className="gradient-text pr-4 block py-4 -mt-2">{t('platform.paradigm.title.line2')}</span>
+          <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase text-center italic overflow-visible mb-[56px] ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
+            <span className="text-white block py-2 overflow-visible">
+              {t('platform.paradigm.title.line1')}
+            </span>
+            <span className={`gradient-text block overflow-visible px-4 ${i18n.language === 'th' ? 'py-4 -mt-5' : 'py-2 -mt-4 md:-mt-6'}`}>
+              {t('platform.paradigm.title.line2')}
+            </span>
           </h2>
           <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed uppercase max-w-5xl mx-auto whitespace-pre-line">
             {t('platform.paradigm.subtitle')}
@@ -693,9 +705,13 @@ const IHub: React.FC = () => {
             <span>{t('platform.trust.badge')}</span>
           </div>
 
-          <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white py-2 mb-[56px]">
-            {t('platform.trust.title.line1')} <br />
-            <span className="gradient-text box-decoration-clone pr-10 pb-2">{t('platform.trust.title.line2')}</span>
+          <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase text-center italic overflow-visible mb-[56px] ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
+            <span className="text-white block py-2 overflow-visible">
+              {t('platform.trust.title.line1')}
+            </span>
+            <span className={`gradient-text block overflow-visible px-4 ${i18n.language === 'th' ? 'py-4 -mt-5' : 'py-2 -mt-4 md:-mt-6'}`}>
+              {t('platform.trust.title.line2')}
+            </span>
           </h2>
 
           <p className="text-lg md:text-xl text-slate-400 font-medium uppercase leading-relaxed max-w-5xl mx-auto whitespace-pre-line">
@@ -844,9 +860,13 @@ const IHub: React.FC = () => {
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
             <div className="relative z-10">
-              <h2 className={`text-4xl md:text-8xl font-black tracking-tighter ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.9]'} text-white italic uppercase mb-[56px]`}>
-                {t('platform.cta.title.line1')} <br />
-                <span className="gradient-text inline-block pr-6 py-4 -my-4">{t('platform.cta.title.line2')}</span>
+              <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase text-center italic overflow-visible mb-[56px] ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
+                <span className="text-white block py-2 overflow-visible">
+                  {t('platform.cta.title.line1')}
+                </span>
+                <span className={`gradient-text block overflow-visible px-4 ${i18n.language === 'th' ? 'py-4 -mt-5' : 'py-2 -mt-4 md:-mt-6'}`}>
+                  {t('platform.cta.title.line2')}
+                </span>
               </h2>
 
               <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto font-medium leading-tight italic border-x border-white/5 px-8 py-2 mb-8">

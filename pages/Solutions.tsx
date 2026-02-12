@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 
 const Solutions: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeSector, setActiveSector] = useState<'schools' | 'youth' | 'pro'>('schools');
 
   // Auto-slideshow functionality
@@ -164,9 +164,13 @@ const Solutions: React.FC = () => {
             <Layout className="w-3 h-3" />
             <span>{t('solutions.hero.badge')}</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white whitespace-pre-line">
-            {t('solutions.hero.title.line1')} <br />
-            <span className="gradient-text box-decoration-clone pr-10 py-1">{t('solutions.hero.title.line2')}</span>
+          <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-white flex flex-col items-center">
+            <span className={`block pt-8 pb-2 overflow-visible ${i18n.language === 'th' ? 'leading-[1.3]' : 'leading-[0.9]'}`}>
+              {t('solutions.hero.title.line1')}
+            </span>
+            <span className={`gradient-text inline-block pr-10 overflow-visible ${i18n.language === 'th' ? 'pt-10 pb-10 -mt-12 md:-mt-19' : 'py-2 -mt-4 md:-mt-5'}`}>
+              {t('solutions.hero.title.line2')}
+            </span>
           </h1>
           <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
             {t('solutions.hero.subtitle')}
@@ -330,14 +334,16 @@ const Solutions: React.FC = () => {
       {/* 4. The "Key Outcomes" Summary */}
       < SectionWrapper className="bg-slate-900/30 border-t border-white/5" >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-12">
+          <div className="text-center mb-16 space-y-9">
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-card text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] border border-blue-500/20">
               <Zap className="w-3 h-3" />
               <span>{t('solutions.advantage.badge')}</span>
             </div>
-            <h3 className="text-4xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9] text-white">
-              {t('solutions.advantage.title.line1')} <br />
-              <span className="gradient-text box-decoration-clone pr-6 py-2">{t('solutions.advantage.title.line2')}</span>
+            <h3 className={`text-4xl md:text-8xl font-black tracking-tighter uppercase italic text-white ${i18n.language === 'th' ? 'leading-[1.1] md:leading-[1.2]' : 'leading-[0.9]'}`}>
+              <span className="block pt-4 pb-0">{t('solutions.advantage.title.line1')}</span>
+              <span className={`gradient-text inline-block pr-6 overflow-visible relative ${i18n.language === 'th' ? 'pt-12 pb-12 -mt-24 md:-mt-36' : 'py-2 -mt-2 md:-mt-5'}`}>
+                {t('solutions.advantage.title.line2')}
+              </span>
             </h3>
             <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
               {t('solutions.advantage.subtitle')}

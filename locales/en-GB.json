@@ -894,5 +894,251 @@
             "privacy": "Privacy",
             "security": "Security"
         }
+    },
+    "pricing": {
+        "badge": "SCALABLE PERFORMANCE",
+        "title": {
+            "line1": "Unify Your Strategy",
+            "line2": "Elevate Your Results"
+        },
+        "subtitle": "Stop juggling multiple tools. Choose a plan that eliminates administrative friction and lets you focus 100% on interactive tactical mastery.",
+        "billing": {
+            "monthly": "MONTHLY",
+            "annually": "ANNUALLY",
+            "save": "-20%"
+        },
+        "plans": {
+            "single": {
+                "name": "VTAC SINGLE",
+                "tagline": "Independent Coaches / Single Teams",
+                "price": {
+                    "monthly": "£59",
+                    "annually": "£49"
+                },
+                "desc": "The foundation for high-performance individual team management.",
+                "features": [
+                    "1 Team Management",
+                    "Up to 20 Members",
+                    "1 Coach + 1 Manager Access",
+                    "Standard Interactive Tactics",
+                    "Basic Player Profiles"
+                ],
+                "cta": "Start Free Trial"
+            },
+            "multi": {
+                "name": "VTAC MULTI-TEAM",
+                "tagline": "Academies / Scholastic Programs",
+                "price": {
+                    "monthly": "£159",
+                    "annually": "£129"
+                },
+                "desc": "Scale your academy with seamless multi-team synchronization.",
+                "features": [
+                    "2 - 20 Teams Scale",
+                    "Cross-Team Switcher",
+                    "Digital CV (Portfolios) Included",
+                    "AI Squad Training Included",
+                    "Admin Overview Dashboard"
+                ],
+                "cta": "Get Started",
+                "popular": "Value Leader"
+            },
+            "enterprise": {
+                "name": "VTAC ENTERPRISE",
+                "tagline": "Professional Clubs / Large Organizations",
+                "price": "Custom",
+                "desc": "The ultimate institutional ecosystem for elite organizations.",
+                "features": [
+                    "20 - 50+ Teams Scale",
+                    "Unlimited Team Members",
+                    "Custom Club Branding",
+                    "Field Scheduling Module",
+                    "Priority Dedicated Support"
+                ],
+                "cta": "Contact Sales"
+            }
+        },
+        "comparison": {
+            "title": "ELITE SPECIFICATIONS",
+            "subtitle": "Drill down into the technical capabilities of each tier.",
+            "columns": {
+                "single": "VTAC SINGLE",
+                "multi": "VTAC MULTI",
+                "enterprise": "VTAC ENTERPRISE"
+            },
+            "groups": [
+                {
+                    "title": "Core Scale",
+                    "rows": [
+                        {
+                            "label": "Ideal For",
+                            "single": "Independent Coaches / Single Teams",
+                            "multi": "Academies / Scholastic Programs",
+                            "enterprise": "Professional Clubs / Large Organizations"
+                        },
+                        {
+                            "label": "Scale (Team Count)",
+                            "single": "1 Team",
+                            "multi": "2 - 20 Teams",
+                            "enterprise": "20 - 50+ Teams"
+                        },
+                        {
+                            "label": "Max Members per Team",
+                            "single": "Up to 20",
+                            "multi": "Up to 25",
+                            "enterprise": "Scalable"
+                        },
+                        {
+                            "label": "Staff Structure",
+                            "single": "1 Coach + 1 Manager",
+                            "multi": "1 Coach + 2 Assistants + 1 Manager",
+                            "enterprise": "Full Organizational Structure"
+                        }
+                    ]
+                },
+                {
+                    "title": "Tactical & Training",
+                    "rows": [
+                        {
+                            "label": "Interactive Tactical Engine",
+                            "single": "Standard Interactive",
+                            "multi": "Standard Interactive",
+                            "enterprise": "[CUSTOM] Club Theme"
+                        },
+                        {
+                            "label": "Training with AI Squad",
+                            "single": "Optional Add-on",
+                            "multi": "✓ Included",
+                            "enterprise": "✓ Included"
+                        },
+                        {
+                            "label": "Digital CV (Portfolios)",
+                            "single": "Optional Add-on",
+                            "multi": "✓ Included (Isolated Data)",
+                            "enterprise": "✓ Included (Full Portability)"
+                        }
+                    ]
+                },
+                {
+                    "title": "Operations & Branding",
+                    "rows": [
+                        {
+                            "label": "Unified Switcher Access",
+                            "single": "—",
+                            "multi": "✓ Seamless Cross-Team",
+                            "enterprise": "✓ Seamless Cross-Team"
+                        },
+                        {
+                            "label": "Management Dashboard",
+                            "single": "—",
+                            "multi": "✓ Admin Overview",
+                            "enterprise": "✓ Advanced Ops Dashboard"
+                        },
+                        {
+                            "label": "Custom Branding",
+                            "single": "VTAC Standard",
+                            "multi": "VTAC Standard",
+                            "enterprise": "✓ Club Logo & Brand Colors"
+                        },
+                        {
+                            "label": "Field Scheduling",
+                            "single": "—",
+                            "multi": "—",
+                            "enterprise": "✓ Resource Management Module"
+                        },
+                        {
+                            "label": "Support Level",
+                            "single": "Standard",
+                            "multi": "Standard",
+                            "enterprise": "✓ Priority / Dedicated Consultant"
+                        }
+                    ]
+                }
+            ]
+        },
+        "advantage": {
+            "badge": "THE STRATEGIC EDGE",
+            "title": {
+                "line1": "EXCELLENCE",
+                "line2": "YOU CAN ACTUALLY FEEL"
+            },
+            "subtitle": "Experience the transformation. Designed to eliminate administrative friction and unlock peak team performance.",
+            "cards": {
+                "efficiency": {
+                    "value": "10+ HRS",
+                    "label": "Efficiency Gained",
+                    "desc": "Save 10+ hours of administration per week. Automate the mundane, focus on the strategy."
+                },
+                "engagement": {
+                    "value": "100%",
+                    "label": "Player Engagement",
+                    "desc": "Achieve 100% player participation in tactical prep through interactive, gamified learning."
+                },
+                "legacy": {
+                    "value": "LIFETIME",
+                    "label": "Digital Legacy",
+                    "desc": "Build a verified professional digital legacy for every member of your organisation."
+                }
+            }
+        },
+        "cta": {
+            "title": {
+                "line1": "READY FOR THE\nNEXT TRAINING",
+                "line2": "ON 5G PITCH?"
+            },
+            "subtitle": "Join the elite organisations redefining training standards with",
+            "btnDemo": "Book a Demo",
+            "btnTrial": "Start Trial"
+        },
+        "faq": {
+            "badge": "CLEAR THE FIELD",
+            "title": "Frequently Asked Questions",
+            "subtitle": "Clearing Your Doubts Before Kick-off",
+            "groups": [
+                {
+                    "name": "Simplicity & Setup",
+                    "items": [
+                        {
+                            "q": "How much tech expertise do I need to use VTAC MANAGER?",
+                            "a": "If you can play a mobile game or use social media, you can use VTAC. Our system is built on Gamification principles, making it intuitive for veteran coaches and young athletes (Gen Z/Alpha) to master within minutes."
+                        },
+                        {
+                            "q": "Does the system require any special hardware?",
+                            "a": "No special equipment is needed. VTAC is a cloud-based platform that works on tablets, smartphones, and computers. For the best tactical briefing experience, we recommend using an iPad or a Smartboard."
+                        }
+                    ]
+                },
+                {
+                    "name": "Multi-Team & Data Privacy",
+                    "items": [
+                        {
+                            "q": "Is my data safe with the Unified Login? Can other coaches see my tactics?",
+                            "a": "Privacy is our priority. Even with a single login, all tactical data and statistics are strictly isolated by team. Coaches can only access information for the specific rosters they are authorized to manage."
+                        },
+                        {
+                            "q": "How is a player’s Digital CV handled if they move between teams?",
+                            "a": "Statistics are stored based on \"Team History.\" Achievements in Team A remain distinct from Team B, but everything is compiled into a Verified Digital Timeline on the player’s central profile—perfect for scholarship applications or pro scouts."
+                        }
+                    ]
+                },
+                {
+                    "name": "Value & Interactive Results",
+                    "items": [
+                        {
+                            "q": "What if the pitch is unavailable due to bad weather or unexpected closures?",
+                            "a": "\"The training ground is wherever you are.\" With VTAC’s Remote Coaching, development never stops. You can host virtual tactical sessions from anywhere, ensuring your team stays prepared regardless of field conditions."
+                        },
+                        {
+                            "q": "How does the Remote Interactive system work for players?",
+                            "a": "It’s as simple as scanning a QR code. Players use their smartphones to join a \"Virtual Pitch,\" where they can see real-time tactical movements and interact with the play as if they were standing on the grass."
+                        },
+                        {
+                            "q": "Will interactive training be boring for the team?",
+                            "a": "Quite the opposite. By turning tactical drills into a gamified experience, players stay engaged and challenged. It builds Team Bonding and turns complex learning into a fun, collaborative activity that everyone looks forward to."
+                        }
+                    ]
+                }
+            ]
+        }
     }
 }

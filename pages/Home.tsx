@@ -528,9 +528,9 @@ const Home: React.FC = () => {
                 </span>
                 <span>{t('home.manifesto.badge')}</span>
               </div>
-              <h2 className="text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter uppercase italic flex flex-col space-y-1 leading-[1.05] overflow-visible">
-                <span className="text-white italic block">{t('home.manifesto.title.closing')}</span>
-                <span className="gradient-text italic block whitespace-pre-line py-2 pr-12 overflow-visible">{t('home.manifesto.title.theGap')}</span>
+              <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic flex flex-col overflow-visible ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
+                <span className="text-white block py-2 overflow-visible">{t('home.manifesto.title.closing')}</span>
+                <span className={`gradient-text block overflow-visible px-4 pr-12 ${i18n.language === 'th' ? 'py-4 -mt-5' : 'py-2 -mt-4 md:-mt-6'}`}>{t('home.manifesto.title.theGap')}</span>
               </h2>
             </div>
             <p className="text-lg md:text-xl text-slate-300 font-bold leading-relaxed italic border-l-4 border-cyan-500 pl-6 py-2">
@@ -644,9 +644,9 @@ const Home: React.FC = () => {
               <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.8)] animate-ping"></div>
               <span>{t('home.evolution.badge')}</span>
             </div>
-            <h2 className={`text-3xl xs:text-4xl md:text-8xl font-black tracking-tighter uppercase text-center italic whitespace-pre-line overflow-visible ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.9]'}`}>
+            <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase text-center italic whitespace-pre-line overflow-visible ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
               <span className="text-white block py-2 overflow-visible">{t('home.evolution.title.fromChaos')}</span>
-              <span className={`gradient-text block overflow-visible ${i18n.language === 'th' ? 'py-4 -mt-2' : 'py-2 -mt-6'}`}>{t('home.evolution.title.toClarity')}</span>
+              <span className={`gradient-text block overflow-visible px-4 ${i18n.language === 'th' ? 'py-4 -mt-2' : 'py-2 -mt-4 md:-mt-6'}`}>{t('home.evolution.title.toClarity')}</span>
             </h2>
           </div>
 
@@ -877,9 +877,9 @@ const Home: React.FC = () => {
             <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)] animate-pulse"></div>
             <span>{t('home.comparison.badge')}</span>
           </div>
-          <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center overflow-visible ${i18n.language === 'th' ? 'leading-normal' : 'leading-[0.9]'}`}>
+          <h2 className={`text-4xl xs:text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-center overflow-visible ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
             <span className="text-white block whitespace-pre-line overflow-visible py-2">{t('home.comparison.title.line1')}</span>
-            <span className={`gradient-text block whitespace-pre-line overflow-visible px-4 ${i18n.language === 'th' ? '-mt-2 py-4' : '-mt-4 py-2'}`}>{t('home.comparison.title.line2')}</span>
+            <span className={`gradient-text block whitespace-pre-line overflow-visible px-4 ${i18n.language === 'th' ? '-mt-5 md:-mt-2 py-4' : '-mt-4 py-2'}`}>{t('home.comparison.title.line2')}</span>
           </h2>
         </div>
 

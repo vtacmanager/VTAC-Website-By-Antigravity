@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Facebook, Instagram, Youtube, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -18,9 +19,24 @@ const Footer: React.FC = () => {
             <p className="text-slate-400 max-w-sm mb-10 text-lg leading-relaxed font-medium">
               {t('footer.slogan')}
             </p>
-            <div className="flex space-x-6 opacity-30">
-              {['Twitter', 'Instagram', 'LinkedIn', 'YouTube'].map(s => (
-                <div key={s} className="w-10 h-10 bg-white rounded-lg cursor-pointer hover:bg-cyan-400 transition-colors"></div>
+            <div className="flex flex-wrap gap-4">
+              {[
+                { name: 'Facebook', icon: <Facebook className="w-5 h-5" />, href: '#' },
+                { name: 'Instagram', icon: <Instagram className="w-5 h-5" />, href: '#' },
+                { name: 'YouTube', icon: <Youtube className="w-5 h-5" />, href: '#' },
+                { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, href: '#' },
+                { name: 'X', icon: <Twitter className="w-5 h-5" />, href: '#' }
+              ].map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  className="w-10 h-10 flex items-center justify-center rounded-xl glass-card border border-white/5 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all duration-300 group"
+                  aria-label={social.name}
+                >
+                  <div className="transition-transform duration-300 group-hover:scale-110">
+                    {social.icon}
+                  </div>
+                </a>
               ))}
             </div>
           </div>
