@@ -94,7 +94,7 @@ const StepSectionHeader = ({ badge, title, subtitle, step, stepColor = 'red', ba
           <span>{badge}</span>
         </StepBadge>
       </div>
-      <h2 className={`${titleSize} font-black tracking-tighter uppercase italic text-white flex flex-col items-center ${i18n.language === 'th' ? 'leading-[0.9]' : 'leading-[0.9]'}`}>
+      <h2 className={`${titleSize} font-black tracking-tighter uppercase italic text-white flex flex-col items-center ${i18n.language === 'th' ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
         {title}
       </h2>
       <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-6xl mx-auto !mt-12 whitespace-pre-line">
@@ -293,28 +293,48 @@ const Football: React.FC = () => {
             <span>{t('football.hero.badge')}</span>
           </div>
 
-          <h1 className={`text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-white ${i18n.language.startsWith('th') ? 'max-md:leading-[1.15] leading-[0.9]' : 'leading-[0.9]'
+          <h1 className={`text-5xl font-black tracking-tighter uppercase italic overflow-visible ${i18n.language.startsWith('th') ? 'max-md:leading-[1.4] leading-[1.15] md:text-7xl lg:text-8xl' : 'leading-[0.9] md:text-8xl'
             }`}>
-            <span className="block md:inline py-2 md:py-0">
+            <span
+              className={`text-white block overflow-visible ${i18n.language.startsWith('th') ? 'py-4 px-4' : 'py-2 md:py-0'}`}
+              style={{
+                paddingRight: i18n.language.startsWith('th') ? '160px' : '120px',
+                marginRight: i18n.language.startsWith('th') ? '-160px' : '-120px',
+                WebkitBoxDecorationBreak: 'clone',
+                boxDecorationBreak: 'clone'
+              }}
+            >
               {t('football.hero.title.line1')}
             </span>
             {t('football.hero.title.line2') && (
-              <>
-                <br className="hidden md:inline" />
-                <span className={`gradient-text block md:inline overflow-visible px-4 md:px-0 ${i18n.language.startsWith('th') ? 'max-md:py-4 max-md:-mt-5' : 'max-md:py-2 max-md:-mt-4'
-                  }`} style={{ backgroundImage: 'linear-gradient(135deg, #15803d 0%, #22c55e 50%, #4ade80 100%)' }}>
-                  {t('football.hero.title.line2')}
-                </span>
-              </>
+              <span
+                className={`gradient-text block overflow-visible px-4 ${i18n.language.startsWith('th') ? 'py-4 -mt-8' : 'py-2 -mt-4'
+                  }`}
+                style={{
+                  backgroundImage: 'linear-gradient(135deg, #15803d 0%, #22c55e 50%, #4ade80 100%)',
+                  paddingRight: i18n.language.startsWith('th') ? '160px' : '120px',
+                  marginRight: i18n.language.startsWith('th') ? '-160px' : '-120px',
+                  WebkitBoxDecorationBreak: 'clone',
+                  boxDecorationBreak: 'clone'
+                }}
+              >
+                {t('football.hero.title.line2')}
+              </span>
             )}
             {t('football.hero.title.line3') && (
-              <>
-                <br className="hidden md:inline" />
-                <span className={`gradient-text block md:inline overflow-visible px-4 md:px-0 ${i18n.language.startsWith('th') ? 'max-md:py-4 max-md:-mt-5' : 'max-md:py-2 max-md:-mt-4'
-                  }`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>
-                  {t('football.hero.title.line3')}
-                </span>
-              </>
+              <span
+                className={`gradient-text block overflow-visible px-4 ${i18n.language.startsWith('th') ? 'py-4 -mt-8' : 'py-2 -mt-4'
+                  }`}
+                style={{
+                  backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)',
+                  paddingRight: i18n.language.startsWith('th') ? '160px' : '120px',
+                  marginRight: i18n.language.startsWith('th') ? '-160px' : '-120px',
+                  WebkitBoxDecorationBreak: 'clone',
+                  boxDecorationBreak: 'clone'
+                }}
+              >
+                {t('football.hero.title.line3')}
+              </span>
             )}
           </h1>
 
@@ -418,7 +438,7 @@ const Football: React.FC = () => {
           title={
             <>
               {t('football.step1.title.line1')} <br />
-              <span className={`gradient-text box-decoration-clone pr-4 overflow-visible ${i18n.language.startsWith('th') ? 'py-3 -mt-2' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>
+              <span className={`gradient-text box-decoration-clone pr-4 overflow-visible ${i18n.language.startsWith('th') ? 'py-4 -mt-4 md:-mt-2 px-4' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>
                 {t('football.step1.title.line2')} <br />
                 {t('football.step1.title.line3')}
               </span>
@@ -480,9 +500,9 @@ const Football: React.FC = () => {
                 <Zap className="w-3 h-3 md:w-4 md:h-4" />
                 <span>{t('football.section3.badge')}</span>
               </div>
-              <h2 className={`text-4xl md:text-7xl font-black tracking-tighter uppercase italic text-white ${i18n.language.startsWith('th') ? 'leading-normal' : 'leading-[0.9]'}`}>
-                {t('football.section3.title.line1')} <br />
-                <span className={`gradient-text box-decoration-clone pr-4 overflow-visible ${i18n.language.startsWith('th') ? 'py-3 -mt-2' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section3.title.line2')}</span>
+              <h2 className={`text-4xl md:text-7xl font-black tracking-tighter uppercase italic text-white flex flex-col ${i18n.language.startsWith('th') ? 'leading-[1.15]' : 'leading-[0.9]'}`}>
+                <span>{t('football.section3.title.line1')}</span>
+                <span className={`gradient-text inline-block box-decoration-clone pr-4 overflow-visible ${i18n.language.startsWith('th') ? 'py-4 -mt-2 md:-mt-2 px-4 -ml-4' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section3.title.line2')}</span>
               </h2>
             </div>
             <div className="space-y-8">
@@ -575,16 +595,16 @@ const Football: React.FC = () => {
               <Smartphone className="w-3 h-3 md:w-4 md:h-4" />
               <span>{t('football.section4.badge')}</span>
             </div>
-            <h2 className={`text-4xl md:text-7xl font-black tracking-tighter uppercase italic text-white ${i18n.language.startsWith('th') ? 'leading-[0.8]' : 'leading-[0.8]'}`}>
-              {t('football.section4.title.line1')} <br />
-              <span className={`bg-clip-text text-transparent pr-4 overflow-visible ${i18n.language.startsWith('th') ? 'py-3 -mt-2' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section4.title.line2')}</span>
+            <h2 className={`text-4xl md:text-7xl font-black tracking-tighter uppercase italic text-white flex flex-col ${i18n.language.startsWith('th') ? 'leading-[1.15]' : 'leading-[0.8]'}`}>
+              <span>{t('football.section4.title.line1')}</span>
+              <span className={`bg-clip-text text-transparent inline-block box-decoration-clone pr-12 overflow-visible ${i18n.language.startsWith('th') ? 'py-4 -mt-2 px-4 -ml-4' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section4.title.line2')}</span>
             </h2>
             <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-6xl mx-auto mt-12 whitespace-pre-line">
               {t('football.section4.subtitle')}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6" onMouseLeave={() => setIsHovering(false)}>
+          <div className="grid lg:grid-cols-3 gap-8" onMouseLeave={() => setIsHovering(false)}>
             {/* TRAFFIC LIGHT LOGIC REUSED */}
             {/* Step 1: Scan (RED) */}
             <div
@@ -840,9 +860,9 @@ const Football: React.FC = () => {
                 <BrainCircuit className="w-3 h-3 md:w-4 md:h-4" />
                 <span>{t('football.section6.badge')}</span>
               </div>
-              <h2 className={`text-4xl md:text-7xl font-black tracking-tighter uppercase italic text-white ${i18n.language.startsWith('th') ? 'leading-[0.8]' : 'leading-[0.8]'}`}>
-                {t('football.section6.title.line1')} <br />
-                <span className={`bg-clip-text text-transparent pr-4 overflow-visible ${i18n.language.startsWith('th') ? 'py-3 -mt-4' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #ffffff 70%, #a855f7 100%)' }}>{t('football.section6.title.line2')}</span>
+              <h2 className={`text-4xl md:text-7xl font-black tracking-tighter uppercase italic text-white flex flex-col items-center ${i18n.language.startsWith('th') ? 'leading-[1.15]' : 'leading-[0.8]'}`}>
+                <span>{t('football.section6.title.line1')}</span>
+                <span className={`bg-clip-text text-transparent inline-block box-decoration-clone overflow-visible ${i18n.language.startsWith('th') ? 'py-3 -mt-2 px-12' : 'mt-0 px-4 pb-2'}`} style={{ backgroundImage: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #ffffff 70%, #a855f7 100%)' }}>{t('football.section6.title.line2')}</span>
               </h2>
               <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-5xl mx-auto mt-12 whitespace-pre-line">
                 {t('football.section6.subtitle')}
@@ -955,7 +975,7 @@ const Football: React.FC = () => {
             title={
               <>
                 {t('football.step3.title.line1')} <br />
-                <span className={`bg-clip-text text-transparent box-decoration-clone pr-4 overflow-visible ${i18n.language === 'th' ? 'py-3 -mt-2' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #f97316 0%, #f97316 40%, #ffffff 70%, #f97316 100%)' }}>
+                <span className={`bg-clip-text text-transparent box-decoration-clone pr-4 overflow-visible ${i18n.language.startsWith('th') ? 'py-3 -mt-2' : ''}`} style={{ backgroundImage: 'linear-gradient(135deg, #f97316 0%, #f97316 40%, #ffffff 70%, #f97316 100%)' }}>
                   {t('football.step3.title.line2')}
                 </span>
               </>
@@ -1001,7 +1021,7 @@ const Football: React.FC = () => {
             title={
               <>
                 {t('football.step4.title.line1')} <br />
-                <span className={`bg-clip-text text-transparent box-decoration-clone pr-6 overflow-visible ${i18n.language === 'th' ? 'py-3 -mt-2' : 'pb-4'}`} style={{ backgroundImage: 'linear-gradient(135deg, #ef4444 0%, #ef4444 33%, #ef4444 66%, #ffffff 100%)' }}>
+                <span className={`bg-clip-text text-transparent box-decoration-clone pr-6 overflow-visible ${i18n.language.startsWith('th') ? 'py-3 -mt-2' : 'pb-4'}`} style={{ backgroundImage: 'linear-gradient(135deg, #ef4444 0%, #ef4444 33%, #ef4444 66%, #ffffff 100%)' }}>
                   {t('football.step4.title.line2')}
                 </span>
               </>

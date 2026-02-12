@@ -92,15 +92,18 @@ const Pricing: React.FC = () => {
             <Globe className="w-3 h-3" />
             <span>{t('pricing.badge')}</span>
           </div>
-          <h1 className={`text-5xl md:text-8xl font-black tracking-tighter uppercase italic overflow-visible ${i18n.language === 'th' ? 'leading-[1.2]' : 'leading-[0.85]'}`}>
-            <span className={`text-white block overflow-visible py-2 ${i18n.language === 'th' ? 'mb-4' : 'mb-1'}`}>{t('pricing.title.line1')}</span>
-            <span className={`${i18n.exists('pricing.title.line3') ? 'text-white' : 'gradient-text'} block overflow-visible px-4 ${i18n.language === 'th' ? 'py-4 -mt-5 md:-mt-2' : 'py-2 -mt-4 md:-mt-8'}`}>{t('pricing.title.line2')}</span>
+          <h1 className={`text-4xl ${i18n.language.startsWith('th') ? 'md:text-7xl' : 'md:text-8xl'} lg:text-8xl font-black tracking-tighter uppercase italic overflow-visible text-center flex flex-col items-center ${i18n.language.startsWith('th') ? 'leading-[1.15]' : 'leading-[0.85]'}`}>
+            <span className={`text-white block overflow-visible whitespace-nowrap ${i18n.language.startsWith('th') ? 'py-4 px-2 mb-0' : 'py-2 px-6 mb-0 md:mb-1'}`}>{t('pricing.title.line1')}</span>
+            <span className={`${(!i18n.exists('pricing.title.line3') || (i18n.language.startsWith('th') && !i18n.exists('pricing.title.line4'))) ? 'gradient-text' : 'text-white'} block overflow-visible whitespace-nowrap ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-5 md:-mt-2' : 'py-2 px-4 -mt-4 md:-mt-6 lg:-mt-8'}`}>{t('pricing.title.line2')}</span>
             {i18n.exists('pricing.title.line3') && (
-              <span className={`gradient-text block overflow-visible px-4 ${i18n.language === 'th' ? 'py-6 -mt-8' : 'py-2 -mt-4 md:-mt-8'}`}>{t('pricing.title.line3')}</span>
+              <span className={`${(!i18n.exists('pricing.title.line4') || i18n.language.startsWith('th')) ? 'gradient-text' : 'text-white'} block overflow-visible whitespace-nowrap ${i18n.language.startsWith('th') ? 'py-4 px-2 -mt-5 md:-mt-4' : 'py-2 px-4 -mt-4 md:-mt-6 lg:-mt-8'}`}>{t('pricing.title.line3')}</span>
+            )}
+            {i18n.exists('pricing.title.line4') && !i18n.language.startsWith('th') && (
+              <span className={`gradient-text block overflow-visible whitespace-nowrap py-2 px-6 ${i18n.language.startsWith('th') ? '-mt-4 md:-mt-8' : '-mt-4 md:-mt-6 lg:-mt-8'}`}>{t('pricing.title.line4')}</span>
             )}
           </h1>
           <p
-            className={`text-lg md:text-xl text-slate-400 mx-auto font-medium leading-relaxed italic opacity-80 ${i18n.language === 'th' ? 'max-w-4xl' : 'max-w-2xl'}`}
+            className={`text-lg md:text-xl text-slate-400 mx-auto font-medium leading-relaxed italic opacity-80 ${i18n.language.startsWith('th') ? 'max-w-4xl' : 'max-w-2xl'}`}
             dangerouslySetInnerHTML={{ __html: t('pricing.subtitle') }}
           />
 
@@ -299,9 +302,9 @@ const Pricing: React.FC = () => {
               <Zap className="w-3 h-3" />
               <span>{t('pricing.advantage.badge')}</span>
             </div>
-            <h3 className={`text-4xl md:text-8xl font-black tracking-tighter uppercase italic text-white flex flex-col items-center ${i18n.language === 'th' ? 'leading-none' : 'leading-[0.9]'}`}>
+            <h3 className={`text-4xl md:text-8xl font-black tracking-tighter uppercase italic text-white flex flex-col items-center ${i18n.language.startsWith('th') ? 'leading-none' : 'leading-[0.9]'}`}>
               <span className="block">{t('pricing.advantage.title.line1')}</span>
-              <span className={`gradient-text inline-block pr-6 overflow-visible ${i18n.language === 'th' ? 'pt-12 pb-12 -mt-10 md:-mt-8' : 'py-2 -mt-2 md:-mt-4'}`}>{t('pricing.advantage.title.line2')}</span>
+              <span className={`gradient-text inline-block pr-6 overflow-visible ${i18n.language.startsWith('th') ? 'pt-12 pb-12 -mt-10 md:-mt-8' : 'py-2 -mt-2 md:-mt-4'}`}>{t('pricing.advantage.title.line2')}</span>
             </h3>
             <p className="text-lg md:text-xl font-medium text-slate-400 uppercase max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
               {t('pricing.advantage.subtitle')}
@@ -412,13 +415,13 @@ const Pricing: React.FC = () => {
       {/* 5. FAQ Section */}
       <SectionWrapper className="pb-32 px-0">
         <div className="max-w-4xl mx-auto md:px-6">
-          <div className="text-center mb-16 space-y-6 px-6">
+          <div className={`text-center mb-16 px-6 flex flex-col items-center ${i18n.language.startsWith('th') ? 'space-y-[36px] md:space-y-6' : 'space-y-6'}`}>
             <div className="inline-flex items-center space-x-2 px-6 py-2 rounded-full glass-card text-cyan-400 text-[10px] font-black uppercase tracking-[0.4em] border border-cyan-500/30 animate-pulse">
               <Zap className="w-3 h-3" />
               <span>{t('pricing.faq.badge')}</span>
             </div>
-            <h2 className={`text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-white flex flex-col items-center ${i18n.language === 'th' ? 'leading-[1.5]' : 'leading-[0.85]'}`}>
-              <span className="gradient-text inline-block py-6 whitespace-pre-line overflow-visible">{t('pricing.faq.title')}</span>
+            <h2 className={`text-5xl md:text-8xl font-black tracking-tighter uppercase italic text-white flex flex-col items-center ${i18n.language.startsWith('th') ? 'leading-[1.15] -mt-2 md:mt-0' : 'leading-[0.85]'}`}>
+              <span className={`gradient-text inline-block whitespace-pre-line overflow-visible ${i18n.language.startsWith('th') ? 'py-4' : 'py-6'}`}>{t('pricing.faq.title')}</span>
             </h2>
             <p className="text-lg md:text-xl text-slate-400 font-bold uppercase tracking-widest italic opacity-80 whitespace-pre-line">
               {t('pricing.faq.subtitle')}

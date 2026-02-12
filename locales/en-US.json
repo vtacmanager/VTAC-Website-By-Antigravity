@@ -899,8 +899,10 @@
     "pricing": {
         "badge": "SCALABLE PERFORMANCE",
         "title": {
-            "line1": "Unify Your Strategy",
-            "line2": "Elevate Your Results"
+            "line1": "Unify Your",
+            "line2": "Strategy",
+            "line3": "Elevate Your",
+            "line4": "Results"
         },
         "subtitle": "Stop juggling multiple tools. Choose a plan that eliminates administrative friction and lets you focus 100% on interactive tactical mastery.",
         "billing": {
@@ -913,8 +915,8 @@
                 "name": "VTAC SINGLE",
                 "tagline": "Independent Coaches / Single Teams",
                 "price": {
-                    "monthly": "$59",
-                    "annually": "$49"
+                    "monthly": "$25",
+                    "annually": "$20"
                 },
                 "desc": "The foundation for high-performance individual team management.",
                 "features": [
@@ -930,8 +932,8 @@
                 "name": "VTAC MULTI-TEAM",
                 "tagline": "Academies / Scholastic Programs",
                 "price": {
-                    "monthly": "$159",
-                    "annually": "$129"
+                    "monthly": "$20",
+                    "annually": "$16"
                 },
                 "desc": "Scale your academy with seamless multi-team synchronization.",
                 "features": [
