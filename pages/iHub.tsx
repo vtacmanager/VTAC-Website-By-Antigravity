@@ -280,7 +280,7 @@ const IHub: React.FC = () => {
                 <span className="text-white block py-6 px-4 overflow-visible">
                   {t('platform.hero.title.line1')}
                 </span>
-                <span className={`gradient-text block overflow-visible px-4 pt-2 pb-12 -mt-[64px] md:-mt-[84px] box-decoration-clone relative z-10`}>
+                <span className={`gradient-text block overflow-visible px-4 py-8 -mt-16 box-decoration-clone relative z-10`}>
                   {t('platform.hero.title.line2')}
                 </span>
               </>
