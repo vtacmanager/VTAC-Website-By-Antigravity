@@ -662,11 +662,11 @@ const Home: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 lg:items-stretch gap-8 md:gap-12 max-w-7xl mx-auto px-2 md:px-0 mt-16">
+          <div className="grid lg:grid-cols-2 lg:items-stretch gap-8 md:gap-12 max-w-7xl mx-auto px-0 md:px-0 mt-16">
             {/* The Old Way */}
             <div className={`relative group min-h-full transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'scale-[1.02]' : 'scale-100'}`}>
               <div className={`absolute -inset-1 bg-gradient-to-b from-red-500/20 to-transparent blur-xl transition-opacity duration-1000 ${activeEvolutionGlow === 0 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}></div>
-              <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-6 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'border-red-500/20 bg-[#1a1a1a]/60' : 'border-white/5 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
+              <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-4 md:p-14 rounded-3xl md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 0 ? 'border-red-500/20 bg-[#1a1a1a]/60' : 'border-white/5 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
                     <span className="text-red-500/60 text-base font-black uppercase tracking-widest leading-none">{t('home.evolution.legacy.badge')}</span>
@@ -694,7 +694,7 @@ const Home: React.FC = () => {
             {/* The VTAC Way */}
             <div className={`relative group min-h-full transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'scale-[1.02]' : 'scale-100'}`}>
               <div className={`absolute -inset-1 bg-gradient-to-b from-cyan-500/20 to-transparent blur-xl transition-opacity duration-1000 ${activeEvolutionGlow === 1 ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100`}></div>
-              <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-6 md:p-14 rounded-[2.5rem] md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'border-cyan-500/40 bg-[#1a1a1a]/60' : 'border-cyan-500/20 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
+              <div className={`relative h-full bg-[#1a1a1a]/40 backdrop-blur-3xl p-4 md:p-14 rounded-3xl md:rounded-[4rem] border transition-all duration-1000 ${activeEvolutionGlow === 1 ? 'border-cyan-500/40 bg-[#1a1a1a]/60' : 'border-cyan-500/20 bg-[#1a1a1a]/40'} group-hover:bg-[#1a1a1a]/60 flex flex-col`}>
                 <div className="flex justify-between items-start mb-10 gap-4">
                   <div className="space-y-1">
                     <span className="text-cyan-400 text-base font-black uppercase tracking-widest leading-none">{t('home.evolution.vtac.badge')}</span>
