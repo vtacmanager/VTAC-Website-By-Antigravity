@@ -597,7 +597,7 @@ const Football: React.FC = () => {
             </div>
             <h2 className={`text-4xl md:text-7xl font-black tracking-tighter uppercase italic text-white flex flex-col items-center ${i18n.language.startsWith('th') ? 'leading-[1.15]' : 'leading-[0.8]'}`}>
               <span className={`overflow-visible ${i18n.language.startsWith('th') ? '' : 'px-4'}`}>{t('football.section4.title.line1')}</span>
-              <span className={`bg-clip-text text-transparent inline-block box-decoration-clone overflow-visible ${i18n.language.startsWith('th') ? 'py-4 -mt-2 px-4 -ml-4' : 'px-4 md:pr-12'}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section4.title.line2')}</span>
+              <span className={`bg-clip-text text-transparent inline-block box-decoration-clone overflow-visible ${i18n.language.startsWith('th') ? 'py-4 -mt-2 px-4 -ml-4' : 'px-4'}`} style={{ backgroundImage: 'linear-gradient(135deg, #16a34a 0%, #4ade80 40%, #ffffff 70%, #3b82f6 100%)' }}>{t('football.section4.title.line2')}</span>
             </h2>
             <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-6xl mx-auto mt-12 whitespace-pre-line">
               {t('football.section4.subtitle')}
