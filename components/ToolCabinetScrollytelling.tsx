@@ -136,7 +136,9 @@ export default function ToolCabinetScrollytelling() {
         if (!isMuted && audioRef.current && !isLoading) {
             // If audio is paused, start playing
             if (audioRef.current.paused) {
-                audioRef.current.play().catch(e => console.log("Audio play failed", e));
+                audioRef.current.play().catch(e => {
+                    // Silently ignore audio play errors (usually auto-play restrictions)
+                });
             }
 
             // Reset the "stop" timer

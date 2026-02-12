@@ -42,8 +42,8 @@ const BookDemo: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const recipientEmail = 'info.vtacmanager@gmail.com';
-        console.log(`Sending Demo Request to ${recipientEmail}:`, formData);
+        // For production, you would integrate with an email service or API here
+        // const recipientEmail = 'info.vtacmanager@gmail.com';
         setSubmitted(true);
     };
 
