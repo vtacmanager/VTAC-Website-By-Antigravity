@@ -911,6 +911,39 @@
             "save": "-20%"
         },
         "plans": {
+            "trial": {
+                "name": "VTAC TRIAL",
+                "tagline": "New Users",
+                "price": {
+                    "monthly": "Free",
+                    "annually": "Free"
+                },
+                "desc": "14 days trial version for testing.",
+                "features": [
+                    "3 Players Access",
+                    "1 Coach + 1 Manager",
+                    "Strategy Board (✓)",
+                    "Interactive Tactics (✓ limited)"
+                ],
+                "cta": "Start 14 Days Free Trial"
+            },
+            "semiPro": {
+                "name": "VTAC SEMI-PRO",
+                "tagline": "Small Youth Teams / Semi-Pro Coach",
+                "price": {
+                    "monthly": "$20",
+                    "annually": "$16"
+                },
+                "desc": "Perfect for small teams and independent youth coaches.",
+                "features": [
+                    "Up to 12 Players",
+                    "1 Coach + 1 Manager",
+                    "Strategy Board (✓)",
+                    "Interactive Tactics (✓ limited)",
+                    "Standard Support"
+                ],
+                "cta": "Get Started"
+            },
             "single": {
                 "name": "VTAC SINGLE",
                 "tagline": "Independent Coaches / Single Teams",
@@ -965,6 +998,8 @@
             "title": "ELITE SPECIFICATIONS",
             "subtitle": "Drill down into the technical capabilities of each tier.",
             "columns": {
+                "trial": "VTAC TRIAL",
+                "semiPro": "VTAC SEMI-PRO",
                 "single": "VTAC SINGLE",
                 "multi": "VTAC MULTI",
                 "enterprise": "VTAC ENTERPRISE"
@@ -975,24 +1010,32 @@
                     "rows": [
                         {
                             "label": "Ideal For",
+                            "trial": "New Users",
+                            "semiPro": "Small Youth Teams / Semi-Pro Coach",
                             "single": "Independent Coaches / Single Teams",
                             "multi": "Academies / Scholastic Programs",
                             "enterprise": "Professional Clubs / Large Organizations"
                         },
                         {
                             "label": "Scale (Team Count)",
+                            "trial": "3 Players",
+                            "semiPro": "12 Players",
                             "single": "1 Team",
                             "multi": "2 - 20 Teams",
                             "enterprise": "20 - 50+ Teams"
                         },
                         {
                             "label": "Max Members per Team",
+                            "trial": "3 Members",
+                            "semiPro": "12 Members",
                             "single": "Up to 20",
                             "multi": "Up to 25",
                             "enterprise": "Scalable"
                         },
                         {
                             "label": "Staff Structure",
+                            "trial": "1 Coach + 1 Manager",
+                            "semiPro": "1 Coach + 1 Manager",
                             "single": "1 Coach + 1 Manager",
                             "multi": "1 Coach + 2 Assistants + 1 Manager",
                             "enterprise": "Full Organizational Structure"
@@ -1003,20 +1046,42 @@
                     "title": "Tactical & Training",
                     "rows": [
                         {
+                            "label": "Strategy Board",
+                            "trial": "✓ Included",
+                            "semiPro": "✓ Included",
+                            "single": "✓ Included",
+                            "multi": "✓ Included",
+                            "enterprise": "✓ Included"
+                        },
+                        {
                             "label": "Interactive Tactical Engine",
+                            "trial": "✓ limited",
+                            "semiPro": "✓ limited",
                             "single": "Standard Interactive",
                             "multi": "Standard Interactive",
                             "enterprise": "[CUSTOM] Club Theme"
                         },
                         {
+                            "label": "AI Connector",
+                            "trial": "—",
+                            "semiPro": "—",
+                            "single": "✓ Integrated",
+                            "multi": "✓ Integrated",
+                            "enterprise": "✓ Included"
+                        },
+                        {
                             "label": "Training with AI Squad",
-                            "single": "Optional Add-on",
+                            "trial": "—",
+                            "semiPro": "—",
+                            "single": "—",
                             "multi": "✓ Included",
                             "enterprise": "✓ Included"
                         },
                         {
                             "label": "Digital CV (Portfolios)",
-                            "single": "Optional Add-on",
+                            "trial": "—",
+                            "semiPro": "—",
+                            "single": "✓ Included (Isolated Data)",
                             "multi": "✓ Included (Isolated Data)",
                             "enterprise": "✓ Included (Full Portability)"
                         }
@@ -1027,30 +1092,40 @@
                     "rows": [
                         {
                             "label": "Unified Switcher Access",
+                            "trial": "—",
+                            "semiPro": "—",
                             "single": "—",
                             "multi": "✓ Seamless Cross-Team",
                             "enterprise": "✓ Seamless Cross-Team"
                         },
                         {
                             "label": "Management Dashboard",
+                            "trial": "—",
+                            "semiPro": "—",
                             "single": "—",
                             "multi": "✓ Admin Overview",
                             "enterprise": "✓ Advanced Ops Dashboard"
                         },
                         {
                             "label": "Custom Branding",
+                            "trial": "—",
+                            "semiPro": "—",
                             "single": "VTAC Standard",
                             "multi": "VTAC Standard",
                             "enterprise": "✓ Club Logo & Brand Colors"
                         },
                         {
                             "label": "Field Scheduling",
+                            "trial": "—",
+                            "semiPro": "—",
                             "single": "—",
                             "multi": "—",
                             "enterprise": "✓ Resource Management Module"
                         },
                         {
                             "label": "Support Level",
+                            "trial": "—",
+                            "semiPro": "Standard",
                             "single": "Standard",
                             "multi": "Standard",
                             "enterprise": "✓ Priority / Dedicated Consultant"

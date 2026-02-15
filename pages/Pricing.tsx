@@ -32,6 +32,8 @@ const Pricing: React.FC = () => {
     return () => clearInterval(interval);
   }, [isPlanHovered]);
 
+
+
   const plans = [
     {
       id: 'single',
@@ -80,6 +82,35 @@ const Pricing: React.FC = () => {
     },
   ];
 
+  const widePlans = [
+    {
+      id: 'trial',
+      name: t('pricing.plans.trial.name'),
+      tagline: t('pricing.plans.trial.tagline'),
+      price: billingCycle === 'annually' ? t('pricing.plans.trial.price.annually') : t('pricing.plans.trial.price.monthly'),
+      description: t('pricing.plans.trial.desc'),
+      features: t('pricing.plans.trial.features', { returnObjects: true }) as string[],
+      cta: t('pricing.plans.trial.cta'),
+      icon: Clock,
+      themeColor: 'rose', // Neon Red/Rose tone
+      gradient: 'from-rose-500 to-red-700',
+      glow: 'rgba(244,63,94,0.4)'
+    },
+    {
+      id: 'semiPro',
+      name: t('pricing.plans.semiPro.name'),
+      tagline: t('pricing.plans.semiPro.tagline'),
+      price: billingCycle === 'annually' ? t('pricing.plans.semiPro.price.annually') : t('pricing.plans.semiPro.price.monthly'),
+      description: t('pricing.plans.semiPro.desc'),
+      features: t('pricing.plans.semiPro.features', { returnObjects: true }) as string[],
+      cta: t('pricing.plans.semiPro.cta'),
+      icon: Users,
+      themeColor: 'purple',
+      gradient: 'from-purple-500 to-indigo-600',
+      glow: 'rgba(168,85,247,0.2)'
+    }
+  ];
+
   const comparison = t('pricing.comparison', { returnObjects: true }) as any;
 
   return (
@@ -126,6 +157,89 @@ const Pricing: React.FC = () => {
         </div>
       </header>
 
+      {/* Wide Version of Trial & Semi-Pro (Top Section) */}
+      <SectionWrapper className="pb-8">
+        <div className="space-y-8 max-w-6xl mx-auto">
+          {widePlans.map((plan) => (
+            <div
+              key={`${plan.id}-wide`}
+              className={`group relative flex flex-col lg:flex-row items-center gap-8 p-8 lg:p-10 rounded-[3rem] border transition-all duration-700 glass-card
+                ${plan.id === 'trial'
+                  ? `border-rose-500/60 bg-slate-800/60 shadow-[0_0_40px_-5px_rgba(244,63,94,0.3)]`
+                  : `bg-slate-900/40 border-white/5 hover:border-${plan.themeColor}-500/30 hover:bg-slate-800/40`
+                } hover:translate-y-[-5px]`}
+            >
+              {/* iHub Style Glow Layer */}
+              <div className={`absolute -inset-2 bg-gradient-to-r from-${plan.themeColor}-500/0 to-${plan.themeColor}-500/0 blur-2xl transition-all duration-1000 -z-10 rounded-[3.5rem]
+                ${plan.id === 'trial'
+                  ? `opacity-100 from-rose-500/25 to-white/5`
+                  : `opacity-0 group-hover:opacity-100 group-hover:from-${plan.themeColor}-500/15 group-hover:to-white/5`
+                }`}></div>
+
+              {/* Left Side: Identity */}
+              <div className="flex flex-row items-center gap-6 lg:w-1/4 shrink-0">
+                <div className={`w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 shadow-xl bg-gradient-to-br ${plan.gradient} text-white
+                    group-hover:rotate-[10deg] group-hover:scale-110`}>
+                  <plan.icon className="w-8 h-8 lg:w-10 lg:h-10 transition-transform duration-300" />
+                </div>
+                <div className="text-left">
+                  <h3 className="text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mb-1">
+                    {plan.name.split(' ').map((word: string, i: number) => (
+                      <span key={i} className={i === 1 ? `text-${plan.themeColor}-500` : ''}>
+                        {word}{' '}
+                      </span>
+                    ))}
+                  </h3>
+                  <p className={`text-[10px] font-black uppercase tracking-[0.3em] text-${plan.themeColor}-400`}>{plan.tagline}</p>
+                </div>
+              </div>
+
+              {/* Middle Section: Features List In Grid */}
+              <div className="flex-grow grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 px-0 lg:px-8 border-y lg:border-y-0 lg:border-x border-white/10 py-8 lg:py-0 w-full lg:w-auto">
+                {plan.features.map((feature, i) => (
+                  <div key={i} className="flex items-center space-x-3 group/item">
+                    <div className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 border border-${plan.themeColor}-500/30 text-${plan.themeColor}-400 bg-${plan.themeColor}-500/10`}>
+                      <Check className="w-3 h-3" />
+                    </div>
+                    <span className="text-[12px] font-bold text-slate-300 uppercase tracking-wide group-hover/item:text-white transition-colors">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Side: Price & CTA */}
+              <div className="flex flex-col sm:flex-row lg:flex-col items-center sm:justify-between lg:justify-center gap-6 lg:w-1/4 shrink-0 w-full lg:w-auto relative">
+                {plan.id === 'trial' && (
+                  <div className="absolute -top-12 lg:-top-16 left-1/2 lg:left-auto lg:right-0 -translate-x-1/2 lg:translate-x-0">
+                    <div className="bg-rose-500 text-white text-[9px] font-black px-3 py-1 rounded-full animate-bounce shadow-[0_0_15px_rgba(244,63,94,0.5)] border border-white/20 uppercase tracking-widest whitespace-nowrap">
+                      14-Day Exclusive
+                    </div>
+                  </div>
+                )}
+                <div className="text-center lg:text-right">
+                  <div className="flex items-baseline justify-center lg:justify-end space-x-1">
+                    <span className={`font-black tracking-tighter text-4xl lg:text-6xl transition-all duration-1000
+                      ${plan.id === 'trial'
+                        ? 'text-rose-500 animate-[pulse_3s_ease-in-out_infinite] drop-shadow-[0_0_12px_rgba(244,63,94,0.8)]'
+                        : 'text-white'}`}>
+                      {plan.price}
+                    </span>
+                    {plan.price !== 'Free' && !plan.price.includes('ฟรี') && (
+                      <span className="text-slate-500 font-bold text-xs uppercase tracking-widest">/mo</span>
+                    )}
+                  </div>
+                </div>
+                <button
+                  onClick={() => navigate('/book-demo')}
+                  className={`w-full sm:w-auto lg:w-full px-8 py-4 rounded-2xl bg-${plan.themeColor}-500/10 hover:bg-${plan.themeColor}-500 text-white hover:text-white font-black text-xs uppercase tracking-[0.2em] transition-all duration-500 border border-${plan.themeColor}-500/30 hover:border-${plan.themeColor}-500 shadow-xl`}
+                >
+                  {plan.cta}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </SectionWrapper>
+
       {/* Main Plan Cards */}
       <SectionWrapper className="pb-32">
         <div className="grid lg:grid-cols-3 gap-8 items-stretch">
@@ -170,7 +284,7 @@ const Pricing: React.FC = () => {
                               plan.id === 'enterprise' ? 'text-green-500' : ''
                         ) : ''}
                       >
-                        {word}
+                        {word}{' '}
                       </span>
                     ))}
                   </h3>
@@ -201,16 +315,20 @@ const Pricing: React.FC = () => {
                 </ul>
 
                 <button
-                  className={`w-full py-6 rounded-3xl font-black text-xs uppercase tracking-widest transition-all duration-500 overflow-hidden relative group/btn bg-slate-800 text-white hover:bg-white hover:text-black border border-white/5`}
+                  onClick={() => navigate('/book-demo')}
+                  className={`w-full py-6 rounded-[2rem] font-black text-sm uppercase tracking-widest transition-all duration-500 shadow-2xl
+                    ${isActive
+                      ? `bg-white text-black scale-105 shadow-${plan.color}-500/20`
+                      : `bg-white/5 text-white border border-white/10 group-hover:bg-white group-hover:text-black group-hover:scale-105 group-hover:shadow-${plan.color}-500/20`
+                    }`}
                 >
-                  <div className="relative z-10">{plan.cta}</div>
-                  {/* Button Shine Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
+                  {plan.cta}
                 </button>
               </div>
             );
           })}
         </div>
+
       </SectionWrapper>
 
       {/* Elite Comparison Table */}
@@ -229,18 +347,20 @@ const Pricing: React.FC = () => {
             <div className="min-w-[1000px] lg:min-w-full border border-blue-500/30 rounded-[2.5rem] overflow-hidden bg-slate-900/40 backdrop-blur-xl shadow-[0_0_50px_-10px_rgba(37,99,235,0.2)]">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="border-b border-white/10 bg-white/5">
-                    <th className="py-8 px-8 text-left text-xs font-black uppercase tracking-[0.3em] text-slate-400 w-1/4">Capability</th>
-                    <th className="py-8 px-6 text-center text-sm font-black uppercase tracking-widest text-orange-500 w-1/4 bg-orange-500/5 border-x border-orange-500/10">{comparison.columns.single}</th>
-                    <th className="py-8 px-6 text-center text-sm font-black uppercase tracking-widest text-cyan-400 w-1/4 bg-cyan-500/5 border-x border-cyan-500/10">{comparison.columns.multi}</th>
-                    <th className="py-8 px-6 text-center text-sm font-black uppercase tracking-widest text-green-500 w-1/4 bg-green-500/5 border-x border-green-500/10">{comparison.columns.enterprise}</th>
+                  <tr className="border-b border-white/10">
+                    <th className="py-8 px-6 text-left text-xs font-black uppercase tracking-[0.3em] text-slate-500 italic whitespace-nowrap">Configuration</th>
+                    <th className="py-8 px-6 text-center text-xs font-black uppercase tracking-[0.3em] text-rose-400 italic bg-rose-500/5 min-w-[120px]">{comparison.columns.trial}</th>
+                    <th className="py-8 px-6 text-center text-xs font-black uppercase tracking-[0.3em] text-purple-400 italic bg-purple-500/5 min-w-[120px]">{comparison.columns.semiPro}</th>
+                    <th className="py-8 px-6 text-center text-xs font-black uppercase tracking-[0.3em] text-orange-400 italic bg-orange-500/5 min-w-[120px]">{comparison.columns.single}</th>
+                    <th className="py-8 px-6 text-center text-xs font-black uppercase tracking-[0.3em] text-cyan-400 italic bg-cyan-500/5 min-w-[120px]">{comparison.columns.multi}</th>
+                    <th className="py-8 px-6 text-center text-xs font-black uppercase tracking-[0.3em] text-green-400 italic bg-green-500/5 min-w-[120px]">{comparison.columns.enterprise}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {comparison.groups.map((group: any, gi: number) => (
                     <React.Fragment key={gi}>
                       <tr className="bg-white/[0.03]">
-                        <td colSpan={4} className="py-5 px-8 text-xs font-black uppercase tracking-[0.4em] text-blue-400">
+                        <td colSpan={6} className="py-5 px-8 text-xs font-black uppercase tracking-[0.4em] text-blue-400">
                           {group.title}
                         </td>
                       </tr>
@@ -248,6 +368,8 @@ const Pricing: React.FC = () => {
                         <tr key={ri} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors group">
                           <td className="py-6 px-8 text-base font-bold text-slate-400 group-hover:text-white transition-colors">{row.label}</td>
                           {[
+                            { val: row.trial, color: 'rose', isMulti: false },
+                            { val: row.semiPro, color: 'purple', isMulti: false },
                             { val: row.single, color: 'orange', isMulti: false },
                             { val: row.multi, color: 'cyan', isMulti: true },
                             { val: row.enterprise, color: 'green', isMulti: false }
@@ -256,12 +378,16 @@ const Pricing: React.FC = () => {
                               key={vi}
                               className={`py-6 px-6 text-center text-sm font-bold border-x ${col.isMulti
                                 ? 'text-white border-cyan-500/10 bg-cyan-500/5'
-                                : col.color === 'orange'
-                                  ? 'text-slate-300 border-orange-500/10 bg-orange-500/5'
-                                  : 'text-slate-300 border-green-500/10 bg-green-500/5'
+                                : col.color === 'rose'
+                                  ? 'text-slate-300 border-rose-500/10 bg-rose-500/5'
+                                  : col.color === 'purple'
+                                    ? 'text-slate-300 border-purple-500/10 bg-purple-500/5'
+                                    : col.color === 'orange'
+                                      ? 'text-slate-300 border-orange-500/10 bg-orange-500/5'
+                                      : 'text-slate-300 border-green-500/10 bg-green-500/5'
                                 }`}
                             >
-                              {col.val.includes('✓') ? (
+                              {col.val && col.val.includes('✓') ? (
                                 <span className="flex items-center justify-center gap-1.5">
                                   <span className="text-green-500 text-lg">✓</span>
                                   {col.val.replace('✓', '').trim()}
