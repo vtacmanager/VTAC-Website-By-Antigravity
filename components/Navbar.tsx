@@ -177,7 +177,7 @@ const Navbar: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="flex items-center bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 rounded-full pl-2 pr-5 h-[60px] shadow-[0_0_20px_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] group/cta-unit relative overflow-hidden">
+              <div className="flex items-center bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 rounded-full pl-2 pr-5 h-[60px] shadow-[0_0_20px_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] group/cta-unit relative overflow-hidden pointer-events-none cursor-default">
                 {/* Metallic Gloss Reflection */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover/cta-unit:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
 
@@ -203,8 +203,8 @@ const Navbar: React.FC = () => {
                   <div className="h-[1px] bg-slate-900/10 w-full mb-1.5"></div>
 
                   <a
-                    href="https://app.vtacmanager.com/login"
-                    className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-900/60 hover:text-slate-900 transition-colors leading-none"
+                    href="javascript:void(0)"
+                    className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-900/60 transition-colors leading-none"
                   >
                     {t('nav.login')}
                   </a>
@@ -320,7 +320,7 @@ const Navbar: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 rounded-[40px] pl-4 pr-8 h-[85px] shadow-[0_0_30px_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all duration-300 active:scale-95 mx-auto relative overflow-hidden">
+              <div className="flex items-center bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 rounded-[40px] pl-4 pr-8 h-[85px] shadow-[0_0_30px_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all duration-300 mx-auto relative overflow-hidden pointer-events-none cursor-default">
                 {/* Metallic Gloss Reflection */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_3s_infinite] pointer-events-none"></div>
 
@@ -346,8 +346,8 @@ const Navbar: React.FC = () => {
                   <div className="h-[1px] bg-slate-900/10 w-full mb-1.5"></div>
 
                   <a
-                    href="https://app.vtacmanager.com/login"
-                    className="text-xs font-black uppercase tracking-[0.6em] text-slate-900/70 hover:text-slate-900 transition-colors leading-none"
+                    href="javascript:void(0)"
+                    className="text-xs font-black uppercase tracking-[0.6em] text-slate-900/70 transition-colors leading-none"
                   >
                     {t('nav.login')}
                   </a>
