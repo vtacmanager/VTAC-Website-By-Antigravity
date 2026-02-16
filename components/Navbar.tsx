@@ -194,8 +194,8 @@ const Navbar: React.FC = () => {
                 {/* Two-Line Stack of Links */}
                 <div className="flex flex-col items-center justify-center flex-1 z-10">
                   <a
-                    href="https://app.vtacmanager.com"
-                    className="text-[11px] font-black uppercase tracking-widest text-slate-900 leading-none mb-1.5 whitespace-nowrap transition-colors hover:text-black"
+                    href="javascript:void(0)"
+                    className="text-[11px] font-black uppercase tracking-widest text-slate-900 leading-none mb-1.5 whitespace-nowrap transition-colors cursor-default pointer-events-none"
                   >
                     {t('nav.interactNow')}
                   </a>
@@ -337,8 +337,8 @@ const Navbar: React.FC = () => {
                 {/* Two-Line Stack of Links */}
                 <div className="flex flex-col items-center flex-1 z-10">
                   <a
-                    href="https://app.vtacmanager.com"
-                    className="text-xl font-black uppercase tracking-widest text-slate-900 leading-none mb-1.5 whitespace-nowrap"
+                    href="javascript:void(0)"
+                    className="text-xl font-black uppercase tracking-widest text-slate-900 leading-none mb-1.5 whitespace-nowrap cursor-default pointer-events-none"
                   >
                     {t('nav.interactNow')}
                   </a>
