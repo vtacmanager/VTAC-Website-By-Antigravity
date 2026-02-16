@@ -9,7 +9,8 @@
         "account": "Account",
         "signOut": "Sign Out",
         "signedInAs": "Signed in as",
-        "resources": "Resources"
+        "resources": "Resources",
+        "interactNow": "INTERACT NOW"
     },
     "home": {
         "hero": {
@@ -924,7 +925,7 @@
                     "Strategy Board (✓)",
                     "Interactive Tactics (✓ limited)"
                 ],
-                "cta": "Start 14 Days Free Trial"
+                "cta": "INTERACT NOW"
             },
             "semiPro": {
                 "name": "VTAC SEMI-PRO",
@@ -941,7 +942,7 @@
                     "Interactive Tactics (✓ limited)",
                     "Standard Support"
                 ],
-                "cta": "Get Started"
+                "cta": "INTERACT NOW"
             },
             "single": {
                 "name": "VTAC SINGLE",
@@ -958,7 +959,7 @@
                     "Standard Interactive Tactics",
                     "Basic Player Profiles"
                 ],
-                "cta": "Start Free Trial"
+                "cta": "INTERACT NOW"
             },
             "multi": {
                 "name": "VTAC MULTI-TEAM",

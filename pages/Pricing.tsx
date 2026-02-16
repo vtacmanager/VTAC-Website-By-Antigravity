@@ -230,9 +230,11 @@ const Pricing: React.FC = () => {
                 </div>
                 <button
                   onClick={() => navigate('/book-demo')}
-                  className={`w-full sm:w-auto lg:w-full px-8 py-4 rounded-2xl bg-${plan.themeColor}-500/10 hover:bg-${plan.themeColor}-500 text-white hover:text-white font-black text-xs uppercase tracking-[0.2em] transition-all duration-500 border border-${plan.themeColor}-500/30 hover:border-${plan.themeColor}-500 shadow-xl`}
+                  className="group relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 text-slate-900 w-full sm:w-auto lg:w-full px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all duration-500 shadow-xl hover:scale-105"
                 >
-                  {plan.cta}
+                  {/* Metallic Gloss Reflection */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
+                  <span className="relative z-10">{plan.cta}</span>
                 </button>
               </div>
             </div>
@@ -316,13 +318,11 @@ const Pricing: React.FC = () => {
 
                 <button
                   onClick={() => navigate('/book-demo')}
-                  className={`w-full py-6 rounded-[2rem] font-black text-sm uppercase tracking-widest transition-all duration-500 shadow-2xl
-                    ${isActive
-                      ? `bg-white text-black scale-105 shadow-${plan.color}-500/20`
-                      : `bg-white/5 text-white border border-white/10 group-hover:bg-white group-hover:text-black group-hover:scale-105 group-hover:shadow-${plan.color}-500/20`
-                    }`}
+                  className="group relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 text-slate-900 w-full py-6 rounded-[2rem] font-black text-sm uppercase tracking-widest transition-all duration-500 shadow-2xl hover:scale-105"
                 >
-                  {plan.cta}
+                  {/* Metallic Gloss Reflection */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
+                  <span className="relative z-10">{plan.cta}</span>
                 </button>
               </div>
             );
@@ -517,10 +517,11 @@ const Pricing: React.FC = () => {
                 {/* Primary Button */}
                 <Link
                   to="/book-demo"
-                  className="group/btn relative overflow-hidden bg-white text-black text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(34,211,238,0.2)] flex items-center justify-center font-sans"
+                  className="group relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 text-slate-900 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter transition-all hover:scale-105 active:scale-95 shadow-[0_15px_30px_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.8)] hover:shadow-[0_20px_40px_rgba(255,255,255,0.2)] flex items-center justify-center font-sans"
                 >
+                  {/* Metallic Gloss Reflection */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
                   <span className="relative z-10">{t('pricing.cta.btnDemo')}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                 </Link>
 
                 {/* Secondary Button */}

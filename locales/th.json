@@ -9,7 +9,8 @@
         "account": "บัญชีผู้ใช้",
         "signOut": "ออกจากระบบ",
         "signedInAs": "เข้าสู่ระบบในชื่อ",
-        "resources": "แหล่งข้อมูล"
+        "resources": "แหล่งข้อมูล",
+        "interactNow": "เข้าสู่โหมดการใช้งาน"
     },
     "home": {
         "hero": {
@@ -948,7 +949,7 @@
                     "Strategy Board (✓)",
                     "Interactive แท็กติก (✓ จำกัด)"
                 ],
-                "cta": "เริ่มทดลองใช้ฟรี 14 วัน"
+                "cta": "เริ่มใช้งาน (INTERACT NOW)"
             },
             "semiPro": {
                 "name": "VTAC SEMI-PRO",
@@ -965,7 +966,7 @@
                     "Interactive แท็กติก (✓ จำกัด)",
                     "ฝ่ายสนับสนุนมาตรฐาน"
                 ],
-                "cta": "เริ่มใช้งาน"
+                "cta": "เริ่มใช้งาน (INTERACT NOW)"
             },
             "single": {
                 "name": "VTAC SINGLE",

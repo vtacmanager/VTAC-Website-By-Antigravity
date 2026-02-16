@@ -154,7 +154,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-6 border-l border-white/10 pl-6">
             {isLoggedIn ? (
               <div className="relative group">
-                <button className="flex items-center space-x-3 text-sm font-black uppercase tracking-widest text-slate-300 hover:text-white transition-colors">
+                <button className="flex items-center space-x-3 text-sm font-black uppercase tracking-widest text-slate-300 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 hover:bg-white/5 transition-all">
                   <User className="w-4 h-4" />
                   <span>{t('nav.account')}</span>
                   <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
@@ -177,20 +177,39 @@ const Navbar: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <>
-                <Link
-                  to="/login"
-                  className="text-sm font-black uppercase tracking-widest text-slate-300 hover:text-white transition-colors"
-                >
-                  {t('nav.login')}
-                </Link>
-                <Link
-                  to="/register"
-                  className="bg-white text-black px-7 py-3 rounded-full font-black text-sm hover:bg-cyan-400 transition-all shadow-lg shadow-white/5 active:scale-95 uppercase"
-                >
-                  {t('nav.register')}
-                </Link>
-              </>
+              <div className="flex items-center bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 rounded-full pl-2 pr-5 h-[60px] shadow-[0_0_20px_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] group/cta-unit relative overflow-hidden">
+                {/* Metallic Gloss Reflection */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover/cta-unit:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
+
+                {/* Large Red Dot on the Left */}
+                <div className="shrink-0 mr-4 z-10">
+                  <span className="relative flex h-10 w-10">
+                    <span className="animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-10 w-10 bg-gradient-to-br from-red-500 via-red-600 to-red-800 shadow-[0_0_25px_rgba(220,38,38,0.8),inset_0_-2px_4px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.3)]"></span>
+                    {/* Subtle 3D Highlight Shine */}
+                    <span className="absolute top-1.5 left-1.5 w-3 h-3 bg-white/20 rounded-full blur-[1px]"></span>
+                  </span>
+                </div>
+
+                {/* Two-Line Stack of Links */}
+                <div className="flex flex-col items-center justify-center flex-1 z-10">
+                  <a
+                    href="https://app.vtacmanager.com"
+                    className="text-[11px] font-black uppercase tracking-widest text-slate-900 leading-none mb-1.5 whitespace-nowrap transition-colors hover:text-black"
+                  >
+                    {t('nav.interactNow')}
+                  </a>
+
+                  <div className="h-[1px] bg-slate-900/10 w-full mb-1.5"></div>
+
+                  <a
+                    href="https://app.vtacmanager.com/login"
+                    className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-900/60 hover:text-slate-900 transition-colors leading-none"
+                  >
+                    {t('nav.login')}
+                  </a>
+                </div>
+              </div>
             )}
           </div>
         </div>
@@ -301,19 +320,38 @@ const Navbar: React.FC = () => {
                 </button>
               </div>
             ) : (
-              <div className="flex flex-col gap-4">
-                <Link
-                  to="/login"
-                  className="text-center py-4 text-lg font-black uppercase tracking-widest text-slate-300"
-                >
-                  {t('nav.login')}
-                </Link>
-                <Link
-                  to="/register"
-                  className="bg-white text-black text-center py-4 rounded-2xl font-black text-lg uppercase shadow-xl"
-                >
-                  {t('nav.register')}
-                </Link>
+              <div className="flex items-center bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 rounded-[40px] pl-4 pr-8 h-[85px] shadow-[0_0_30px_rgba(255,255,255,0.1),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all duration-300 active:scale-95 mx-auto relative overflow-hidden">
+                {/* Metallic Gloss Reflection */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_3s_infinite] pointer-events-none"></div>
+
+                {/* Large Red Dot on the Left */}
+                <div className="shrink-0 mr-6 z-10">
+                  <span className="relative flex h-12 w-12">
+                    <span className="animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite] absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-12 w-12 bg-gradient-to-br from-red-500 via-red-600 to-red-800 shadow-[0_0_40px_rgba(220,38,38,0.8),inset_0_-3px_6px_rgba(0,0,0,0.4),inset_0_3px_6px_rgba(255,255,255,0.3)]"></span>
+                    {/* Subtle 3D Highlight Shine */}
+                    <span className="absolute top-2 left-2 w-4 h-4 bg-white/20 rounded-full blur-[1px]"></span>
+                  </span>
+                </div>
+
+                {/* Two-Line Stack of Links */}
+                <div className="flex flex-col items-center flex-1 z-10">
+                  <a
+                    href="https://app.vtacmanager.com"
+                    className="text-xl font-black uppercase tracking-widest text-slate-900 leading-none mb-1.5 whitespace-nowrap"
+                  >
+                    {t('nav.interactNow')}
+                  </a>
+
+                  <div className="h-[1px] bg-slate-900/10 w-full mb-1.5"></div>
+
+                  <a
+                    href="https://app.vtacmanager.com/login"
+                    className="text-xs font-black uppercase tracking-[0.6em] text-slate-900/70 hover:text-slate-900 transition-colors leading-none"
+                  >
+                    {t('nav.login')}
+                  </a>
+                </div>
               </div>
             )}
           </div>

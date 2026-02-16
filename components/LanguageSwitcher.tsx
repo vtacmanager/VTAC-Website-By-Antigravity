@@ -24,10 +24,17 @@ const LanguageSwitcher: React.FC = () => {
     return (
         <div className="relative group/lang">
             <button
-                className="flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 hover:bg-white/5 transition-all text-slate-300 hover:text-white"
+                className="flex items-center gap-3 px-4 py-2 rounded-full border border-white/40 bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all h-[60px] relative overflow-hidden group/lang-btn"
             >
-                <Globe className="w-4 h-4" />
-                <span className="text-xs font-bold tracking-widest">{getLabel(currentLang)}</span>
+                {/* Metallic gloss reflection */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover/lang-btn:animate-[shimmer_2s_infinite] pointer-events-none"></div>
+
+                <Globe className="w-5 h-5 flex-shrink-0 text-slate-900 z-10" />
+                <div className="flex flex-col items-center leading-none font-black text-[10px] tracking-widest text-slate-900 z-10">
+                    <span className="mb-1">EN-</span>
+                    <div className="w-full h-[1px] bg-slate-900/10 mb-1"></div>
+                    <span>US</span>
+                </div>
             </button>
 
             {/* Dropdown Menu */}
