@@ -1011,7 +1011,7 @@
                         {
                             "label": "Ideal For",
                             "trial": "New Users",
-                            "semiPro": "Small Youth Teams / Semi-Pro Coach",
+                            "semiPro": "Small Youth Teams, Semi-Pro Coach",
                             "single": "Independent Coaches / Single Teams",
                             "multi": "Academies / Scholastic Programs",
                             "enterprise": "Professional Clubs / Large Organizations"
@@ -1020,17 +1020,9 @@
                             "label": "Scale (Team Count)",
                             "trial": "3 Players",
                             "semiPro": "12 Players",
-                            "single": "1 Team",
-                            "multi": "2 - 20 Teams",
+                            "single": "1 Team (18 Players)",
+                            "multi": "2 - 20 Teams (21 Players)",
                             "enterprise": "20 - 50+ Teams"
-                        },
-                        {
-                            "label": "Max Members per Team",
-                            "trial": "3 Members",
-                            "semiPro": "12 Members",
-                            "single": "Up to 20",
-                            "multi": "Up to 25",
-                            "enterprise": "Scalable"
                         },
                         {
                             "label": "Staff Structure",
@@ -1039,6 +1031,14 @@
                             "single": "1 Coach + 1 Manager",
                             "multi": "1 Coach + 2 Assistants + 1 Manager",
                             "enterprise": "Full Organizational Structure"
+                        },
+                        {
+                            "label": "Max Members per Team",
+                            "trial": "5 Members",
+                            "semiPro": "14 Members",
+                            "single": "20 Members",
+                            "multi": "25 Members",
+                            "enterprise": "Scalable"
                         }
                     ]
                 },
