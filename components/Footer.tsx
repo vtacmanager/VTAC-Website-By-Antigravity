@@ -74,13 +74,52 @@ const Footer: React.FC = () => {
               <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.news')}</span></li>
               <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.blog')}</span></li>
               <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.videoTutorials')}</span></li>
+              <li><Link to="/contact" className="hover:text-cyan-400 transition-colors">{t('footer.resources.contact')}</Link></li>
               <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.supports')}</span></li>
-              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.career')}</span></li>
-              <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.affiliate')}</span></li>
               <li><span className="text-slate-600 cursor-not-allowed">{t('footer.resources.aboutUs')}</span></li>
             </ul>
           </div>
         </div>
+        <div className="mb-24 p-8 md:p-12 rounded-[2.5rem] bg-gradient-to-br from-white/[0.03] to-transparent border border-white/5 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 group-hover:bg-cyan-500/10 transition-colors duration-500"></div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+              <h3 className="text-3xl font-black text-white mb-4 tracking-tighter italic">
+                {t('subscription.title')}
+              </h3>
+              <p className="text-slate-400 font-medium leading-relaxed lg:whitespace-nowrap">
+                {t('subscription.subtitle')}
+              </p>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const email = (form.elements[0] as HTMLInputElement).value;
+                console.log('Subscribing email to hello@vtacmanager.com:', email);
+                alert(t('subscription.success'));
+                form.reset();
+              }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <input
+                type="email"
+                required
+                placeholder={t('subscription.placeholder')}
+                className="flex-grow bg-white/[0.05] border border-white/10 rounded-2xl py-4 px-6 text-white font-bold placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 transition-all"
+              />
+              <button
+                type="submit"
+                className="py-4 px-8 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase tracking-widest rounded-2xl shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
+              >
+                {t('subscription.button')}
+              </button>
+            </form>
+          </div>
+        </div>
+
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs font-black uppercase tracking-[0.3em]">
           <p>{t('footer.copyright')}</p>
           <div className="flex space-x-10 mt-6 md:mt-0">

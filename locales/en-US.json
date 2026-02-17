@@ -10,6 +10,7 @@
         "signOut": "Sign Out",
         "signedInAs": "Signed in as",
         "resources": "Resources",
+        "contact": "Contact Us",
         "interactNow": "INTERACT NOW"
     },
     "home": {
@@ -888,7 +889,8 @@
             "supports": "Supports",
             "career": "Career",
             "affiliate": "Affiliate",
-            "aboutUs": "About Us"
+            "aboutUs": "About Us",
+            "contact": "Contact Us"
         },
         "copyright": "© 2024 VTAC Manager Technologies. Built on Patented Technology.",
         "links": {
@@ -1219,5 +1221,47 @@
                 }
             ]
         }
+    },
+    "contactPage": {
+        "badge": "24/7 Strategic Support",
+        "title": {
+            "line1": "WE'RE HERE TO",
+            "line2": "AMPLIFY YOUR",
+            "line3": "VICTORY"
+        },
+        "subtitle": "Direct access to our specialized departments. Choose the most relevant department to ensure your inquiry reaches the right experts instantly.",
+        "form": {
+            "title": "Send a Message",
+            "name": "Full Name",
+            "email": "Email Address",
+            "department": "Department",
+            "subject": "Subject",
+            "message": "Message",
+            "submit": "Transmit message",
+            "success": "Strategic communication received. Our team will respond shortly.",
+            "departments": {
+                "general": "General Inquiry (hello@vtacmanager.com)",
+                "support": "Technical Support (support@vtacmanager.com)",
+                "sales": "Sales & Enterprise (sales@vtacmanager.com)",
+                "billing": "Billing & Finance (billing@vtacmanager.com)",
+                "partnership": "Partnership (partnership@vtacmanager.com)",
+                "coach": "Coaching & Tactics (coach@vtacmanager.com)"
+            }
+        },
+        "info": {
+            "title": "Direct Channels",
+            "locations": {
+                "main": "Global Headquarters",
+                "address": "Leicester, UK"
+            }
+        }
+    },
+    "subscription": {
+        "title": "Join the Evolution",
+        "subtitle": "Exclusive tactical insights and platform updates delivered to your inbox.",
+        "placeholder": "Enter your email",
+        "button": "SUBSCRIBE",
+        "success": "Welcome to the elite list!",
+        "footerTitle": "STAY CONNECTED"
     }
 }

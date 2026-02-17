@@ -15,6 +15,7 @@ const Pricing = lazy(() => import('./pages/Pricing.tsx'));
 const Login = lazy(() => import('./pages/Login.tsx'));
 const Register = lazy(() => import('./pages/Register.tsx'));
 const BookDemo = lazy(() => import('./pages/BookDemo.tsx'));
+const Contact = lazy(() => import('./pages/Contact.tsx'));
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -59,6 +60,7 @@ const App: React.FC = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/book-demo" element={<BookDemo />} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
             </Suspense>
           </main>
