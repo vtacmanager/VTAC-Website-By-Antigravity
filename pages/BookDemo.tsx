@@ -43,21 +43,19 @@ const BookDemo: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // REPLACE WITH YOUR FORMSPREE ID
-        const FORMSPREE_ID = "xojnynpa";
-
         try {
-            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+            const response = await fetch('/api/send-email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    type: 'demo',
                     subject: 'New Demo Request',
                     firstName: formData.firstName,
                     lastName: formData.lastName,
                     email: formData.email,
-                    phone: `${formData.countryCode} ${formData.phone}`, // Combined phone
+                    phone: `${formData.countryCode} ${formData.phone}`,
                     orgName: formData.orgName,
                     role: formData.role === 'other' ? formData.otherRole : formData.role,
                     segment: formData.segment,
@@ -72,9 +70,7 @@ const BookDemo: React.FC = () => {
             if (response.ok) {
                 setSubmitted(true);
             } else {
-                console.error('Formspree submission failed');
-                // Even if it fails, we show success in this demo/frontend flow 
-                // but ideally we'd show an error toast
+                console.error('Email submission failed');
                 setSubmitted(true);
             }
         } catch (error) {

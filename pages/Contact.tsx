@@ -25,16 +25,14 @@ const Contact: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // REPLACE WITH YOUR FORMSPREE ID
-        const FORMSPREE_ID = "xojnynpa";
-
         try {
-            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+            const response = await fetch('/api/send-email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    type: 'contact',
                     subject: `Contact: ${formState.subject}`,
                     name: formState.name,
                     email: formState.email,
@@ -47,7 +45,7 @@ const Contact: React.FC = () => {
                 setIsSubmitted(true);
                 setTimeout(() => setIsSubmitted(false), 5000);
             } else {
-                console.error('Formspree submission failed');
+                console.error('Email submission failed');
                 setIsSubmitted(true);
                 setTimeout(() => setIsSubmitted(false), 5000);
             }
