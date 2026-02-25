@@ -126,8 +126,8 @@ export default async function handler(req: any, res: any) {
                     </table>
                 </div>
                 <div style="${footerStyles}">
-                    <p style="margin: 0; font-weight: 700; color: #4b5563; margin-bottom: 4px;">VTAC MANAGER SYSTEM</p>
-                    <p style="margin: 0;">Automated Notification Service • Bangkok, Thailand</p>
+                    <p style="margin: 0; font-weight: 700; color: #4b5563; margin-bottom: 4px;">VTAC SOLUTIONS LTD.</p>
+                    <p style="margin: 0;">Automated Notification Service • Leicester, England</p>
                     <p style="margin: 8px 0 0;">© ${new Date().getFullYear()} VTAC Manager. All rights reserved.</p>
                 </div>
             </div>
