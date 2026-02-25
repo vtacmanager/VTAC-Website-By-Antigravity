@@ -57,9 +57,14 @@ export const CTASection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
               <span className="relative z-10">{t('solutions.cta.btnDemo')}</span>
             </Link>
-            <button className="glass-card text-white border border-white/20 text-2xl px-20 py-8 rounded-full font-black hover:bg-white/10 transition-all active:scale-95 uppercase">
+            <a
+              href="https://app.vtacmanager.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card text-white border border-white/20 text-2xl px-20 py-8 rounded-full font-black hover:bg-white/10 transition-all active:scale-95 uppercase flex items-center justify-center"
+            >
               {t('solutions.cta.btnTrial')}
-            </button>
+            </a>
           </div>
         </div>
       </div>

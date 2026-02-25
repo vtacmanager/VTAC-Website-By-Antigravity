@@ -460,9 +460,14 @@ const Home: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
               <span className="relative z-10">{t('home.hero.requestDemo')}</span>
             </Link>
-            <button className="glass-card text-white text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-white/10 transition-all border border-white/10 active:scale-95 uppercase w-full sm:w-auto">
+            <a
+              href="https://app.vtacmanager.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card text-white text-sm md:text-xl px-8 md:px-14 py-4 md:py-6 rounded-full font-black hover:bg-white/10 transition-all border border-white/10 active:scale-95 uppercase w-full sm:w-auto flex items-center justify-center"
+            >
               {t('home.hero.startTrial')}
-            </button>
+            </a>
           </div>
         </div>
         <div className="mt-8 md:mt-12 w-full max-w-7xl relative group px-2 md:px-6 animate-in fade-in zoom-in-95 duration-1000 delay-500">
@@ -1071,11 +1076,16 @@ const Home: React.FC = () => {
                 </Link>
 
                 {/* Secondary Button */}
-                <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center min-w-[200px]">
+                <a
+                  href="https://app.vtacmanager.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center min-w-[200px]"
+                >
                   <span className="relative z-10 flex items-center gap-2">
                     Start Trial <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
                   </span>
-                </button>
+                </a>
               </div>
             </div>
 

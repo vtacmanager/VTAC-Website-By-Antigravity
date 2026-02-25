@@ -438,11 +438,16 @@ const Solutions: React.FC = () => {
                 </Link>
 
                 {/* Secondary Button */}
-                <button className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center">
+                <a
+                  href="https://app.vtacmanager.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative overflow-hidden glass-card text-white border border-white/20 text-lg px-8 md:px-12 py-3 md:py-4 rounded-full font-black uppercase tracking-tighter hover:bg-white/10 transition-all active:scale-95 group/sec flex items-center justify-center min-w-[200px]"
+                >
                   <span className="relative z-10 flex items-center gap-2">
                     {t('solutions.cta.btnTrial')} <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
                   </span>
-                </button>
+                </a>
               </div>
             </div>
 
