@@ -177,13 +177,12 @@ const Football: React.FC = () => {
 
   // Update SEO Metadata for this specific Landing Page
   useEffect(() => {
-    document.title = "VTAC MANAGER | Football & Team Sports Management Software";
+    document.title = t('meta.football.title');
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Advanced football team management, tactics, and interactive training platform. Empower your coaches and players with VTAC MANAGER for modern sports.');
+      metaDesc.setAttribute('content', t('meta.football.description'));
     }
-    // Optional: Reset title when unmounting if you want, but since it's a SPA it's fine or you can handle it globally.
-  }, []);
+  }, [t, i18n.language]);
 
   /* State for Section 2 Slideshow */
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
@@ -775,6 +774,9 @@ const Football: React.FC = () => {
                 </div>
                 <h3 className="text-slate-300 text-base font-normal whitespace-pre-line">{t('football.step2.grid.item1.title')}</h3>
                 <p className="text-base text-slate-300 font-normal leading-relaxed whitespace-pre-line">{t('football.step2.grid.item1.desc')}</p>
+                <Link to="/ihub" className="inline-flex items-center text-xs md:text-sm font-bold uppercase tracking-wider text-green-400 hover:text-green-300 hover:underline mt-4 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 backdrop-blur-md transition-all">
+                  <span className="mr-1">Explore</span> Connected Digital Ecosystem <ChevronRight className="w-4 h-4 ml-1" />
+                </Link>
               </div>
             </div>
 

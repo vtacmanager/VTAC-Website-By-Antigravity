@@ -20,16 +20,16 @@ import {
 const RequiredAsterisk = () => <span className="text-red-500 ml-0.5">*</span>;
 
 const BookDemo: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     // Update SEO Metadata for this specific Landing Page
     useEffect(() => {
-        document.title = "VTAC MANAGER | Book a Live Demonstration";
+        document.title = t('meta.bookDemo.title');
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            metaDesc.setAttribute('content', 'Schedule a personalized demo of VTAC MANAGER. See how our comprehensive management platform can transform your club, academy, or school.');
+            metaDesc.setAttribute('content', t('meta.bookDemo.description'));
         }
-    }, []);
+    }, [t, i18n.language]);
 
     const [submitted, setSubmitted] = useState(false);
     const [formData, setFormData] = useState({

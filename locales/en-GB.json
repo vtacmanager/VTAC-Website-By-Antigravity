@@ -13,6 +13,36 @@
         "contact": "Contact Us",
         "interactNow": "INTERACT NOW"
     },
+    "meta": {
+        "home": {
+            "title": "VTAC MANAGER - World's First Multiplayer Tactical & Sports Management",
+            "description": "The complete digital ecosystem for modern sports. Features smart scheduling, player development, and the world's first multiplayer tactical training engine."
+        },
+        "football": {
+            "title": "VTAC MANAGER - Football & Team Sports Management Software",
+            "description": "Advanced football tactics and interactive training platform. Empower your squad with the world's first multiplayer tactical board and management tools."
+        },
+        "solutions": {
+            "title": "VTAC MANAGER - Solutions for Schools, Academies & Pro Clubs",
+            "description": "Discover tailored sports management solutions designed specifically to meet the needs of Schools, Youth Academies, and Professional Sports Clubs."
+        },
+        "ihub": {
+            "title": "VTAC MANAGER - The Central Intelligence for Sports Teams",
+            "description": "Connect your team's data, tactics, and training in one secure ecosystem. VTAC MANAGER is the smart digital home for modern sports club operations."
+        },
+        "pricing": {
+            "title": "VTAC MANAGER - Flexible Pricing for Every Team Size - Start Your Free Trial",
+            "description": "Explore VTAC MANAGER pricing plans. Choose the right package for your team and start your 14-day free trial today. No credit card required."
+        },
+        "contact": {
+            "title": "VTAC MANAGER - Support & Sales for VTAC MANAGER",
+            "description": "Get in touch with the VTAC MANAGER team. Reach out for technical support, sales inquiries, partnership opportunities, or to book a demo."
+        },
+        "bookDemo": {
+            "title": "VTAC MANAGER - See VTAC MANAGER in Action",
+            "description": "Schedule a personalised demo of VTAC MANAGER. See how our comprehensive management platform can transform your club, academy, or school."
+        }
+    },
     "home": {
         "hero": {
             "badge": "TEAM MANAGEMENT + INTERACTIVE REMOTE TACTICAL TRAINING",

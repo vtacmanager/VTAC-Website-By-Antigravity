@@ -175,12 +175,12 @@ const Home: React.FC = () => {
 
   // Update SEO Metadata for this specific Landing Page
   useEffect(() => {
-    document.title = "VTAC MANAGER | Next-Gen Sports Management Software";
+    document.title = t('meta.home.title');
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Elevate your sports organization with VTAC MANAGER. A unified platform for management, tactical planning, player development, and interactive training.');
+      metaDesc.setAttribute('content', t('meta.home.description'));
     }
-  }, []);
+  }, [t, i18n.language]);
 
   const manifestoItems = [
     {
@@ -477,6 +477,18 @@ const Home: React.FC = () => {
             >
               {t('home.hero.startTrial')}
             </a>
+          </div>
+
+          {/* Quick Internal Links for SEO */}
+          <div className="flex flex-wrap flex-row justify-center gap-6 md:gap-10 mt-8 mb-4 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
+            <Link to="/ihub" className="text-[10px] md:text-xs font-bold text-slate-500 hover:text-cyan-400 transition-colors flex items-center gap-2 uppercase tracking-[0.2em] group">
+              <div className="w-1.5 h-1.5 rounded-full bg-cyan-500/50 group-hover:bg-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all"></div>
+              Explore iHub
+            </Link>
+            <Link to="/solutions" className="text-[10px] md:text-xs font-bold text-slate-500 hover:text-purple-400 transition-colors flex items-center gap-2 uppercase tracking-[0.2em] group">
+              <div className="w-1.5 h-1.5 rounded-full bg-purple-500/50 group-hover:bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.5)] transition-all"></div>
+              View Solutions
+            </Link>
           </div>
         </div>
         <div className="mt-8 md:mt-12 w-full max-w-7xl relative group px-2 md:px-6 animate-in fade-in zoom-in-95 duration-1000 delay-500">
@@ -1095,6 +1107,13 @@ const Home: React.FC = () => {
                     Start Trial <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
                   </span>
                 </a>
+              </div>
+
+              {/* Internal Link for Pricing */}
+              <div className="flex flex-col items-center justify-center mt-6">
+                <Link to="/pricing" className="text-sm text-slate-400 hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5 relative z-20 pointer-events-auto">
+                  Compare plans and features <span className="text-white font-bold ml-1">View Pricing</span>
+                </Link>
               </div>
             </div>
 

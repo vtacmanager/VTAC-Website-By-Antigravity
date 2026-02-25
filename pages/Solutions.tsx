@@ -31,12 +31,12 @@ const Solutions: React.FC = () => {
 
   // Update SEO Metadata for this specific Landing Page
   useEffect(() => {
-    document.title = "VTAC MANAGER | Solutions for Schools, Academies & Pro Clubs";
+    document.title = t('meta.solutions.title');
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Discover tailored VTAC MANAGER solutions designed specifically to meet the needs of Schools, Youth Academies, and Professional Sports Clubs.');
+      metaDesc.setAttribute('content', t('meta.solutions.description'));
     }
-  }, []);
+  }, [t, i18n.language]);
 
   const [activeSector, setActiveSector] = useState<'schools' | 'youth' | 'pro'>('schools');
 
@@ -87,7 +87,8 @@ const Solutions: React.FC = () => {
         {
           title: t('solutions.sectors.schools.features.analytics.title'),
           desc: t('solutions.sectors.schools.features.analytics.desc'),
-          icon: <FileCheck className="w-6 h-6" />
+          icon: <FileCheck className="w-6 h-6" />,
+          link: '/ihub'
         }
       ],
       targetOutcome: {
@@ -119,7 +120,8 @@ const Solutions: React.FC = () => {
         {
           title: t('solutions.sectors.youth.features.portfolios.title'),
           desc: t('solutions.sectors.youth.features.portfolios.desc'),
-          icon: <Award className="w-6 h-6" />
+          icon: <Award className="w-6 h-6" />,
+          link: '/ihub'
         }
       ],
       targetOutcome: {
@@ -141,7 +143,8 @@ const Solutions: React.FC = () => {
         {
           title: t('solutions.sectors.pro.features.dominance.title'),
           desc: t('solutions.sectors.pro.features.dominance.desc'),
-          icon: <Crosshair className="w-6 h-6" />
+          icon: <Crosshair className="w-6 h-6" />,
+          link: '/football'
         },
         {
           title: t('solutions.sectors.pro.features.resilience.title'),
@@ -303,6 +306,12 @@ const Solutions: React.FC = () => {
                           <p className="text-slate-500 text-sm leading-relaxed font-medium">
                             {feature.desc}
                           </p>
+                          {/* @ts-ignore */}
+                          {feature.link && (
+                            <Link to={feature.link} className="inline-flex items-center text-xs font-bold uppercase tracking-wider hover:underline mt-2" style={{ color: activeContent.colorCode }}>
+                              Learn More <ChevronRight className="w-3 h-3 ml-1" />
+                            </Link>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -447,6 +456,12 @@ const Solutions: React.FC = () => {
                   <span className="relative z-10">{t('solutions.cta.btnDemo')}</span>
                 </Link>
 
+                <div className="flex flex-col items-center justify-center mt-4 sm:hidden">
+                  <Link to="/pricing" className="text-sm text-slate-400 hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5">
+                    Want to explore package details? <span className="text-white font-bold ml-1">View Pricing Plans</span>
+                  </Link>
+                </div>
+
                 {/* Secondary Button */}
                 <a
                   href="https://app.vtacmanager.com"
@@ -458,6 +473,12 @@ const Solutions: React.FC = () => {
                     {t('solutions.cta.btnTrial')} <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
                   </span>
                 </a>
+              </div>
+
+              <div className="hidden sm:flex justify-center mt-6">
+                <Link to="/pricing" className="text-sm text-slate-400 hover:text-white transition-colors border-b border-white/10 hover:border-white pb-0.5">
+                  Want to explore package details? <span className="text-white font-bold ml-1">View Pricing Plans</span>
+                </Link>
               </div>
             </div>
 

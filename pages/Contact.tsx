@@ -3,16 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { Mail, Send, CheckCircle2, Globe, Building2, MapPin } from 'lucide-react';
 
 const Contact: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     // Update SEO Metadata for this specific Landing Page
     useEffect(() => {
-        document.title = "VTAC MANAGER | Contact Us & Customer Support";
+        document.title = t('meta.contact.title');
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            metaDesc.setAttribute('content', 'Get in touch with the VTAC MANAGER team. Reach out for support, sales inquiries, partnership opportunities, or to book a demo of our platform.');
+            metaDesc.setAttribute('content', t('meta.contact.description'));
         }
-    }, []);
+    }, [t, i18n.language]);
 
     const [formState, setFormState] = useState({
         name: '',

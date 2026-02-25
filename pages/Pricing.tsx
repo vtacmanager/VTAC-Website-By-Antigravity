@@ -9,12 +9,12 @@ const Pricing: React.FC = () => {
 
   // Update SEO Metadata for this specific Landing Page
   useEffect(() => {
-    document.title = "VTAC MANAGER | Flexible Pricing for Every Team Size";
+    document.title = t('meta.pricing.title');
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Explore VTAC MANAGER pricing plans. Choose the right package for your team, from single teams to enterprise-level academies, and start your free trial today.');
+      metaDesc.setAttribute('content', t('meta.pricing.description'));
     }
-  }, []);
+  }, [t, i18n.language]);
 
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annually'>('annually');
 

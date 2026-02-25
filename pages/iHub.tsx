@@ -98,12 +98,12 @@ const IHub: React.FC = () => {
 
   // Update SEO Metadata for this specific Landing Page
   useEffect(() => {
-    document.title = "VTAC MANAGER | iHUB - The Connected Digital Ecosystem";
+    document.title = t('meta.ihub.title');
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Explore iHUB by VTAC MANAGER - the central intelligence platform that connects all your team sports data, tactics, and interactive training in one secure ecosystem.');
+      metaDesc.setAttribute('content', t('meta.ihub.description'));
     }
-  }, []);
+  }, [t, i18n.language]);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -754,6 +754,11 @@ const IHub: React.FC = () => {
                   )) : null;
                 })()}
               </ul>
+              <div className="mt-auto pt-4 relative z-20">
+                <Link to="/solutions" className="inline-flex items-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-blue-400 hover:text-white hover:underline transition-colors">
+                  Read out Tailored Solutions <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
+                </Link>
+              </div>
             </div>
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
@@ -785,6 +790,11 @@ const IHub: React.FC = () => {
                   )) : null;
                 })()}
               </ul>
+              <div className="mt-auto pt-4 relative z-20">
+                <Link to="/solutions" className="inline-flex items-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-purple-400 hover:text-white hover:underline transition-colors">
+                  Read out Tailored Solutions <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
+                </Link>
+              </div>
             </div>
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
@@ -816,6 +826,11 @@ const IHub: React.FC = () => {
                   )) : null;
                 })()}
               </ul>
+              <div className="mt-auto pt-4 relative z-20">
+                <Link to="/football" className="inline-flex items-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-cyan-400 hover:text-white hover:underline transition-colors">
+                  Explore Football Solutions <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
+                </Link>
+              </div>
             </div>
             {/* Bottom Image */}
             <div className="absolute bottom-0 left-0 right-0 h-72 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
@@ -907,6 +922,11 @@ const IHub: React.FC = () => {
                     {t('platform.cta.btnTrial')} <ChevronRight className="w-5 h-5 group-hover/sec:translate-x-1 transition-transform" />
                   </span>
                 </a>
+              </div>
+              <div className="flex flex-col items-center justify-center mt-6">
+                <Link to="/pricing" className="text-sm text-slate-400 hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5 relative z-20 pointer-events-auto">
+                  Want to explore package details? <span className="text-white font-bold ml-1">View Pricing Plans</span>
+                </Link>
               </div>
             </div>
 
