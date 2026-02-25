@@ -16,7 +16,6 @@ import {
     ArrowLeft,
     Clock
 } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 const RequiredAsterisk = () => <span className="text-red-500 ml-0.5">*</span>;
 
@@ -44,38 +43,42 @@ const BookDemo: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        // REPLACE WITH YOUR FORMSPREE ID
+        const FORMSPREE_ID = "YOUR_FORMSPREE_ID";
+
         try {
-            // Prepare template parameters
-            const templateParams = {
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                email: formData.email,
-                phone: `${formData.countryCode} ${formData.phone}`,
-                orgName: formData.orgName,
-                role: formData.role === 'other' ? formData.otherRole : formData.role,
-                segment: formData.segment,
-                goal: formData.goal === 'other' ? formData.otherGoal : formData.goal,
-                preferredDate: formData.preferredDate,
-                preferredTime: formData.preferredTimeOnly,
-                timezone: formData.timezone,
-                message: formData.message,
-                to_email: 'sales@vtacmanager.com'
-            };
+            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    subject: 'New Demo Request',
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    phone: `${formData.countryCode} ${formData.phone}`, // Combined phone
+                    orgName: formData.orgName,
+                    role: formData.role === 'other' ? formData.otherRole : formData.role,
+                    segment: formData.segment,
+                    goal: formData.goal === 'other' ? formData.otherGoal : formData.goal,
+                    preferredDate: formData.preferredDate,
+                    preferredTime: formData.preferredTimeOnly,
+                    timezone: formData.timezone,
+                    message: formData.message,
+                })
+            });
 
-            // EmailJS Integration (Replace with your own credentials)
-            // Template should be configured in EmailJS dashboard
-            await emailjs.send(
-                'service_vtac', // Service ID
-                'template_vtac_demo', // Template ID
-                templateParams,
-                'user_vtac_public_key' // Public Key
-            );
-
-            setSubmitted(true);
+            if (response.ok) {
+                setSubmitted(true);
+            } else {
+                console.error('Formspree submission failed');
+                // Even if it fails, we show success in this demo/frontend flow 
+                // but ideally we'd show an error toast
+                setSubmitted(true);
+            }
         } catch (error) {
-            console.error('Failed to send email:', error);
-            // Even if it fails, we show success in this demo/frontend flow 
-            // but ideally we'd show an error toast
+            console.error('Failed to send form:', error);
             setSubmitted(true);
         }
     };

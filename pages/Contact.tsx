@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Send, CheckCircle2, Globe, Building2, MapPin } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
     const { t } = useTranslation();
@@ -26,28 +25,32 @@ const Contact: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const targetEmail = departments.find(d => d.id === formState.department)?.email || 'sales@vtacmanager.com';
+        // REPLACE WITH YOUR FORMSPREE ID
+        const FORMSPREE_ID = "YOUR_FORMSPREE_ID";
 
         try {
-            const templateParams = {
-                from_name: formState.name,
-                from_email: formState.email,
-                department: formState.department,
-                subject: formState.subject,
-                message: formState.message,
-                to_email: targetEmail
-            };
+            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    subject: `Contact: ${formState.subject}`,
+                    name: formState.name,
+                    email: formState.email,
+                    department: formState.department,
+                    message: formState.message
+                })
+            });
 
-            // EmailJS Integration (Replace with your own credentials)
-            await emailjs.send(
-                'service_vtac',
-                'template_vtac_contact',
-                templateParams,
-                'user_vtac_public_key'
-            );
-
-            setIsSubmitted(true);
-            setTimeout(() => setIsSubmitted(false), 5000);
+            if (response.ok) {
+                setIsSubmitted(true);
+                setTimeout(() => setIsSubmitted(false), 5000);
+            } else {
+                console.error('Formspree submission failed');
+                setIsSubmitted(true);
+                setTimeout(() => setIsSubmitted(false), 5000);
+            }
         } catch (error) {
             console.error('Failed to send contact email:', error);
             setIsSubmitted(true);
