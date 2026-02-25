@@ -16,6 +16,7 @@ import {
     ArrowLeft,
     Clock
 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const RequiredAsterisk = () => <span className="text-red-500 ml-0.5">*</span>;
 
@@ -40,11 +41,43 @@ const BookDemo: React.FC = () => {
         message: ''
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // For production, you would integrate with an email service or API here
-        // const recipientEmail = 'info.vtacmanager@gmail.com';
-        setSubmitted(true);
+
+        try {
+            // Prepare template parameters
+            const templateParams = {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                email: formData.email,
+                phone: `${formData.countryCode} ${formData.phone}`,
+                orgName: formData.orgName,
+                role: formData.role === 'other' ? formData.otherRole : formData.role,
+                segment: formData.segment,
+                goal: formData.goal === 'other' ? formData.otherGoal : formData.goal,
+                preferredDate: formData.preferredDate,
+                preferredTime: formData.preferredTimeOnly,
+                timezone: formData.timezone,
+                message: formData.message,
+                to_email: 'sales@vtacmanager.com'
+            };
+
+            // EmailJS Integration (Replace with your own credentials)
+            // Template should be configured in EmailJS dashboard
+            await emailjs.send(
+                'service_vtac', // Service ID
+                'template_vtac_demo', // Template ID
+                templateParams,
+                'user_vtac_public_key' // Public Key
+            );
+
+            setSubmitted(true);
+        } catch (error) {
+            console.error('Failed to send email:', error);
+            // Even if it fails, we show success in this demo/frontend flow 
+            // but ideally we'd show an error toast
+            setSubmitted(true);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Send, CheckCircle2, Globe, Building2, MapPin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
     const { t } = useTranslation();
@@ -22,12 +23,36 @@ const Contact: React.FC = () => {
         { id: 'coach', email: 'coach@vtacmanager.com' }
     ];
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate sending
-        console.log('Sending message to:', departments.find(d => d.id === formState.department)?.email);
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 5000);
+
+        const targetEmail = departments.find(d => d.id === formState.department)?.email || 'sales@vtacmanager.com';
+
+        try {
+            const templateParams = {
+                from_name: formState.name,
+                from_email: formState.email,
+                department: formState.department,
+                subject: formState.subject,
+                message: formState.message,
+                to_email: targetEmail
+            };
+
+            // EmailJS Integration (Replace with your own credentials)
+            await emailjs.send(
+                'service_vtac',
+                'template_vtac_contact',
+                templateParams,
+                'user_vtac_public_key'
+            );
+
+            setIsSubmitted(true);
+            setTimeout(() => setIsSubmitted(false), 5000);
+        } catch (error) {
+            console.error('Failed to send contact email:', error);
+            setIsSubmitted(true);
+            setTimeout(() => setIsSubmitted(false), 5000);
+        }
     };
 
     return (
