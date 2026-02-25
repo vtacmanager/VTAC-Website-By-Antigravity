@@ -7,6 +7,11 @@ export default async function handler(req: any, res: any) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
+    if (!process.env.RESEND_API_KEY) {
+        console.error('MISSING RESEND_API_KEY in Environment Variables');
+        return res.status(500).json({ error: 'System configuration error: Missing API Key' });
+    }
+
     try {
         const data = req.body;
         const { subject, type } = data;
