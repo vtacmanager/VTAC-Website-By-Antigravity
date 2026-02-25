@@ -228,14 +228,16 @@ const Pricing: React.FC = () => {
                     )}
                   </div>
                 </div>
-                <button
-                  onClick={() => navigate('/book-demo')}
-                  className="group relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 text-slate-900 w-full sm:w-auto lg:w-full px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all duration-500 shadow-xl hover:scale-105"
+                <a
+                  href="https://app.vtacmanager.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 text-slate-900 w-full sm:w-auto lg:w-full px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all duration-500 shadow-xl hover:scale-105 flex items-center justify-center"
                 >
                   {/* Metallic Gloss Reflection */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
                   <span className="relative z-10">{plan.cta}</span>
-                </button>
+                </a>
               </div>
             </div>
           ))}
@@ -316,14 +318,27 @@ const Pricing: React.FC = () => {
                   ))}
                 </ul>
 
-                <button
-                  onClick={() => navigate('/book-demo')}
-                  className="group relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 text-slate-900 w-full py-6 rounded-[2rem] font-black text-sm uppercase tracking-widest transition-all duration-500 shadow-2xl hover:scale-105"
-                >
-                  {/* Metallic Gloss Reflection */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
-                  <span className="relative z-10">{plan.cta}</span>
-                </button>
+                {plan.id === 'enterprise' ? (
+                  <button
+                    onClick={() => navigate('/book-demo')}
+                    className="group relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 text-slate-900 w-full py-6 rounded-[2rem] font-black text-sm uppercase tracking-widest transition-all duration-500 shadow-2xl hover:scale-105"
+                  >
+                    {/* Metallic Gloss Reflection */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
+                    <span className="relative z-10">{plan.cta}</span>
+                  </button>
+                ) : (
+                  <a
+                    href="https://app.vtacmanager.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#cbd5e1] to-[#94a3b8] border border-white/40 text-slate-900 w-full py-6 rounded-[2rem] font-black text-sm uppercase tracking-widest transition-all duration-500 shadow-2xl hover:scale-105 flex items-center justify-center"
+                  >
+                    {/* Metallic Gloss Reflection */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] transition-transform pointer-events-none"></div>
+                    <span className="relative z-10">{plan.cta}</span>
+                  </a>
+                )}
               </div>
             );
           })}
