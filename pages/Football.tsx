@@ -174,6 +174,17 @@ const FeatureCard = ({ title, description, image, icon: Icon, color = 'green', w
 
 const Football: React.FC = () => {
   const { t, i18n } = useTranslation(); // Initialize hook
+
+  // Update SEO Metadata for this specific Landing Page
+  useEffect(() => {
+    document.title = "VTAC MANAGER | Football & Team Sports Management Software";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Advanced football team management, tactics, and interactive training platform. Empower your coaches and players with VTAC MANAGER for modern sports.');
+    }
+    // Optional: Reset title when unmounting if you want, but since it's a SPA it's fine or you can handle it globally.
+  }, []);
+
   /* State for Section 2 Slideshow */
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
 

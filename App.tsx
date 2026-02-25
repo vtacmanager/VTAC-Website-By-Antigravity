@@ -1,6 +1,6 @@
 
 import React, { useEffect, Suspense, lazy } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext.tsx';
 import Navbar from './components/Navbar.tsx';
 import Footer from './components/Footer.tsx';
