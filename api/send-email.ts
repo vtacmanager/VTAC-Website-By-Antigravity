@@ -129,7 +129,7 @@ export default async function handler(req: any, res: any) {
         `;
 
         const { data: result, error } = await resend.emails.send({
-            from: 'VTAC Website <onboarding@resend.dev>',
+            from: 'VTAC Manager <info@vtacmanager.com>',
             to: ['sales@vtacmanager.com'],
             subject: subject || `Website Notification: ${title}`,
             html: emailHtml,
