@@ -754,8 +754,7 @@ const IHub: React.FC = () => {
                   )) : null;
                 })()}
               </ul>
-              {/* Link repositioned to top left of image */}
-              <div className="absolute z-20 bottom-64 left-10">
+              <div className="mt-auto pt-4 translate-y-8 relative z-20">
                 <Link to="/solutions" className="inline-flex items-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-blue-400 hover:text-white hover:underline transition-colors">
                   Read out Tailored Solutions <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
                 </Link>
@@ -791,8 +790,7 @@ const IHub: React.FC = () => {
                   )) : null;
                 })()}
               </ul>
-              {/* Link repositioned to top left of image */}
-              <div className="absolute z-20 bottom-64 left-10">
+              <div className="mt-auto pt-4 translate-y-8 relative z-20">
                 <Link to="/solutions" className="inline-flex items-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-purple-400 hover:text-white hover:underline transition-colors">
                   Read out Tailored Solutions <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
                 </Link>
@@ -828,8 +826,7 @@ const IHub: React.FC = () => {
                   )) : null;
                 })()}
               </ul>
-              {/* Link repositioned to top left of image */}
-              <div className="absolute z-20 bottom-64 left-10">
+              <div className="mt-auto pt-4 translate-y-8 relative z-20">
                 <Link to="/football" className="inline-flex items-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-cyan-400 hover:text-white hover:underline transition-colors">
                   Explore Football Solutions <ChevronRight className="w-4 h-4 md:w-5 md:h-5 ml-1" />
                 </Link>
