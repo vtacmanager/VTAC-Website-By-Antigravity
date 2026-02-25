@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { SectionWrapper, CTASection, GradientBackground } from '../components/UI.tsx';
 import { Check, Star, ShieldCheck, Zap, Globe, ChevronRight, Clock, Users, FileCheck } from 'lucide-react';
@@ -6,6 +6,16 @@ import { useTranslation } from 'react-i18next';
 
 const Pricing: React.FC = () => {
   const { t, i18n } = useTranslation();
+
+  // Update SEO Metadata for this specific Landing Page
+  useEffect(() => {
+    document.title = "VTAC MANAGER | Flexible Pricing for Every Team Size";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Explore VTAC MANAGER pricing plans. Choose the right package for your team, from single teams to enterprise-level academies, and start your free trial today.');
+    }
+  }, []);
+
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annually'>('annually');
 
   const navigate = useNavigate();

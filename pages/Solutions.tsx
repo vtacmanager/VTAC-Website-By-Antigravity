@@ -28,6 +28,16 @@ import {
 
 const Solutions: React.FC = () => {
   const { t, i18n } = useTranslation();
+
+  // Update SEO Metadata for this specific Landing Page
+  useEffect(() => {
+    document.title = "VTAC MANAGER | Solutions for Schools, Academies & Pro Clubs";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Discover tailored VTAC MANAGER solutions designed specifically to meet the needs of Schools, Youth Academies, and Professional Sports Clubs.');
+    }
+  }, []);
+
   const [activeSector, setActiveSector] = useState<'schools' | 'youth' | 'pro'>('schools');
 
   // Auto-slideshow functionality

@@ -95,6 +95,16 @@ const SimpleSlideshow = ({
 
 const IHub: React.FC = () => {
   const { t, i18n } = useTranslation();
+
+  // Update SEO Metadata for this specific Landing Page
+  useEffect(() => {
+    document.title = "VTAC MANAGER | iHUB - The Connected Digital Ecosystem";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Explore iHUB by VTAC MANAGER - the central intelligence platform that connects all your team sports data, tactics, and interactive training in one secure ecosystem.');
+    }
+  }, []);
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const timerRef = useRef<number | null>(null);

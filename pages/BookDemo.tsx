@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionWrapper, GradientBackground } from '../components/UI.tsx';
@@ -21,6 +21,16 @@ const RequiredAsterisk = () => <span className="text-red-500 ml-0.5">*</span>;
 
 const BookDemo: React.FC = () => {
     const { t } = useTranslation();
+
+    // Update SEO Metadata for this specific Landing Page
+    useEffect(() => {
+        document.title = "VTAC MANAGER | Book a Live Demonstration";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', 'Schedule a personalized demo of VTAC MANAGER. See how our comprehensive management platform can transform your club, academy, or school.');
+        }
+    }, []);
+
     const [submitted, setSubmitted] = useState(false);
     const [formData, setFormData] = useState({
         firstName: '',

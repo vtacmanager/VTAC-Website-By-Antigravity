@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Send, CheckCircle2, Globe, Building2, MapPin } from 'lucide-react';
 
 const Contact: React.FC = () => {
     const { t } = useTranslation();
+
+    // Update SEO Metadata for this specific Landing Page
+    useEffect(() => {
+        document.title = "VTAC MANAGER | Contact Us & Customer Support";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', 'Get in touch with the VTAC MANAGER team. Reach out for support, sales inquiries, partnership opportunities, or to book a demo of our platform.');
+        }
+    }, []);
+
     const [formState, setFormState] = useState({
         name: '',
         email: '',

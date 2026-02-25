@@ -173,6 +173,15 @@ const SportsMarquee: React.FC = () => {
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
 
+  // Update SEO Metadata for this specific Landing Page
+  useEffect(() => {
+    document.title = "VTAC MANAGER | Next-Gen Sports Management Software";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Elevate your sports organization with VTAC MANAGER. A unified platform for management, tactical planning, player development, and interactive training.');
+    }
+  }, []);
+
   const manifestoItems = [
     {
       icon: Layers,
