@@ -5,8 +5,14 @@ import { motion } from 'framer-motion';
 const Security: React.FC = () => {
     const { t } = useTranslation();
 
+    const [securityHtml, setSecurityHtml] = React.useState<string>('');
+
     useEffect(() => {
         window.scrollTo(0, 0);
+        fetch('/security-content.html')
+            .then(res => res.text())
+            .then(html => setSecurityHtml(html))
+            .catch(err => console.error('Error fetching security info:', err));
     }, []);
 
     return (
@@ -16,33 +22,19 @@ const Security: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="space-y-8"
                 >
-                    <div className="text-center space-y-4 mb-16">
-                        <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
-                            {t('legal.security.title')}
-                        </h1>
-                        <p className="text-slate-400">
-                            {t('legal.security.lastUpdated')}
-                        </p>
-                    </div>
-
-                    <div className="prose prose-invert prose-slate max-w-none">
-                        <div className="bg-slate-900/50 border border-white/10 rounded-2xl p-8 md:p-12 relative overflow-hidden backdrop-blur-xl">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-
-                            <div className="relative z-10 text-slate-300 leading-relaxed space-y-6">
-                                <p>{t('legal.security.content')}</p>
-                                {/* 
-                  When you have the real content, you can paste it here like this:
-                  
-                  <h2 className="text-2xl font-bold text-white mt-8 mb-4">1. Data Encryption</h2>
-                  <p>Your actual text here...</p>
-
-                  <h2 className="text-2xl font-bold text-white mt-8 mb-4">2. Compliance</h2>
-                  <p>Your actual text here...</p>
-                */}
-                            </div>
+                    <div className="bg-white rounded-[2.5rem] shadow-2xl p-8 md:p-16 relative overflow-hidden">
+                        <div className="relative z-10">
+                            {securityHtml ? (
+                                <div
+                                    dangerouslySetInnerHTML={{ __html: securityHtml }}
+                                    className="security-container"
+                                />
+                            ) : (
+                                <div className="flex items-center justify-center py-20">
+                                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-500"></div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </motion.div>
