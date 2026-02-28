@@ -143,6 +143,11 @@
 *   **Answer:** **Yes**
 *   **Reasoning:** Essential for linking to Payment Gateways (**Stripe/PayPal**) and external resources/partners. Answering "Yes" ensures that VTAC is not held liable for the content or privacy practices of external sites.
 
+### 16. Advertisements (Professional Positioning)
+*   **Question:** Do you have third-party advertisements on your platform?
+*   **Answer:** **No**
+*   **Reasoning:** VTAC is a premium SaaS tool. Maintaining a clean, ad-free environment (especially for youth academies) is critical for brand positioning, user experience, and data privacy.
+
 ---
 
 ## 🚀 Next Steps Configuration
