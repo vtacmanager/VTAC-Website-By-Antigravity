@@ -67,6 +67,11 @@
     *   **Legal Protections (COPPA & GDPR Kiddie):** Answering "Yes" is crucial because it triggers the highest level of data protection language required by **COPPA (USA)** and **GDPR (Europe/UK)** for children. 
     *   **Liability Shift:** The resulting Terms will specify that for users under 13, the **Institution (School/Academy)** or the **Parent** must create the account/provide consent. This protects VTAC from being liable for directly collecting data from children without authorization.
 
+### 8. User Accounts (Membership Access)
+*   **Question:** Can users create an account on your platform?
+*   **Answer:** **Yes**
+*   **Reasoning:** VTAC is a personalized management system. Features like the **"iHub Dashboard"**, **"Digital CV"**, and **"Interactive Tactical Sessions"** all require individual accounts for coaches and players to track progress and maintain privacy.
+
 ---
 
 ## 🚀 Next Steps Configuration
