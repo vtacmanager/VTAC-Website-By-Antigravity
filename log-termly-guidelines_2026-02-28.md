@@ -98,6 +98,15 @@
 *   **Answer:** **The account will not be charged and the subscription will be suspended until upgraded to a paid version**
 *   **Reasoning:** Since our current CTA is **"Book a Demo"** and we want to reduce friction for new coaches, a 7-day "No Credit Card Required" trial is the standard low-friction onboarding strategy. Suspending the account instead of auto-charging ensures users don't feel "tricked," which builds higher brand trust.
 
+### 11. Payments (Financial Transactions)
+*   **Question:** What forms of payment do you accept?
+*   **Answer:** Select: **Visa, Mastercard, American Express, PayPal**.
+*   **Question:** What currency type should payments be in?
+*   **Answer:** Select: **British Pounds (GBP)** (or add custom if needed), but also include **US Dollars (USD)** and **Euros (EUR)**.
+*   **Reasoning:** 
+    *   **Methods:** These are the standard options for Stripe/PayPal gateways which we plan to use.
+    *   **Currency:** Since VTAC is headquartered in the UK, **GBP (£)** is the primary billing currency (as seen on our Pricing page: £24, £20). However, since we target global markets (US English, EU), selecting USD and EUR ensures the Terms & Conditions cover international exchange and billing correctly.
+
 ---
 
 ## 🚀 Next Steps Configuration
