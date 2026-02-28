@@ -26,6 +26,15 @@
     *   **Efficiency:** Setting this to "Yes" now prevents having to re-edit and re-generate the legal documents when the payment gateway (Pricing plans) goes live.
     *   **Legal Compliance:** Termly will generate sections explaining how payment data is handled. Note that VTAC won't store credit card numbers directly; they will be processed by a trusted Third-Party Gateway (like Stripe or PayPal). Having this in the document from day one ensures full financial legal compliance.
 
+### 4. User Location (Globalization)
+*   **Question:** Do you have users in the EU, UK, Iceland, Liechtenstein or Norway?
+*   **Answer:** **Yes**
+*   **Reasoning:** VTAC headquarters is in **Leicester, UK**. By default, you have UK users. Answering "Yes" ensures the policy includes mandatory GDPR and UK-GDPR compliance language.
+
+*   **Question:** Do you have users in the United States?
+*   **Answer:** **Yes**
+*   **Reasoning:** We have already implemented an **en-US (US English)** localization for the website. This clearly indicates intent to serve the US market. Answering "Yes" will include necessary disclosures for US State-level privacy laws (like CCPA).
+
 ---
 
 ## 🚀 Next Steps Configuration
