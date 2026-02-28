@@ -173,6 +173,11 @@
     *   **Language:** **English** is the primary business language of VTAC and the jurisdiction, ensuring clarity and minimizing translation costs.
     *   **Timeline:** **30 days** is the gold standard for informal negotiations. it gives enough time for our support team to talk to the coach/club and find a win-win solution before lawyers get involved.
 
+### 19. Limitation of Liability (Financial Protection)
+*   **Question:** Do you want to limit the amount of your liability for any claims against your platform?
+*   **Answer:** **Yes, limit to amount paid by the user**
+*   **Reasoning:** This is a crucial protective clause. It ensures that VTAC's maximum financial exposure to any single user claim is capped at what they actually spent on the services. It prevents "consequential damages" claims (e.g., a team claiming lost revenue or tournament winnings due to a technical glitch) from bankrupting the startup.
+
 ---
 
 ## 🚀 Next Steps Configuration
