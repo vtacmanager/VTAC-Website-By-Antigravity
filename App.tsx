@@ -16,6 +16,9 @@ const Login = lazy(() => import('./pages/Login.tsx'));
 const Register = lazy(() => import('./pages/Register.tsx'));
 const BookDemo = lazy(() => import('./pages/BookDemo.tsx'));
 const Contact = lazy(() => import('./pages/Contact.tsx'));
+const Terms = lazy(() => import('./pages/Terms.tsx'));
+const Privacy = lazy(() => import('./pages/Privacy.tsx'));
+const Security = lazy(() => import('./pages/Security.tsx'));
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -90,6 +93,9 @@ const App: React.FC = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/book-demo" element={<BookDemo />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/security" element={<Security />} />
               </Routes>
             </Suspense>
           </main>

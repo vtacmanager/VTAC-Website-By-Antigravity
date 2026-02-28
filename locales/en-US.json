@@ -1297,5 +1297,22 @@
         "button": "SUBSCRIBE",
         "success": "Welcome to the elite list!",
         "footerTitle": "STAY CONNECTED"
+    },
+    "legal": {
+        "terms": {
+            "title": "Terms of Service",
+            "lastUpdated": "Last Updated: May 2024",
+            "content": "This page is a placeholder for your Terms of Service. Please update this content with your actual legal text using a legal generator or consultant."
+        },
+        "privacy": {
+            "title": "Privacy Policy",
+            "lastUpdated": "Last Updated: May 2024",
+            "content": "This page is a placeholder for your Privacy Policy. Please update this content with your actual legal text using a legal generator or consultant."
+        },
+        "security": {
+            "title": "Security Overview",
+            "lastUpdated": "Last Updated: May 2024",
+            "content": "This page is a placeholder for your Security Practices. Please update this content with your actual legal text using a legal generator or consultant."
+        }
     }
 }

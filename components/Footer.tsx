@@ -140,9 +140,9 @@ const Footer: React.FC = () => {
             <p>{t('footer.copyright.rights')}</p>
           </div>
           <div className="flex space-x-10 mt-8 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">{t('footer.links.terms')}</a>
-            <a href="#" className="hover:text-white transition-colors">{t('footer.links.privacy')}</a>
-            <a href="#" className="hover:text-white transition-colors">{t('footer.links.security')}</a>
+            <Link to="/terms" className="hover:text-white transition-colors">{t('footer.links.terms')}</Link>
+            <Link to="/privacy" className="hover:text-white transition-colors">{t('footer.links.privacy')}</Link>
+            <Link to="/security" className="hover:text-white transition-colors">{t('footer.links.security')}</Link>
           </div>
         </div>
       </div>
