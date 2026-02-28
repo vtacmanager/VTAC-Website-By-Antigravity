@@ -72,6 +72,12 @@
 *   **Answer:** **Yes**
 *   **Reasoning:** VTAC is a personalized management system. Features like the **"iHub Dashboard"**, **"Digital CV"**, and **"Interactive Tactical Sessions"** all require individual accounts for coaches and players to track progress and maintain privacy.
 
+### 9. Subscriptions (Core Business Model)
+*   **Question:** Do you offer a subscription service for your product?
+*   **Answer:** **Yes**
+*   **Reasoning:** This is the primary revenue model for VTAC MANAGER. As detailed in the **Pricing** section, VTAC offers monthly and annual billing plans (**VTAC SINGLE**, **MULTI-TEAM**, and **ENTERPRISE**).
+*   **Compliance Note:** Selecting "Yes" ensures the Terms include critical clauses about **Recurring Billing**, **Cancellation Policies**, and **No Refunds** (unless required by law), which are vital for a SaaS business.
+
 ---
 
 ## 🚀 Next Steps Configuration
