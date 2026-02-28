@@ -227,6 +227,7 @@
 *   **Question:** Will you notify your users about updates to your legal terms?
 *   **Answer:** **Yes**
 *   **Notification Method:** **User will receive an email notification**
+*   **Sender Email Address:** **hello@vtacmanager.com**
 *   **Notification Timing:** **Before update is effective**
 *   **Reasoning:** Providing advance notice via email is the most robust way to ensure changes are legally enforceable. It gives users the opportunity to review new terms and decide on their continued use of VTAC Solutions Ltd's services before the changes take effect.
 
