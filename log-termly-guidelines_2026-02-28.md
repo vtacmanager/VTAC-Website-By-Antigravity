@@ -176,6 +176,9 @@
 ### 19. Limitation of Liability (Financial Protection)
 *   **Question:** Do you want to limit the amount of your liability for any claims against your platform?
 *   **Answer:** **Yes, limit to amount paid by the user**
+*   **Question:** Do you want to limit the length of time that you can be liable for a user claim?
+*   **Answer:** **Yes**
+*   **Reasoning:** Since VTAC operates on a subscription model, it is vital to limit the liability window. This ensures that users cannot bring forward claims for incidents that happened a long time ago (e.g., several years prior), allowing the company to move forward with definitive legal certainty.
 *   **Reasoning:** This is a crucial protective clause. It ensures that VTAC's maximum financial exposure to any single user claim is capped at what they actually spent on the services. It prevents "consequential damages" claims (e.g., a team claiming lost revenue or tournament winnings due to a technical glitch) from bankrupting the startup.
 
 ---
