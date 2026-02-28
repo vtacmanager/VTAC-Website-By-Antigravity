@@ -93,10 +93,10 @@
 *   **Question:** Do you offer a free trial for your subscription?
 *   **Answer:** **Yes**
 *   **Question:** How many days is the free trial?
-*   **Answer:** **7 Days**
+*   **Answer:** **14 Days**
 *   **Question:** At the end of the free trial period:
 *   **Answer:** **The account will not be charged and the subscription will be suspended until upgraded to a paid version**
-*   **Reasoning:** Since our current CTA is **"Book a Demo"** and we want to reduce friction for new coaches, a 7-day "No Credit Card Required" trial is the standard low-friction onboarding strategy. Suspending the account instead of auto-charging ensures users don't feel "tricked," which builds higher brand trust.
+*   **Reasoning:** Updated to 14 days to provide a more comprehensive evaluation period for coaches and academies.
 
 ### 11. Payments (Financial Transactions)
 *   **Question:** What forms of payment do you accept?
@@ -235,6 +235,13 @@
 *   **Question:** What do you want to call your legal terms?
 *   **Answer:** **Terms of Service**
 *   **Reasoning:** This aligns perfectly with the current website structure and translation files (`en-GB.json`), which already use "Terms of Service". It is the most widely recognized and professional term for SaaS platforms.
+
+### 28. Service Uptime & Interactive Mode Performance (Technical Disclaimer)
+*   **Service Availability:** We aim for 99.9% uptime for core services (iHub, Cloud data access).
+*   **Interactive Mode Disclaimer:** Performance of Interactive Mode is highly dependent on the user's local internet connection and signal strength. 
+*   **Mitigation Tools:** VTAC provides an **Internet Signal Strength Monitor** and **Latency Adjustment Settings** to help users find their team's optimal performance balance.
+*   **Fallback Strategy:** Users are encouraged to utilize the **Strategy Board** if real-time interactive synchronization is hindered by local network conditions.
+*   **Liability:** VTAC is not liable for service interruptions caused by the user's lack of adequate internet bandwidth or signal stability.
 
 ---
 
