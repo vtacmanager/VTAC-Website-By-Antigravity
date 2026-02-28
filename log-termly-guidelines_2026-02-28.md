@@ -44,6 +44,16 @@
 *   **Answer:** **Yes** (Add: **United States**)
 *   **Reasoning:** Your website uses **Vercel** (Edge network) and **Supabase** (Cloud Database), both of which utilize global infrastructures primarily centered in the US (AWS). Disclosing this "Cross-border" processing is a mandatory legal requirement for international data transfers.
 
+### 6. Use and Description (Scope of Purpose)
+*   **Question:** Do you want to include a description about your website and/or app?
+*   **Answer:** **Yes**
+*   **Recommendation Description:** "VTAC MANAGER provides an integrated digital ecosystem for sports team management and interactive tactical training sessions."
+*   **Reasoning:** Providing a clear description defines the scope of the service provided, which is essential for limiting liability in terms and conditions.
+
+*   **Question:** Are your products for your users' personal and/or internal business use?
+*   **Answer:** **Both**
+*   **Reasoning:** VTAC serves both **Independent Coaches** (Personal use for their teams) and **Large Organizations/Schools** (Internal business use for managing multiple squads). Selecting both ensures the terms apply correctly to both individual and corporate users.
+
 ---
 
 ## 🚀 Next Steps Configuration
