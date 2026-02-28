@@ -37,6 +37,9 @@ const Privacy: React.FC = () => {
                         <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
                             {t('legal.privacy.title')}
                         </h1>
+                        <p className="text-emerald-400 font-medium">
+                            {t('legal.privacy.lastUpdated')}
+                        </p>
                         <p className="text-slate-400">
                             {t('legal.privacy.subtitle', 'Transparency and security are at our core.')}
                         </p>
