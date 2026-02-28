@@ -107,6 +107,15 @@
     *   **Methods:** These are the standard options for Stripe/PayPal gateways which we plan to use.
     *   **Currency:** Since VTAC is headquartered in the UK, **GBP (£)** is the primary billing currency. However, given our significant investment in Thai localization (**th.json**) and US/EU markets, including **THB**, **USD**, and **EUR** ensures full legal coverage for our global user base and future local payment integrations in Thailand.
 
+### 12. Cancellation and Refunds (Account Termination)
+*   **Question:** Can users ask for a refund on their purchases?
+*   **Answer:** **No**
+*   **Reasoning:** As is standard for digital SaaS services, a "No Refund" policy (except as required by law) protects the company from abuse of digital services. 
+
+*   **Question:** How can users cancel their subscription?
+*   **Answer:** Select both: **Logging into their account** and **Contacting customer service**.
+*   **Reasoning:** Offering both paths is legally required in many jurisdictions (like the EU/UK) and provides the best experience for coaches who may prefer self-service or direct support.
+
 ---
 
 ## 🚀 Next Steps Configuration
