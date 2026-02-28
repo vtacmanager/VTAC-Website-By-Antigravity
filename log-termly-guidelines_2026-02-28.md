@@ -162,10 +162,15 @@
 *   **Answer:** **Informal negotiations, then arbitration**
 *   **Question:** In which country will the arbitration take place?
 *   **Answer:** **United Kingdom** (England and Wales)
+*   **Question:** In which city will the arbitration take place?
+*   **Answer:** **Leicester**
+*   **Question:** What language will be used in the arbitral proceedings?
+*   **Answer:** **English**
 *   **Question:** How many days must the parties mediate before initiating an arbitration proceeding?
 *   **Answer:** **30 Days**
 *   **Reasoning:** 
-    *   **Location:** Since VTAC is based in the UK, having the legal venue in the **United Kingdom** ensures we are protected by laws we are familiar with and avoids the high costs of legal proceedings abroad.
+    *   **Location:** Since VTAC's Global Headquarters is located in **Leicester, UK**, choosing this city as the venue is the most cost-effective and convenient.
+    *   **Language:** **English** is the primary business language of VTAC and the jurisdiction, ensuring clarity and minimizing translation costs.
     *   **Timeline:** **30 days** is the gold standard for informal negotiations. it gives enough time for our support team to talk to the coach/club and find a win-win solution before lawyers get involved.
 
 ---
