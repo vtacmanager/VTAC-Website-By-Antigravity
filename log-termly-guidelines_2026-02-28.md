@@ -125,6 +125,19 @@
 *   **Answer:** **Check (Yes)**
 *   **Reasoning:** Critical for the **Digital CV** and club privacy. Prevents unauthorized redistribution of tactical data and professional history.
 
+### 14. Content and Corrections (Data Ownership)
+*   **Question:** Can users post content on your platform?
+*   **Answer:** **Yes** (Types: **Text, Image**)
+*   **Question:** Does your platform have public content that other users can see?
+*   **Answer:** **No**
+*   **Reasoning:** VTAC is a private ecosystem for sports clubs. While users create data (tactics, CVs), this data is restricted to authorized team members and is not accessible to the general public.
+
+*   **Question:** Can users post reviews for your products or services?
+*   **Answer:** **No**
+*   **Question:** Does your platform allow users to post corrections to their content?
+*   **Answer:** **Yes**
+*   **Reasoning:** Aligns with GDPR/Data Privacy rights, allowing users to rectify inaccurate personal or tactical information.
+
 ---
 
 ## 🚀 Next Steps Configuration
