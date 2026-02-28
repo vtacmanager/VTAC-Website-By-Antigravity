@@ -85,6 +85,10 @@
 *   **Question:** How customers can renew their subscription?
 *   **Answer:** **"Subscriptions automatically renew at the end of each billing cycle (monthly or annually) using the original payment method. Users can manage or update their billing details through their iHub account settings."**
 
+*   **Question:** How often does the subscription renew?
+*   **Answer:** **The customer chooses**
+*   **Reasoning:** As seen on the **Pricing** page, VTAC offers both **Monthly** and **Annual** billing cycles. The frequency depends on which plan the user selects at checkout.
+
 ---
 
 ## 🚀 Next Steps Configuration
