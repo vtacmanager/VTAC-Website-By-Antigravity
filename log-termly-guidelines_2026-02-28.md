@@ -186,6 +186,11 @@
 *   **Reasoning:** Since VTAC operates on a subscription model, it is vital to limit the liability window. This ensures that users cannot bring forward claims for incidents that happened a long time ago (e.g., several years prior), allowing the company to move forward with definitive legal certainty.
 *   **Reasoning:** This is a crucial protective clause. It ensures that VTAC's maximum financial exposure to any single user claim is capped at what they actually spent on the services. It prevents "consequential damages" claims (e.g., a team claiming lost revenue or tournament winnings due to a technical glitch) from bankrupting the startup.
 
+### 20. Marketing and Promotional Communications
+*   **Question:** Do you send SMS text messages to your users?
+*   **Answer:** **No**
+*   **Reasoning:** VTAC currently relies on **Email** for all user communications and marketing. We do not collect phone numbers during the registration process (`Register.tsx`), nor is there any SMS service integration in the codebase. Keeping this as "No" simplifies legal compliance regarding mobile marketing regulations (like TCPA).
+
 ---
 
 ## 🚀 Next Steps Configuration
