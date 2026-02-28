@@ -216,12 +216,12 @@
 *   **Reasoning:** Selecting UK law provides a stable and globally recognized legal framework. It matches the arbitration venue (Leicester) and the company's global headquarters location, ensuring a streamlined legal process and building trust with international users.
 
 ### 25. Contact Information (Corporate Identity)
-*   **Full legal name of company:** **VTAC MANAGER TECHNOLOGIES**
+*   **Full legal name of company:** **VTAC SOLUTIONS LTD**
 *   **Doing business under trade name (DBA):** **Yes** (Trade Name: **VTAC MANAGER**)
 *   **Email:** **hello@vtacmanager.com**
 *   **Phone:** No (Not listed in current contact channels)
 *   **Fax:** No (Not listed in current contact channels)
-*   **Reasoning:** This information is pulled directly from the current branding and translation files (`en-GB.json`). Using the full legal name "VTAC MANAGER TECHNOLOGIES" ensures corporate compliance, while the DBA "VTAC MANAGER" maintains brand recognition.
+*   **Reasoning:** Corrected legal name from "VTAC MANAGER TECHNOLOGIES" to **"VTAC SOLUTIONS LTD"** as per the user's registration documents. Using the precise registered name is critical for legal enforceability of the terms.
 
 ---
 *Created and Synchronized: 2026-02-28*
