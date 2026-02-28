@@ -54,6 +54,12 @@
 *   **Answer:** **Both**
 *   **Reasoning:** VTAC serves both **Independent Coaches** (Personal use for their teams) and **Large Organizations/Schools** (Internal business use for managing multiple squads). Selecting both ensures the terms apply correctly to both individual and corporate users.
 
+### 7. User Age (Protections for Minors)
+*   **Question:** Can users under the age of 18 use your platform?
+*   **Answer:** **Yes**
+*   **Reasoning:** Since VTAC's core features include **"Youth Academies"** and **"Schools"**, it is inevitable that student-athletes under 18 will be primary users of the interactive tactical engine and the Digital CV system.
+*   **Compliance Note:** Answering "Yes" is the most honest and legally sound choice given your target sectors. This will trigger Termly to include necessary clauses about **Parental Consent**, ensuring that when a school or academy signs up, they are responsible for obtaining permission for their minor players to use the system.
+
 ---
 
 ## 🚀 Next Steps Configuration
