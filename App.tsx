@@ -1,9 +1,9 @@
-
 import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext.tsx';
 import Navbar from './components/Navbar.tsx';
 import Footer from './components/Footer.tsx';
+import i18n from './i18n.ts';
 
 // Lazy loading pages for performance optimization
 const Home = lazy(() => import('./pages/Home.tsx'));
@@ -42,6 +42,35 @@ const LoadingSpinner = () => (
 );
 
 const App: React.FC = () => {
+  useEffect(() => {
+    const checkIPAndSetLanguage = async () => {
+      // Check if we've already done IP detection or user manually changed language
+      if (localStorage.getItem('ip_language_checked')) return;
+
+      try {
+        const response = await fetch('https://get.geojs.io/v1/ip/country.json');
+        const data = await response.json();
+
+        // If user is accessing from Thailand
+        if (data.country === 'TH') {
+          i18n.changeLanguage('th');
+        }
+        // If user is from UK
+        else if (data.country === 'GB' || data.country === 'UK') {
+          i18n.changeLanguage('en-GB');
+        }
+        // Other countries will fall back to en-US (default)
+
+        // Mark that we have completed IP detection so we don't overwrite manual edits
+        localStorage.setItem('ip_language_checked', 'true');
+      } catch (error) {
+        console.error('Failed to get IP location for language selection:', error);
+      }
+    };
+
+    checkIPAndSetLanguage();
+  }, []);
+
   return (
     <AuthProvider>
       <Router>
