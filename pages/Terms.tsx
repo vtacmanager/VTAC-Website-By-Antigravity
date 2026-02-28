@@ -3,17 +3,18 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
 const Terms: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const [termsHtml, setTermsHtml] = React.useState<string>('');
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        fetch('/terms-content.html')
+        const fileName = i18n.language === 'th' ? '/terms-content-th.html' : '/terms-content.html';
+        fetch(fileName)
             .then(res => res.text())
             .then(html => setTermsHtml(html))
             .catch(err => console.error('Error fetching terms:', err));
-    }, []);
+    }, [i18n.language]);
 
     return (
         <div className="min-h-screen bg-slate-950 pt-24 pb-16">

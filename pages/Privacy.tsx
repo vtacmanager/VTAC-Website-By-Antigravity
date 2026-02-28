@@ -3,14 +3,17 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
 const Privacy: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [content, setContent] = useState<string>('');
 
     useEffect(() => {
         window.scrollTo(0, 0);
 
+        const isThai = i18n.language === 'th';
+        const fileName = isThai ? '/privacy-policy-content-th.html' : '/privacy-policy-content.html';
+
         // Fetch the cleaned privacy policy HTML
-        fetch('/privacy-policy-content.html')
+        fetch(fileName)
             .then(res => res.text())
             .then(html => {
                 // Strip the logo if we want to use our own, or keep it.
@@ -22,7 +25,7 @@ const Privacy: React.FC = () => {
                 console.error('Failed to load privacy policy:', err);
                 setContent('<p class="text-white">Failed to load privacy policy. Please contact support@vtacmanager.com</p>');
             });
-    }, []);
+    }, [i18n.language]);
 
     return (
         <div className="min-h-screen bg-slate-950 pt-24 pb-16">

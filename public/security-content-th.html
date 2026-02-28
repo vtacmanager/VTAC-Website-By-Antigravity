@@ -1,0 +1,180 @@
+<div class="legal-content">
+    <h1>สรุปความปลอดภัย (SECURITY STATEMENT)</h1>
+    <p><strong>อัปเดตล่าสุด: 28 กุมภาพันธ์ 2026</strong></p>
+
+    <p class="intro-text">
+        VTAC MANAGER ได้รับการออกแบบให้มีความปลอดภัยที่ซ้อนกันหลายเสาหลักเพื่อคุ้มครองข้อมูลของลูกค้า
+        และให้พร้อมใช้งานได้อย่างสูงสุดอย่างครอบคลุม
+    </p>
+
+    <div class="security-grid">
+        <section class="security-card">
+            <h2>โครงสร้างพื้นฐานระบบ (Infrastructure)</h2>
+            <p>VTAC MANAGER ปฏิบัติงานบนผู้จำหน่ายเทคโนโลยีคลาวด์ที่เชื่อถือได้อย่างเช่น <strong>Vercel</strong> และ
+                <strong>Supabase (AWS)</strong>
+                โดยการดำเนินการด้านฐานข้อมูลได้ผ่านมาตรฐานสากลจากผู้ใช้บริการที่สามารถเชื่อถือได้เท่านั้น</p>
+        </section>
+
+        <section class="security-card">
+            <h2>การเข้ารหัสและดูแลข้อมูล (Encryption)</h2>
+            <ul>
+                <li>ข้อมูลขณะที่มีการใช้งานและโอนถ่ายบนเว็บ จะถูกเข้ารหัสผ่าน <strong>TLS 1.2+</strong>.</li>
+                <li>ฐานการเก็บข้อมูล (Data at rest) ถือสิทธิรักษาความปลอดภัยในการเข้ารหัสด้วย <strong>AES-256</strong>
+                    ตามมาตรฐานของผู้ให้บริการฐานข้อมูลระดับโลก</li>
+            </ul>
+        </section>
+
+        <section class="security-card">
+            <h2>การยืนยันตัวตน และรหัสผ่าน (Authentication & Access Control)</h2>
+            <ul>
+                <li>รหัสผ่านของท่านจะถูกป้องกันด้วย <strong>Supabase Auth</strong></li>
+                <li>ทุกพาสเวิร์ดบนระบบของเราจะไม่มีการเก็บโดยอ่านในรูปแบบข้อความปกติ (Plain-text) ได้โดยเด็ดขาด
+                    ผ่านกระบวนการแฮชชิง (Hashing)</li>
+                <li>มีการบังคับใช้ข้อปฏิบัติตามฐานข้อมูลแบบ <strong>Row-Level Security (RLS)</strong>
+                    ระบุสิทธิ์ให้เข้าถึงได้เฉพาะรายทีมตามข้อมูลของบุคคลนั้น เพื่อการป้องกันสูงสุด</li>
+            </ul>
+        </section>
+
+        <section class="security-card">
+            <h2>ความปลอดภัยของแอปพลิเคชัน (Application Security)</h2>
+            <p>เรามีการรีพอร์ตช่องโหว่ มอนิเตอร์ปรับปรุงโค้ดอย่างเข้มข้น
+                และมีการป้องกันแอปพลิเคชันเวอร์ชันใหม่อย่างสม่ำเสมอ เพื่อลดขอบเขตการคุกคามให้ได้มากที่สุด</p>
+        </section>
+
+        <section class="security-card">
+            <h2>การสำรองข้อมูล (Backups & Reliability)</h2>
+            <p>เราเก็บและเตรียมขั้นตอนกู้คืนข้อมูลสำรองอย่างรัดกุมเป็นระบบอัตโนมัติ
+                เพื่อคอยรองรับไม่ให้ข้อผิดพลาดในการบริการหยุดชะงักอย่างแน่นอน</p>
+        </section>
+
+        <section class="security-card">
+            <h2>การชำระเงิน (Payments)</h2>
+            <p>VTAC จะไม่มีการบันทึกภาพหน้าบัตรหรือเลขบัตรเครดิตของท่านในสโตร์ผู้ใช้งานโดยเด็ดขาด
+                ธุรกรรมทางการเงินดำเนินการจัดการดูแลผ่านเกตเวย์มาตรฐานความปลอดภัย (PCI-compliant)
+                <strong>Stripe</strong></p>
+        </section>
+
+        <section class="security-card">
+            <h2>การรับมือต่ออุบัติการณ์ (Incident Response)</h2>
+            <p>VTAC ดำเนินการขั้นตอนการเฝ้าระวัง แจ้งเตือน
+                และตรวจสอบเพื่อยับยั้งปัญหาทางเซิร์ฟเวอร์ก่อนผลกระทบจะบานปลายตามหลักกฎหมายความปลอดภัย</p>
+        </section>
+
+        <section class="security-card">
+            <h2>วิธีร้องเรียนและสอบถาม (Vulnerability Reporting)</h2>
+            <p>หากว่าคุณได้รับและเจาะจงพบช่องโหว่ของเว็บไซต์ โปรดแจ้งได้ที่อีเมลนี้:
+                <a href="mailto:support@vtacmanager.com">support@vtacmanager.com</a>
+            </p>
+        </section>
+    </div>
+
+    <div class="contact-box">
+        <p>
+            <strong>ติดต่อฝ่ายรักษาความปลอดภัยข้อมูล:</strong><br>
+            Information Security Officer, VTAC SOLUTIONS LTD<br>
+            <a href="mailto:support@vtacmanager.com">support@vtacmanager.com</a>
+        </p>
+    </div>
+</div>
+
+<style>
+    .legal-content {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: #334155;
+        line-height: 1.7;
+    }
+
+    .legal-content h1 {
+        font-size: 2.25rem;
+        font-weight: 900;
+        color: #0f172a;
+        border-left: 8px solid #0ea5e9;
+        padding-left: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        color: #64748b;
+        margin-bottom: 2rem;
+        font-weight: 500;
+    }
+
+    .security-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .security-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .security-card:hover {
+        border-color: #0ea5e9;
+        transform: translateY(-2px);
+    }
+
+    .security-card h2 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #0f172a;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .security-card h2::before {
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        background: #0ea5e9;
+        border-radius: 3px;
+    }
+
+    .security-card p,
+    .security-card li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .security-card ul {
+        padding-left: 1.25rem;
+        margin: 0;
+    }
+
+    .contact-box {
+        margin-top: 3rem;
+        padding: 1.5rem;
+        border: 1px dashed #cbd5e1;
+        border-radius: 1rem;
+        background: #f1f5f9;
+        font-size: 0.9rem;
+    }
+
+    .legal-content a {
+        color: #0ea5e9;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .legal-content a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+        .security-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
