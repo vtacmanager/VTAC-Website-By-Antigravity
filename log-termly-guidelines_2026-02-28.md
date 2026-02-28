@@ -193,9 +193,10 @@
 
 ---
 
-## 🚀 Next Steps Configuration
-*   **User Information:** For all questions regarding data collection, ensure you mention that data is collected for the purpose of providing the service and managing subscriptions.
-*   **Third Parties:** Mention that analytics and payment processing may involve third-party services.
+### 21. Privacy Policy (Legal Integration)
+*   **Question:** Does your platform have a privacy policy?
+*   **Answer:** **Yes**
+*   **Reasoning:** Since we are creating a complete legal suite for VTAC, confirming "Yes" allows Termly to cross-link the Terms of Service with the Privacy Policy. This is mandatory for SaaS platforms that process user data and payments to remain compliant with GDPR/PDPA.
 
 ---
 *Created and Synchronized: 2026-02-28*
