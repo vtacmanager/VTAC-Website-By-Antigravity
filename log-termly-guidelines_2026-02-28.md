@@ -60,6 +60,13 @@
 *   **Reasoning:** Since VTAC's core features include **"Youth Academies"** and **"Schools"**, it is inevitable that student-athletes under 18 will be primary users of the interactive tactical engine and the Digital CV system.
 *   **Compliance Note:** Answering "Yes" is the most honest and legally sound choice given your target sectors. This will trigger Termly to include necessary clauses about **Parental Consent**, ensuring that when a school or academy signs up, they are responsible for obtaining permission for their minor players to use the system.
 
+*   **Question:** Can users under the age of 13 use your platform?
+*   **Answer:** **Yes**
+*   **Detailed Reasoning:**
+    *   **Market Reach:** Professional academies and local schools often start training players from age 7-8 onwards. To be a "Complete Digital Ecosystem," VTAC must accommodate these younger age groups.
+    *   **Legal Protections (COPPA & GDPR Kiddie):** Answering "Yes" is crucial because it triggers the highest level of data protection language required by **COPPA (USA)** and **GDPR (Europe/UK)** for children. 
+    *   **Liability Shift:** The resulting Terms will specify that for users under 13, the **Institution (School/Academy)** or the **Parent** must create the account/provide consent. This protects VTAC from being liable for directly collecting data from children without authorization.
+
 ---
 
 ## 🚀 Next Steps Configuration
