@@ -78,6 +78,13 @@
 *   **Reasoning:** This is the primary revenue model for VTAC MANAGER. As detailed in the **Pricing** section, VTAC offers monthly and annual billing plans (**VTAC SINGLE**, **MULTI-TEAM**, and **ENTERPRISE**).
 *   **Compliance Note:** Selecting "Yes" ensures the Terms include critical clauses about **Recurring Billing**, **Cancellation Policies**, and **No Refunds** (unless required by law), which are vital for a SaaS business.
 
+*   **Question:** Does the subscription automatically renew?
+*   **Answer:** **Yes**
+*   **Reasoning:** Standard SaaS business logic (like Stripe/PayPal) uses automatic renewal to ensure service continuity for coaches and teams.
+
+*   **Question:** How customers can renew their subscription?
+*   **Answer:** **"Subscriptions automatically renew at the end of each billing cycle (monthly or annually) using the original payment method. Users can manage or update their billing details through their iHub account settings."**
+
 ---
 
 ## 🚀 Next Steps Configuration
