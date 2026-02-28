@@ -138,6 +138,11 @@
 *   **Answer:** **Yes**
 *   **Reasoning:** Aligns with GDPR/Data Privacy rights, allowing users to rectify inaccurate personal or tactical information.
 
+### 15. Third-Party Websites (Liability Limitation)
+*   **Question:** Does your platform link to any other websites that you do not own?
+*   **Answer:** **Yes**
+*   **Reasoning:** Essential for linking to Payment Gateways (**Stripe/PayPal**) and external resources/partners. Answering "Yes" ensures that VTAC is not held liable for the content or privacy practices of external sites.
+
 ---
 
 ## 🚀 Next Steps Configuration
