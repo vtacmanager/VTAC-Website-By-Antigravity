@@ -157,6 +157,11 @@
 *   **Answer:** **Yes**
 *   **Reasoning:** Providing a structured contact method (like your support email) for copyright complaints is a best practice. It shows professionalism and provides a "Safe Harbor" mechanism where you can resolve disputes internally before they escalate to legal action.
 
+### 18. Dispute Resolution (Conflict Management)
+*   **Question:** How will disputes between you and your users be resolved?
+*   **Answer:** **Informal negotiations, then arbitration**
+*   **Reasoning:** This multi-tiered approach is the industry standard for SaaS. It forces a "cooling-off" period where problems can be solved via customer support (Informal), and moves to private Arbitration if needed, avoiding expensive and public court litigation.
+
 ---
 
 ## 🚀 Next Steps Configuration
