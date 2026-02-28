@@ -200,5 +200,10 @@
 *   **Answer:** **`https://www.vtacmanager.com/privacy`**
 *   **Reasoning:** Since we are creating a complete legal suite for VTAC, confirming "Yes" allows Termly to cross-link the Terms of Service with the Privacy Policy. This is mandatory for SaaS platforms that process user data and payments to remain compliant with GDPR/PDPA.
 
+### 22. Industry Specific Compliance (Regulatory Scope)
+*   **Question:** Does your platform need to be compliant with industry-specific laws?
+*   **Answer:** **No**
+*   **Reasoning:** Industry-specific laws usually target highly regulated sectors like Finance, Healthcare, or Gambling. While VTAC tracks player status, it is not a medical device or health information provider. Selecting "No" avoids over-complicating the legal framework with unnecessary regulatory burdens.
+
 ---
 *Created and Synchronized: 2026-02-28*
