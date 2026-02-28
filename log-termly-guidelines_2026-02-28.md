@@ -148,6 +148,11 @@
 *   **Answer:** **Yes**
 *   **Reasoning:** Even though VTAC is a premium SaaS, the future monetization roadmap includes selling **Banner Space** (e.g., to sports brands or sponsors) on key interfaces like the **Dashboard**. Answering "Yes" now covers the legal disclosure for showing paid content and ensures users are informed about potential sponsorship placements.
 
+### 17. Copyright (Intellectual Property Protection)
+*   **Question:** Do you have a designated copyright agent?
+*   **Answer:** **No**
+*   **Reasoning:** A designated agent requires official registration with agencies like the US Copyright Office (DMCA). Selecting "No" keeps the legal requirements simpler for the current phase. Ownership and general copyright protection are still covered in the main terms without needing a registered agent.
+
 ---
 
 ## 🚀 Next Steps Configuration
