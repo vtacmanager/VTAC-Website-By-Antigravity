@@ -223,5 +223,11 @@
 *   **Fax:** No (Not listed in current contact channels)
 *   **Reasoning:** Corrected legal name from "VTAC MANAGER TECHNOLOGIES" to **"VTAC SOLUTIONS LTD"** as per the user's registration documents. Using the precise registered name is critical for legal enforceability of the terms.
 
+### 26. Updates to Legal Terms (Transparency)
+*   **Question:** Will you notify your users about updates to your legal terms?
+*   **Answer:** **Yes**
+*   **Notification Method:** **Email** (or posting a notice on the platform)
+*   **Reasoning:** Notifying users of term changes is a key requirement under UK Data Protection laws and GDPR. Since VTAC maintains user accounts and subscriptions, providing notice ensures that changes to pricing, data handling, or liability are legally binding and transparent.
+
 ---
 *Created and Synchronized: 2026-02-28*
