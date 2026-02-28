@@ -75,4 +75,25 @@ The following refinements were implemented to elevate the platform's premium aes
 *   **Deployment**: Automatic Vercel deployment triggered for the latest build.
 
 ---
-*Updated on: 2026-02-16*
+
+## 6. Privacy Policy Integration (Session: 2026-02-28)
+
+The following refinements were implemented to provide a professional and transparent legal framework for the platform:
+
+### A. Dynamic Legal Framework
+*   **Content Extraction**: Developed a custom extraction process to convert a large, Cocoa-wrapped HTML legal document into a clean, web-ready HTML snippet (`privacy-policy-content.html`).
+*   **Live Loading**: Implemented dynamic `fetch` in the **Privacy** page to load the latest policy content without code redeployment in the future.
+
+### B. "Paper on Dark Desk" Aesthetic
+*   **Premium Visuals**: Designed a high-contrast white "Paper" card that floats over the `slate-950` background, creating a professional document feel.
+*   **Scoped Styling**:
+    *   **Typography**: Forced the 'Inter' system font onto injected content for brand consistency.
+    *   **Links**: Applied **VTAC Emerald Green** (`#10b981`) to all legal links with hover transitions.
+    *   **Readability**: Optimized line heights and header weights for long-form legal reading.
+
+### C. Technical implementation
+*   **Component Architecture**: Updated `pages/Privacy.tsx` using `dangerouslySetInnerHTML` within a safe, scoped container.
+*   **Workflow**: Completed full Git lifecycle (**Add, Commit, Push, Merge**) and verified automatic Vercel deployment on the `main` branch.
+
+---
+*Updated on: 2026-02-28*
