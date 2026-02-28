@@ -35,6 +35,15 @@
 *   **Answer:** **Yes**
 *   **Reasoning:** We have already implemented an **en-US (US English)** localization for the website. This clearly indicates intent to serve the US market. Answering "Yes" will include necessary disclosures for US State-level privacy laws (like CCPA).
 
+### 5. Hosting (Infrastructure Connectivity)
+*   **Question:** Which country is your platform hosted in?
+*   **Answer:** **United Kingdom**
+*   **Reasoning:** Since VTAC's legal and physical operation is based in **Leicester, UK**, designating the UK as the primary hosting jurisdiction aligns with your UK-GDPR compliance and local operations.
+
+*   **Question:** Is your platform hosted in any other country?
+*   **Answer:** **Yes** (Add: **United States**)
+*   **Reasoning:** Your website uses **Vercel** (Edge network) and **Supabase** (Cloud Database), both of which utilize global infrastructures primarily centered in the US (AWS). Disclosing this "Cross-border" processing is a mandatory legal requirement for international data transfers.
+
 ---
 
 ## 🚀 Next Steps Configuration
