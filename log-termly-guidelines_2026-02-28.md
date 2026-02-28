@@ -231,5 +231,10 @@
 *   **Notification Timing:** **Before update is effective**
 *   **Reasoning:** Providing advance notice via email is the most robust way to ensure changes are legally enforceable. It gives users the opportunity to review new terms and decide on their continued use of VTAC Solutions Ltd's services before the changes take effect.
 
+### 27. Document Identity (Naming)
+*   **Question:** What do you want to call your legal terms?
+*   **Answer:** **Terms of Service**
+*   **Reasoning:** This aligns perfectly with the current website structure and translation files (`en-GB.json`), which already use "Terms of Service". It is the most widely recognized and professional term for SaaS platforms.
+
 ---
-*Created and Synchronized: 2026-02-28*
+*Status: Configuration Complete. Ready for Publication.*
