@@ -102,10 +102,10 @@
 *   **Question:** What forms of payment do you accept?
 *   **Answer:** Select: **Visa, Mastercard, American Express, PayPal**.
 *   **Question:** What currency type should payments be in?
-*   **Answer:** Select: **British Pounds (GBP)** (or add custom if needed), but also include **US Dollars (USD)** and **Euros (EUR)**.
+*   **Answer:** Select: **British Pounds (GBP)**, **US Dollars (USD)**, **Euros (EUR)**, and **Thai Baht (THB)**.
 *   **Reasoning:** 
     *   **Methods:** These are the standard options for Stripe/PayPal gateways which we plan to use.
-    *   **Currency:** Since VTAC is headquartered in the UK, **GBP (£)** is the primary billing currency (as seen on our Pricing page: £24, £20). However, since we target global markets (US English, EU), selecting USD and EUR ensures the Terms & Conditions cover international exchange and billing correctly.
+    *   **Currency:** Since VTAC is headquartered in the UK, **GBP (£)** is the primary billing currency. However, given our significant investment in Thai localization (**th.json**) and US/EU markets, including **THB**, **USD**, and **EUR** ensures full legal coverage for our global user base and future local payment integrations in Thailand.
 
 ---
 
