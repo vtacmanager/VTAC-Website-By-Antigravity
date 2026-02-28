@@ -160,7 +160,13 @@
 ### 18. Dispute Resolution (Conflict Management)
 *   **Question:** How will disputes between you and your users be resolved?
 *   **Answer:** **Informal negotiations, then arbitration**
-*   **Reasoning:** This multi-tiered approach is the industry standard for SaaS. It forces a "cooling-off" period where problems can be solved via customer support (Informal), and moves to private Arbitration if needed, avoiding expensive and public court litigation.
+*   **Question:** In which country will the arbitration take place?
+*   **Answer:** **United Kingdom** (England and Wales)
+*   **Question:** How many days must the parties mediate before initiating an arbitration proceeding?
+*   **Answer:** **30 Days**
+*   **Reasoning:** 
+    *   **Location:** Since VTAC is based in the UK, having the legal venue in the **United Kingdom** ensures we are protected by laws we are familiar with and avoids the high costs of legal proceedings abroad.
+    *   **Timeline:** **30 days** is the gold standard for informal negotiations. it gives enough time for our support team to talk to the coach/club and find a win-win solution before lawyers get involved.
 
 ---
 
