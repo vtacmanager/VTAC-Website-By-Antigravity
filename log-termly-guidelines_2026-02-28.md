@@ -178,6 +178,11 @@
 *   **Answer:** **Yes, limit to amount paid by the user**
 *   **Question:** Do you want to limit the length of time that you can be liable for a user claim?
 *   **Answer:** **Yes**
+*   **Question:** How many months of payment will you be liable for?
+*   **Answer:** **6 months**
+*   **Reasoning:** 
+    *   **Financial Cap:** Capping liability at 6 months of payments is the industry standard (Goldilocks zone). It is high enough to be seen as fair and enforceable by law, but low enough to protect the company from catastrophic financial loss.
+    *   **SaaS Compatibility:** Given our monthly/annual subscription tiers, this provides a clear, predictable boundary for risk management.
 *   **Reasoning:** Since VTAC operates on a subscription model, it is vital to limit the liability window. This ensures that users cannot bring forward claims for incidents that happened a long time ago (e.g., several years prior), allowing the company to move forward with definitive legal certainty.
 *   **Reasoning:** This is a crucial protective clause. It ensures that VTAC's maximum financial exposure to any single user claim is capped at what they actually spent on the services. It prevents "consequential damages" claims (e.g., a team claiming lost revenue or tournament winnings due to a technical glitch) from bankrupting the startup.
 
