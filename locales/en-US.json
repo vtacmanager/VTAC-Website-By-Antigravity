@@ -922,7 +922,11 @@
             "aboutUs": "About Us",
             "contact": "Contact Us"
         },
-        "copyright": "© 2024 VTAC Manager Technologies. Built on Patented Technology.",
+        "copyright": {
+            "name": "VTAC MANAGER TECHNOLOGIES",
+            "patent": "Built on Patented Technology.",
+            "rights": "© 2022-2026 VTAC MANAGER. All rights reserved."
+        },
         "links": {
             "terms": "Terms",
             "privacy": "Privacy",

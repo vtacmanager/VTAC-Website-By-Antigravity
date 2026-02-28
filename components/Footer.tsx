@@ -134,8 +134,12 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs font-black uppercase tracking-[0.3em]">
-          <p>{t('footer.copyright')}</p>
-          <div className="flex space-x-10 mt-6 md:mt-0">
+          <div className="flex flex-col items-center md:items-start space-y-2 text-center md:text-left">
+            <p className="text-white">{t('footer.copyright.name')}</p>
+            <p>{t('footer.copyright.patent')}</p>
+            <p>{t('footer.copyright.rights')}</p>
+          </div>
+          <div className="flex space-x-10 mt-8 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">{t('footer.links.terms')}</a>
             <a href="#" className="hover:text-white transition-colors">{t('footer.links.privacy')}</a>
             <a href="#" className="hover:text-white transition-colors">{t('footer.links.security')}</a>

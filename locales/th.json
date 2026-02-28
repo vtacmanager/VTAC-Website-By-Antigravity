@@ -946,7 +946,11 @@
             "aboutUs": "เกี่ยวกับเรา",
             "contact": "ติดต่อเรา"
         },
-        "copyright": "© 2024 VTAC Manager Technologies. พัฒนาด้วยเทคโนโลยีที่ได้รับสิทธิบัตร",
+        "copyright": {
+            "name": "VTAC MANAGER TECHNOLOGIES",
+            "patent": "พัฒนาจากเทคโนโลยีที่ได้รับสิทธิบัตรคุ้มครอง",
+            "rights": "© 2022-2026 VTAC MANAGER. สงวนลิขสิทธิ์"
+        },
         "links": {
             "terms": "ข้อกำหนดการใช้งาน",
             "privacy": "นโยบายความเป็นส่วนตัว",
