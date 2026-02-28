@@ -14,11 +14,8 @@ const LanguageSwitcher: React.FC = () => {
     const currentLang = i18n.language || 'en-US';
 
     const getLabel = (code: string) => {
-        switch (code) {
-            case 'th': return 'TH';
-            case 'en-GB': return 'EN-GB';
-            default: return 'EN-US';
-        }
+        if (code === 'th') return 'TH';
+        return 'ENG';
     };
 
     return (
@@ -30,10 +27,8 @@ const LanguageSwitcher: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent -translate-x-full group-hover/lang-btn:animate-[shimmer_2s_infinite] pointer-events-none"></div>
 
                 <Globe className="w-5 h-5 flex-shrink-0 text-slate-900 z-10" />
-                <div className="flex flex-col items-center leading-none font-black text-[10px] tracking-widest text-slate-900 z-10">
-                    <span className="mb-1">EN-</span>
-                    <div className="w-full h-[1px] bg-slate-900/10 mb-1"></div>
-                    <span>US</span>
+                <div className="flex flex-col items-center leading-none font-black text-[12px] tracking-widest text-slate-900 z-10">
+                    <span>{getLabel(currentLang)}</span>
                 </div>
             </button>
 
