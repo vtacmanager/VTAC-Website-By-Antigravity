@@ -210,5 +210,10 @@
 *   **Answer:** **No**
 *   **Reasoning:** Using the audited standard clauses from Termly ensures maximum legal enforceability and professionalism. Custom clauses written without legal review can create contradictions or loopholes. The standard terms already cover VTAC's core operations (Subscriptions, IP, Liability) sufficiently.
 
+### 24. Governing Law (Legal Jurisdiction)
+*   **Question:** Which country's laws will govern these legal terms?
+*   **Answer:** **United Kingdom** (England and Wales)
+*   **Reasoning:** Selecting UK law provides a stable and globally recognized legal framework. It matches the arbitration venue (Leicester) and the company's global headquarters location, ensuring a streamlined legal process and building trust with international users.
+
 ---
 *Created and Synchronized: 2026-02-28*
