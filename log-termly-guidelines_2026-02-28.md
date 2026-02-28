@@ -196,6 +196,8 @@
 ### 21. Privacy Policy (Legal Integration)
 *   **Question:** Does your platform have a privacy policy?
 *   **Answer:** **Yes**
+*   **Question:** Please provide the link to your privacy policy.
+*   **Answer:** **`https://vtacmanager.com/privacy`**
 *   **Reasoning:** Since we are creating a complete legal suite for VTAC, confirming "Yes" allows Termly to cross-link the Terms of Service with the Privacy Policy. This is mandatory for SaaS platforms that process user data and payments to remain compliant with GDPR/PDPA.
 
 ---
