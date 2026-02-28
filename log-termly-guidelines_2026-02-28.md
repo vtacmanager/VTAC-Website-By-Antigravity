@@ -239,9 +239,13 @@
 ### 28. Service Uptime & Interactive Mode Performance (Technical Disclaimer)
 *   **Service Availability:** We aim for 99.9% uptime for core services (iHub, Cloud data access).
 *   **Interactive Mode Disclaimer:** Performance of Interactive Mode is highly dependent on the user's local internet connection and signal strength. 
-*   **Mitigation Tools:** VTAC provides an **Internet Signal Strength Monitor** and **Latency Adjustment Settings** to help users find their team's optimal performance balance.
+*   **Mitigation Tools:** VTAC provides an **Internet Signal Strength Monitor** and **Latency Tuning** features to help users find their team's optimal performance balance.
 *   **Fallback Strategy:** Users are encouraged to utilize the **Strategy Board** if real-time interactive synchronization is hindered by local network conditions.
 *   **Liability:** VTAC is not liable for service interruptions caused by the user's lack of adequate internet bandwidth or signal stability.
+
+### 29. Physical Safety & Force Majeure (Operational Protection)
+*   **Physical Safety:** VTAC is a digital platform for tactical visualization and team management. We are NOT responsible for physical injuries, accidents, or medical conditions arising from the execution of tactics displayed on the platform. The User (Coach/Academy) is solely responsible for ensuring the safety of participants and the suitability of the environment.
+*   **Force Majeure:** VTAC is not liable for failures or delays caused by events beyond our reasonable control, including but not limited to server outages from third-party infrastructure (AWS, Vercel), natural disasters, or global network failures.
 
 ---
 
