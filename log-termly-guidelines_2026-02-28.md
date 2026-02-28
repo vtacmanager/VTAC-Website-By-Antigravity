@@ -205,5 +205,10 @@
 *   **Answer:** **No**
 *   **Reasoning:** Industry-specific laws usually target highly regulated sectors like Finance, Healthcare, or Gambling. While VTAC tracks player status, it is not a medical device or health information provider. Selecting "No" avoids over-complicating the legal framework with unnecessary regulatory burdens.
 
+### 23. Additional Clause (Custom Terms)
+*   **Question:** Do you want to add your own clause to these legal terms?
+*   **Answer:** **No**
+*   **Reasoning:** Using the audited standard clauses from Termly ensures maximum legal enforceability and professionalism. Custom clauses written without legal review can create contradictions or loopholes. The standard terms already cover VTAC's core operations (Subscriptions, IP, Liability) sufficiently.
+
 ---
 *Created and Synchronized: 2026-02-28*
