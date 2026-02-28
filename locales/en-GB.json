@@ -1313,5 +1313,12 @@
             "lastUpdated": "Last Updated: February 28, 2026",
             "content": "This page is a placeholder for your Security Practices. Please update this content with your actual legal text using a legal generator or consultant."
         }
+    },
+    "cookieBanner": {
+        "title": "We value your privacy",
+        "description": "We use cookies and similar technologies to enhance your browsing experience, serve personalised content, and analyse our traffic. By clicking \"Accept All\", you consent to our use of cookies as described in our ",
+        "privacyLink": "Privacy Policy",
+        "accept": "Accept All",
+        "decline": "Essential Only"
     }
 }

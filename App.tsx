@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AuthProvider } from './contexts/AuthContext.tsx';
 import Navbar from './components/Navbar.tsx';
 import Footer from './components/Footer.tsx';
+import CookieBanner from './components/CookieBanner.tsx';
 import i18n from './i18n.ts';
 
 // Lazy loading pages for performance optimization
@@ -100,6 +101,7 @@ const App: React.FC = () => {
             </Suspense>
           </main>
           <Footer />
+          <CookieBanner />
         </div>
       </Router>
     </AuthProvider>
