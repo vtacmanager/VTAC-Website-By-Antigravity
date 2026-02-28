@@ -116,6 +116,15 @@
 *   **Answer:** Select both: **Logging into their account** and **Contacting customer service**.
 *   **Reasoning:** Offering both paths is legally required in many jurisdictions (like the EU/UK) and provides the best experience for coaches who may prefer self-service or direct support.
 
+### 13. Prohibited Activities (System Integrity)
+*   **Question:** Use the Services to advertise or offer to sell goods and services?
+*   **Answer:** **Check (Yes)**
+*   **Reasoning:** Prevents users from using VTAC as an advertising platform, maintaining its purpose as a tactical training tool.
+
+*   **Question:** Sell or otherwise transfer your profile?
+*   **Answer:** **Check (Yes)**
+*   **Reasoning:** Critical for the **Digital CV** and club privacy. Prevents unauthorized redistribution of tactical data and professional history.
+
 ---
 
 ## 🚀 Next Steps Configuration
