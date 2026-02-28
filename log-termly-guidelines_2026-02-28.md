@@ -237,4 +237,12 @@
 *   **Reasoning:** This aligns perfectly with the current website structure and translation files (`en-GB.json`), which already use "Terms of Service". It is the most widely recognized and professional term for SaaS platforms.
 
 ---
-*Status: Configuration Complete. Ready for Publication.*
+
+### ⚠️ IMPORTANT NOTE: Plan Limitations & Workaround
+*   **Issue:** Termly Free Plan only allows embedding ONE policy.
+*   **Workaround Strategy:** Instead of using Termly's JS Embed, we will use the **"Copy HTML/Text"** method. 
+*   **Implementation:** The content will be hosted locally in `/public/terms-content.html` and `/public/privacy-policy-content.html`, and rendered via our custom React components (`Terms.tsx` and `Privacy.tsx`).
+*   **Benefit:** Zero cost, better performance, and full design control.
+
+---
+*Status: Configuration Complete. Awaiting Manual Content Sync.*
