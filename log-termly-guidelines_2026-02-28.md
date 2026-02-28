@@ -89,6 +89,15 @@
 *   **Answer:** **The customer chooses**
 *   **Reasoning:** As seen on the **Pricing** page, VTAC offers both **Monthly** and **Annual** billing cycles. The frequency depends on which plan the user selects at checkout.
 
+### 10. Free Trials (Onboarding Strategy)
+*   **Question:** Do you offer a free trial for your subscription?
+*   **Answer:** **Yes**
+*   **Question:** How many days is the free trial?
+*   **Answer:** **7 Days**
+*   **Question:** At the end of the free trial period:
+*   **Answer:** **The account will not be charged and the subscription will be suspended until upgraded to a paid version**
+*   **Reasoning:** Since our current CTA is **"Book a Demo"** and we want to reduce friction for new coaches, a 7-day "No Credit Card Required" trial is the standard low-friction onboarding strategy. Suspending the account instead of auto-charging ensures users don't feel "tricked," which builds higher brand trust.
+
 ---
 
 ## 🚀 Next Steps Configuration
