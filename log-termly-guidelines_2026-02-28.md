@@ -153,6 +153,10 @@
 *   **Answer:** **No**
 *   **Reasoning:** A designated agent requires official registration with agencies like the US Copyright Office (DMCA). Selecting "No" keeps the legal requirements simpler for the current phase. Ownership and general copyright protection are still covered in the main terms without needing a registered agent.
 
+*   **Question:** Do you want to include a clause regarding how users can notify you regarding copyright infringements?
+*   **Answer:** **Yes**
+*   **Reasoning:** Providing a structured contact method (like your support email) for copyright complaints is a best practice. It shows professionalism and provides a "Safe Harbor" mechanism where you can resolve disputes internally before they escalate to legal action.
+
 ---
 
 ## 🚀 Next Steps Configuration
