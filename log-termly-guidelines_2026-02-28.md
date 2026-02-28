@@ -1,31 +1,36 @@
-# Termly Implementation Guidelines: Terms & Conditions
+# Detailed Termly Configuration Log: VTAC Manager
 
 **Project:** VTAC Manager Website  
 **Date:** 2026-02-28  
-**Objective:** Record the specific answers for setting up VTAC's Terms & Conditions on Termly.
+**Objective:** Record detailed advice and reasoning for Termly legal policy generation.
 
 ---
 
-## 📋 Termly Configuration Q&A
+## 📋 Specific Question-by-Question Guidance
 
-### Q1: Can I use Termly for Terms & Conditions and is it free?
-**A:** Yes, you can use the **Termly Free Plan ($0/month)**. It allows you to generate one basic legal policy. It is perfect for the current development phase of VTAC. 
-- *Note:* The free plan includes the Termly logo and has limited edits, but we can extract the HTML to match our site design.
+### 1. Platform Type & Usage
+*   **Question:** Is your platform a website and/or mobile app?
+*   **Answer:** **Website**
+*   **Reasoning:** Although VTAC uses mobile devices as interactive controllers, it does so via a mobile browser (Web-based). There is no native app to download from an app store ("No Apps, No Friction"), so the "Website" category is the most accurate for legal terms.
 
-### Q2: Is VTAC a Website or a Mobile App? (Platform Type)
-**A:** Select **Website**. 
-- *Reasoning:* Although VTAC uses mobile devices as controllers, it does so via the web browser ("No APPS, No FRICTION"). It is not a native app downloaded from the App Store.
+### 2. Business Category
+*   **Question:** What type of platform is it?
+*   **Answer:** **SaaS (Software as a Service)**
+*   **Reasoning:** VTAC is a platform providing team management and tactical training services via a membership/subscription model. It fits the SaaS definition perfectly compared to a simple blog or a physical marketplace.
 
-### Q3: What type of platform is it? (SaaS vs Ecommerce)
-**A:** Select **SaaS (Software as a Service)**.
-- *Reasoning:* VTAC is a platform providing management and tactical training services via a subscription model (Monthly/Annual billing), which is the definition of a SaaS product.
+### 3. Online Payments (Critical for Future-Proofing)
+*   **Question:** "Does your website/app accept payments online?" (เว็บไซต์/แอปของคุณรับชำระเงินออนไลน์ไหม?)
+*   **Answer:** **Yes**
+*   **Detailed Reasoning:**
+    *   **Future Strategy:** Even though current users primarily "Book a Demo," the ultimate business model is selling Subscriptions to coaches and academies via credit card.
+    *   **Efficiency:** Setting this to "Yes" now prevents having to re-edit and re-generate the legal documents when the payment gateway (Pricing plans) goes live.
+    *   **Legal Compliance:** Termly will generate sections explaining how payment data is handled. Note that VTAC won't store credit card numbers directly; they will be processed by a trusted Third-Party Gateway (like Stripe or PayPal). Having this in the document from day one ensures full financial legal compliance.
 
 ---
 
-## 🚀 Next Steps
-1.  Complete the generator on Termly using the settings above.
-2.  Export/Copy the resulting HTML/Text.
-3.  Provide the content to Antigravity to be embedded into `pages/Terms.tsx` with the premium "Paper" design.
+## 🚀 Next Steps Configuration
+*   **User Information:** For all questions regarding data collection, ensure you mention that data is collected for the purpose of providing the service and managing subscriptions.
+*   **Third Parties:** Mention that analytics and payment processing may involve third-party services.
 
 ---
-*Status: In-Progress (Guideline Recorded)*
+*Created and Synchronized: 2026-02-28*
