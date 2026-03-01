@@ -118,7 +118,7 @@ export default async function handler(req: any, res: any) {
 
                     <div style="padding: 24px; background-color: #f1f5f9; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; text-align: center;">
                         <p style="margin: 0 0 8px 0;">You are receiving this email because you subscribed to updates at vtacmanager.com.</p>
-                        <p style="margin: 0 0 16px 0;">To stop receiving these emails, you can <a href="mailto:support@vtacmanager.com?subject=Unsubscribe" style="color: #0ea5e9; text-decoration: underline;">unsubscribe here</a>.</p>
+                        <p style="margin: 0 0 16px 0;">To stop receiving these emails, you can <a href="https://vtacmanager.com/unsubscribe?email=${email}" style="color: #0ea5e9; text-decoration: underline;">unsubscribe here</a>.</p>
                         <p style="margin: 0;">&copy; ${new Date().getFullYear()} VTAC SOLUTIONS LTD. All rights reserved.</p>
                     </div>
 
@@ -192,7 +192,7 @@ export default async function handler(req: any, res: any) {
 
                     <div style="padding: 24px; background-color: #f1f5f9; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; text-align: center;">
                         <p style="margin: 0 0 8px 0;">อีเมลฉบับนี้ถูกจัดส่งเนื่องจากคุณได้ลงทะเบียนรับข่าวสารผ่านเว็บไซต์ vtacmanager.com</p>
-                        <p style="margin: 0 0 16px 0;">หากไม่ต้องการรับอีเมลในอนาคต คุณสามารถ <a href="mailto:support@vtacmanager.com?subject=Unsubscribe" style="color: #0ea5e9; text-decoration: underline;">กดยกเลิกการสมัครรับข่าวสารที่นี่</a>.</p>
+                        <p style="margin: 0 0 16px 0;">หากไม่ต้องการรับอีเมลในอนาคต คุณสามารถ <a href="https://vtacmanager.com/unsubscribe?email=${email}" style="color: #0ea5e9; text-decoration: underline;">กดยกเลิกการสมัครรับข่าวสารที่นี่</a>.</p>
                         <p style="margin: 0;">&copy; ${new Date().getFullYear()} VTAC SOLUTIONS LTD. สงวนลิขสิทธิ์</p>
                     </div>
 

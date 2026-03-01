@@ -20,6 +20,7 @@ const Contact = lazy(() => import('./pages/Contact.tsx'));
 const Terms = lazy(() => import('./pages/Terms.tsx'));
 const Privacy = lazy(() => import('./pages/Privacy.tsx'));
 const Security = lazy(() => import('./pages/Security.tsx'));
+const Unsubscribe = lazy(() => import('./pages/Unsubscribe.tsx'));
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -97,6 +98,7 @@ const App: React.FC = () => {
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/security" element={<Security />} />
+                <Route path="/unsubscribe" element={<Unsubscribe />} />
               </Routes>
             </Suspense>
           </main>
