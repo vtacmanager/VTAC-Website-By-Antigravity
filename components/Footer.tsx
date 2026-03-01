@@ -137,22 +137,27 @@ const Footer: React.FC = () => {
                   setIsSubmitting(false);
                 }
               }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col gap-2"
             >
-              <input
-                type="email"
-                required
-                disabled={isSubmitting}
-                placeholder={t('subscription.placeholder')}
-                className="flex-grow bg-white/[0.05] border border-white/10 rounded-2xl py-4 px-6 text-white font-bold placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50"
-              />
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="py-4 px-8 bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-black uppercase tracking-widest rounded-2xl shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
-              >
-                {isSubmitting ? '...' : t('subscription.button')}
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <input
+                  type="email"
+                  required
+                  disabled={isSubmitting}
+                  placeholder={t('subscription.placeholder')}
+                  className="flex-grow bg-white/[0.05] border border-white/10 rounded-2xl py-4 px-6 text-white font-bold placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="py-4 px-8 bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-black uppercase tracking-widest rounded-2xl shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
+                >
+                  {isSubmitting ? '...' : t('subscription.button')}
+                </button>
+              </div>
+              <p className="text-[10px] text-slate-500 max-w-sm mt-1">
+                {t('subscription.consent', 'By subscribing, you agree to our Privacy Policy and consent to receive marketing emails. You can unsubscribe at any time.')}
+              </p>
             </form>
           </div>
         </div>

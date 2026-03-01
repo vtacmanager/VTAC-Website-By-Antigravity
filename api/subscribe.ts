@@ -21,7 +21,12 @@ export default async function handler(req: any, res: any) {
     try {
         const { data, error } = await supabase
             .from('newsletter_subscribers')
-            .insert([{ email }])
+            .insert([{
+                email,
+                marketing_opt_in: true,
+                marketing_opt_in_source: 'website_footer',
+                // _at timestamps have DEFAULT NOW() in db
+            }])
             .select();
 
         if (error) {

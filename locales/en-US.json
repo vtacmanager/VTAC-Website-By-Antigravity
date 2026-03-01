@@ -1296,7 +1296,8 @@
         "placeholder": "Enter your email",
         "button": "SUBSCRIBE",
         "success": "Welcome to the elite list!",
-        "footerTitle": "STAY CONNECTED"
+        "footerTitle": "STAY CONNECTED",
+        "consent": "By subscribing, you agree to our Privacy Policy and consent to receive marketing emails. You can unsubscribe at any time."
     },
     "legal": {
         "terms": {
