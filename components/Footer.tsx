@@ -16,7 +16,7 @@ const TiktokIcon = ({ className }: { className?: string }) => (
 );
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
@@ -120,7 +120,7 @@ const Footer: React.FC = () => {
                     headers: {
                       'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ email }),
+                    body: JSON.stringify({ email, lang: i18n.language }),
                   });
                   const data = await res.json();
 
