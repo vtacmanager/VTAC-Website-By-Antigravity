@@ -18,6 +18,8 @@ const TiktokIcon = ({ className }: { className?: string }) => (
 const Footer: React.FC = () => {
   const { t } = useTranslation();
 
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
   return (
     <footer className="bg-slate-950 border-t border-white/5 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -107,27 +109,49 @@ const Footer: React.FC = () => {
             </div>
 
             <form
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
                 const form = e.target as HTMLFormElement;
                 const email = (form.elements[0] as HTMLInputElement).value;
-                console.log('Subscribing email to hello@vtacmanager.com:', email);
-                alert(t('subscription.success'));
-                form.reset();
+                setIsSubmitting(true);
+                try {
+                  const res = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email }),
+                  });
+                  const data = await res.json();
+
+                  if (!res.ok) {
+                    alert(data.error || 'Failed to subscribe. Please try again.');
+                  } else {
+                    alert(t('subscription.success', 'Thank you for subscribing!'));
+                    form.reset();
+                  }
+                } catch (error) {
+                  console.error('Subscription error:', error);
+                  alert('Something went wrong. Please try again later.');
+                } finally {
+                  setIsSubmitting(false);
+                }
               }}
               className="flex flex-col sm:flex-row gap-4"
             >
               <input
                 type="email"
                 required
+                disabled={isSubmitting}
                 placeholder={t('subscription.placeholder')}
-                className="flex-grow bg-white/[0.05] border border-white/10 rounded-2xl py-4 px-6 text-white font-bold placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 transition-all"
+                className="flex-grow bg-white/[0.05] border border-white/10 rounded-2xl py-4 px-6 text-white font-bold placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/50 transition-all disabled:opacity-50"
               />
               <button
                 type="submit"
-                className="py-4 px-8 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase tracking-widest rounded-2xl shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
+                disabled={isSubmitting}
+                className="py-4 px-8 bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-black uppercase tracking-widest rounded-2xl shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] transition-all duration-300 transform hover:-translate-y-1 active:scale-95"
               >
-                {t('subscription.button')}
+                {isSubmitting ? '...' : t('subscription.button')}
               </button>
             </form>
           </div>
