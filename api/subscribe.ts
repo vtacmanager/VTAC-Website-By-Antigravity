@@ -19,15 +19,14 @@ export default async function handler(req: any, res: any) {
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
     try {
-        const { data, error } = await supabase
+        const { error } = await supabase
             .from('newsletter_subscribers')
             .insert([{
                 email,
                 marketing_opt_in: true,
                 marketing_opt_in_source: 'website_footer',
                 // _at timestamps have DEFAULT NOW() in db
-            }])
-            .select();
+            }]);
 
         if (error) {
             console.error('Supabase Error:', error);
@@ -216,7 +215,7 @@ export default async function handler(req: any, res: any) {
             }
         }
 
-        return res.status(200).json({ success: true, subscriber: data[0] });
+        return res.status(200).json({ success: true, email });
     } catch (err) {
         console.error('Subscription API Error:', err);
         return res.status(500).json({ error: 'Internal server error' });
