@@ -880,6 +880,19 @@ const Football: React.FC = () => {
               <p className="text-lg md:text-xl font-medium text-slate-400 uppercase leading-relaxed max-w-5xl mx-auto mt-12 whitespace-pre-line">
                 {t('football.section6.subtitle')}
               </p>
+
+              {/* 5G Pitch Fade-out Image */}
+              <div className="relative mt-16 max-w-6xl mx-auto">
+                <img
+                  src="https://exwgxfxqsxjmgguuwvug.supabase.co/storage/v1/object/public/Website/welcome-pack-5g-pitch-v3-1200w.jpg"
+                  className="w-full h-auto max-h-[600px] object-cover rounded-[3rem] opacity-90 transition-transform duration-1000 hover:scale-105"
+                  alt="Interactive 5G Pitch Canvas"
+                  style={{
+                    maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%)'
+                  }}
+                />
+              </div>
             </div>
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
