@@ -79,7 +79,7 @@ const Privacy: React.FC = () => {
 
                     {/* Footer note */}
                     <div className="mt-12 text-center text-slate-500 text-sm">
-                        <p>© {new Date().getFullYear()} VTAC SOLUTIONS LTD. All rights reserved.</p>
+                        <p>© {new Date().getFullYear()} VTAC SOLUTIONS LLC. All rights reserved.</p>
                         <p className="mt-2">If you have any questions, please reach out to <a href="mailto:support@vtacmanager.com" className="text-emerald-500 hover:text-emerald-400 transition-colors">support@vtacmanager.com</a></p>
                     </div>
                 </motion.div>

@@ -1285,8 +1285,10 @@
         "info": {
             "title": "Direct Channels",
             "locations": {
-                "main": "Global Headquarters",
-                "address": "Leicester, UK"
+                "main": "European Headquarters (UK)",
+                "address": "Leicester, UK",
+                "usMain": "Global Headquarters (US)",
+                "usAddress": "Oregon, USA"
             }
         }
     },

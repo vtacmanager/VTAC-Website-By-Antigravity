@@ -1308,8 +1308,10 @@
         "info": {
             "title": "ช่องทางติดต่อโดยตรง",
             "locations": {
-                "main": "สำนักงานใหญ่",
-                "address": "เลสเตอร์, สหราชอาณาจักร"
+                "main": "European Headquarters (UK)",
+                "address": "เลสเตอร์, สหราชอาณาจักร",
+                "usMain": "Global Headquarters (US)",
+                "usAddress": "Oregon, USA"
             }
         }
     },

@@ -124,8 +124,16 @@ const Contact: React.FC = () => {
                             <div className="flex items-start gap-4 p-6 rounded-3xl bg-blue-500/5 border border-blue-500/10">
                                 <MapPin className="w-6 h-6 text-blue-400 mt-1" />
                                 <div>
-                                    <h4 className="text-sm font-black text-white uppercase tracking-widest mb-1">{t('contactPage.info.locations.main')}</h4>
-                                    <p className="text-slate-400 font-medium">{t('contactPage.info.locations.address')}</p>
+                                    <h4 className="text-sm font-black text-white uppercase tracking-widest mb-1">{t('contactPage.info.locations.usMain')}</h4>
+                                    <p className="text-slate-400 font-medium">{t('contactPage.info.locations.usAddress')}</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-4 p-6 rounded-3xl bg-white/[0.02] border border-white/5">
+                                <MapPin className="w-6 h-6 text-slate-500 mt-1" />
+                                <div>
+                                    <h4 className="text-sm font-black text-slate-300 uppercase tracking-widest mb-1">{t('contactPage.info.locations.main')}</h4>
+                                    <p className="text-slate-500 font-medium">{t('contactPage.info.locations.address')}</p>
                                 </div>
                             </div>
                         </div>

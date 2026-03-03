@@ -29,7 +29,7 @@
 ### 4. User Location (Globalization)
 *   **Question:** Do you have users in the EU, UK, Iceland, Liechtenstein or Norway?
 *   **Answer:** **Yes**
-*   **Reasoning:** VTAC headquarters is in **Leicester, UK**. By default, you have UK users. Answering "Yes" ensures the policy includes mandatory GDPR and UK-GDPR compliance language.
+*   **Reasoning:** VTAC headquarters is in **Oregon, USA**. By default, you have international users. Answering "Yes" ensures the policy includes mandatory GDPR and UK-GDPR compliance language.
 
 *   **Question:** Do you have users in the United States?
 *   **Answer:** **Yes**
@@ -37,8 +37,8 @@
 
 ### 5. Hosting (Infrastructure Connectivity)
 *   **Question:** Which country is your platform hosted in?
-*   **Answer:** **United Kingdom**
-*   **Reasoning:** Since VTAC's legal and physical operation is based in **Leicester, UK**, designating the UK as the primary hosting jurisdiction aligns with your UK-GDPR compliance and local operations.
+*   **Answer:** **United States**
+*   **Reasoning:** Since VTAC's legal and physical operation is based in **Oregon, USA**, designating the USA as the primary hosting jurisdiction aligns with your compliance and local operations.
 
 *   **Question:** Is your platform hosted in any other country?
 *   **Answer:** **Yes** (Add: **United States**)
@@ -169,7 +169,7 @@
 *   **Question:** How many days must the parties mediate before initiating an arbitration proceeding?
 *   **Answer:** **30 Days**
 *   **Reasoning:** 
-    *   **Location:** Since VTAC's Global Headquarters is located in **Leicester, UK**, choosing this city as the venue is the most cost-effective and convenient.
+    *   **Location:** Since VTAC's Global Headquarters is located in **Oregon, USA**, choosing this location as the venue is the most cost-effective and convenient.
     *   **Language:** **English** is the primary business language of VTAC and the jurisdiction, ensuring clarity and minimizing translation costs.
     *   **Timeline:** **30 days** is the gold standard for informal negotiations. it gives enough time for our support team to talk to the coach/club and find a win-win solution before lawyers get involved.
 
@@ -212,16 +212,16 @@
 
 ### 24. Governing Law (Legal Jurisdiction)
 *   **Question:** Which country's laws will govern these legal terms?
-*   **Answer:** **United Kingdom** (England and Wales)
-*   **Reasoning:** Selecting UK law provides a stable and globally recognized legal framework. It matches the arbitration venue (Leicester) and the company's global headquarters location, ensuring a streamlined legal process and building trust with international users.
+*   **Answer:** **United States** (Oregon)
+*   **Reasoning:** Selecting US law provides a stable and globally recognized legal framework. It matches the arbitration venue (Oregon) and the company's global headquarters location, ensuring a streamlined legal process and building trust with international users.
 
 ### 25. Contact Information (Corporate Identity)
-*   **Full legal name of company:** **VTAC SOLUTIONS LTD**
+*   **Full legal name of company:** **VTAC SOLUTIONS LLC**
 *   **Doing business under trade name (DBA):** **Yes** (Trade Name: **VTAC MANAGER**)
 *   **Email:** **hello@vtacmanager.com**
 *   **Phone:** No (Not listed in current contact channels)
 *   **Fax:** No (Not listed in current contact channels)
-*   **Reasoning:** Corrected legal name from "VTAC MANAGER TECHNOLOGIES" to **"VTAC SOLUTIONS LTD"** as per the user's registration documents. Using the precise registered name is critical for legal enforceability of the terms.
+*   **Reasoning:** Corrected legal name from "VTAC MANAGER TECHNOLOGIES" to **"VTAC SOLUTIONS LLC"** as per the user's registration documents. Using the precise registered name is critical for legal enforceability of the terms.
 
 ### 26. Updates to Legal Terms (Transparency)
 *   **Question:** Will you notify your users about updates to your legal terms?
@@ -229,7 +229,7 @@
 *   **Notification Method:** **User will receive an email notification**
 *   **Sender Email Address:** **hello@vtacmanager.com**
 *   **Notification Timing:** **Before update is effective**
-*   **Reasoning:** Providing advance notice via email is the most robust way to ensure changes are legally enforceable. It gives users the opportunity to review new terms and decide on their continued use of VTAC Solutions Ltd's services before the changes take effect.
+*   **Reasoning:** Providing advance notice via email is the most robust way to ensure changes are legally enforceable. It gives users the opportunity to review new terms and decide on their continued use of VTAC SOLUTIONS LLC's services before the changes take effect.
 
 ### 27. Document Identity (Naming)
 *   **Question:** What do you want to call your legal terms?
