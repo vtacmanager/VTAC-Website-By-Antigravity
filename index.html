@@ -163,6 +163,27 @@
     }
   }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVNX1QZC1K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    // Check local storage for existing consent
+    var consentStr = localStorage.getItem('vtac_cookie_consent');
+    var isGranted = consentStr === 'accepted';
+
+    // Set default consent mode based on previous choice
+    gtag('consent', 'default', {
+      'ad_storage': isGranted ? 'granted' : 'denied',
+      'ad_user_data': isGranted ? 'granted' : 'denied',
+      'ad_personalization': isGranted ? 'granted' : 'denied',
+      'analytics_storage': isGranted ? 'granted' : 'denied'
+    });
+
+    gtag('js', new Date());
+    gtag('config', 'G-EVNX1QZC1K');
+  </script>
 </head>
 
 <body>

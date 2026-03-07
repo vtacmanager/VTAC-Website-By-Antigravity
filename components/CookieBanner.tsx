@@ -20,11 +20,27 @@ const CookieBanner: React.FC = () => {
     const handleAccept = () => {
         localStorage.setItem('vtac_cookie_consent', 'accepted');
         setIsVisible(false);
+        if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+            (window as any).gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted',
+                'analytics_storage': 'granted'
+            });
+        }
     };
 
     const handleDecline = () => {
         localStorage.setItem('vtac_cookie_consent', 'declined');
         setIsVisible(false);
+        if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+            (window as any).gtag('consent', 'update', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied'
+            });
+        }
     };
 
     return (
